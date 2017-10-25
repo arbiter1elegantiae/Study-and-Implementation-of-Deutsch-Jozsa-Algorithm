@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper,openright,twoside]{report}
+\usepackage[italian]{babel}
+\usepackage{newlfont}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{showkeys}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{qcircuit}
+\usepackage{braket}
+\usepackage{kbordermatrix}
+\usepackage{relsize}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\newcommand*{\field}[1]{\mathbb{#1}}
+\newcommand*\xor{\mathbin{\oplus}}
+\pagestyle{fancy}\addtolength{\headwidth}{20pt}
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
+\cfoot{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\linespread{1.3}                        %comando per impostare l'interlinea
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%definisce nuovi comandi
+%
+\textwidth=450pt\oddsidemargin=0pt
+\begin{document}
+\begin{titlepage}
+\begin{center}
+{{\Large{\textsc{Alma Mater Studiorum $\cdot$ Universit\`a di
+Bologna}}}} \rule[0.1cm]{15.8cm}{0.1mm}
+\rule[0.5cm]{15.8cm}{0.6mm}
+{\small{\bf SCUOLA DI SCIENZE\\
+Corso di Laurea in Informatica }}
+\end{center}
+\vspace{15mm}
+\begin{center}
+{\LARGE{\bf TITOLO}}\\
+\vspace{3mm}
+{\LARGE{\bf DELLA}}\\
+\vspace{3mm}
+{\LARGE{\bf TESI}}\\
+\end{center}
+\vspace{40mm}
+\par
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+{\large{\bf Relatore:\\
+Chiar.mo Prof.\\
+UGO DAL LAGO}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\textwidth}\raggedleft
+{\large{\bf Presentata da:\\
+FEDERICO PECONI}}
+\end{minipage}
+\vspace{20mm}
+\begin{center}
+{\large{\bf II Sessione\\%inserire il numero della sessione in cui ci si laurea
+a.a. 2016/2017 }}%inserire l'anno accademico a cui si è iscritti
+\end{center}
+\newpage
+\thispagestyle{empty}                   %elimina il numero della pagina
+\topmargin=6.5cm                        %imposta il margina superiore a 6.5cm
+\raggedleft                             %incolonna la scrittura a destra
+\large                                  %aumenta la grandezza del carattere
+                                        %   a 14pt
+\em                                     %emfatizza (corsivo) il carattere
+Questa \`e la \textsc{Dedica}:\\
+ognuno pu\`o scrivere quello che vuole, \\
+anche nulla \ldots                      %\ldots lascia tre puntini
+\newpage                                %va in una pagina nuova
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage{\pagestyle{empty}\cleardoublepage}%non numera l'ultima pagina sinistra
+\end{titlepage}
+\tableofcontents
+\chapter{Introduzione}
+\chapter{Funzioni Booleane Bilanciate}
+Come già anticipato nell'Introduzione, le funzioni Booleane bilanciate sono una struttura matematica su cui poggia parte del contenuto di questa tesi.
+É risultato perciò utile, ai fini di una trattazione chiara ed esaustiva, impiegare un capitolo per definirne in maniera rigorosa i concetti di base.\\
+"\textit{Per fare un tavolo ci vuole il legno}" recita l'inizio di una famosa canzone per bambini, ad indicare la natura celata delle cose che, così nella quotidianità
+come nella matematica, necessitano di altre conoscenze per essere comprese appieno; seguendo quindi questa impronta fondazionale, andiamo per prima cosa ad introdurre le funzioni Booleane.
+
+\section{Funzioni Booleane}
+Una molto semplice funzione Booleana può essere rappresentata dalla seguente \\$f:\{0,1\}^2 \mapsto \{0,1\}$
+\begin{align*}
+    f(00) = 0 \\
+    f(01) = 0 \\
+    f(10) = 1 \\
+    f(11) = 0
+\end{align*}
+\par
+Una funzione Booleana è definita formalmente nel seguente modo:\\
+Sia $ \field{N} $ l'insieme di tutti gli interi positivi e $ \field{N\ped{0}} = \field{N} \cup\{0\} $.
+Per un arbitrario $n\in{\field{N\ped{0}}}$, denotiamo $\field{F\ped{2}}$ un campo vettoriale a due elementi
+e con $\mathcal{V\ped{n}} = \field{F\ped{2}}^n$ lo spazio vettoriale
+di tutte le stringhe di lunghezza $n$ con elementi appartenenti a $\field{F\ped{2}}$. Le operazioni di campo
+in $\field{F\ped{2}}$ sono denotate da $\xor$ per la somma (modulo 2) e $\cdot$ per la moltiplicazione (\small{”}),
+ lo stesso simbolo $\xor$ denota l'addizione (\small{”}) anche tra vettori in $\field{F\ped{2}}^n$. \\ 
+Una \textit{funzione Booleana $f$} è allora un'applicazione lineare $f: \mathcal{V\ped{n}} \mapsto{\field{F\ped{2}}}$ per qualche $n \in \field{N\ped{0}}$.
+
+\end{document}
