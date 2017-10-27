@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,openright,twoside]{report}
+\documentclass[12pt,a4paper,openright]{report}
 \usepackage[italian]{babel}
 \usepackage{newlfont}
 \usepackage[utf8]{inputenc}
@@ -22,7 +22,9 @@
 \renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
 \newcommand*{\field}[1]{\mathbb{#1}}
 \newcommand*\xor{\mathbin{\oplus}}
-\pagestyle{fancy}\addtolength{\headwidth}{20pt}
+\newtheorem{mydef}{Definizione}[chapter]
+\newtheorem*{mycor}{Corollario}
+\pagestyle{fancy}\addtolength{\headwidth}{30pt}
 \rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
 \cfoot{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,24 +88,67 @@ anche nulla \ldots                      %\ldots lascia tre puntini
 Come già anticipato nell'Introduzione, le funzioni Booleane bilanciate sono una struttura matematica su cui poggia parte del contenuto di questa tesi.
 É risultato perciò utile, ai fini di una trattazione chiara ed esaustiva, impiegare un capitolo per definirne in maniera rigorosa i concetti di base.\\
 "\textit{Per fare un tavolo ci vuole il legno}" recita l'inizio di una famosa canzone per bambini, ad indicare la natura celata delle cose che, così nella quotidianità
-come nella matematica, necessitano di altre conoscenze per essere comprese appieno; seguendo quindi questa impronta fondazionale, andiamo per prima cosa ad introdurre le funzioni Booleane.
+come nella matematica, spesso necessitano di altre conoscenze per essere comprese appieno; seguendo quindi questa impronta fondazionale, andiamo per prima cosa ad introdurre le funzioni Booleane.
 
 \section{Funzioni Booleane}
-Una molto semplice funzione Booleana può essere rappresentata dalla seguente \\$f:\{0,1\}^2 \mapsto \{0,1\}$
+Le funzioni Booleane apparvero per la prima volta a metà 19esimo secolo durante la formulazione matematica di problemi logici e prendono
+il loro nome da George Boole, matematico britannico considerato fondatore della logica matematica odierna\cite{ref2}.\newpage
+Una semplice funzione Booleana può avere la seguente forma \\$f:\{0,1\}^2 \mapsto \{0,1\}$
 \begin{align*}
     f(00) = 0 \\
     f(01) = 0 \\
     f(10) = 1 \\
     f(11) = 0
 \end{align*}
+oppure $f^\prime:\{TRUE,FALSE\}\mapsto{\{TRUE,FALSE\}}$
+\begin{align*}
+    f^\prime(FALSE) = TRUE \\
+    f^\prime(TRUE) = FALSE 
+\end{align*}
+Notiamo come entrambe abbiano in comune la dimensione del codominio e l'agire su un numero finito di valori appartenenti ad un insieme di 2 elementi.
+È tuttavia conveniente operare su di un insieme che possa essere visto sia dal punto di vista qualitativo (vero, falso)
+sia da un punto di vista quantitativo, e quindi numerico, che ci permetta così di compiere anche operazioni algebriche oltre che logiche. Prediligeremo allora da qui in avanti, l'inisieme
+$\{0,1\}$ come campo vettoriale su cui costruirle.
 \par
-Una funzione Booleana è definita formalmente nel seguente modo:\\
-Sia $ \field{N} $ l'insieme di tutti gli interi positivi e $ \field{N\ped{0}} = \field{N} \cup\{0\} $.
-Per un arbitrario $n\in{\field{N\ped{0}}}$, denotiamo $\field{F\ped{2}}$ un campo vettoriale a due elementi
-e con $\mathcal{V\ped{n}} = \field{F\ped{2}}^n$ lo spazio vettoriale
-di tutte le stringhe di lunghezza $n$ con elementi appartenenti a $\field{F\ped{2}}$. Le operazioni di campo
-in $\field{F\ped{2}}$ sono denotate da $\xor$ per la somma (modulo 2) e $\cdot$ per la moltiplicazione (\small{”}),
- lo stesso simbolo $\xor$ denota l'addizione (\small{”}) anche tra vettori in $\field{F\ped{2}}^n$. \\ 
-Una \textit{funzione Booleana $f$} è allora un'applicazione lineare $f: \mathcal{V\ped{n}} \mapsto{\field{F\ped{2}}}$ per qualche $n \in \field{N\ped{0}}$.
+\begin{mydef}
+    Una \textnormal{funzione Booleana a \textit{n} variabili} è una funzione da $\mathcal{B}^n$ a $\mathcal{B}$,
+    dove $\mathcal{B} = \{0,1\}$, $n > 0$ e $\mathcal{B}^n$ è l'n-esimo prodotto cartesiano di $\mathcal{B}$ con se stesso.
+\end{mydef}
+\begin{mycor}
+    $\forall$ $n > 0$, ci sono $2^{2^{n}}$ funzioni da $\mathcal{B}^n$ a $\mathcal{B}.$
+\end{mycor}
+\begin{proof}
+    Sia $\mathcal{F}=\{f|f:\mathcal{B}^n\mapsto{\mathcal{B}}\}$,
+    ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
+    In $n$ bit possiamo codificare $2^n$ oggetti differenti, quindi $\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
+    Per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ sarà funzione caratteristica per $\mathcal{B}^n$, individuandone un sottoinsieme.\\
+    Allora $\mathcal{F}$ corrisponde all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
 
+\end{proof}
+Un altro modo più tradizionale per descrivere una funzione Booleana è quello di fornire la sua tabella di verità.
+Ad esempio, per la $f$ precedentemente definita, la tabella di verità relativa sarà:
+
+
+\begin{displaymath}
+    \begin{array}{|c|c|c|}\hline
+        x_1 & x_2 & f(x_1, x_2) \\\hline 
+        0   & 0   &  0  \\ 
+        0   & 1   &  0  \\
+        1   & 0   &  1  \\
+        1   & 1   &  0  \\\hline
+    \end{array}
+\end{displaymath}
+
+In entrambe le rappresentazioni, tuttavia, le funzioni vengono descritte in maniera implicita mostrando solamente input e output,
+senza mai andare a specificare come questo output venga calcolato.\\
+Nell'ultimo capitolo, per l'implementazione dell'algoritmo di Deutsch-Jozsa, verranno utilizzate funzioni Booleane \textit{bilanciate}
+che necessitano di essere calcolate esplicitamente. La prossima sezione introduce questa categoria di funzioni Booleane e 
+propone due metodi effettivi e generali per produrne istanze concrete.
+
+\begin{thebibliography}{20}
+    \addcontentsline{toc}{chapter}{Bibliografia}
+    \bibitem{ref1} Higham, N. (1998). \emph{Handbook of writing for the mathematical sciences.} Philadelphia: SIAM, Soc. for Industrial and Applied Mathematics.
+    \bibitem{ref2} Encyclopediaofmath.org. (2017). \emph{Boolean function - Encyclopedia of Mathematics.} [online] 
+    \bibitem{ref3} nono libro
+\end{thebibliography}
 \end{document}
