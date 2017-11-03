@@ -15,6 +15,7 @@
 \usepackage{relsize}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{graphicx}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -24,6 +25,7 @@
 \newcommand*\xor{\mathbin{\oplus}}
 \newtheorem{mydef}{Definizione}[chapter]
 \newtheorem*{mycor}{Corollario}
+\newtheorem{mythm}{Teorema}
 \pagestyle{fancy}\addtolength{\headwidth}{30pt}
 \rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
 \cfoot{}
@@ -93,26 +95,26 @@ come nella matematica, spesso necessitano di altre conoscenze per essere compres
 \section{Funzioni Booleane}
 Le funzioni Booleane apparvero per la prima volta a metà 19esimo secolo durante la formulazione matematica di problemi logici e prendono
 il loro nome da George Boole, matematico britannico considerato fondatore della logica matematica odierna\cite{ref2}.\newpage
-Una semplice funzione Booleana può avere la seguente forma \\$f:\{0,1\}^2 \mapsto \{0,1\}$
+Una semplice funzione Booleana può può essere rappresentata da \\$l:\{0,1\}^2 \mapsto \{0,1\}$
 \begin{align*}
     f(00) = 0 \\
     f(01) = 0 \\
     f(10) = 1 \\
     f(11) = 0
 \end{align*}
-oppure $f^\prime:\{TRUE,FALSE\}\mapsto{\{TRUE,FALSE\}}$
+oppure da $f^\prime:\{TRUE,FALSE\}\mapsto{\{TRUE,FALSE\}}$
 \begin{align*}
     f^\prime(FALSE) = TRUE \\
     f^\prime(TRUE) = FALSE 
 \end{align*}
-Notiamo come entrambe abbiano in comune la dimensione del codominio e l'agire su un numero finito di valori appartenenti ad un insieme di 2 elementi.
+Notiamo come entrambe abbiano in comune la dimensione del codominio e la capacità di agire su un numero finito di valori appartenenti ad un insieme di 2 elementi.
 È tuttavia conveniente operare su di un insieme che possa essere visto sia dal punto di vista qualitativo (vero, falso)
 sia da un punto di vista quantitativo, e quindi numerico, che ci permetta così di compiere anche operazioni algebriche oltre che logiche. Prediligeremo allora da qui in avanti, l'inisieme
-$\{0,1\}$ come campo vettoriale su cui costruirle.
+$\{0,1\}$ come campo vettoriale su cui lavorare.
 \par
 \begin{mydef}
     Una \textnormal{funzione Booleana a \textit{n} variabili} è una funzione da $\mathcal{B}^n$ a $\mathcal{B}$,
-    dove $\mathcal{B} = \{0,1\}$, $n > 0$ e $\mathcal{B}^n$ è l'n-esimo prodotto cartesiano di $\mathcal{B}$ con se stesso.
+    dove $\mathcal{B} = \{0,1\}$, $n > 0$ e $\mathcal{B}^n$ è l'n-esimo prodotto cartesiano di $\mathcal{B}$ con se stesso.\cite{ref3}
 \end{mydef}
 \begin{mycor}
     $\forall$ $n > 0$, ci sono $2^{2^{n}}$ funzioni da $\mathcal{B}^n$ a $\mathcal{B}.$
@@ -121,7 +123,7 @@ $\{0,1\}$ come campo vettoriale su cui costruirle.
     Sia $\mathcal{F}=\{f|f:\mathcal{B}^n\mapsto{\mathcal{B}}\}$,
     ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
     In $n$ bit possiamo codificare $2^n$ oggetti differenti, quindi $\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
-    Per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ sarà funzione caratteristica per $\mathcal{B}^n$, individuandone un sottoinsieme.\\
+    Per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$.\\
     Allora $\mathcal{F}$ corrisponde all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
 
 \end{proof}
@@ -145,10 +147,125 @@ Nell'ultimo capitolo, per l'implementazione dell'algoritmo di Deutsch-Jozsa, ver
 che necessitano di essere calcolate esplicitamente. La prossima sezione introduce questa categoria di funzioni Booleane e 
 propone due metodi effettivi e generali per produrne istanze concrete.
 
+\section{Classi di Funzioni Booleane Bilanciate}
+
+Sia $f$ una funzione Booleana, chiamiamo $\vec{x}=(x_1,..,x_n)$ \textit{vettore positivo} per $f$ se e solo se
+$f(\vec{x}) = 1$, \textit{vettore negativo} altrimenti. Sia ${\left\vert{f}\right\vert}^1$ la quantità che indica il numero di vettori
+positivi per $f$ e ${\left\vert{f}\right\vert}^0$ la quantità che indica il numero di vettori negativi.
+\begin{mydef}
+    Una funzione Booleana $f$ è detta bilanciata (FBB) se e solo se ${\left\vert{f}\right\vert}^1 = {\left\vert{f}\right\vert}^0$.
+\end{mydef}
+
+\noindent Una valida tabella di verità per una FBB in $\mathcal{B}^3$ portebbe essere la seguente:
+
+\begin{center}
+\scalebox{0.90}{$
+    \begin{array}{|c|c|}\hline
+        (x_1,x_2,x_3) & f(x_1,x_2,x_3) \\\hline 
+        (0,0,0)         &  0  \\ 
+        (0,0,1)         &  1  \\
+        (0,1,0)         &  1  \\
+        (0,1,1)         &  0  \\    
+        (1,0,0)         &  1  \\
+        (1,0,1)         &  0  \\
+        (1,1,0)         &  0  \\
+        (1,1,1)         &  1  \\\hline
+    \end{array}$
+}
+\end{center}
+Ma come è costruita $f$ nello specifico? Qual'è la computazione che mi porta a determinati outputs?
+Per rispondere a queste domande si può provare a cercare qualche correlazione tra i valori in entrata e i valori in uscita:
+dopo un pò di riflessione dovrebbe saltare all'occhio che ogni qual volta abbiamo un numero dispari di $1$ nell'input la funzione 
+restituisce $1$, restituisce invece $0$ quando tale numero è pari.
+La parità di una sequenza è esprimibile con la somma modulo $2$ dei singoli componenti, possiamo definire esplicitamente $f$ come
+\begin{align*}
+    f(x_1, x_2, x_3)= &x_1 + x_2 + x_3 \mod 2  \\
+                    = &(x_1 \xor x_2) \xor x_3  \\
+                    = &x_1 \xor x_2 \xor x_3
+\end{align*}
+dove $\xor$ è un connettivo binario logico (una funzione Booleana $\in \mathcal{B}^2$) chiamato XOR oppure OR esclusivo, che restituisce $1$ se uno ed uno solo dei due 
+elementi vale $1$  
+
+\begin{center}
+    \scalebox{0.90}{$
+        \begin{array}{|c|c|}\hline
+            (x_1,x_2) & \xor(x_1,x_2) \\\hline 
+            (0,0)         &  0  \\ 
+            (0,1)         &  1  \\
+            (1,0)         &  1  \\
+            (1,1)         &  0  \\\hline    
+        \end{array}$
+    }
+    \end{center}
+\par
+\begin{mythm}
+    Per ogni $n > 0$ la funzione Booleana $ f^{n}(x_1,x_2,...,x_n) = x_1 \xor x_2 \xor ... \xor x_n $ è una FBB.  
+\end{mythm}
+\begin{proof}
+    \textit{(per induzione su $n$)\\}
+    \begin{description}
+        \item[Base induttiva] $f^1(x)=x$ è trivialmente bilanciata.
+        \item[Ipotesi induttiva] Ipotizziamo $f^n$ bilanciata, quindi esistono due partizioni \\ $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ t.c.
+                                      ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
+                                      $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $f^n(m) = 1$ e $ f^n(n) = 0$.
+        \item[Passo induttivo] Avremo $f^{n+1}:\mathcal{B}^{n+1}\mapsto\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e\\
+                                     $\left\vert\mathcal{B}^{n+1}\right\vert = 2\left\vert\mathcal{B}^{n}\right\vert$. Dobbiamo quindi dimostrare che esiste una partizione
+                                     $(\mathcal{M^\prime},\mathcal{N^\prime})$ t.c.:
+                                     \begin{itemize}
+                                        \item $\left\vert\mathcal{M^\prime}\right\vert=\left\vert\mathcal{B}^{n}\right\vert$ e $\forall m^\prime \in \mathcal{M^\prime}$ $f^{n+1}(m^\prime) = 1$ 
+                                        \item $\left\vert\mathcal{N^\prime}\right\vert=\left\vert\mathcal{B}^{n}\right\vert$ e $\forall n^\prime \in \mathcal{N^\prime}$ $f^{n+1}(n^\prime) = 1$   
+                                      \end{itemize}
+                                      Notiamo come, $\forall m,n$ con $ m\in\mathcal{M},n\in\mathcal{N}$ se\\
+                                      $x_{n+1} = 0 \Rightarrow $ $f^{n+1}(m\cdot0)=1 \land f^{n+1}(n\cdot0)=0$\\
+                                      $x_{n+1} = 1 \Rightarrow $$f^{n+1}(m\cdot1)=0 \land f^{n+1}(n\cdot1)=1$\\
+                                      Segue naturalmente che la partizione $\mathcal{M^\prime} = \mathcal{M}\cdot0 \cup \mathcal{N}\cdot1$ e $\mathcal{N^\prime} = \mathcal{M}\cdot1 \cup \mathcal{N}\cdot0$
+                                      rispetta i criteri cercati. 
+    \end{description}      
+\end{proof}
+\par
+Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\mapsto\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$
+, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce, tale che $f(\vec{x})=M\vec{x}$.\\
+
+\begin{mydef}
+$b:\mathcal{B}^n \mapsto \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,...,+c_nx_n=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,...,\xor(c_n\land{x_n})$. Dove $\xor$
+è l'operatore di somma per $\mathcal{B}^n$. 
+\end{mydef}
+\begin{mycor}
+    Per ogni $n>0$, $f^n$ è una FBL.
+    \begin{proof}
+        Triviale, basta infatti porre $M=\overbrace{(1,1,...,1)}^{n-volte}$.
+    \end{proof}
+\end{mycor}
+
+Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazione del seguente risultato generale:
+\begin{mythm}
+    Sia $\mathbb{FL}=\{f|f\in\text{FLB} \land f \neq c:\mathcal{B}^n\mapsto\{0\},\;\forall n > 0\}$ la classe di tutte le funzioni Booleane lineari
+    diverse dalle funzioni costanti a 0. Allora, $\forall f\in \mathbb{FL}$ $f$ è bilanciata.
+\end{mythm}
+\begin{proof} \textit{(per induzione su $n$)\\}
+    Sia $l^n$ una qualsiasi funzione da $\mathcal{B}^n$ appartenente a $\mathbb{FL}$.  Vogliamo dimostrare che $l^n$ è sempre bilanciata.\\
+    \begin{description}
+        \item[Base induttiva] $l^1(x)=x$ è trivialmente bilanciata.
+        \item[Ipotesi induttiva] Ipotizziamo $l^n$ bilanciata.\\
+                                      Esisteranno quindi due partizioni \\ $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tali che
+                                      ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
+                                      $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^n(m) = 1$ e $ l^n(n) = 0$.
+        \item[Passo induttivo] Il passo chiave sta nel notare che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
+                                \begin{itemize}
+                                    \item \textbf{Singoletto} $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,...,x_{n+1})=x_{n+1}$\\
+                                                              Che è bilanciata in quanto sia $(\mathcal{M},\mathcal{N})$ la partizione dove $\mathcal{M}$ è composto da tutt
+                                    \item \textbf{Uguale a $l^n$}
+                                    \item \textbf{Xor di $l^n$}
+                                \end{itemize}
+    \end{description}
+\end{proof}
+
 \begin{thebibliography}{20}
     \addcontentsline{toc}{chapter}{Bibliografia}
     \bibitem{ref1} Higham, N. (1998). \emph{Handbook of writing for the mathematical sciences.} Philadelphia: SIAM, Soc. for Industrial and Applied Mathematics.
     \bibitem{ref2} Encyclopediaofmath.org. (2017). \emph{Boolean function - Encyclopedia of Mathematics.} [online] 
-    \bibitem{ref3} nono libro
+    \bibitem{ref3} Crama, Y. and Hammer, P. (2011). \emph{Boolean Functions Theory, Algorithms and Applications}. 1st ed. Cambridge University Press, p.4.
 \end{thebibliography}
 \end{document}
+
+
