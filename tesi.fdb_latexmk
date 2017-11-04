@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1509819942 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1509819943
+["pdflatex"] 1509821249 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1509821250
   "/etc/texmf/web2c/texmf.cnf" 1501000560 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1509819942 20552 bcc56dd4f76343aa0881099dc7068304 ""
+  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1509821249 20596 b53b265bf3e65dc2c6ad6a77166f5cd9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -127,11 +127,11 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1503766770 3853997 d09a73a9c7bc300b4ea784a13976400f ""
   "computedFBBtrueTable.png" 1509816205 7056 0364d8cdc017746094bae1cd46b5183f ""
   "kbordermatrix.sty" 1509125943 5523 bfa1a1f639d04118419d64fe784088b4 ""
-  "tesi.aux" 1509819943 1370 dfa05ee7f7fec57d60f01fd6ab4008ce ""
-  "tesi.tex" 1509819942 20552 bcc56dd4f76343aa0881099dc7068304 ""
-  "tesi.toc" 1509819943 554 db6bb501b23b67f8f42f60d90d2ce398 ""
+  "tesi.aux" 1509821250 1370 dfa05ee7f7fec57d60f01fd6ab4008ce ""
+  "tesi.tex" 1509821249 20596 b53b265bf3e65dc2c6ad6a77166f5cd9 ""
+  "tesi.toc" 1509821250 554 db6bb501b23b67f8f42f60d90d2ce398 ""
   (generated)
-  "tesi.toc"
-  "tesi.log"
-  "tesi.pdf"
   "tesi.aux"
+  "tesi.toc"
+  "tesi.pdf"
+  "tesi.log"

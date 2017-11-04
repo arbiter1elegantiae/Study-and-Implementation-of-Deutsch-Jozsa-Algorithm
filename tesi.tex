@@ -125,8 +125,8 @@ $\{0,1\}$ come campo vettoriale su cui lavorare.
     Sia $\mathcal{F}=\{f|f:\mathcal{B}^n\mapsto{\mathcal{B}}\}$,
     ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
     In $n$ bit possiamo codificare, trattandosi di una distribuzione con ripetizione di classe $n$, $2^n$ oggetti differenti, quindi $\mathbb{D}_{2,n}=\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
-    Per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$.\\
-    Allora $\mathcal{F}$ corrisponde all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
+    Per definizione di $f$, per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$.\\
+    Allora $\mathcal{F}$ avrà caridinalità uguale all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
 
 \end{proof}
 Un altro modo più tradizionale per descrivere una funzione Booleana è quello di fornire la sua tabella di verità.
@@ -163,7 +163,7 @@ positivi per $f$ e ${\left\vert{f}\right\vert}^0$ la quantità che indica il num
 \begin{proof}
     Per definizione, una FBB $fbb:\mathcal{B}^n\mapsto\mathcal{B}$ è individuata da una partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che
     $\left\vert{\mathcal{M}}\right\vert = \left\vert{\mathcal{N}}\right\vert = 2^{n-1}$ e $fbb(m)=0 \land fbb(n)=1$ $\forall{m,n}$ con $m\in\mathcal{M},n\in\mathcal{N}$.
-    Quindi, il numero delle possibili funzioni corrisponde a tutti i possibili modi di partizionare a metà un insieme di $2^n$ elementi e, a sua volta, ogni partizione può essere rappresentata 
+    Quindi, il numero delle possibili funzioni corrisponde a tutti i possibili modi di partizionare a metà un insieme di $2^n$ elementi e, a sua volta, ogni partizione così creata può essere rappresentata 
     da un sottoinsieme $\mathcal{S}\subset\mathcal{B}^n$ dove $\mathcal{M}=\mathcal{S}$ e $\mathcal{N}=\mathcal{B}^n \setminus \mathcal{S}$.
     Non resta quindi che trovare tutti i possibili $\mathcal{S}$:  
     \begin{center}
@@ -201,7 +201,7 @@ La parità di una sequenza è esprimibile con la somma modulo $2$ dei singoli co
                     = &x_1 \xor x_2 \xor x_3
 \end{align*}
 dove $\xor$ è un connettivo binario logico (una funzione Booleana $\in \mathcal{B}^2$) chiamato XOR oppure OR esclusivo, che restituisce $1$ se uno ed uno solo dei due 
-elementi vale $1$  
+elementi vale $1$. 
 
 \begin{center}
     \scalebox{0.90}{$
@@ -225,8 +225,8 @@ elementi vale $1$
         \item[Ipotesi induttiva:] Ipotizziamo $f^n$ bilanciata, quindi esiste la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
                                       $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $f^n(m) = 0$ e $ f^n(n) = 1$.
-        \item[Passo induttivo:] Avremo $f^{n+1}:\mathcal{B}^{n+1}\mapsto\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e\\
-                                     $\left\vert\mathcal{B}^{n+1}\right\vert = 2\left\vert\mathcal{B}^{n}\right\vert$. Dobbiamo quindi dimostrare che esiste una partizione
+        \item[Passo induttivo:] Avremo $f^{n+1}:\mathcal{B}^{n+1}\mapsto\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e quindi\\
+                                     $\left\vert\mathcal{B}^{n+1}\right\vert = 2\left\vert\mathcal{B}^{n}\right\vert$. Dobbiamo dimostrare che esiste una partizione
                                      $(\mathcal{M^\prime},\mathcal{N^\prime})$ t.c.:
                                      \begin{itemize}
                                         \item $\left\vert\mathcal{M^\prime}\right\vert=\left\vert\mathcal{B}^{n}\right\vert$ e $\forall m^\prime \in \mathcal{M^\prime}$ $f^{n+1}(m^\prime) = 0$ 
@@ -240,8 +240,7 @@ elementi vale $1$
     \end{description}      
 \end{proof}
 \par
-Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\mapsto\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$
-, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce, tale che $f(\vec{x})=M\vec{x}$.\\
+Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\mapsto\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$ tale che $f(\vec{x})=M\vec{x}$, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce.\\
 
 \begin{mydef}
 $b:\mathcal{B}^n \mapsto \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,...,+c_nx_n=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,...,\xor(c_n\land{x_n})$. Dove $\xor$
@@ -288,7 +287,7 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
                                 \end{itemize}
     \end{description}
 \end{proof}
-\noindent Questo significa che, qualsiasi siano i coefficienti della nostra FBL, a patto che questi non siano tutti $0$, produrrano anche una funzione bilanciata.\par
+\noindent Questo significa che, qualsiasi siano i coefficienti della nostra FBL, a patto che questi non siano tutti $0$, produrrano una funzione bilanciata.\par
 
 Giunti a questo punto è lecito domandarsi se esistano altre (semanticamente diverse) FBB  non lineari e se sì, quante ne si possono ancora trovare?
 Il numero di FBL per $n$ fissato, equivale al numero di \textit{disposizioni con ripetizione di classe} $n$ (coefficienti) da un insieme di due elementi $\{0,1\}$ meno la disposizione $M^*=\overbrace{(0,0,...,0)}^{n-volte}$ che identifica la costante 0, cioè $\mathbb{D}_{2,n}-1= 2^n - 1$.
