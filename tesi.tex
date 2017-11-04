@@ -23,7 +23,9 @@
 \renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
 \newcommand*{\field}[1]{\mathbb{#1}}
 \newcommand*\xor{\mathbin{\oplus}}
+\newcommand*\Mycomb[2]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
 \newtheorem{mydef}{Definizione}[chapter]
+\newtheorem{mylem}{Lemma}
 \newtheorem*{mycor}{Corollario}
 \newtheorem{mythm}{Teorema}
 \pagestyle{fancy}\addtolength{\headwidth}{30pt}
@@ -95,7 +97,7 @@ come nella matematica, spesso necessitano di altre conoscenze per essere compres
 \section{Funzioni Booleane}
 Le funzioni Booleane apparvero per la prima volta a metà 19esimo secolo durante la formulazione matematica di problemi logici e prendono
 il loro nome da George Boole, matematico britannico considerato fondatore della logica matematica odierna\cite{ref2}.\newpage
-Una semplice funzione Booleana può può essere rappresentata da \\$l:\{0,1\}^2 \mapsto \{0,1\}$
+Una semplice funzione Booleana può può essere rappresentata da \\$f:\{0,1\}^2 \mapsto \{0,1\}$
 \begin{align*}
     f(00) = 0 \\
     f(01) = 0 \\
@@ -109,7 +111,7 @@ oppure da $f^\prime:\{TRUE,FALSE\}\mapsto{\{TRUE,FALSE\}}$
 \end{align*}
 Notiamo come entrambe abbiano in comune la dimensione del codominio e la capacità di agire su un numero finito di valori appartenenti ad un insieme di 2 elementi.
 È tuttavia conveniente operare su di un insieme che possa essere visto sia dal punto di vista qualitativo (vero, falso)
-sia da un punto di vista quantitativo, e quindi numerico, che ci permetta così di compiere anche operazioni algebriche oltre che logiche. Prediligeremo allora da qui in avanti, l'inisieme
+sia da un punto di vista quantitativo, e quindi numerico, che ci permetta così di compiere anche operazioni algebriche oltre che logiche. Prediligeremo allora da qui in avanti l'inisieme
 $\{0,1\}$ come campo vettoriale su cui lavorare.
 \par
 \begin{mydef}
@@ -122,7 +124,7 @@ $\{0,1\}$ come campo vettoriale su cui lavorare.
 \begin{proof}
     Sia $\mathcal{F}=\{f|f:\mathcal{B}^n\mapsto{\mathcal{B}}\}$,
     ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
-    In $n$ bit possiamo codificare $2^n$ oggetti differenti, quindi $\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
+    In $n$ bit possiamo codificare, trattandosi di una distribuzione con ripetizione di classe $n$, $2^n$ oggetti differenti, quindi $\mathbb{D}_{2,n}=\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
     Per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$.\\
     Allora $\mathcal{F}$ corrisponde all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
 
@@ -140,8 +142,8 @@ Ad esempio, per la $f$ precedentemente definita, la tabella di verità relativa 
         1   & 1   &  0  \\\hline
     \end{array}
 \end{displaymath}
-
-In entrambe le rappresentazioni, tuttavia, le funzioni vengono descritte in maniera implicita mostrando solamente input e output,
+Dove a destra viene posto il risultato della funzione calcolata sui valori delle colonne precedenti.\par
+In entrambe le rappresentazioni, tuttavia, le funzioni vengono descritte in maniera implicita mostrando solamente input ed output,
 senza mai andare a specificare come questo output venga calcolato.\\
 Nell'ultimo capitolo, per l'implementazione dell'algoritmo di Deutsch-Jozsa, verranno utilizzate funzioni Booleane \textit{bilanciate}
 che necessitano di essere calcolate esplicitamente. La prossima sezione introduce questa categoria di funzioni Booleane e 
@@ -150,18 +152,32 @@ propone due metodi effettivi e generali per produrne istanze concrete.
 \section{Classi di Funzioni Booleane Bilanciate}
 
 Sia $f$ una funzione Booleana, chiamiamo $\vec{x}=(x_1,..,x_n)$ \textit{vettore positivo} per $f$ se e solo se
-$f(\vec{x}) = 1$, \textit{vettore negativo} altrimenti. Sia ${\left\vert{f}\right\vert}^1$ la quantità che indica il numero di vettori
+$f(\vec{x}) = 1$, \textit{vettore negativo} altrimenti. Sia $({\left\vert{f}\right\vert}^1 \text{,} {\left\vert{f}\right\vert}^0)$ la partizione dove ${\left\vert{f}\right\vert}^1$ è la quantità che indica il numero di vettori
 positivi per $f$ e ${\left\vert{f}\right\vert}^0$ la quantità che indica il numero di vettori negativi.
 \begin{mydef}
     Una funzione Booleana $f$ è detta bilanciata (FBB) se e solo se ${\left\vert{f}\right\vert}^1 = {\left\vert{f}\right\vert}^0$.
 \end{mydef}
-
-\noindent Una valida tabella di verità per una FBB in $\mathcal{B}^3$ portebbe essere la seguente:
+\begin{mycor}
+    $\forall$ $n > 0$, ci sono $\frac{2^{n}!}{(2^{n-1}!)^2}$ FBB da $\mathcal{B}^n$ a $\mathcal{B}.$
+\end{mycor}
+\begin{proof}
+    Per definizione, una FBB $fbb:\mathcal{B}^n\mapsto\mathcal{B}$ è individuata da una partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che
+    $\left\vert{\mathcal{M}}\right\vert = \left\vert{\mathcal{N}}\right\vert = 2^{n-1}$ e $fbb(m)=0 \land fbb(n)=1$ $\forall{m,n}$ con $m\in\mathcal{M},n\in\mathcal{N}$.
+    Quindi, il numero delle possibili funzioni corrisponde a tutti i possibili modi di partizionare a metà un insieme di $2^n$ elementi e, a sua volta, ogni partizione può essere rappresentata 
+    da un sottoinsieme $\mathcal{S}\subset\mathcal{B}^n$ dove $\mathcal{M}=\mathcal{S}$ e $\mathcal{N}=\mathcal{B}^n \setminus \mathcal{S}$.
+    Non resta quindi che trovare tutti i possibili $\mathcal{S}$:  
+    \begin{center}
+    \[
+        \mathbb{C}_{2^n,2^{n-1}}= \binom{2^n}{2^{n-1}} = \frac{2^n!}{2^{n-1}!2^{n-1}!} = \frac{2^n!}{(2^{n-1}!)^2}
+    \]
+    \end{center}
+\end{proof}
+Una valida tabella di verità per una FBB in $\mathcal{B}^3$ portebbe essere la seguente:
 
 \begin{center}
 \scalebox{0.90}{$
     \begin{array}{|c|c|}\hline
-        (x_1,x_2,x_3) & f(x_1,x_2,x_3) \\\hline 
+        (x_1,x_2,x_3) & g(x_1,x_2,x_3) \\\hline 
         (0,0,0)         &  0  \\ 
         (0,0,1)         &  1  \\
         (0,1,0)         &  1  \\
@@ -173,13 +189,14 @@ positivi per $f$ e ${\left\vert{f}\right\vert}^0$ la quantità che indica il num
     \end{array}$
 }
 \end{center}
-Ma come è costruita $f$ nello specifico? Qual'è la computazione che mi porta a determinati outputs?
+Dove, giustamente, si noti come il numero dei vettori positivi equivale al numero dei vettori negativi.\par
+Ma come è costruita $g$ nello specifico? Qual'è la computazione che mi porta a determinati outputs?
 Per rispondere a queste domande si può provare a cercare qualche correlazione tra i valori in entrata e i valori in uscita:
 dopo un pò di riflessione dovrebbe saltare all'occhio che ogni qual volta abbiamo un numero dispari di $1$ nell'input la funzione 
 restituisce $1$, restituisce invece $0$ quando tale numero è pari.
-La parità di una sequenza è esprimibile con la somma modulo $2$ dei singoli componenti, possiamo definire esplicitamente $f$ come
+La parità di una sequenza è esprimibile con la somma modulo $2$ dei singoli componenti, allora possiamo definire esplicitamente $g$ come:
 \begin{align*}
-    f(x_1, x_2, x_3)= &x_1 + x_2 + x_3 \mod 2  \\
+    g(x_1, x_2, x_3)= &x_1 + x_2 + x_3 \mod 2  \\
                     = &(x_1 \xor x_2) \xor x_3  \\
                     = &x_1 \xor x_2 \xor x_3
 \end{align*}
@@ -198,26 +215,26 @@ elementi vale $1$
     }
     \end{center}
 \par
-\begin{mythm}
+\begin{mylem}
     Per ogni $n > 0$ la funzione Booleana $ f^{n}(x_1,x_2,...,x_n) = x_1 \xor x_2 \xor ... \xor x_n $ è una FBB.  
-\end{mythm}
+\end{mylem}
 \begin{proof}
     \textit{(per induzione su $n$)\\}
     \begin{description}
-        \item[Base induttiva] $f^1(x)=x$ è trivialmente bilanciata.
-        \item[Ipotesi induttiva] Ipotizziamo $f^n$ bilanciata, quindi esistono due partizioni \\ $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ t.c.
+        \item[Base induttiva:] $f^1(x)=x$ è trivialmente bilanciata.
+        \item[Ipotesi induttiva:] Ipotizziamo $f^n$ bilanciata, quindi esiste la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
-                                      $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $f^n(m) = 1$ e $ f^n(n) = 0$.
-        \item[Passo induttivo] Avremo $f^{n+1}:\mathcal{B}^{n+1}\mapsto\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e\\
+                                      $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $f^n(m) = 0$ e $ f^n(n) = 1$.
+        \item[Passo induttivo:] Avremo $f^{n+1}:\mathcal{B}^{n+1}\mapsto\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e\\
                                      $\left\vert\mathcal{B}^{n+1}\right\vert = 2\left\vert\mathcal{B}^{n}\right\vert$. Dobbiamo quindi dimostrare che esiste una partizione
                                      $(\mathcal{M^\prime},\mathcal{N^\prime})$ t.c.:
                                      \begin{itemize}
-                                        \item $\left\vert\mathcal{M^\prime}\right\vert=\left\vert\mathcal{B}^{n}\right\vert$ e $\forall m^\prime \in \mathcal{M^\prime}$ $f^{n+1}(m^\prime) = 1$ 
+                                        \item $\left\vert\mathcal{M^\prime}\right\vert=\left\vert\mathcal{B}^{n}\right\vert$ e $\forall m^\prime \in \mathcal{M^\prime}$ $f^{n+1}(m^\prime) = 0$ 
                                         \item $\left\vert\mathcal{N^\prime}\right\vert=\left\vert\mathcal{B}^{n}\right\vert$ e $\forall n^\prime \in \mathcal{N^\prime}$ $f^{n+1}(n^\prime) = 1$   
                                       \end{itemize}
                                       Notiamo come, $\forall m,n$ con $ m\in\mathcal{M},n\in\mathcal{N}$ se\\
-                                      $x_{n+1} = 0 \Rightarrow $ $f^{n+1}(m\cdot0)=1 \land f^{n+1}(n\cdot0)=0$\\
-                                      $x_{n+1} = 1 \Rightarrow $$f^{n+1}(m\cdot1)=0 \land f^{n+1}(n\cdot1)=1$\\
+                                      $x_{n+1} = 0 \Rightarrow $ $f^{n+1}(m\cdot0)=0 \land f^{n+1}(n\cdot0)=1$\\
+                                      $x_{n+1} = 1 \Rightarrow $$f^{n+1}(m\cdot1)=1 \land f^{n+1}(n\cdot1)=0$\\
                                       Segue naturalmente che la partizione $\mathcal{M^\prime} = \mathcal{M}\cdot0 \cup \mathcal{N}\cdot1$ e $\mathcal{N^\prime} = \mathcal{M}\cdot1 \cup \mathcal{N}\cdot0$
                                       rispetta i criteri cercati. 
     \end{description}      
@@ -237,6 +254,7 @@ $b:\mathcal{B}^n \mapsto \mathcal{B}$ è una funzione booleana lineare (FBL) se 
     \end{proof}
 \end{mycor}
 
+\subsection{La Classe delle Funzioni Booleane Lineari}
 Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazione del seguente risultato generale:
 \begin{mythm}
     Sia $\mathbb{FL}=\{f|f\in\text{FLB} \land f \neq c:\mathcal{B}^n\mapsto\{0\},\;\forall n > 0\}$ la classe di tutte le funzioni Booleane lineari
@@ -245,26 +263,66 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
 \begin{proof} \textit{(per induzione su $n$)\\}
     Sia $l^n$ una qualsiasi funzione da $\mathcal{B}^n$ appartenente a $\mathbb{FL}$.  Vogliamo dimostrare che $l^n$ è sempre bilanciata.\\
     \begin{description}
-        \item[Base induttiva] $l^1(x)=x$ è trivialmente bilanciata.
-        \item[Ipotesi induttiva] Ipotizziamo $l^n$ bilanciata.\\
-                                      Esisteranno quindi due partizioni \\ $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tali che
+        \item[Base induttiva:] $l^1(x)=x$ è trivialmente bilanciata.
+        \item[Ipotesi induttiva:] Ipotizziamo $l^n$ bilanciata.\\
+                                      Esisterà quindi la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
-                                      $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^n(m) = 1$ e $ l^n(n) = 0$.
-        \item[Passo induttivo] Il passo chiave sta nel notare che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
+                                      $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^n(m) = 0$ e $ l^n(n) = 1$.
+        \item[Passo induttivo:] Il passo chiave sta nel notare che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
                                 \begin{itemize}
-                                    \item \textbf{Singoletto} $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,...,x_{n+1})=x_{n+1}$\\
-                                                              Che è bilanciata in quanto sia $(\mathcal{M},\mathcal{N})$ la partizione dove $\mathcal{M}$ è composto da tutt
-                                    \item \textbf{Uguale a $l^n$}
-                                    \item \textbf{Xor di $l^n$}
+                                    \item \textbf{Singoletto} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,...,x_{n+1})=x_{n+1}$\\
+                                                              Che è bilanciata in quanto, sia $(\mathcal{M},\mathcal{N})$ la partizione dove $\mathcal{M}$ è composto da tutte le stringhe
+                                                              binarie $\in \mathcal{B}^{n+1}$ che codificano in base due i numeri da $0$ a $2^n - 1$ e $\mathcal{N}$ composto da tutte le stringhe binarie
+                                                              $\in \mathcal{B}^{n+1}$ che codificano in base due i numeri da $2^n$ a $2^{n+1} - 1$ i.e. :\\
+                                                              $\mathcal{M}= \{\vec x \in \mathcal{B}^{n+1} | \vec x = 0\cdot x_n \cdot x_{n-1}\cdot ...\cdot x_1\}$\\
+                                                              $\mathcal{N}= \{\vec x \in \mathcal{B}^{n+1} | \vec x = 1\cdot x_n \cdot x_{n-1}\cdot ...\cdot x_1\}$\\
+                                                              Allora $\mathcal{M}\subset\mathcal{B}^{n+1}$ e $\mathcal{N}\subset\mathcal{B}^{n+1}$, ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^{n+1}$ e
+                                                              e $\forall m,n$. $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^{n+1}(m) = 0$ e $ l^{n+1}(n) = 1$.
+                                    \item \textbf{Uguale a $l^n$} $\Rightarrow$ Bilanciata per ipotesi. 
+                                    \item \textbf{Xor di $l^n$} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,...,x_{n+1})= x_{n+1} \xor l^n$.
+                                    \\ E quindi se:\\
+                                    $x_{n+1} = 0 \Rightarrow l^{n+1} = 0 \xor l^n = l^n$ \\
+                                    $x_{n+1} = 1 \Rightarrow l^{n+1} = 1 \xor l^n = \neg l^n$\\
+                                    Individuiamo, concludendo la dimostrazione, la partizione cercata $(\mathcal{M^\prime},\mathcal{N^\prime})$ con:\\
+                                    $\mathcal{M^\prime} = M\cdot0 \cup N\cdot1 \:\:$  e  $\:\: \mathcal{N^\prime} = M\cdot1 \cup N\cdot0$.
                                 \end{itemize}
     \end{description}
 \end{proof}
+\noindent Questo significa che, qualsiasi siano i coefficienti della nostra FBL, a patto che questi non siano tutti $0$, produrrano anche una funzione bilanciata.\par
+
+Giunti a questo punto è lecito domandarsi se esistano altre (semanticamente diverse) FBB  non lineari e se sì, quante ne si possono ancora trovare?
+Il numero di FBL per $n$ fissato, equivale al numero di \textit{disposizioni con ripetizione di classe} $n$ (coefficienti) da un insieme di due elementi $\{0,1\}$ meno la disposizione $M^*=\overbrace{(0,0,...,0)}^{n-volte}$ che identifica la costante 0, cioè $\mathbb{D}_{2,n}-1= 2^n - 1$.
+Tale numero è chiaramente inferiore al numero di FBB : $\mathbb{C}_{2^n,2^{n-1}}$ ricavato dal Corollario 2.2. E quindi sì, esisteranno sicuramente, per ogni $n$, $\mathbb{C}_{2^n,2^{n-1}} - (\mathbb{D}_{2,n} - 1)$ FBB non lineari.
+
+\subsection{Funzioni Booleane non Lineari Bilanciate}
+L'approfondimento delle proprietà e della teoria riguardante il vasto campo di studi delle funzioni Booleane, per quanto interessante, esula dai fini della tesi in oggetto.
+Rimanendo in tema, tuttavia, è bene accennare che la ricerca, specie per quanto riguarda l'indagine sulle funzioni booleane bilanciate è molto attiva e di fondamentale importanza in applicazioni come la crittografia a chiave simmetrica.\cite{ref4}.\\
+Per rendere più realistica e articolata l'implementazione degli script presentati nel Capitolo 5, si è optato per la ricerca in letteratura di funzioni booleane bilanciate non lineari
+da utilizzare nell'algoritmo di Deutsch-Jozsa. In particolare, è stata scelta una funzione a 5 variabili, ricavata con il metodo generale esposto da \textit{Logachev}\cite{ref5}:
+    \begin{align*}
+            h(x_1, x_2, x_3, x_4, x_5)=(x_1 \land x_2) \xor x_3 \xor (x_2 \land x_3 \land x_4) \xor (x_2 \land x_3 \land x_5) \xor (x_3 \land x_4) \xor (x_4 \land x_5)
+    \end{align*}
+
+
+
+\begin{figure}[h]
+     \centering
+     \includegraphics[width=0.5\textwidth,height=13.1cm]{computedFBBtrueTable}
+     \caption{Tabella di verità per $h$}
+\end{figure}
+    
+    
+
+
+
 
 \begin{thebibliography}{20}
     \addcontentsline{toc}{chapter}{Bibliografia}
     \bibitem{ref1} Higham, N. (1998). \emph{Handbook of writing for the mathematical sciences.} Philadelphia: SIAM, Soc. for Industrial and Applied Mathematics.
     \bibitem{ref2} Encyclopediaofmath.org. (2017). \emph{Boolean function - Encyclopedia of Mathematics.} [online] 
     \bibitem{ref3} Crama, Y. and Hammer, P. (2011). \emph{Boolean Functions Theory, Algorithms and Applications}. 1st ed. Cambridge University Press, p.4.
+    \bibitem{ref4} Dobbertin, Hans. \emph{Construction of bent functions and balanced Boolean functions with high nonlinearity.} International Workshop on Fast Software Encryption. Springer, Berlin, Heidelberg, 1994.
+    \bibitem{ref5} Logachev, O. A. \emph{On Perfectly Balanced Boolean Functions.} IACR Cryptology ePrint Archive 2007 (2007): 22.
 \end{thebibliography}
 \end{document}
 

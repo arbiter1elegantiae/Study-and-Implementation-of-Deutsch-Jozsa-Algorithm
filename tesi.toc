@@ -4,4 +4,6 @@
 \contentsline {chapter}{\numberline {2}Funzioni Booleane Bilanciate}{3}
 \contentsline {section}{\numberline {2.1}Funzioni Booleane}{3}
 \contentsline {section}{\numberline {2.2}Classi di Funzioni Booleane Bilanciate}{5}
-\contentsline {chapter}{Bibliografia}{9}
+\contentsline {subsection}{\numberline {2.2.1}La Classe delle Funzioni Booleane Lineari}{8}
+\contentsline {subsection}{\numberline {2.2.2}Funzioni Booleane non Lineari Bilanciate}{9}
+\contentsline {chapter}{Bibliografia}{11}
