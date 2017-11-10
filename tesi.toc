@@ -6,4 +6,12 @@
 \contentsline {section}{\numberline {2.2}Classi di Funzioni Booleane Bilanciate}{5}
 \contentsline {subsection}{\numberline {2.2.1}La Classe delle Funzioni Booleane Lineari}{8}
 \contentsline {subsection}{\numberline {2.2.2}Funzioni Booleane non Lineari Bilanciate}{9}
-\contentsline {chapter}{Bibliografia}{11}
+\contentsline {chapter}{\numberline {3}L'Informazione Quantistica}{11}
+\contentsline {section}{\numberline {3.1}Principi della Meccanica Quantistica}{12}
+\contentsline {subsection}{\numberline {3.1.1}Dai Numeri Reali ai Numeri Complessi}{12}
+\contentsline {subsection}{\numberline {3.1.2}Da Stati Singoli alla Sovrapposizione degli Stati}{13}
+\contentsline {subsection}{\numberline {3.1.3}Dalla Localit\IeC {\`a} alla non Localit\IeC {\`a}}{14}
+\contentsline {subsection}{\numberline {3.1.4}Dalle leggi Deterministiche a quelle Non Deterministiche}{14}
+\contentsline {section}{\numberline {3.2}Circuiti Booleani}{15}
+\contentsline {section}{\numberline {3.3}Porte Universali}{16}
+\contentsline {chapter}{Bibliografia}{17}

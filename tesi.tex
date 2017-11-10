@@ -16,6 +16,10 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -310,8 +314,163 @@ da utilizzare nell'algoritmo di Deutsch-Jozsa. In particolare, è stata scelta u
      \caption{Tabella di verità per $h$}
 \end{figure}
     
-    
 
+\chapter{L'Informazione Quantistica}
+Questa tesi si sviluppa nel contesto dell'Informazione Quantistica.\\
+L'Informazione Quantistica è una nuova branca di studi della teoria dell'informazione che trova la sua collazione nell'intersezione tra
+Fisica, Matematica e Informatica.\\
+La nascita di questo nuovo campo di studi è dovuta in gran parte alle intuizioni del celeberrimo fisico Richard Feynmann, il quale fu il primo a suggerire,
+in una sua lezione nel 1981 \cite{ref6}, che il tipo di computer ideale che fosse stato capace di simulare i fenomeni naturali in maniera
+efficiente sarebbe stato un computer che avesse risposto alle stesse leggi della meccanica quantistica. L'argomento da lui proposto faceva
+perno sulla natura esponenziale che il mondo subatomico presenta se osservato dal punto di vista macroscopico e che quindi, avrebbe portato,
+per un processo transitivo, qualsiasi computer classico a sperimentare un tempo altrettanto esponenziale per simularlo.\\
+Spinti da questa osservazione, numerosi ricercatori si cimentarono nello studio e nella formalizzazione di questo nuovo paradigma di calcolo,
+gettandone le basi teoriche: nel 1982, Paul Benioff, nell'articolo "Quantum mechanical models of Turing machines that dissipate no energy"\cite{ref7}, 
+dimostrò come un sistema basato sulla meccanica quantistica avrebbe potuto modellare una macchina di Turing (MdT) senza dissipare energia (il concetto della conservazione dell'energia 
+verrà ripreso e chiarito in seguito). In altre parole, questi dimostrò come la meccanica quantistica fosse sufficiente ad esprimere il più
+famoso dei modelli tradizionali di calcolo, ma poteva fare addirittura di meglio? \\
+All'incirca nello stesso momento il fisico David Deutsch rispose a tale quesito introducendo prima la controparte quantica della MdT universale (QMdTU)
+e poi dimostrando che la QMdTU riusciva a compiere operazioni al di fuori della portata della MdTU, come generare in maniera genuina numeri random,
+performare calcoli paralleli su di un unico registro e simulare perfettamente sistemi fisici a stati di dimensione finita, confermando così
+la visionaria congettura che Feynmann aveva sollevato solo pochi anni prima.  
+
+\section{Principi della Meccanica Quantistica}
+Nel mondo microscopico, quando si scende sotto la soglia atomica, cominciano ad emergere fenomeni che sono difficilmente interpretabili utilizzando il solo senso comune,
+le nozioni più elementari come la determinazione unica delle proprietà fisiche di un oggetto (velocità, posizione, ecc.) a cui siamo abituati fin da piccoli non sono più le stesse e
+postulati come il principio di località o il determinismo, cessano di essere veri.
+Ciò portò inizialmente esponenti eminenti del campo (del calibro di Einstein) a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava.
+Numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo più volte le previsioni della teoria e ad oggi, nella comunità scientifica vi è unanime consenso sulla veriditicità di questa.\\
+Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con queste nuove leggi fondamentali che governano il mondo dei quanti.
+Vengono di seguito esposte sinteticamente le caratteristiche peculiari della meccanica quantistica e, di seguito in maniera più formale, il modo in cui queste influenzano l'Informatica.
+
+\subsection{Dai Numeri Reali ai Numeri Complessi}
+La meccanica quantistica differisce dalla maggior parte delle branche della scienza per via del largo uso che fa dei numeri complessi.
+I numeri complessi vennero per la prima volta introdotti come una curiosità matematica: $i=\sqrt{-1}$, chiamata unità immaginaria, era la soluzione "immaginaria" postulata
+all'equazione $x^2=-1$. Per tanto tempo il campo dei numeri complessi è rimasto confinato unicamente nel reame della matematica fino a quando,
+con lo studio sistematico delle funzioni d'onda e l'introduzione delle analisi di Fourier, ci si accorse che i numeri complessi erano la struttura
+ottimale per descrivere in maniera compatta un'onda. Inizialmente la meccanica quantistica fece largo uso delle funzioni d'onda.\par
+\begin{mydef}
+    Un numero complesso $\text{c}$ è un'espressione
+    \begin{center}
+        $c = a + b \times i = a + bi$\\
+    \end{center}
+        dove $a$ e $b$ sono due numeri reali, $a$ è chiamata la parte reale di $c$, mentre $b$ è la parte immaginaria.
+    
+\end{mydef}
+Uno stato quantico è rappresentato da vettori unitari in uno spazio vettoriale complesso.
+
+\subsection{Da Stati Singoli alla Sovrapposizione degli Stati}
+  Contrariamente all'intuizione, un oggetto microscopico può trovarsi contemporaneamente in più posizioni differenti.\\
+  Questo comportamento, detto di sovrapposizione, è tradizionalmente esemplificato attraverso l'esperimento delle due fenditure(da mettere una ref) attraverso le quali viene 
+  fatta passare, una alla volta, una qualsiasi particella che andrà a sbattere contro un rilevatore posto dietro le fenditure. Contrariamente a quanto verrebbe da pensare,
+  il rilevatore non rileva solo due aree colpite dalle particelle (e.g. come accadrebbe per dei palloni calciati in una porta coperta a meno di due sottoporte) bensì vengono 
+  sperimentalmente rilevate più aree di collisione, ognuna colpita con un'intensità precisa le quali si distribuiscono seguendo un pattern ad interferenza
+  come se ogni particella avesse agito anche come un'onda che, passando \emph{contemporaneamente} per le due fessure abbia poi interferito con se stessa. 
+  Non solo la spazialità, ma anche altre proprietà come l'energia, il momento, lo spin di una particella seguono sono soggette a sovrapposizione.
+  Noi, in realtà, non riusciamo a vedere direttamente la sovrapposizione in azione poichè, ogni qual volta viene effettuata una misurazione su di uno
+  stato quantistico, questo collassa in una delle possibili configurazioni che sono in sovrapposizione seguendo, come verrà chiarito più avanti, una ben definità distribuzione di probabiltà.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{double-slit-electrons1}
+    \caption{visualizzazione dell'esperimento delle due fenditure}
+\end{figure}
+  
+\subsection{Dalla Località alla non Località}
+Centrale nella scienza moderna è la nozione che gli oggetti sono affetti direttamente unicamente da forze o oggetti vicini, questa assunzione, 
+che nella fisica classica prende il nome di principio di località, non è sempre valida nella fisica quantistica. È possibile infatti
+mettere due particelle in una relazione chiamata \emph{entanglement} (le due particelle si diranno entangled) tale per cui: qualsiasi
+operazione compiuta su di una avrà un immediato effetto su l'altra anche se queste si trovano ad anni luce di distanza.    
+
+\subsection{Dalle leggi Deterministiche a quelle Non Deterministiche}
+Verso quale specifico stato collasserà una sovrapposizione di stati quando misurata? Mentre in altre aree della fisica le leggi sono deterministiche 
+i.e. vi è un unico ouput se ripetiamo lo stesso esperimento più volte sotto le stesse condizioni, tuttavia le leggi della meccanica quantistica
+ci dicono che possiamo solamente conoscere la probabilità con cui un output, e non un altro, si verificherà. \par
+
+Parafrasando Einstein stesso, queste azioni "spettrali" che emergono nel reame della meccanica quantistica, per quanto radicali ed estranee
+alla nostra esperienza quotidiana, sono poi le stesse che, riflettendo la natura esponenziale del mondo sub atomico, conferiscono all'informazione
+quantistica il suo vero potenziale. 
+
+
+
+
+\section{Circuiti Booleani}
+Ad oggi, il modello a circuiti è l'astrazione per il processo di calcolo più utilizzata nel mondo dell'industria per la progettazione ed il
+design delle componenti hardware di un computer.\\
+L'unità fondamentale in un circuito Booleano è la porta logica, la quale altro non è che un componente fisico che implementa un operatore della logica di Boole. 
+Avremo quindi porte per gli operatori unari come $NOT(\neg)$, per i connettivi binari $AND(\land)$, $OR(\lor)$, $XOR(\xor)$ ecc. . Ogni porta viene rappresentata graficamente 
+utilizzando una notazione standard, per esempio: 
+\vspace{10pt}
+\begin{figure}[h]
+    \centering
+        \resizebox{.3\textwidth}{!} {%
+                    
+        \begin{tikzpicture}
+            \node (x) at (0, 1) {$x$};
+            \node (y) at (0, 0) {$y$};
+            
+            \node[and gate US, draw, rotate=0, logic gate inputs=nn] at ($(y) + (1.5, 0.5)$) (xandy) {};
+            
+            
+
+            \draw (x) --  (xandy.input 1);
+            \draw (y) -- (xandy.input 2);                
+            \draw (xandy.output) -- node[above]{$x *  y$} ($(xandy) + (1.5, 0)$);
+            \vspace{-20pt}
+        \end{tikzpicture}
+        }
+        \caption{AND Gate}
+    
+\end{figure}
+\begin{figure}[h]
+    \centering
+        \resizebox{.3\textwidth}{!}{%
+          \begin{tikzpicture}
+            \node (x) at (0, 1) {$x$};
+            
+            \node[not gate US, draw] at ($(x) + (0.8, 0)$) (notx) {};
+            
+            \draw (x) -- (notx.input);
+            \draw (notx.output) -- node[above]{$1-x$} ($(notx) + (1.5, 0)$);
+          \end{tikzpicture}
+        }
+        \caption{AND Gate}
+\end{figure}
+
+\noindent sono i simboli che identificano, rispettivamente, la porta AND e la porta NOT.\\
+Si noti come la porta AND accetta due proposizioni in input mentre NOT solo una e come l'output rispecchi la funzione calcolata dalla porta, infatti:  \\
+
+\vspace{\abovedisplayskip}
+\begin{minipage}{.5\linewidth}
+\begin{displaymath}
+    \begin{array}{|c|c|}\hline
+        (x_1, x_2) & \land{(x_1, x_2)} \\\hline 
+        (0, 0)   &  0  \\ 
+        (0, 1)   &  0  \\
+        (1, 0)   &  0  \\
+        (1, 1)   &  1  \\\hline
+    \end{array}
+    \end{displaymath}
+    \captionof{figure}{Tabella di verità per AND}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{displaymath}
+    \begin{array}{|c|c|}\hline
+        x & \neg{(x)} \\\hline 
+        0   &  1  \\ 
+        1   &  0  \\\hline
+    \end{array}
+\end{displaymath}
+\captionof{figure}{Tabella di verità per OR}
+\end{minipage}
+
+\vspace{\belowdisplayskip}
+Mettendo in sequenza o in parallelo più porte logiche è possibile esprimere qualsiasi funzione Booleana e, più in generale, qualsiasi funzione calcolabile è rappresentabile mediante
+la composizione di una o più porte logiche. Il modello a circuiti è quindi un modello Turing completo.\\
+\section{Porte Universali}
+
+
+
+ 
 
 
 
@@ -322,6 +481,8 @@ da utilizzare nell'algoritmo di Deutsch-Jozsa. In particolare, è stata scelta u
     \bibitem{ref3} Crama, Y. and Hammer, P. (2011). \emph{Boolean Functions Theory, Algorithms and Applications}. 1st ed. Cambridge University Press, p.4.
     \bibitem{ref4} Dobbertin, Hans. \emph{Construction of bent functions and balanced Boolean functions with high nonlinearity.} International Workshop on Fast Software Encryption. Springer, Berlin, Heidelberg, 1994.
     \bibitem{ref5} Logachev, O. A. \emph{On Perfectly Balanced Boolean Functions.} IACR Cryptology ePrint Archive 2007 (2007): 22.
+    \bibitem{ref6} Feynmann, R.P. \emph{Simulating physics with computers.} International Journal of Theoretical Physics, 21(6/7):467-488 1982.
+    \bibitem{ref7} Benioff, P. \emph{Quantum mechanical models of Turing machines that dissipate no energy.} Physical Reviews Letterers, 48(23):1581-1585, 1982.
 \end{thebibliography}
 \end{document}
 
