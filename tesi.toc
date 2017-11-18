@@ -11,7 +11,20 @@
 \contentsline {subsection}{\numberline {3.1.1}Dai Numeri Reali ai Numeri Complessi}{12}
 \contentsline {subsection}{\numberline {3.1.2}Da Stati Singoli alla Sovrapposizione degli Stati}{13}
 \contentsline {subsection}{\numberline {3.1.3}Dalla Localit\IeC {\`a} alla non Localit\IeC {\`a}}{14}
-\contentsline {subsection}{\numberline {3.1.4}Dalle leggi Deterministiche a quelle Non Deterministiche}{14}
-\contentsline {section}{\numberline {3.2}Circuiti Booleani}{15}
-\contentsline {section}{\numberline {3.3}Porte Universali}{16}
-\contentsline {chapter}{Bibliografia}{17}
+\contentsline {subsection}{\numberline {3.1.4}Dalle leggi Deterministiche a quelle Non Deterministiche}{15}
+\contentsline {section}{\numberline {3.2}I Sistemi a Confronto}{15}
+\contentsline {subsection}{\numberline {3.2.1}Il Reame Classico}{15}
+\contentsline {subsubsection}{Il Bit}{15}
+\contentsline {subsubsection}{Stati e Osservazioni}{16}
+\contentsline {subsubsection}{Trasformazioni}{16}
+\contentsline {subsection}{\numberline {3.2.2}Il Reame Probabilistico}{17}
+\contentsline {subsubsection}{Bit probabilistico}{17}
+\contentsline {subsubsection}{Stati e Osservazioni}{18}
+\contentsline {subsubsection}{Trasformazioni}{18}
+\contentsline {subsection}{\numberline {3.2.3}Il Reame Quantico}{20}
+\contentsline {subsubsection}{Il Qubit}{20}
+\contentsline {subsubsection}{Stati e Osservazioni}{20}
+\contentsline {subsubsection}{Trasformazioni}{21}
+\contentsline {section}{\numberline {3.3}Circuiti Booleani}{21}
+\contentsline {section}{\numberline {3.4}Porte Universali}{22}
+\contentsline {chapter}{Bibliografia}{23}

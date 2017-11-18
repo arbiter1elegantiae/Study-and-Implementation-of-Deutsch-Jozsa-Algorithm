@@ -28,6 +28,7 @@
 \newcommand*{\field}[1]{\mathbb{#1}}
 \newcommand*\xor{\mathbin{\oplus}}
 \newcommand*\Mycomb[2]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newtheorem{mydef}{Definizione}[chapter]
 \newtheorem{mylem}{Lemma}
 \newtheorem*{mycor}{Corollario}
@@ -335,13 +336,13 @@ performare calcoli paralleli su di un unico registro e simulare perfettamente si
 la visionaria congettura che Feynmann aveva sollevato solo pochi anni prima.  
 
 \section{Principi della Meccanica Quantistica}
-Nel mondo microscopico, quando si scende sotto la soglia atomica, cominciano ad emergere fenomeni che sono difficilmente interpretabili utilizzando il solo senso comune,
-le nozioni più elementari come la determinazione unica delle proprietà fisiche di un oggetto (velocità, posizione, ecc.) a cui siamo abituati fin da piccoli non sono più le stesse e
+Nel mondo microscopico, quando si scende sotto la soglia atomica, cominciano ad emergere fenomeni che sono difficilmente interpretabili utilizzando il solo senso comune.
+Le nozioni più elementari come la determinazione unica delle proprietà fisiche di un oggetto (velocità, posizione, ecc.) a cui siamo abituati fin da piccoli non sono più le stesse e,
 postulati come il principio di località o il determinismo, cessano di essere veri.
-Ciò portò inizialmente esponenti eminenti del campo (del calibro di Einstein) a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava.
-Numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo più volte le previsioni della teoria e ad oggi, nella comunità scientifica vi è unanime consenso sulla veriditicità di questa.\\
-Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con queste nuove leggi fondamentali che governano il mondo dei quanti.
-Vengono di seguito esposte sinteticamente le caratteristiche peculiari della meccanica quantistica e, di seguito in maniera più formale, il modo in cui queste influenzano l'Informatica.
+Ciò portò inizialmente eminenti fisici del tempo a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava,
+numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo le previsioni di questa e ad oggi, nella comunità scientifica vi è unanime consenso sulla veriditicità fenomenica della meccanica quantistica.\\
+Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con le nuove leggi fondamentali che governano il mondo dinfinitamente piccolo.
+Vengono di seguito esposte sinteticamente le caratteristiche peculiari della meccanica quantistica e, di seguito in maniera più formale, il modo in cui influenzano l'Informatica.
 
 \subsection{Dai Numeri Reali ai Numeri Complessi}
 La meccanica quantistica differisce dalla maggior parte delle branche della scienza per via del largo uso che fa dei numeri complessi.
@@ -361,35 +362,198 @@ Uno stato quantico è rappresentato da vettori unitari in uno spazio vettoriale 
 
 \subsection{Da Stati Singoli alla Sovrapposizione degli Stati}
   Contrariamente all'intuizione, un oggetto microscopico può trovarsi contemporaneamente in più posizioni differenti.\\
-  Questo comportamento, detto di sovrapposizione, è tradizionalmente esemplificato attraverso l'esperimento delle due fenditure(da mettere una ref) attraverso le quali viene 
+  Questo comportamento, detto di sovrapposizione, è tradizionalmente esemplificato riportando l'esperimento delle due fenditure(da mettere una ref) attraverso le quali viene 
   fatta passare, una alla volta, una qualsiasi particella che andrà a sbattere contro un rilevatore posto dietro le fenditure. Contrariamente a quanto verrebbe da pensare,
   il rilevatore non rileva solo due aree colpite dalle particelle (e.g. come accadrebbe per dei palloni calciati in una porta coperta a meno di due sottoporte) bensì vengono 
   sperimentalmente rilevate più aree di collisione, ognuna colpita con un'intensità precisa le quali si distribuiscono seguendo un pattern ad interferenza
-  come se ogni particella avesse agito anche come un'onda che, passando \emph{contemporaneamente} per le due fessure abbia poi interferito con se stessa. 
-  Non solo la spazialità, ma anche altre proprietà come l'energia, il momento, lo spin di una particella seguono sono soggette a sovrapposizione.
-  Noi, in realtà, non riusciamo a vedere direttamente la sovrapposizione in azione poichè, ogni qual volta viene effettuata una misurazione su di uno
-  stato quantistico, questo collassa in una delle possibili configurazioni che sono in sovrapposizione seguendo, come verrà chiarito più avanti, una ben definità distribuzione di probabiltà.
-\begin{figure}
+  come se ogni particella avesse agito anche come un'onda che, passando \emph{contemporaneamente} per le due fessure abbia poi interferito con se stessa.
+  La dualità onda particella della materia (**mettere rif a DeBroglie**) fu un risultato (**anno**) d'importanza cardinale per l'avvento della meccanica quantistica.
+  Non solo la spazialità, ma anche altre proprietà come l'energia, il momento, lo spin di una particella sono soggette a sovrapposizione.
+  Sperimentalmente, in realtà, non è possibile osservare direttamente il processo di sovrapposizione degli stati poichè, ogni qual volta viene effettuata una misurazione su di un
+  sistema quantistico, questo collasserà in uno ed uno solo degli stati sovrapposti, seguendo, come verrà chiarito più avanti, una ben definità distribuzione di probabiltà.\\
+  La sovrapposizione è il principale "strano" effetto che viene sfruttato per ottenere vantaggi computazionali. 
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{double-slit-electrons1}
     \caption{visualizzazione dell'esperimento delle due fenditure}
 \end{figure}
   
 \subsection{Dalla Località alla non Località}
-Centrale nella scienza moderna è la nozione che gli oggetti sono affetti direttamente unicamente da forze o oggetti vicini, questa assunzione, 
-che nella fisica classica prende il nome di principio di località, non è sempre valida nella fisica quantistica. È possibile infatti
-mettere due particelle in una relazione chiamata \emph{entanglement} (le due particelle si diranno entangled) tale per cui: qualsiasi
-operazione compiuta su di una avrà un immediato effetto su l'altra anche se queste si trovano ad anni luce di distanza.    
+Centrale nella scienza moderna è la nozione secondo cui due oggetti, in un sistema, si influenzano tra di loro secondo un rapporto di causa-effetto solo se essi
+sono connessi da un'interazione fondamentale. La velocità di propagazione di una qualsiasi interazione è soggetta al limite imposto dalla velocità della luce 
+nel vuoto, per cui non esisteranno due oggetti che posti all'interno dello stesso sistema entrino in relazione immediatamente. Questa assunzione, 
+che prende il nome di principio di località, non è sempre valida nella fisica quantistica. È possibile infatti
+mettere due particelle in una relazione chiamata \emph{entanglement} (le due particelle si diranno entangled) tale per cui non sia più possibile
+descriverne il comportamento in maniera separata facendo si che, qualsiasi  operazione compiuta su di una avrà un effetto immediato su l'altra, 
+anche se queste si trovano ad anni luce di distanza.    
 
 \subsection{Dalle leggi Deterministiche a quelle Non Deterministiche}
 Verso quale specifico stato collasserà una sovrapposizione di stati quando misurata? Mentre in altre aree della fisica le leggi sono deterministiche 
-i.e. vi è un unico ouput se ripetiamo lo stesso esperimento più volte sotto le stesse condizioni, tuttavia le leggi della meccanica quantistica
-ci dicono che possiamo solamente conoscere la probabilità con cui un output, e non un altro, si verificherà. \par
+i.e. vi è un unico ouput se ripetiamo lo stesso esperimento più volte sotto le stesse condizioni, le leggi della meccanica quantistica
+ci dicono, tuttavia, che possiamo solamente conoscere la probabilità con cui un output, e non un altro, si verificherà. \par
 
-Parafrasando Einstein stesso, queste azioni "spettrali" che emergono nel reame della meccanica quantistica, per quanto radicali ed estranee
-alla nostra esperienza quotidiana, sono poi le stesse che, riflettendo la natura esponenziale del mondo sub atomico, conferiscono all'informazione
-quantistica il suo vero potenziale. 
+Queste azioni, parafrasando Einstein stesso "spettrali" (**inserire nota a fondo pagina spooky action**) che emergono nel reame della meccanica quantistica, per quanto radicali ed avulse
+dalla nostra esperienza quotidiana, sono poi le stesse, riflettendo la natura esponenziale del mondo sub atomico, che conferiscono all'informazione quantistica il suo vero potenziale. 
 
+\section{I Sistemi a Confronto}
+Per vedere come la meccanica quantistica influenza l'Informatica cominciamo presentando un modello per il calcolo che metta in luce 
+le differenze quando applicato a più paradigmi differenti. In particolare vengono qui in ordine introdotti i concetti fondamentali 
+del calcolo classico, del calcolo probabilistico e infine del calcolo quantistico.
+\subsection{Il Reame Classico}
+
+\subsubsection{Il Bit}
+L'unità fondamentale su cui si fonda il calcolo classico è il bit. Consideriamo bit un qualsiasi sistema che 
+espone un'unica proprietà osservabile che può assumere solo due valori. Chiamiamo questi 2 valori $\ket0$, $\ket1$. (**inserire una nota a fondo pagina che spieghi che questa è la notazione di Dirac**)
+Per essere coerentemente osservabili, $\ket0$ e $\ket1$ devono avere una precisa implementazione, ad esempio, se il bit è indicato
+da un transistor: $\ket0$ può essere identificato dalla presenza di un flusso di elettricità di un certo valore attraverso il transistor mentre
+$\ket1$ è identificato dall'assenza di corrente. Altre implementazioni che sfruttino la stessa logica sono ovviamente valide. 
+Come già anticipato nel primo capitolo, $\ket0$ e $\ket1$ sono sufficienti per modellare una qualsiasi
+funzione booleana e come vedremo nel capitolo dedicato alle porte logiche, un bit è l'unità fondamentale che governa ogni possibile
+operazione di un circuito elettronico classico, quindi di ogni computer moderno.
+
+\subsubsection{Stati e Osservazioni}
+
+Una visione usuale dei sistemi di computazione, e dei sistemi in generale, è quella in cui viene specificato uno spazio dei possibili
+stati del sistema e lo stato attuale del sistema è un elemento di questo spazio. Per ogni proprietà del sistema (le proprietà sono in questo contesto chiamate \emph{osservabili})
+specifichiamo inoltre quale valore debba avere tale proprietà se osservata (\emph{misurata}), per ogni possibile stato appartenente allo spazio degli stati. \par
+
+Dal momento che ogni bit - il sistema in questione - ha valore $\ket0$ oppure $\ket1$ e questi due valori sono sufficienti a descrivere 
+il comportamento del sistema, definiamo $\mathcal{B}_c$ lo spazio degli stati:
+\begin{center}
+    $ \mathcal{B}_c = \{\ket0, \ket1 \}$
+\end{center}
+
+per il bit classico.\\
+Si noti come in questo specifico sistema lo spazio degli stati corrisponda esattamente con lo spazio dei possibili valori della proprietà
+osservabile infatti, se il bit si trova nello stato $\ket0$ allora la misura produrrà il valore $\ket0$, mentre se il bit si trova nello stato $\ket1$,
+la misura produrrà valore $\ket1$. Quest'affermazione può sembrare banale ma, vedremo presto come invece esistano sistemi dove l'equivalenza 
+non sussiste, e avremo bisogno di regole più complicate per determinare i valori che risultano da una misura. 
+
+\subsubsection{Trasformazioni}
+Lo stato di un sistema non è statico. Ci sono solitamente molte possibili azioni che cambieranno il risultato delle osservazioni future. Ad esempio,
+se un bit viene misurato e ha il valore $\ket0$ e viene poi passato attraverso un invertitore (nella metafora del transistor ciò avviene bloccando il flusso di corrente)
+, il bit avrà il valore $\ket1$ se osservato ancora. In maniera astratta, specifichiamo una tale operazione o \emph{trasformazione} fornendo una funzione che
+agisce dallo spazio degli stati sullo spazio degli stati. Nell'esempio dell'invertitore tale funzione sarà uguale alla seguente applicazione lineare F:
+\begin{center}
+    $ F\ket0 = \ket1, F\ket1 = \ket0 $
+\end{center}
+Oppure, un'altra possibile trasformazione può essere quella che pone lo stato iniziale del sisitema a $\ket0$:
+\begin{center}
+    $G\ket0 = \ket0,  G\ket1 = 0$
+\end{center}.
+\par
+Ricapitolando, un generico bit ha un'unica proprietà fisica, quindi un unico osservabile. Una misura nel sistema risulta in $\ket0$ oppure in $\ket1$, le 
+misure non producono mai risultati intermedi. Una trasformazione può comportare un passaggio di stato nel sistema e, se il sistema viene misurato più volte,
+ senza che una trasformazione sia occorsa tra una misura ed un'altra, allora le varie misurazioni produrranno sempre lo stesso risultato.
+
+\subsection{Il Reame Probabilistico}
+\subsubsection{Bit probabilistico}
+Si consideri ora un bit probabilistico. Un sistema che implementa un bit probabilistico può essere metaforicamente immaginato come il risultato di un lancio
+di una moneta potenzialmente truccata. Ancora, questo sistema ha un unico osservabile, e cioè il risultato del lancio: $\ket{0},\ket1$.\\
+Il valore dell'osservazione dipende dallo sbilanciamento dello stato e cioè dal grado di manomissione della moneta. Più una moneta è truccata e più la probabilità
+di ottenere un risultato piuttosto che l'altro differisce dal 50$\%$. Possiamo quindi esprimere uno stato del sistema come una funzione lineare sui valori dell'osservabile
+dove i coefficienti rappresentano la probabilità di osservare il valore. \newpage
+\subsubsection{Stati e Osservazioni} 
+Lo spazio degli stati corrisponderà a:
+
+\begin{center}
+    $ \mathcal{B}_p = \{a_0\ket0 + a_1\ket1 \ : a_0,a_1 \in{\mathbb{R}} \land a_0^2+a_1^2 = 1\}$
+\end{center}
+
+\noindent dove, per ogni stato, misureremo $\ket0$ con probabilità $a_0^2$ e $\ket1$ con probabilità $1 - a_0^2 = a_1^2$.
+La ragione per cui la probabilità equivale al quadrato del coefficiente verrà chiarita in seguito.\par
+Si supponga una misurazione che porta a $\ket0$, lo stato del sistema è quindi passato da uno opaco $a_0\ket0 + a_1\ket1$ a un certo $1\ket0+0\ket1$,
+quindi, una misurazione altro non è che una trasformazione. Supponiamo inoltre, come nel caso classico che misurazioni ulteriori non alterino lo stato già
+misurato del sistema, non è quindi possibile in alcun modo osservare direttamente la probabilità. Una misurazione comporta il collasso del sistema in uno 
+stato certo e, a meno di particolari trasformazioni, ogni successiva misurazione produrrà lo stesso risultato. Il bit probabilistico si trova
+in uno stato di incertezza solo nel momento antecedente al lancio.
+
+
+\subsubsection{Trasformazioni}
+Sia T una trasformazione, se T agisce in un determinato modo su $\ket0$
+e agisce in un determinato modo su $\ket1$, allora, essendo un'applicazione lineare sullo spazio degli stati, per un arbitrario bit probabilistico segue che:
+\begin{center}
+    \begin{align*}
+        T(a_0\ket0 + a_1\ket1)=& T(a_0\ket0) + T(a_1\ket1)\\ =& a_0(T\ket0) + a_1(T\ket1)
+    \end{align*}
+\end{center}
+In questo modo è possibile con le giuste accortezze intuire i risultati di una trasformazione. Andando più nel dettaglio, la descrizione 
+del comportamento del sistema è riscrivibile formalmente utilizzando l'Algebra Lineare:\\
+$\mathcal{B}_p$ è un sottoinsieme dello spazio vettoriale ${\mathbb{R}^2}$ e sia $\{\ket0,\ket1 \}$ la base di tale insieme. Imponiamo che $\mathcal{B}_p$
+possieda il prodotto scalare:
+\begin{center}
+    $(a_0\ket0 + a_1\ket1)(b_0\ket0 + b_1\ket1) = (a_0b_0) + (a_1b_1)$
+\end{center}
+che implica la norma Euclidea:
+\begin{center}
+    $\norm{a_0\ket0 + a_1\ket1}=\sqrt{a_0^2+a_1^2}$
+\end{center}
+Allora, per definizione $\mathcal{B}_p$ è l'insieme di tutti i vettori con norma 1 appartenenti a ${\mathbb{R}^2}$. Si denoti con $P_i$ la proiezione
+di $\mathcal{B}_p$ sull'i-esimo sottospazio:
+    
+    \begin{center}
+        \begin{align*}
+            &\mathcal{P}_0(a_0\ket0 + a_1\ket1) = a_0\ket0 \\
+            &\mathcal{P}_1(a_0\ket0 + a_1\ket1) = a_1\ket1
+        \end{align*}    
+    \end{center}
+Infine usiamo la notazione $prob[\ket{\phi} \mapsto \ket{i}]$ per indicare la probabilità di ottenere $\ket{i}$ dalla misurazione di $\ket{\phi}$, 
+che sarà:
+\begin{center}
+    $prob[\ket{\phi} \mapsto \ket{i}] = \norm{\mathcal{P}_i(\ket{\phi})}^2$
+\end{center}
+. Dopo aver misurato $\ket{i}$, per esprimere la consistenza nelle future misurazioni dobbiamo assicurarci che lo stato risultante sia certo su $\ket{i}$,
+ciò è ottenuto normalizzando $\mathcal{P}_i(\ket{\phi})$:
+\begin{center}
+    $\frac{\mathcal{P}_i(\ket{\phi})}{\norm{\mathcal{P}_i(\ket{\phi})}}=\frac{a\ket{i}}{\sqrt{a^2}}=1\ket{i}$
+\end{center}
+. In generale, possiamo caratterizzare le trasformazioni per uno stato probabilistico come tutte quelle applicazioni lineari che preservano la norma.\par
+Si noti come non è possibile disinguere tra gli stati $\ket{\phi}$ e $-\ket{\phi}$, in quanto la misurazione di questi produrrà la stessa
+distribuzione di probabilità e, l'applicazione di una qualsiasi trasformazione $T$, porta agli stati $T\ket{\phi}$ e $-T\ket{\phi}$ che sono a loro volta
+indistinguibili. La scelta di considerare tuttavia come distinti i due stati riflette alcune importanti proprietà, in particolare, nel
+caso quantistico queste saranno essenziali per esprimere gli effetti di interferenza dovuti alla natura ondulatoria del sistema.   
+
+\subsection{Il Reame Quantico}
+\subsubsection{Il Qubit}
+Ora che tutti i requisiti fondamentali sono stati presentati, è possibile introdurre il calcolo quantistico.\\
+Il sistema fondamentale in questo caso prende il nome di qubit. Analogalmente ai 2 casi precedenti, è utile astrarre dall'implementazione fisica
+e supporre che il sistema presenti un solo osservabile i cui possibili valori saranno i soliti $\ket0$ e $\ket1$.(**inserire la nota che in realtà
+come già fatto notare, le proprietà di una particella sono tante!**)
+\subsubsection{Stati e Osservazioni}
+
+Lo spazio degli stati, in maniera simile a quanto visto nel caso probabilistico, è un sottoinsieme dello spazio vettoriale $\mathbb{C}^2$ tale che:
+\begin{center}
+    $\mathcal{B}_q=\{c_0\ket0 + c_1\ket1 : c_0,c_1 \in \mathbb{C} \land {\left\vert{c_0}\right\vert}^2 + {\left\vert{c_1}\right\vert}^2 = 1 \} $
+\end{center}
+dove $\left\vert{\:}\right\vert$ è il modulo del numero complesso calcolato come $\left\vert{c}\right\vert = \left\vert{a + ib}\right\vert = \sqrt{a^2 + b^2}$.
+Imponiamo anche in questo caso il prodotto interno su $\mathcal{B}_q$:
+\begin{center}
+    $\langle\mathcal{C},\mathcal{C^{'}}\rangle=\langle c_0\ket0 + c_1\ket1, {c^{'}}_0\ket0 + {c^{'}}_1\ket1 \rangle = (\overline{c_0}c^{'}_0) + (\overline{c_1}c^{'}_1)$
+\end{center}
+Dove $\overline{c}$ indica la coniugazione di c. Vale quindi la seguente norma Euclidea:
+\begin{center}
+    $\norm{\mathcal{C}}= \sqrt{{\left\vert{c_0}\right\vert}^2 + {\left\vert{c_1}\right\vert}^2}$
+\end{center}
+. $\mathcal{B}_q$ è il sottoinsieme di $\mathbb{C}^2$ composto da tutti i vettori di norma 1.\\
+Senza riportare le equazioni, come nel caso probabilistico specifichiamo una misura in termini di proiezioni sui sottospazi formati da $\ket0$ e $\ket1$ e la probabilità 
+dell'osservazione è determinata da ${\left\vert{c_0}\right\vert}^2$ per $\ket0$ e  ${\left\vert{c_1}\right\vert}^2$ per $\ket1$.
+
+\begin{mydef}
+    Ogni stato espresso come combinazione lienare della base computazionale $\{\ket0,\ket1\}$ che non presenti elementi nulli è detto essere uno 
+    stato di sovrapposizione.
+\end{mydef}
+\subsubsection{Trasformazioni}
+Prima d'intendere una trasformazione di uno stato quantico è necessario introdurre una particolare classe di matrici, le matrici unitarie:
+\begin{mydef}
+    Una matrice $U\in\mathbb{M}^{n\times{n}}$ è unitaria se e solo se:
+    \begin{center}
+        $UU^\dag=U^{\dag}U=I$
+    \end{center} 
+    dove $U^{\dag}[i,j]=\overline{U[j,i]}$.
+\end{mydef}
+
+--esempio not (dare qualche accenno)
+-- Per convincersi che le unitarie sono le matrici giuste per descrivere la dinamica di uno stato quantico, si noti che
 
 
 
