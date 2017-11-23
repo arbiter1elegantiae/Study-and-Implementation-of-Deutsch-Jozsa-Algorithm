@@ -1,30 +1,37 @@
 \select@language {italian}
 \select@language {italian}
-\contentsline {chapter}{\numberline {1}Introduzione}{2}
-\contentsline {chapter}{\numberline {2}Funzioni Booleane Bilanciate}{3}
-\contentsline {section}{\numberline {2.1}Funzioni Booleane}{3}
-\contentsline {section}{\numberline {2.2}Classi di Funzioni Booleane Bilanciate}{5}
-\contentsline {subsection}{\numberline {2.2.1}La Classe delle Funzioni Booleane Lineari}{8}
-\contentsline {subsection}{\numberline {2.2.2}Funzioni Booleane non Lineari Bilanciate}{9}
-\contentsline {chapter}{\numberline {3}L'Informazione Quantistica}{11}
-\contentsline {section}{\numberline {3.1}Principi della Meccanica Quantistica}{12}
-\contentsline {subsection}{\numberline {3.1.1}Dai Numeri Reali ai Numeri Complessi}{12}
-\contentsline {subsection}{\numberline {3.1.2}Da Stati Singoli alla Sovrapposizione degli Stati}{13}
-\contentsline {subsection}{\numberline {3.1.3}Dalla Localit\IeC {\`a} alla non Localit\IeC {\`a}}{14}
-\contentsline {subsection}{\numberline {3.1.4}Dalle leggi Deterministiche a quelle Non Deterministiche}{15}
-\contentsline {section}{\numberline {3.2}I Sistemi a Confronto}{15}
-\contentsline {subsection}{\numberline {3.2.1}Il Reame Classico}{15}
-\contentsline {subsubsection}{Il Bit}{15}
-\contentsline {subsubsection}{Stati e Osservazioni}{16}
-\contentsline {subsubsection}{Trasformazioni}{16}
-\contentsline {subsection}{\numberline {3.2.2}Il Reame Probabilistico}{17}
-\contentsline {subsubsection}{Bit probabilistico}{17}
-\contentsline {subsubsection}{Stati e Osservazioni}{18}
-\contentsline {subsubsection}{Trasformazioni}{18}
-\contentsline {subsection}{\numberline {3.2.3}Il Reame Quantico}{20}
-\contentsline {subsubsection}{Il Qubit}{20}
-\contentsline {subsubsection}{Stati e Osservazioni}{20}
-\contentsline {subsubsection}{Trasformazioni}{21}
-\contentsline {section}{\numberline {3.3}Circuiti Booleani}{21}
-\contentsline {section}{\numberline {3.4}Porte Universali}{22}
-\contentsline {chapter}{Bibliografia}{23}
+\contentsline {chapter}{\numberline {1}Introduzione}{3}
+\contentsline {chapter}{\numberline {2}Funzioni Booleane Bilanciate}{4}
+\contentsline {section}{\numberline {2.1}Funzioni Booleane}{4}
+\contentsline {section}{\numberline {2.2}Classi di Funzioni Booleane Bilanciate}{6}
+\contentsline {subsection}{\numberline {2.2.1}La Classe delle Funzioni Booleane Lineari}{9}
+\contentsline {subsection}{\numberline {2.2.2}Funzioni Booleane non Lineari Bilanciate}{10}
+\contentsline {chapter}{\numberline {3}L'Informazione Quantistica}{12}
+\contentsline {section}{\numberline {3.1}Principi della Meccanica Quantistica}{13}
+\contentsline {subsection}{\numberline {3.1.1}Dai Numeri Reali ai Numeri Complessi}{13}
+\contentsline {subsection}{\numberline {3.1.2}Da Stati Singoli alla Sovrapposizione degli Stati}{14}
+\contentsline {subsection}{\numberline {3.1.3}Dalla Localit\IeC {\`a} alla non Localit\IeC {\`a}}{15}
+\contentsline {subsection}{\numberline {3.1.4}Dalle leggi Deterministiche a quelle Non Deterministiche}{16}
+\contentsline {section}{\numberline {3.2}I Sistemi a Confronto}{16}
+\contentsline {subsection}{\numberline {3.2.1}Il Reame Classico}{16}
+\contentsline {subsubsection}{Il Bit}{16}
+\contentsline {subsubsection}{Stati e Osservazioni}{17}
+\contentsline {subsubsection}{Trasformazioni}{17}
+\contentsline {subsection}{\numberline {3.2.2}Il Reame Probabilistico}{18}
+\contentsline {subsubsection}{Bit probabilistico}{18}
+\contentsline {subsubsection}{Stati e Osservazioni}{19}
+\contentsline {subsubsection}{Trasformazioni}{19}
+\contentsline {subsection}{\numberline {3.2.3}Il Reame Quantico}{21}
+\contentsline {subsubsection}{Il Qubit}{21}
+\contentsline {subsubsection}{Stati e Osservazioni}{21}
+\contentsline {subsubsection}{Trasformazioni}{22}
+\contentsline {section}{\numberline {3.3}Reversibilit\IeC {\`a}}{23}
+\contentsline {section}{\numberline {3.4}Un Esempio Quantistico}{24}
+\contentsline {section}{\numberline {3.5}Un Sistema a pi\IeC {\`u} Qubit}{26}
+\contentsline {subsubsection}{Trasformazioni}{28}
+\contentsline {section}{\numberline {3.6}Entanglement}{29}
+\contentsline {section}{\numberline {3.7}Sfruttare il Parallelismo}{30}
+\contentsline {section}{\numberline {3.8}Circuiti Booleani}{30}
+\contentsline {chapter}{\numberline {4}L'algoritmo di Deutsch-Jozsa}{32}
+\contentsline {chapter}{\numberline {5}Implementazione tramite QScript dell'algoritmo di Deutsch-Jozsa}{33}
+\contentsline {chapter}{Bibliografia}{34}

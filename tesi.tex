@@ -103,7 +103,7 @@ come nella matematica, spesso necessitano di altre conoscenze per essere compres
 Le funzioni Booleane apparvero per la prima volta a metà 19esimo secolo durante la formulazione matematica di problemi logici e prendono
 il loro nome da George Boole, matematico britannico considerato fondatore della logica matematica odierna\cite{ref2}.\newpage
 Una semplice funzione Booleana può può essere rappresentata da \\$f:\{0,1\}^2 \mapsto \{0,1\}$
-\begin{align*}
+\begin{align*}  
     f(00) = 0 \\
     f(01) = 0 \\
     f(10) = 1 \\
@@ -332,7 +332,7 @@ verrà ripreso e chiarito in seguito). In altre parole, questi dimostrò come la
 famoso dei modelli tradizionali di calcolo, ma poteva fare addirittura di meglio? \\
 All'incirca nello stesso momento il fisico David Deutsch rispose a tale quesito introducendo prima la controparte quantica della MdT universale (QMdTU)
 e poi dimostrando che la QMdTU riusciva a compiere operazioni al di fuori della portata della MdTU, come generare in maniera genuina numeri random,
-performare calcoli paralleli su di un unico registro e simulare perfettamente sistemi fisici a stati di dimensione finita, confermando così
+performare calcoli paralleli su di un unico registro e simulare perfettamente in tempo polinomiale sistemi fisici a stati di dimensione finita, confermando così
 la visionaria congettura che Feynmann aveva sollevato solo pochi anni prima.  
 
 \section{Principi della Meccanica Quantistica}
@@ -341,8 +341,8 @@ Le nozioni più elementari come la determinazione unica delle proprietà fisiche
 postulati come il principio di località o il determinismo, cessano di essere veri.
 Ciò portò inizialmente eminenti fisici del tempo a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava,
 numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo le previsioni di questa e ad oggi, nella comunità scientifica vi è unanime consenso sulla veriditicità fenomenica della meccanica quantistica.\\
-Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con le nuove leggi fondamentali che governano il mondo dinfinitamente piccolo.
-Vengono di seguito esposte sinteticamente le caratteristiche peculiari della meccanica quantistica e, di seguito in maniera più formale, il modo in cui influenzano l'Informatica.
+Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con le nuove leggi fondamentali che governano il mondo infinitamente piccolo.
+Vengono quì esposte sinteticamente le caratteristiche peculiari della meccanica quantistica e, di seguito in maniera più formale, il modo in cui influenzano l'Informatica.
 
 \subsection{Dai Numeri Reali ai Numeri Complessi}
 La meccanica quantistica differisce dalla maggior parte delle branche della scienza per via del largo uso che fa dei numeri complessi.
@@ -358,7 +358,7 @@ ottimale per descrivere in maniera compatta un'onda. Inizialmente la meccanica q
         dove $a$ e $b$ sono due numeri reali, $a$ è chiamata la parte reale di $c$, mentre $b$ è la parte immaginaria.
     
 \end{mydef}
-Uno stato quantico è rappresentato da vettori unitari in uno spazio vettoriale complesso.
+
 
 \subsection{Da Stati Singoli alla Sovrapposizione degli Stati}
   Contrariamente all'intuizione, un oggetto microscopico può trovarsi contemporaneamente in più posizioni differenti.\\
@@ -371,7 +371,7 @@ Uno stato quantico è rappresentato da vettori unitari in uno spazio vettoriale 
   Non solo la spazialità, ma anche altre proprietà come l'energia, il momento, lo spin di una particella sono soggette a sovrapposizione.
   Sperimentalmente, in realtà, non è possibile osservare direttamente il processo di sovrapposizione degli stati poichè, ogni qual volta viene effettuata una misurazione su di un
   sistema quantistico, questo collasserà in uno ed uno solo degli stati sovrapposti, seguendo, come verrà chiarito più avanti, una ben definità distribuzione di probabiltà.\\
-  La sovrapposizione è il principale "strano" effetto che viene sfruttato per ottenere vantaggi computazionali. 
+  La sovrapposizione è il principale effetto che viene sfruttato per ottenere vantaggi computazionali. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{double-slit-electrons1}
@@ -426,20 +426,20 @@ il comportamento del sistema, definiamo $\mathcal{B}_c$ lo spazio degli stati:
 per il bit classico.\\
 Si noti come in questo specifico sistema lo spazio degli stati corrisponda esattamente con lo spazio dei possibili valori della proprietà
 osservabile infatti, se il bit si trova nello stato $\ket0$ allora la misura produrrà il valore $\ket0$, mentre se il bit si trova nello stato $\ket1$,
-la misura produrrà valore $\ket1$. Quest'affermazione può sembrare banale ma, vedremo presto come invece esistano sistemi dove l'equivalenza 
-non sussiste, e avremo bisogno di regole più complicate per determinare i valori che risultano da una misura. 
+la misura produrrà valore $\ket1$. Quest'affermazione può sembrare banale ma vedremo presto come invece esistano sistemi dove l'equivalenza 
+non sussiste e avremo bisogno di regole più complicate per determinare i valori che risultano da una misura. 
 
 \subsubsection{Trasformazioni}
 Lo stato di un sistema non è statico. Ci sono solitamente molte possibili azioni che cambieranno il risultato delle osservazioni future. Ad esempio,
 se un bit viene misurato e ha il valore $\ket0$ e viene poi passato attraverso un invertitore (nella metafora del transistor ciò avviene bloccando il flusso di corrente)
 , il bit avrà il valore $\ket1$ se osservato ancora. In maniera astratta, specifichiamo una tale operazione o \emph{trasformazione} fornendo una funzione che
-agisce dallo spazio degli stati sullo spazio degli stati. Nell'esempio dell'invertitore tale funzione sarà uguale alla seguente applicazione lineare F:
+agisce dallo spazio degli stati sullo spazio degli stati. Nell'esempio dell'invertitore tale funzione sarà uguale alla seguente applicazione lineare N:
 \begin{center}
-    $ F\ket0 = \ket1, F\ket1 = \ket0 $
+    $ N\ket0 = \ket1, N\ket1 = \ket0 $
 \end{center}
 Oppure, un'altra possibile trasformazione può essere quella che pone lo stato iniziale del sisitema a $\ket0$:
 \begin{center}
-    $G\ket0 = \ket0,  G\ket1 = 0$
+    $G\ket0 = \ket0,  G\ket1 = \ket0$
 \end{center}.
 \par
 Ricapitolando, un generico bit ha un'unica proprietà fisica, quindi un unico osservabile. Una misura nel sistema risulta in $\ket0$ oppure in $\ket1$, le 
@@ -552,8 +552,278 @@ Prima d'intendere una trasformazione di uno stato quantico è necessario introdu
     dove $U^{\dag}[i,j]=\overline{U[j,i]}$.
 \end{mydef}
 
---esempio not (dare qualche accenno)
--- Per convincersi che le unitarie sono le matrici giuste per descrivere la dinamica di uno stato quantico, si noti che
+Qualsiasi trasformazione lineare può essere espressa tramite matrici quadrate rispetto ad una determinata base; troveremo spesso conveniente usare 
+questa rappresentazione. Per esempio, consideriamo la matrice:
+\[
+   N = \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+\]
+la quale altro non è che la matrice che realizza l'invertitore anticipato nel caso classico, infatti, sia $\ket{\phi} = {[c_0, c_1]}^T$ 
+la rappresentazione vettoriale di uno stato generico $\ket{\phi}$, allora l'applicazione di N su questo risulterà in: 
+\[
+    N\ket{\phi}=
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        c_0 \\ c_1
+    \end{bmatrix}=\\
+    \begin{bmatrix}
+        c_1 \\
+        c_0
+    \end{bmatrix}
+\]
+andando così ad invertire le probabilità $prob[\ket{\phi} \mapsto \ket{i}] = 1 - prob[N\ket{\phi} \mapsto \ket{i}]$ e viceversa,
+che si traduce, per gli stati certi, in un ribaltamento totale dello stato. La matrice N viene perquesto convenzionalmente chiamata trasformazione NOT.\\
+Ritornando al discorso principale, è facile vedere come la matrice N sia anche unitaria:
+
+\[
+    NN^{\dag} = 
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}=\\
+    I
+\]
+\par
+
+Per convincersi che le unitarie siano le matrici giuste per descrivere la dinamica di uno stato quantistico è sufficiente metterne in risalto alcune proprietà:
+\newpage
+\begin{mylem}
+    Sia U una matrice unitaria tale che U $\in \mathbb{M}^{n\times{n}}$, allora vale l'equazione:
+    \[
+        \langle{UV,UV^{'}}\rangle = \langle{V,V^{'}}\rangle 
+    \]
+    
+  $\forall V,V^{'} \in \mathbb{C}^n$.\\
+  Le matrici unitarie rispettano il prodotto interno di uno spazio vettoriale complesso.
+  \begin{proof}
+      \[
+        \langle{UV,UV^{'}}\rangle = (UV)^{\dag}(UV^{'}) = V^{\dag}U^{\dag}UV^{'} = V^{\dag}IV^{'} = \langle{V,V^{'}}\rangle
+      \]
+  \end{proof}
+  \begin{mycor}
+      Le matrici unitarie preservano la norma:
+      \[
+            \norm{UV} = \sqrt{\langle{UV,UV}\rangle} = \sqrt{\langle{V,V}\rangle} = \norm{V} 
+      \]
+   \end{mycor}
+  
+\end{mylem}
+
+In particolare se $\norm{V}=1$, allora $\norm{UV}=1$. Questo dimostra come le matrici unitarie siano adatte a descrivere i cambi di stato in $\mathcal{B}_q$.\par
+\section{Reversibilità}
+In realtà, le trasformazioni unitarie hanno un'altra importante caratteristica che permette di distinguere ulteriormente la dinamica di un sistema quantistico
+dalla dinamica di un sistema classico, supponiamo infatti di voler applicare l'applicazione lineare UNO ad un generico bit $\ket{\phi}$($\ket{\phi}=\ket0$ oppure $\ket{\phi}=\ket1$)
+\[
+UNO=
+    \begin{bmatrix}
+        0 & 0\\
+        1 & 1 
+    \end{bmatrix}
+    \Rightarrow
+    UNO\ket{\phi} = \ket1
+\]
+se, dopo l'applicazione si chiedesse ad un nuovo osservatore che osserva il sistema per la prima volta di ricostruire lo stato di partenza $\ket{\phi}$
+è facile intuire che questi non possa fornire una risposta certa in quanto sia per $\ket{\phi}=\ket0$ sia per $\ket{\phi}=\ket1$ il risultato di $UNO\ket{\phi}$
+è sempre $\ket{1}$. Sarebbe infatti come, riprendendo la metafora del transistor, una volta osservato un transistor in cui non passa la
+corrente chiedersi se questo abbia mai ricevuto corrente. Siamo in presenza di trasformazioni che causano una perdita d'informazione,
+questo fenomeno nel mondo fisico si traduce in rilascio di calore ed è uno dei problemi di cui tener conto durante l'ingegnerizzazione di un
+computer moderno.(** volendo introdurre una nota per la costante di Neumann**) \\ 
+Eppure esistono anche casi in cui l'informazione viene conservata, per esempio, con la trasformazione NOT prima introdotta, è possibile risalire facilmente al 
+valore dello stato in input essendo: $NOT\ket0 = \ket1$ e $NOT\ket1 = \ket0$. Ciò è dovuto formalmente dall'esistenza dell'operazione inversa $NOT^{-1}$ la quale,
+come visto prima, altro non è che $NOT^{\dag}$; infatti vale l'implicazione: \[NOT\ket{\phi}=\ket{\psi}\Rightarrow NOT^{-1}NOT\ket{\phi}= NOT^{\dag}NOT\ket{\phi}=NOT^{\dag}\ket{\psi}\] dove 
+$\ket{\phi}$ è un generico stato in input e $\ket{\psi}$ l'output della trasformazione. $NOT^{\dag}$ permette in un certo senso di riavvolgere il calcolo, si dice in questo caso che
+la trasformazione è \emph{reversibile}.\\
+Alla luce di quanto è stato argomentato, ne consegue direttamente che: tutte le applicazioni unitarie sono reversibili (basta infatti sostituire NOT con una generica U) e quindi, in definitiva, 
+una qualsiasi computazione quantistica è reversibile. 
+
+\section{Un Esempio Quantistico}
+
+Un'altra trasformazione di fondamentale importanza è la matrice di Hadamard:
+\[
+    H=\begin{bmatrix}
+        \frac{1}{\sqrt2} & \frac{1}{\sqrt2} \\
+        \frac{1}{\sqrt2} & -\frac{1}{\sqrt2} 
+    \end{bmatrix}
+\] 
+anche chiamata "fair coin split" per via del suo comportamento in grado di porre uno stato certo in uno stato di perfetta sovrapposizione 
+$H\ket0 = 1/\sqrt2\ket0 + 1/\sqrt2\ket1$, $H\ket0 = 1/\sqrt2\ket0 - 1/\sqrt2\ket1$ che presenta una distribuzione di probabilità uniforme
+sui valori dell'osservabile.
+La matrice di Hadamard è l'inversa di se stessa:
+\begin{center}
+    \begin{align*}
+        H^2 &= \frac{1}{2}\begin{bmatrix}
+            1 & 1 \\
+            1 & -1 
+        \end{bmatrix}\begin{bmatrix}
+            1 & 1 \\
+            1 & -1 
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            1 & 0\\
+            0 & 1
+        \end{bmatrix}\\ 
+        &= I
+    \end{align*}
+\end{center}
+ 
+
+Consideriamo i due stati: $\ket{X} = H\ket0$ e $\ket{Y} = H\ket1$, nonostante, come visto, non si ha perdita d'informazione
+durante i cambi di stato in $\mathcal{B}_q$, una volta applicata H, X e Y diventano due stati indistinguibili in termini di misurazioni, 
+infatti $prob[\ket{X}\mapsto\ket0]=prob[\ket{Y}\mapsto\ket0]=\frac{1}{2}$ e lo stesso per il collasso su $\ket1$. I due sistemi, che prima risultavano chiaramente diversi sono ora uguali
+davanti agli occhi di un osservatore. Eppure, sorprendentemente, riapplicare H porta a: 
+\begin{center}
+    \begin{align*}
+        H\ket{X} =& H(\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1) \\
+                  =&\frac{1}{\sqrt2}(\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1) + \frac{1}{\sqrt2}(\frac{1}{\sqrt2}\ket0 - \frac{1}{\sqrt2}\ket1) \\
+                  =& 1\ket0 + 0\ket1 =\ket0
+    \end{align*}
+\end{center}
+e
+\begin{center}
+    \begin{align*}
+         H\ket{Y} =& H(\frac{1}{\sqrt2}\ket0 - \frac{1}{\sqrt2}\ket1) \\
+                  =&\frac{1}{\sqrt2}(\frac{1}{\sqrt2}\ket0 - \frac{1}{\sqrt2}\ket1) + \frac{1}{\sqrt2}(\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1) \\
+                  =& 0\ket0 + 1\ket1 =\ket1
+    \end{align*}
+\end{center}
+che è la configurazione iniziale!\\ Durante l'evoluzione del sistema l'informazione non è quindi sempre accessibile in ugual modo bensì
+spesso questa viene mantenuta "nascosta" nell'ampiezza relativa di un componente dello stato: l'unica differenza tra X e Y, che non era misurabile direttamente,
+stava nel segno dell'ampiezza di $\ket1$. In altre parole, l'atto di misurazione comporta la perdita di un bit d'informazione (o $\ket0$ o $\ket1$)  mentre, 
+d'altra parte, riapplicare H e poi misurare consente di ricavare l'intero qubit. Si noti come non sia possibile ricreare lo stesso scenario con un sistema classico,
+i valori dell'osservabile sono infatti sempre ben definiti e accessibili.\\
+Per quanto possa sembrare limitativo, l'effetto esposto è invece centrale nella progettazione di molti algoritmi quantistici, infatti, l'applicazione di H consente di
+operare un cambiamento di base \cite{ref8} sul sistema passando dalla base computazionale* alla base $\{\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1, \frac{1}{\sqrt2}\ket0 - \frac{1}{\sqrt2}\ket1\}$ (detta base di \emph{Fourier}) di
+perfetta sovrapposizione in cui è possibile sfruttare l'informazione portata dalle ampiezze relative per operare calcoli utili utilizzando in questo modo il parallelismo offerto dalla sovrapposizione. I calcoli effettuati,
+si ricordi, non misurabili direttamente, vengono poi "estrapolati" riapplicando H e riportando il sistema nella base computazionale di partenza, seguendo un procedimento analogo a quello appena esposto.
+Questo potenziale computazionale emerge in maniera esponenziale al crescere della dimensione del sistema utilizzato.
+
+\section{Un Sistema a più Qubit}
+Si consideri ora un registro composto da $n$ sistemi classici $\mathcal{B}_c$.\\
+Ogni stato del registro così formato sarà rappresentabile dal vettore di qubit $\ket{\textbf{x}}= \ket{x_1}\ket{x_2}\cdot\cdot\cdot\ket{x_n}$ che per brevità verrà spesso scritto come $\ket{x_1 x_2 \cdot\cdot\cdot x_n}$.
+Dal momento che ogni $\ket{x_i}$ può assumere i valori o $\ket0$ o $\ket1$, in totale, lo spazio degli stati del registro è composto da $\mathbb{D}_{2,n}=2^n$ stati e viene indicato come:
+\begin{equation*}
+    \mathcal{B}_c^{(n)} = \left\{ 
+    \begin{aligned}
+        & \ket0 \ket0 \cdot \cdot \cdot \ket0 \\
+        & \ket0 \ket0 \cdot \cdot \cdot \ket1 \\
+        & ... \\
+        & \ket1 \ket1 \cdot \cdot \cdot \ket0 \\
+        & \ket1 \ket1 \cdot \cdot \cdot \ket1
+    \end{aligned}
+    \right\} = \Big\{\ket{\textbf{x}}=\ket{x_1 x_2 \cdot \cdot \cdot x_n} : \ket{x_i} \in \{0,1\} \Big\}
+\end{equation*}
+. Così come $\mathcal{B}_q$ si sviluppa sopra la base computazionale $\{\ket0, \ket1 \}$, così allo stesso modo è possibile generalizzare un sistema quantistico sopra $\mathcal{B}_c^{(n)}$:
+\[
+    \mathcal{B}_q^{(n)} = \Big\{ \sum\nolimits_{x \in \{0,1\}^{n}} a_x \ket{x} : a_x \in \mathbb{C} \land \sum\nolimits_{x\in\{0,1\}^{n}} {\left\vert{a_x}\right\vert}^2 = 1\Big\}
+\]
+
+il cui spazio degli stati è composto da tutti i possibili vettori complessi di dimensione $2^n$ che hanno norma 1. Per esempio, il seguente stato  
+\[
+    \ket{\psi} = 
+         \kbordermatrix{
+              &    \\
+          00 & \frac{1}{2} \\
+          01 & \frac{1}{2} \\
+          10 & \frac{1}{2} \\
+          11 & \frac{1}{2}   
+            } = \frac{1}{2}\ket{00} + \frac{1}{2}\ket{01} + \frac{1}{2}\ket{10} + \frac{1}{2}\ket{11}
+\] 
+
+appartiene a $\mathcal{B}_q^{(2)}$. Il valori a fianco nella rappresentazione matriciale indicano la componente della base $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ a cui è associato il coefficiente complesso,
+si noti che $\ket{\psi}$ è uno stato di perfetta sovrapposizione.\par
+Il sistema è composto da $n$ osservabili, uno per ogni qubit, le proiezioni ${P^{(i)}_0}$, ${P^{(i)}_1}$ sono formate da tutte le componenti dello stato nelle quali, rispettivamente, l'i-esimo qubit è $\ket0$
+e l'i-esimo qubit è $\ket1$; la probabilità che l'i-esimo qubit venga misurato con valore $\ket{x}$ è calcolata di conseguenza:
+$prob[\ket{\Psi} \mapsto \ket{x_1 x_2 \cdot \cdot x \cdot \cdot x_n}]= \norm{{P^{(i)}_x}}^2$, dove $\ket{\Psi}$ è uno stato generico. Il vettore risultante da una misurazione di un qubit è poi normalizzato analogamente a quanto già esposto per gli altri sistemi.\\
+Supponiamo ad esempio che venga misurato il secondo qubit di $\ket{\psi}$ (per convenzione rispetto alla rappresentazione di Dirac numeriamo i qubits da sinistra a destra) e che il valore osservato sia $\ket1$, allora:
+\[
+    {P^{(2)}_1}(\ket{\psi}) = \frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}  
+\]
+e lo stato $\ket{\psi_1}$ risultante dalla misurazione:
+\begin{center}
+    \begin{align*}
+        \ket{\psi_1} &= \frac{{P^{(2)}_1}(\ket{\psi}) }{ \norm{{P^{(2)}_1}(\ket{\psi})} } = \frac{\frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}}{\sqrt{(\frac{1}{2})^2 + (\frac{1}{2})^2}}\\
+        &= \frac{\frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}}{\sqrt{\frac{1}{2}}} = \frac{1}{\sqrt2}\ket{01} + \frac{1}{\sqrt2}\ket{11}
+    \end{align*}
+\end{center}
+è lo stato in cui il secondo qubit ha valore $\ket1$ con certezza mentre il primo si trova in perfetta sovrapposizione, con il 50\%\ di probailità di misurare o $\ket0$ o $\ket1$, in accordo con la definizione
+di $\ket{\psi}$. In generale, $prob[\ket{\Psi} \mapsto \ket{\textbf{x}}] ={\left\vert{a_x}\right\vert}^2$.\par
+
+\subsubsection{Trasformazioni}
+
+Le trasformazioni che descrivono la dinamica di questo registro sono le unitarie \\U $\in \mathbb{M}^{2^n\times2^n}$.
+In realtà, una qualsiasi trasformazione unitaria che agisca su di un singolo qubit del sistema risulta essere valida in quanto altera lo stato nel suo complesso,
+per convincersi di ciò, si supponga di applicare $NOT$ sul primo qubit di ${\mathcal{B}_c}^{(2)}$:
+\begin{center}
+    \begin{align*}
+        &NOT_1\ket{00} \rightarrow  \ket{10} \\
+        &NOT_1\ket{01} \rightarrow  \ket{11} \\
+        &NOT_1\ket{10} \rightarrow  \ket{00} \\
+        &NOT_1\ket{11} \rightarrow  \ket{01}
+    \end{align*}
+\end{center}
+dove il pedice 1 è stato aggiunto per meglio esplicitare la semantica dell'operazione, come si può notare, questa trasformazione altro non fa che permutare gli elementi
+e, dal momento che ${\mathcal{B}_c}^{(2)}$ è la base su cui è costruito ${\mathcal{B}_q}^{(2)}$, l'azione di $NOT_1$ su di un generico stato:
+\[
+    NOT_1\ket{\Psi} = NOT_1(\sum\nolimits_{x \in \{0,1\}^{n}} a_x \ket{x}) = \sum\nolimits_{x \in \{0,1\}^{n}} a_x NOT_1\ket{x}
+\] 
+ne preserverà la norma. Più in generale, è possibile estendere una trasformazione $T: \mathcal{B}_q \mapsto \mathcal{B}_q$ che agisce su di un singolo qubit
+in una trasformazione $T^{(n)}: {\mathcal{B}_q}^{(n)} \mapsto {\mathcal{B}_q}^{(n)}$ che agisce su un intero registro quantistico.\par
+Le trasformazioni su singoli qubits non sono le uniche trasformazioni ammissibili in un registro ma è possibile effettuare trasformazioni unitarie anche agendo su più qubits contemporaneamente,
+ad esempio, la porta (** aggiungere nota in cui si spiega perchè usiamo il termine porta per definire una trasformazione: parallelo con i circuiti elettrici, che verranno introdotti successivamente **) 
+$C_iNOT_j$ ("controlled-NOT") è la trasformazione che effettua un NOT su l'j-esimo qubit se e solo se l'i-esimo qubit è $\ket1$ altrimenti lascia inalterato lo stato. Applichiamo $C_1NOT_2$ su ${\mathcal{B}_c}^{(2)}$:
+\begin{center}
+    \begin{align*}
+        &C_1NOT_2\ket{00} \rightarrow  \ket{00} \\
+        &C_1NOT_2\ket{01} \rightarrow  \ket{01} \\
+        &C_1NOT_2\ket{10} \rightarrow  \ket{11} \\
+        &C_1NOT_2\ket{11} \rightarrow  \ket{10}
+    \end{align*}
+\end{center}
+ancora, $C_iNOT_j$ è unitaria su ${\mathcal{B}_q}^{(n)}$ perchè effettua una permutazione degli elementi di base. Tale trasformazione verrà ripresa per l'implementazione dell'algoritmo di Deutsch-Jozsa nell'ultimo
+capitolo.
+
+\section{Entanglement}
+Utilizzando le trasformazioni a più qubits come CNOT è possibile rendere il sistema entangled, è cioè possibile creare uno stato che presenti una correlazione tra due o più qubits tale per cui la
+misura dell'osservabile di un singolo qubit non sia più descrivibile indipendentemente dalla misura degli altri con cui è correlato.\\
+Si consideri l'evoluzione di un registro a due qubits partendo dallo stato iniziale:    
+\[
+    \ket{\psi_1}= \ket{00}
+\] 
+applicando $H_1$ si ottiene:
+\[
+    \ket{\psi_2} = H_1\ket{\psi_1} = \frac{ \ket{00} + \ket{10} }{\sqrt2}
+\]
+applicando ora $C_1NOT_2$ passiamo allo stato 
+\[
+    \ket{\psi_3} = C_1NOT_2\ket{\psi_2} = \frac{ \ket{00} + \ket{11} }{\sqrt2}
+\]
+che è entangled, infatti, se misuriamo il primo qubit ottenendo $\ket0$, allora sia avrà che $\ket{\psi_3}$ collasserà nello stato:
+\begin{center}
+    \begin{align*}
+        \ket{\psi_4} &= \frac{{P^{(1)}_0}(\ket{\psi_3}) }{ \norm{{P^{(1)}_0}(\ket{\psi_3})} } = \frac{  \frac{1}{\sqrt2}\ket{00} + 0\ket{01}  }{\sqrt{\frac{1}{2}}}\\*
+        &=1\ket{00} + 0\ket{01} = \ket{00}
+    \end{align*}
+\end{center}
+quindi, la misura del secondo qubit porterà a rilevare il valore $\ket0$ con certezza, inversamente, se la misura avesse riportato $\ket1$ come valore del primo qubit, avremo trovato $\ket1$ anche nel secondo
+sempre con certezza. Si noti che questo comportamento non dipende da come è stato scelto lo stato iniziale, le cui parti sono totalmente arbitrarie (avremmo potuto scegliere un qualsiasi $\ket{\psi_1}$), bensì dalla scelta delle trasformazioni che,
+ponendo il sistema in sovrapposizione, permettono di connettere intrinsecamente i due qubits utilizzando CNOT al punto che uno non può più essere misurato senza determinare in maniera certa
+anche l'altro.\\
+In un certo senso e come se nel preciso istante in cui viene compiuta un'osservazione, il valore calcolato venisse trasmesso \emph{istantaneamente} al secondo qubit entangled il quale si comporta coerentemente
+con il valore trasmesso/osservato. Questa relazione tuttavia non contempla ne mezzi di trasmissione di questa ipotetica informazione, ne distanze tra i due sistemi. Sarebbe quindi possibile, almeno in linea di
+principio, utilizzare l'entanglement per comunicare subitaneamente anche a distanze superiori all'anno luce e ciò, come già anticipato, è in contraddizione con le leggi della relatività generale e con il 
+principio di località su cui è fondata praticamente tutta la fisica non quantistica \cite{ref9}. La correttezza delle previsioni teoriche è stata dimostrata ripetutamente in laboratorio grazie ad una serie
+di esperimenti \cite{ref10} e sono state inoltre proposte, già a partire dal secolo scorso, numerose interpretazioni della meccanica quantistica che giustificherebbero il perchè dell'entanglement \cite{ref11}.
+
+\section{Sfruttare il Parallelismo}
 
 
 
@@ -585,7 +855,7 @@ utilizzando una notazione standard, per esempio:
         \caption{AND Gate}
     
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[h] 
     \centering
         \resizebox{.3\textwidth}{!}{%
           \begin{tikzpicture}
@@ -630,7 +900,11 @@ Si noti come la porta AND accetta due proposizioni in input mentre NOT solo una 
 \vspace{\belowdisplayskip}
 Mettendo in sequenza o in parallelo più porte logiche è possibile esprimere qualsiasi funzione Booleana e, più in generale, qualsiasi funzione calcolabile è rappresentabile mediante
 la composizione di una o più porte logiche. Il modello a circuiti è quindi un modello Turing completo.\\
-\section{Porte Universali}
+
+
+\chapter{L'algoritmo di Deutsch-Jozsa}
+
+\chapter{Implementazione tramite QScript dell'algoritmo di Deutsch-Jozsa}
 
 
 
@@ -643,10 +917,14 @@ la composizione di una o più porte logiche. Il modello a circuiti è quindi un 
     \bibitem{ref1} Higham, N. (1998). \emph{Handbook of writing for the mathematical sciences.} Philadelphia: SIAM, Soc. for Industrial and Applied Mathematics.
     \bibitem{ref2} Encyclopediaofmath.org. (2017). \emph{Boolean function - Encyclopedia of Mathematics.} [online] 
     \bibitem{ref3} Crama, Y. and Hammer, P. (2011). \emph{Boolean Functions Theory, Algorithms and Applications}. 1st ed. Cambridge University Press, p.4.
-    \bibitem{ref4} Dobbertin, Hans. \emph{Construction of bent functions and balanced Boolean functions with high nonlinearity.} International Workshop on Fast Software Encryption. Springer, Berlin, Heidelberg, 1994.
-    \bibitem{ref5} Logachev, O. A. \emph{On Perfectly Balanced Boolean Functions.} IACR Cryptology ePrint Archive 2007 (2007): 22.
-    \bibitem{ref6} Feynmann, R.P. \emph{Simulating physics with computers.} International Journal of Theoretical Physics, 21(6/7):467-488 1982.
-    \bibitem{ref7} Benioff, P. \emph{Quantum mechanical models of Turing machines that dissipate no energy.} Physical Reviews Letterers, 48(23):1581-1585, 1982.
+    \bibitem{ref4} Dobbertin, Hans. (1994).\emph{Construction of bent functions and balanced Boolean functions with high nonlinearity.} International Workshop on Fast Software Encryption. Springer, Berlin, Heidelberg, 1994.
+    \bibitem{ref5} Logachev, O. A. (2007).\emph{On Perfectly Balanced Boolean Functions.} IACR Cryptology ePrint Archive 2007 : 22.
+    \bibitem{ref6} Feynmann, R.P. (1982).\emph{Simulating physics with computers.} International Journal of Theoretical Physics, 21(6/7):467-488 1982.
+    \bibitem{ref7} Benioff, P. (1982).\emph{Quantum mechanical models of Turing machines that dissipate no energy.} Physical Reviews Letterers, 48(23):1581-1585, 1982.
+    \bibitem{ref8} Yanofsky, N. and Mannucci, M. (2013). \emph{Quantum computing for computer scientists}. New York: Cambridge University Press, p.57.
+    \bibitem{ref9} Einstein A., Podolsky B., Rosen N. (1935). \emph{Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?}. Phys. Rev. 47 (10): 777–780. 
+    \bibitem{ref10} Hensen, B., Bernien, H., Dréau, A., Reiserer, A., Kalb, N., Blok, M., Ruitenberg, J., Vermeulen, R., Schouten, R., Abellán, C., Amaya, W., Pruneri, V., Mitchell, M., Markham, M., Twitchen, D., Elkouss, D., Wehner, S., Taminiau, T. and Hanson, R. (2015). \emph{Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres.} Nature, 526(7575), pp.682-686.
+    \bibitem{ref11} Schlosshauer, Maximilian; Kofler, Johannes; Zeilinger, Anton (2013). \emph{A Snapshot of Foundational Attitudes Toward Quantum Mechanics.} Studies in History and Philosophy of Science Part B: Studies in History and Philosophy of Modern Physics. 44 (3): 222–230
 \end{thebibliography}
 \end{document}
 

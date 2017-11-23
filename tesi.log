@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  18 NOV 2017 20:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  23 NOV 2017 20:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1075,30 +1075,30 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./tesi.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./tesi.toc [1
+
+
+
+])
 \tf@toc=\write5
 \openout5 = `tesi.toc'.
 
- [1
 
-
-
-]
-Capitolo 1.
-[2
-
-]
-Capitolo 2.
-[3
-
-]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4] [5] [6]
+[2]
+Capitolo 1.
+[3
+
+]
+Capitolo 2.
+[4
+
+] [5] [6] [7]
 Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
@@ -1115,83 +1115,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
-[7]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 267--269
 
  []
 
-[8] [9]
+[9] [10]
 Overfull \hbox (20.81085pt too wide) in paragraph at lines 308--308
 [] 
  []
 
-<computedFBBtrueTable.png, id=57, 505.89pt x 959.585pt>
+<computedFBBtrueTable.png, id=60, 505.89pt x 959.585pt>
 File: computedFBBtrueTable.png Graphic file (type png)
 
 <use computedFBBtrueTable.png>
 Package pdftex.def Info: computedFBBtrueTable.png used on input line 314.
 (pdftex.def)             Requested size: 225.00069pt x 372.72852pt.
- [10 <./computedFBBtrueTable.png>]
+ [11 <./computedFBBtrueTable.png>]
 Capitolo 3.
-[11
+[12
 
-] [12] <double-slit-electrons1.jpg, id=69, 144.54pt x 148.8762pt>
+] [13] <double-slit-electrons1.jpg, id=72, 144.54pt x 148.8762pt>
 File: double-slit-electrons1.jpg Graphic file (type jpg)
 
 <use double-slit-electrons1.jpg>
 Package pdftex.def Info: double-slit-electrons1.jpg used on input line 377.
 (pdftex.def)             Requested size: 225.0pt x 231.76207pt.
- [13] [14 <./double-slit-electrons1.jpg>]
-[15] [16] [17] [18] [19] [20]
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[14] [15 <./double-slit-electrons1.jpg>] [16] [17] [18] [19] [20] [21] [22]
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--605
+Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
+ Make it at least 15.71667pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23] [24] [25] [26] [27] [28] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 873--875
 
  []
 
 
-Overfull \hbox (20.2359pt too wide) in paragraph at lines 607--629
+Overfull \hbox (20.2359pt too wide) in paragraph at lines 877--899
 []$[]$ $[]$ 
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 631--633
+
+Underfull \hbox (badness 10000) in paragraph at lines 901--903
 
  []
 
-[22] [23
+[31]
+Capitolo 4.
+[32
 
-] (./tesi.aux) ) 
+]
+Capitolo 5.
+[33
+
+] [34
+
+] [35] (./tesi.aux) ) 
 Here is how much of TeX's memory you used:
- 19789 strings out of 493029
- 360567 string characters out of 6136234
- 461424 words of memory out of 5000000
- 22915 multiletter control sequences out of 15000+600000
- 17366 words of font info for 69 fonts, out of 8000000 for 9000
+ 19801 strings out of 493029
+ 360663 string characters out of 6136234
+ 463442 words of memory out of 5000000
+ 22925 multiletter control sequences out of 15000+600000
+ 17987 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,55p,1505b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tesi.pdf (25 pages, 269566 bytes).
+ 55i,14n,55p,1505b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on tesi.pdf (37 pages, 302538 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 200 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
