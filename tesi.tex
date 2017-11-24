@@ -36,6 +36,8 @@
 \pagestyle{fancy}\addtolength{\headwidth}{30pt}
 \rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
 \cfoot{}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \linespread{1.3}                        %comando per impostare l'interlinea
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%definisce nuovi comandi
@@ -43,7 +45,7 @@
 \textwidth=450pt\oddsidemargin=0pt
 \begin{document}
 \begin{titlepage}
-\begin{center}
+\begin{center}  
 {{\Large{\textsc{Alma Mater Studiorum $\cdot$ Universit\`a di
 Bologna}}}} \rule[0.1cm]{15.8cm}{0.1mm}
 \rule[0.5cm]{15.8cm}{0.6mm}
@@ -330,7 +332,7 @@ gettandone le basi teoriche: nel 1982, Paul Benioff, nell'articolo "Quantum mech
 dimostrò come un sistema basato sulla meccanica quantistica avrebbe potuto modellare una macchina di Turing (MdT) senza dissipare energia (il concetto della conservazione dell'energia 
 verrà ripreso e chiarito in seguito). In altre parole, questi dimostrò come la meccanica quantistica fosse sufficiente ad esprimere il più
 famoso dei modelli tradizionali di calcolo, ma poteva fare addirittura di meglio? \\
-All'incirca nello stesso momento il fisico David Deutsch rispose a tale quesito introducendo prima la controparte quantica della MdT universale (QMdTU)
+All'incirca nello stesso momento il fisico David Deutsch rispose a tale quesito \cite{ref12} introducendo prima la controparte quantica della MdT universale (QMdTU)
 e poi dimostrando che la QMdTU riusciva a compiere operazioni al di fuori della portata della MdTU, come generare in maniera genuina numeri random,
 performare calcoli paralleli su di un unico registro e simulare perfettamente in tempo polinomiale sistemi fisici a stati di dimensione finita, confermando così
 la visionaria congettura che Feynmann aveva sollevato solo pochi anni prima.  
@@ -825,6 +827,79 @@ di esperimenti \cite{ref10} e sono state inoltre proposte, già a partire dal se
 
 \section{Sfruttare il Parallelismo}
 
+Il parallelismo, nel calcolo quantistico, emerge con la sovrapposizione. Come già visto nella sezione sui sistemi a più qubits, sia T una qualsiasi trasformazione unitaria che agisce sulla base ${\mathcal{B}_c}^{(n)}$
+allora, l'applicazione di T su di uno stato $\ket{\Psi}\in{{\mathcal{B}_q}^{(n)}}$ avrà la forma:
+
+\[
+    T\ket{\Psi} = T(\sum\nolimits_{x \in {\mathcal{B}_c}^{(n)}} a_x \ket{x}) = \sum\nolimits_{x \in {\mathcal{B}_c}^{(n)}} a_x T\ket{x}
+\]
+T agisce quindi contemporaneamente su tutti i $2^n$ stati $\ket{x}\in{{\mathcal{B}_q}^{(n)}}$.
+
+\par
+
+Sappiamo però che una misura comporta il collasso inevitabile del registro in una specifica configurazione con probabilità ${\left\vert{a_x}\right\vert}^2$; a primo impatto sembrerebbe dunque che il parallelismo
+sia solo una prerogativa di quel noumeno imponderabile che è la sovrapposizione, della quale non si può avere un quadro deterministico rendendo quindi apparentemente impossibile ricavarne vantaggi computazionali.
+Scopo di questa sezione, e in particolare della tesi in generale da questo punto in poi, è mostrare che non è così. L'utilizzo di particolari stati di partenza uniti a cambi di base appropriati permettono infatti
+la progettazione di algoritmi quantistici in grado di risolvere svariate tipologie di problemi con efficienza maggiore rispetto agli equivalenti algoritmi classici.\\
+Viene qui di seguito proposta una procedura che, per una generica funzione Booleana $f:\{0,1\} \mapsto \{0,1\}$, permette di calcolare $f(0)$ e $f(1)$ contemporaneamente applicando $f$ una volta sola.\par
+Per quanto dimostrato da Deutsch \cite{ref12}, il potere espressivo del calcolo quantistico è almeno equivalente a quello di un qualsiasi formalismo classico, è quindi possibile affermare che, per ogni funzione
+$g$ calcolabile esiste una corrispettiva procedura $U_g$ che la calcola. $U_g$ avrà la forma:
+
+\[
+    U_g\ket{x,y} = \ket{x, y\xor g(x)}
+\]
+dove $\ket{y}$ è un qubit ausiliare che permette di rispettare il vincolo di reversibiltà: $U_g\ket{x, y \xor g(x)} = \ket{x, (y\xor g(x)) \xor g(x)} = \ket{x, y}$ .
+
+Per motivi di chiarezza espositiva e per rimanere fedeli all'approccio didattico utilizzato in letteratura per l'esposizione di questi argomenti affianchiamo al modello di calcolo fino a qui utilizzato il modello
+a circuiti. Il modello a circuiti è un'astrazione grafica di una procedura di calcolo che utilizza la metafora di un circuito elettronico, ogni trasformazione è raffigurata da una porta 
+(detta logica nel caso classico e quantistica altrimenti) e l'evoluzione è da leggersi da sinistra verso destra. Come semplice esempio consideriamo il circuito formato dalla porta NOT:
+
+\begin{figure}[h] 
+    \centering
+        \resizebox{.3\textwidth}{!}{%
+          \begin{tikzpicture}
+            \node (x) at (0, 1) {$\ket{x}$};
+            \node (y) at (2.2, 1) {$\ket{1-x}$};
+
+            \node[not gate US, draw] at ($(x) + (0.8, 0)$) (notx) {};
+            
+            \draw (x) -- (notx.input);
+            \draw (notx.output) -- (y);
+          \end{tikzpicture}
+        }
+        \caption{porta NOT}
+\end{figure}
+che equivale NOT$\ketx$. Oppure il circuito che implementa $U_g$ sarà:
+
+\[
+    \Qcircuit @C=3em @R=2.1em {
+        \lstick{\ket{\text{x}}} & \multigate{1}{U\ped{g}} & \rstick{\ket{\text{x}}} \qw \\
+        \lstick{\ket{y}} & \ghost{U\ped{g}} & \rstick{\ket{g(\text{x}) \xor y}} \qw
+    }
+\]
+
+In questo caso $U_g$ viene anche detto "oracolo" ad indicare una porta di cui non si conosce la struttura interna ma solo il mapping input e output.
+Si ritorni allora al problema inizialmente sollevato riscrivendolo usando la terminologia introdotta:\\
+vogliamo calcolare di una funzione $f:\mathcal{B}\mapsto \mathcal{B}$ se $f(0)$ = $f(1)$ valutando $U_f$ una sola volta. È evidente che per risolvere classicamente il problema non si può evitare di calcolare
+$f$ due volte. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposizione, come e quale sia la successione di trasformazioni che permette di risolvere il problema 
+è però la vera difficoltà che si incontra nella progettazione di qualsivoglia algoritmo quantistico, procediamo allora per tentativi al fine di indirizzarci verso la soluzione corretta.
+Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. Sia $\ket{00}$ lo stato iniziale scelto arbitrariamente e il 
+circuito risultante:
+
+\[
+        \Qcircuit @C=2em @R=2.1em {
+            \lstick{\ket{\text{0}}} & \gate{H}  & \multigate{1}{U\ped{f}} & \rstick{\ket{x}} \qw \\
+            \lstick{\ket{0}} & \qw &  \ghost{U\ped{f}} & \rstick{\ket{f(x) \xor 0}} \qw
+        }
+\]
+Per verificare se questo algoritmo (un circuito individua un algoritmo) sia sufficiente a risolvere il problema, calcoliamo l'evoluzione della computazione tramite 
+$\ket{\psi_i}$ che descrive lo stato in cui si trova il registro dopo ogni operazione:
+
+\begin{center}
+    \begin{align*}
+        asdas
+    \end{align*}
+\end{center}
 
 
 \section{Circuiti Booleani}
@@ -848,7 +923,7 @@ utilizzando una notazione standard, per esempio:
 
             \draw (x) --  (xandy.input 1);
             \draw (y) -- (xandy.input 2);                
-            \draw (xandy.output) -- node[above]{$x *  y$} ($(xandy) + (1.5, 0)$);
+            \draw (xandy.output) -- node[right]{$x *  y$} ($(xandy) + (1.0, 0)$);
             \vspace{-20pt}
         \end{tikzpicture}
         }
@@ -900,6 +975,7 @@ Si noti come la porta AND accetta due proposizioni in input mentre NOT solo una 
 \vspace{\belowdisplayskip}
 Mettendo in sequenza o in parallelo più porte logiche è possibile esprimere qualsiasi funzione Booleana e, più in generale, qualsiasi funzione calcolabile è rappresentabile mediante
 la composizione di una o più porte logiche. Il modello a circuiti è quindi un modello Turing completo.\\
+Si vuole calcolare 
 
 
 \chapter{L'algoritmo di Deutsch-Jozsa}
@@ -925,6 +1001,7 @@ la composizione di una o più porte logiche. Il modello a circuiti è quindi un 
     \bibitem{ref9} Einstein A., Podolsky B., Rosen N. (1935). \emph{Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?}. Phys. Rev. 47 (10): 777–780. 
     \bibitem{ref10} Hensen, B., Bernien, H., Dréau, A., Reiserer, A., Kalb, N., Blok, M., Ruitenberg, J., Vermeulen, R., Schouten, R., Abellán, C., Amaya, W., Pruneri, V., Mitchell, M., Markham, M., Twitchen, D., Elkouss, D., Wehner, S., Taminiau, T. and Hanson, R. (2015). \emph{Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres.} Nature, 526(7575), pp.682-686.
     \bibitem{ref11} Schlosshauer, Maximilian; Kofler, Johannes; Zeilinger, Anton (2013). \emph{A Snapshot of Foundational Attitudes Toward Quantum Mechanics.} Studies in History and Philosophy of Science Part B: Studies in History and Philosophy of Modern Physics. 44 (3): 222–230
+    \bibitem{ref12} Deutsch, David (July 1985). \emph{Quantum theory, the Church-Turing principle and the universal quantum computer.} Proceedings of the Royal Society A. 400 (1818): 97–117
 \end{thebibliography}
 \end{document}
 

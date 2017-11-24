@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  23 NOV 2017 20:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  25 NOV 2017 00:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -973,20 +973,20 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
  (./tesi.aux)
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Info: Redefining \it@ocap on input line 44.
-LaTeX Info: Redefining \it@ccap on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Info: Redefining \it@ocap on input line 46.
+LaTeX Info: Redefining \it@ccap on input line 46.
 
 
 File italian.ldf warning: 
@@ -994,23 +994,23 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 44.
+italian.ldf    on input line 46.
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 44.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 46.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 46.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 46.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 44.
+Package xypdf Info: Line width: 0.47998pt on input line 46.
 \c@lstlisting=\count147
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -1099,29 +1099,29 @@ Capitolo 2.
 [4
 
 ] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 237.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 239.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 237.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 239.
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 267--269
+Underfull \hbox (badness 10000) in paragraph at lines 269--271
 
  []
 
 [9] [10]
-Overfull \hbox (20.81085pt too wide) in paragraph at lines 308--308
+Overfull \hbox (20.81085pt too wide) in paragraph at lines 310--310
 [] 
  []
 
@@ -1129,7 +1129,7 @@ Overfull \hbox (20.81085pt too wide) in paragraph at lines 308--308
 File: computedFBBtrueTable.png Graphic file (type png)
 
 <use computedFBBtrueTable.png>
-Package pdftex.def Info: computedFBBtrueTable.png used on input line 314.
+Package pdftex.def Info: computedFBBtrueTable.png used on input line 316.
 (pdftex.def)             Requested size: 225.00069pt x 372.72852pt.
  [11 <./computedFBBtrueTable.png>]
 Capitolo 3.
@@ -1139,7 +1139,7 @@ Capitolo 3.
 File: double-slit-electrons1.jpg Graphic file (type jpg)
 
 <use double-slit-electrons1.jpg>
-Package pdftex.def Info: double-slit-electrons1.jpg used on input line 377.
+Package pdftex.def Info: double-slit-electrons1.jpg used on input line 379.
 (pdftex.def)             Requested size: 225.0pt x 231.76207pt.
 
 
@@ -1153,39 +1153,53 @@ Package Fancyhdr Warning: \headheight is too small (14.49998pt):
  This may cause the page layout to be inconsistent, however.
 
 [23] [24] [25] [26] [27] [28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 873--875
+Overfull \hbox (38.1088pt too wide) in paragraph at lines 850--852
+\OT1/cmr/m/n/12 dove $[]$ ^^Re un qu-bit au-si-lia-re che per-met-te di ri-spet
+-ta-re il vin-co-lo di re-ver-si-bilt^^Ra: $\OML/cmm/m/it/12 U[] [] \OT1/cmr/m/
+n/12 =
+ []
+
+/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Al
+gorithm/tesi.tex:872: Undefined control sequence.
+<recently read> \ketx 
+                      
+l.872 che equivale NOT$\ketx
+                            $. Oppure il circuito che implementa $U_g$ sarà:
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[31] <xymatrix 3x2 242> <xymatrix 4x2 379> [32]
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
 
  []
 
 
-Overfull \hbox (20.2359pt too wide) in paragraph at lines 877--899
+Overfull \hbox (20.2359pt too wide) in paragraph at lines 952--974
 []$[]$ $[]$ 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 901--903
-
- []
-
-[31]
+[33] [34]
 Capitolo 4.
-[32
+[35
 
 ]
 Capitolo 5.
-[33
+[36
 
-] [34
+] [37
 
-] [35] (./tesi.aux) ) 
+] [38] (./tesi.aux) ) 
 Here is how much of TeX's memory you used:
- 19801 strings out of 493029
- 360663 string characters out of 6136234
- 463442 words of memory out of 5000000
- 22925 multiletter control sequences out of 15000+600000
+ 19827 strings out of 493029
+ 360796 string characters out of 6136234
+ 463446 words of memory out of 5000000
+ 22951 multiletter control sequences out of 15000+600000
  17987 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,14n,55p,1505b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,15n,55p,1505b,755s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.
@@ -1202,10 +1216,10 @@ s/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tesi.pdf (37 pages, 302538 bytes).
+Output written on tesi.pdf (40 pages, 310534 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

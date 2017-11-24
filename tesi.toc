@@ -31,7 +31,7 @@
 \contentsline {subsubsection}{Trasformazioni}{28}
 \contentsline {section}{\numberline {3.6}Entanglement}{29}
 \contentsline {section}{\numberline {3.7}Sfruttare il Parallelismo}{30}
-\contentsline {section}{\numberline {3.8}Circuiti Booleani}{30}
-\contentsline {chapter}{\numberline {4}L'algoritmo di Deutsch-Jozsa}{32}
-\contentsline {chapter}{\numberline {5}Implementazione tramite QScript dell'algoritmo di Deutsch-Jozsa}{33}
-\contentsline {chapter}{Bibliografia}{34}
+\contentsline {section}{\numberline {3.8}Circuiti Booleani}{33}
+\contentsline {chapter}{\numberline {4}L'algoritmo di Deutsch-Jozsa}{35}
+\contentsline {chapter}{\numberline {5}Implementazione tramite QScript dell'algoritmo di Deutsch-Jozsa}{36}
+\contentsline {chapter}{Bibliografia}{37}
