@@ -21,17 +21,16 @@
 \contentsline {subsubsection}{Bit probabilistico}{18}
 \contentsline {subsubsection}{Stati e Osservazioni}{19}
 \contentsline {subsubsection}{Trasformazioni}{19}
-\contentsline {subsection}{\numberline {3.2.3}Il Reame Quantico}{21}
-\contentsline {subsubsection}{Il Qubit}{21}
+\contentsline {subsection}{\numberline {3.2.3}Il Reame Quantico}{20}
+\contentsline {subsubsection}{Il Qubit}{20}
 \contentsline {subsubsection}{Stati e Osservazioni}{21}
-\contentsline {subsubsection}{Trasformazioni}{22}
+\contentsline {subsubsection}{Trasformazioni}{21}
 \contentsline {section}{\numberline {3.3}Reversibilit\IeC {\`a}}{23}
-\contentsline {section}{\numberline {3.4}Un Esempio Quantistico}{24}
+\contentsline {section}{\numberline {3.4}Un Esempio Quantistico}{25}
 \contentsline {section}{\numberline {3.5}Un Sistema a pi\IeC {\`u} Qubit}{26}
 \contentsline {subsubsection}{Trasformazioni}{28}
 \contentsline {section}{\numberline {3.6}Entanglement}{29}
-\contentsline {section}{\numberline {3.7}Sfruttare il Parallelismo}{30}
-\contentsline {section}{\numberline {3.8}Circuiti Booleani}{33}
-\contentsline {chapter}{\numberline {4}L'algoritmo di Deutsch-Jozsa}{35}
-\contentsline {chapter}{\numberline {5}Implementazione tramite QScript dell'algoritmo di Deutsch-Jozsa}{36}
-\contentsline {chapter}{Bibliografia}{37}
+\contentsline {section}{\numberline {3.7}Sfruttare il Parallelismo}{31}
+\contentsline {chapter}{\numberline {4}L'Algoritmo di Deutsch-Jozsa}{37}
+\contentsline {chapter}{\numberline {5}Implementazione di Deutsch-Jozsa tramite QScript}{38}
+\contentsline {chapter}{Bibliografia}{39}
