@@ -32,7 +32,7 @@
 \newtheorem{mydef}{Definizione}[chapter]
 \newtheorem{mylem}{Lemma}
 \newtheorem*{mycor}{Corollario}
-\newtheorem{mythm}{Teorema}
+\newtheorem{mythm}{Teorema}[chapter]
 \pagestyle{fancy}\addtolength{\headwidth}{30pt}
 \rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
 \cfoot{}
@@ -729,12 +729,12 @@ Dal momento che ogni $\ket{x_i}$ può assumere i valori o $\ket0$ o $\ket1$, in 
     \end{aligned}
     \right\} = \Big\{\ket{\textbf{x}}=\ket{x_1 x_2 \cdot \cdot \cdot x_n} : \ket{x_i} \in \{0,1\} \Big\}
 \end{equation*}
-. Così come $\mathcal{B}_q$ si sviluppa sopra la base computazionale $\{\ket0, \ket1 \}$, così allo stesso modo è possibile generalizzare un sistema quantistico sopra $\mathcal{B}_c^{(n)}$:
+\footnote{Nello specifico $\mathcal{B}_c^{(n)}$ è data dal prodotto tensoriale $\mathcal{B}_c \otimes \mathcal{B}_c \otimes \cdot\cdot\cdot \otimes \mathcal{B}_c$ di $n$ basi computazionali }. Così come $\mathcal{B}_q$ si sviluppa sopra la base computazionale $\{\ket0, \ket1 \}= \mathcal{B}_c$, così allo stesso modo è possibile generalizzare un sistema quantistico sopra $\mathcal{B}_c^{(n)}$:
 \[
     \mathcal{B}_q^{(n)} = \Big\{ \sum\nolimits_{x \in \{0,1\}^{n}} a_x \ket{x} : a_x \in \mathbb{C} \land \sum\nolimits_{x\in\{0,1\}^{n}} {\left\vert{a_x}\right\vert}^2 = 1\Big\}
 \]
 
-il cui spazio degli stati è composto da tutti i possibili vettori complessi di dimensione $2^n$ che hanno norma 1. Per esempio, il seguente stato  
+il cui spazio degli stati è composto da tutti i possibili vettori complessi di dimensione $2^n$ che hanno norma 1. Un sistema a $n$ qubit può trovarsi in una sovrapposizine di $2^n$ valori differenti, per esempio, il seguente stato  
 \[
     \ket{\psi} = 
          \kbordermatrix{
@@ -746,10 +746,10 @@ il cui spazio degli stati è composto da tutti i possibili vettori complessi di 
             } = \frac{1}{2}\ket{00} + \frac{1}{2}\ket{01} + \frac{1}{2}\ket{10} + \frac{1}{2}\ket{11}
 \] 
 
-appartiene a $\mathcal{B}_q^{(2)}$. Il valori a fianco nella rappresentazione matriciale indicano la componente della base $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ a cui è associato il coefficiente complesso,
+appartiene a $\mathcal{B}_q^{(2)}$. I numeri a fianco nella rappresentazione matriciale indicano la componente della base $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ a cui è associato il coefficiente complesso,
 si noti che $\ket{\psi}$ è uno stato di perfetta sovrapposizione.\par
 Il sistema è composto da $n$ osservabili, uno per ogni qubit, le proiezioni ${P^{(i)}_0}$, ${P^{(i)}_1}$ sono formate da tutte le componenti dello stato nelle quali, rispettivamente, l'i-esimo qubit è $\ket0$
-e l'i-esimo qubit è $\ket1$; la probabilità che l'i-esimo qubit venga misurato con valore $\ket{x}$ è calcolata di conseguenza:
+e l'i-esimo qubit è $\ket1$; la probabilità che l'i-esimo qubit venga misurato con valore $\ket{\textbf{x}}$ è calcolata di conseguenza:
 $prob[\ket{\Psi} \mapsto \ket{x_1 x_2 \cdot \cdot x \cdot \cdot x_n}]= \norm{{P^{(i)}_x}}^2$, dove $\ket{\Psi}$ è uno stato generico. Il vettore risultante da una misurazione di un qubit è poi normalizzato analogamente a quanto già esposto per gli altri sistemi.\\
 Supponiamo ad esempio che venga misurato il secondo qubit di $\ket{\psi}$ (per convenzione rispetto alla rappresentazione di Dirac numeriamo i qubits da sinistra a destra) e che il valore osservato sia $\ket1$, allora:
 \[
@@ -800,8 +800,8 @@ ancora, $C_iNOT_j$ è unitaria su ${\mathcal{B}_q}^{(n)}$ perchè effettua una p
 capitolo.
 
 \section{Entanglement}
-Utilizzando le trasformazioni a più qubits come CNOT è possibile rendere il sistema entangled, è cioè possibile creare uno stato che presenti una correlazione tra due o più qubits tale per cui la
-misura dell'osservabile di un singolo qubit non sia più descrivibile indipendentemente dalla misura degli altri con cui è correlato.\\
+Utilizzando le trasformazioni a più qubits come CNOT è possibile rendere il sistema entangled, è cioè possibile giungere in uno stato che non sia più esprimibile come composizione dei suoi sottosistemi.
+In questa situazione, le componenti sono intrinsecamente connesse e non possono essere descritte indipendentemente.\\
 Si consideri l'evoluzione di un registro a due qubits partendo dallo stato iniziale:    
 \[
     \ket{\psi_1}= \ket{00}
@@ -822,10 +822,21 @@ che è entangled, infatti, se misuriamo il primo qubit ottenendo $\ket0$, allora
     \end{align*}
 \end{center}
 quindi, la misura del secondo qubit porterà a rilevare il valore $\ket0$ con certezza, inversamente, se la misura avesse riportato $\ket1$ come valore del primo qubit, avremo trovato $\ket1$ anche nel secondo
-sempre con certezza. Si noti che questo comportamento non dipende da come è stato scelto lo stato iniziale, le cui parti sono totalmente arbitrarie (avremmo potuto scegliere un qualsiasi $\ket{\psi_1}$), bensì dalla scelta delle trasformazioni che,
-ponendo il sistema in sovrapposizione, permettono di connettere intrinsecamente i due qubits utilizzando CNOT al punto che uno non può più essere misurato senza determinare in maniera certa
-anche l'altro.\\
-In un certo senso e come se nel preciso istante in cui viene compiuta un'osservazione, il valore calcolato venisse trasmesso \emph{istantaneamente} al secondo qubit entangled il quale si comporta coerentemente
+sempre con certezza. Da un punto di vista formale, un sistema si dice entangled se non può essere espresso come prodotto tensoriale delle sue componenti, nel caso di un sistema a due qubit, una generica composizione
+ha la forma:
+    \[
+        (c_0\ket{x_0} + c_1\ket{x_1}) \otimes (c^{\prime}_0\ket{y_0} + c^{\prime}_1\ket{y_1}) = c_0c^{\prime}_0\ket{x_0}\ket{y_0} + c_0c^{\prime}_1\ket{x_0}\ket{y_1} + c_1c^{\prime}_0\ket{x_1}\ket{y_0} + c_1c^{\prime}_1\ket{x_1}\ket{y_1}
+    \]
+Il problema, sostituendo per $\ket{\psi_3}$, consiste nel risolvere il seguente sistema di equazioni:
+\[\begin{cases} 
+    c_0c^{\prime}_0 = \frac{1}{\sqrt2} \\ 
+    c_0c^{\prime}_1 = 0\\ 
+    c_1c^{\prime}_0 = 0\\
+    c_1c^{\prime}_1 = \frac{1}{\sqrt2}
+\end{cases}
+\]  
+che chiaramente non ha soluzioni. Lo stato $\ket{\psi_3}$ non può essere riscritto come prodotto tensoriale degli stati base che sono quindi ora inseparabili.
+Ritornando al significato fisico: in un certo senso, è come se nel preciso istante in cui viene compiuta un'osservazione, il valore calcolato venisse trasmesso \emph{istantaneamente} al secondo qubit entangled il quale si comporta coerentemente
 con il valore trasmesso/osservato. Questa relazione tuttavia non contempla ne mezzi di trasmissione di questa ipotetica informazione, ne distanze tra i due sistemi. Sarebbe quindi possibile, almeno in linea di
 principio, utilizzare l'entanglement per comunicare subitaneamente anche a distanze superiori all'anno luce e ciò, come già anticipato, è in contraddizione con le leggi della relatività generale e con il 
 principio di località su cui è fondata praticamente tutta la fisica non quantistica \cite{ref9}. La correttezza delle previsioni teoriche è stata dimostrata ripetutamente in laboratorio grazie ad una serie
@@ -886,10 +897,10 @@ La semantica di questi diagrammi coincide con la semantica delle relative trasfo
 In questo caso $U_g$ viene anche detto "oracolo" ad indicare una porta di cui non si conosce la struttura interna ma solo il mapping input e output.
 \par Si ritorni allora al problema inizialmente sollevato riscrivendolo usando la terminologia introdotta:
 vogliamo calcolare di una funzione $f:\mathcal{B}\mapsto \mathcal{B}$ se $f(0)$ = $f(1)$ valutando $U_f$ una sola volta. È evidente che per risolvere classicamente il problema è necessario calcolare
-$f$ due volte, per entrambi gli input. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposi zione, come e quale sia però la successione di trasformazioni che permette di risolvere il problema 
+$f$ due volte, una per entrambi gli input. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposi zione, come e quale sia però la successione di trasformazioni che permette di risolvere il problema 
 è il vero ostacolo che si incontra nella progettazione di qualsivoglia algoritmo quantistico, procediamo allora per tentativi al fine di indirizzarci verso la soluzione corretta.
-Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. Sia $\ket{\psi_1}= \ket{00}$ lo stato iniziale scelto arbitrariamente e il 
-circuito risultante:
+Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. \\Sia $\ket{\psi_1}= \ket{00}$ lo stato iniziale scelto arbitrariamente e 
+
 
 \[
         \Qcircuit @C=4em @R=3em {
@@ -897,8 +908,8 @@ circuito risultante:
             \lstick{\ket{0}} & \qw &  \ghost{U\ped{f}} & \rstick{\ket{f(x) \xor 0}} \qw
         }
 \]
-. Per verificare se questo algoritmo (un circuito individua un algoritmo) sia sufficiente a risolvere il problema, calcoliamo l'evoluzione della computazione tramite 
-$\ket{\psi_i}$ che descrive lo stato in cui si trova il registro dopo l'i-esima operazione, cominciamo quindi con l'applicare $H_1$, si avrà:
+il circuito relativo. Per verificare se questo algoritmo (un circuito individua un algoritmo) sia sufficiente a risolvere il problema, monitoriamo l'evoluzione della computazione tramite 
+$\ket{\psi_i}$ che descrive lo stato in cui si trova il registro dopo l'i-esima operazione. Cominciamo con l'applicare $H_1$, si avrà:
 
 \begin{center}
     \begin{align*}
@@ -968,7 +979,7 @@ permette di giungere alla soluzione cercata. Lasciamo inalterato il valore inizi
                                                                                                                                     &= \frac{1}{2}[\ket{0} (\ket{0} - \ket{1}) + \ket{1}(\ket{0} - \ket{1})] 
     \end{align*}
 \end{center}
-una volta raggiunto uno stato di completa sovrapposizione degli osservabili e tenendo in mente il risultato del tentativo precedente, l'applicazoine di $U_f$ porterà a:
+. Una volta raggiunto uno stato di completa sovrapposizione degli osservabili e tenendo in mente il risultato del tentativo precedente, l'applicazoine di $U_f$ porterà a:
 \[
     \ket{\psi_4} = U_f\ket{\psi_3} = \frac{1}{2}[(-1)^{f(0)}\ket{0} (\ket{0} - \ket{1}) + (-1)^{f(1)}\ket{1}(\ket{0} - \ket{1})] 
 \]
@@ -977,7 +988,7 @@ il secondo qubit resta invariato, si può quindi semplificare
     \ket{\psi_4} = \frac{1}{2}[ [ (-1)^{f(0)}\ket{0} + (-1)^{f(1)}\ket{1} ] [ (\ket{0} - \ket{1}) ]
 \]
 
-\noindent a questo punto è possibile dimenticarsi del secondo qubit non dipendendo da $f$ e normalizzare quindi lo stato andando poi a semplificare ulteriormente
+\noindent a questo punto è possibile dimenticarsi del secondo qubit non dipendendo da $f$ e normalizzare lo stato. Andando poi a semplificare ulteriormente
 \[
    \ket{\psi_4}_1 = \frac{1}{\sqrt2}[(-1)^{f(0)}(\ket0 + (-1)^{f(1) \xor f(0)}\ket{1} )]
 \]
@@ -990,7 +1001,7 @@ finalmente $f(1)$ e $ f(0)$ sono in relazione diretta. In particolare, si noti c
         \pm [\frac{\ket0 - \ket1}{\sqrt2}] & \text{altrimenti}
     \end{cases}
  \]
- Si noti come in realtà i segni $\pm$ individuano ogni possibile funzione $f:\mathcal{B}\mapsto \mathcal{B}$ e non solo la proprietà di essere costante. (** come visto nel primo capitolo sono $2^{(2^1)}=4$ funzioni di cui 2 costanti e 2 no Ad esempio la  $f^{'}$ costante a 0 è rappresentata da $ \ket{\psi_4^{'}}_1 = + \frac{\ket0 + \ket1}{\sqrt2}$ essendo $(-1)^{f^{'}(0)} = +1$.**)
+ Si noti come in realtà i segni $\pm$ individuano ogni possibile funzione $f:\mathcal{B}\mapsto \mathcal{B}$ e non solo la proprietà di essere costante. \footnote{Come visto nel primo capitolo sono $2^{(2^1)}=4$ funzioni di cui 2 costanti e 2 no Ad esempio la  $f^{'}$ costante a 0 è rappresentata da $ \ket{\psi_4^{'}}_1 = + \frac{\ket0 + \ket1}{\sqrt2}$ essendo $(-1)^{f^{'}(0)} = +1$.}
  Questi valori non dovrebbero poi essere nuovi, difatti il primo qubit non è altro che $H_1\ket0$ se $f$ costante e $H_1\ket0$ altrimenti, inoltre, poichè H è la trasformazione inversa di se stessa, basterà riapplicarla
  per giungere finalmente a
  
@@ -1011,12 +1022,53 @@ finalmente $f(1)$ e $ f(0)$ sono in relazione diretta. In particolare, si noti c
         \lstick{\ket{1}} & \gate{H_2} &    \ghost{U\ped{f}} & \qw & \rstick{\ket{\psi_5}_2} \qw
     }
 \]
-ed è lo stesso algoritmo che David Deutsch propose nel 1985 (**non riesco a trovare l'articolo originale da citare**) dimostrando per la prima volta che la meccanica quantistica poteva esserre impiegata per eseguire calcoli 
-guadagnando in efficienza rispetto alla computazione classica. \par
+ed è lo stesso algoritmo che David Deutsch propose nel 1985 \cite{ref12}dimostrando per la prima volta che l'Informazione quantistica poteva esserre impiegata per eseguire calcoli 
+guadagnando in efficienza rispetto alla computazione classica.\par
+È da sottolineare però che, nonostante la procedura esposta permetta di risolvere il problema in un'unica esecuzione invece che in due, il vantaggio ricavatone è solo costante e perciò non 
+rilevante a livello asintotico. In termini di complessità, in realtà, è la formulazione di per se a non essere interessante in quanto l'input di $f$ non è variabile ma fisso (0,1). Il problema quindi, non sembrerebbe essere 
+il candidato ideale per scommettere sulla computazione quantistica, tuttavia, la soluzione di Deutsch fu (ulteriormente) imortante poichè portò allo sviluppo del primo algoritmo in grado di sfruttare le vere potenzialità di questa disciplina.      
 
 
 
 \chapter{L'Algoritmo di Deutsch-Jozsa}
+Il problema originale di Deutsch fu successivamente generalizzato da Deutsch stesso e Richard Jozsa nell'articolo "Rapid solution of problems by quantum computation"\cite{ref15} nel 1992, il risultato che proposero
+fu poi rivisitato e completato da Richard Cleve, Artur Ekert, Chiara Macchiavello e Michele Mosca nel 1998 \cite{ref16}. Questo lavoro è conosciuto in letteratura come l'algoritmo di Deutsch-Jozsa.\\
+Se il primo algoritmo di Deutsch fu più un risultato simbolico, l'algoritmo di Deutsch-Jozsa fu invece il vero passo in avanti che mise in luce come, utilizzando il paradigma quantistico, si poteva ottenere un aumento
+esponenziale in velocità per la risoluzione di un determinato problema.\\
+Nello specifico il problema diventa: sia data una funzione $f:\mathcal{B}^n\mapsto\mathcal{B}$ di cui non si conosce la definizione, determinare se tale funzione 
+è costante oppure bilanciata*, sapendo per certo che $f$ sarà o costante o bilanciata. D'ora in poi si farà riferimento a questo problema chiamandolo D.J.\par
+Si noti come questa formulazione altro non sia che un'estensione della formulazione originaria, infatti, se nel caso particolare di $n=2$ $f$ non è costante, allora sarà per forza bilanciata e viceversa. Deutsch e Jozsa riuscirono a 
+dimostrare che il problema poteva essere risolto per qualunque $n$ valutando $f$ una volta sola.\\
+Viene di seguito mostrata la soluzione al problema mediante il sistema classico e il sistema quantistico al fine di mostrare come quest'ultimo risulti vincente per complessità e correttezza.  
+
+\begin{mythm}
+ Classicamente, il problema di D.J. appartiene a $\Omega(2^{(n-1)})$, cioè non esiste algoritmo che lo risolva con complessità $o(2^{(n-1)})$.
+ \begin{proof}
+     Sia $f:\mathcal{B}^n\mapsto\mathcal{B}$ espressa in un registro a $n$ bit attraverso la trasformazione $U_f: \mathcal{B}_c^{(n)} \mapsto \mathcal{B}_c^{(n)}$ tale che $U_f\ket{\textbf{x}}=U_f\ket{00\cdot\cdot\cdot f(\textbf{x})}$ sappiamo che $U_f$ è sicuramente o costante o bilanciata.
+     Si noti che in questo sistema non sia necessario imporre la reversibilità.\\
+     Una qualsiasi procedura che risolve il problema non può fare altro che cominciare a valutare $U_f$ su ogni possibile stato $\ket{\textbf{x}}\in{\mathcal{B}_c^{(n)}}$ e fermarsi se:
+     \begin{itemize}
+         \item Sono stati trovati due stati $\ket{\textbf{x}}_1$, $\ket{\textbf{x}}_2$ tali che $U_f(\ket{\textbf{x}}_1) \ne U_f(\ket{\textbf{x}}_2)$ poichè in questo caso $U_f$ sarà bilanciata non essendo costante;
+         \item Sono stati già valutati $2^{(n-1)}+1$ stati e tutti hanno effettuato lo stesso cambio di stato, poichè in questo caso $U_f$ sarà costante non essendo bilanciata.
+     \end{itemize} 
+     Il caso pessimo coincide con quello costante e quindi ogni algoritmo che risolve D.J. nel caso classico avrà complessità $\Omega(2^{(n-1)})$.
+ \end{proof}
+\end{mythm}
+
+\begin{mythm}
+    Un qualsiasi algoritmo probabilistico che compia $k<2^{n-1}+1$ valutazioni di $f(x)$ di valori $x\in\mathcal{B}^n$ scelti indipendentemente e uniformemente, avrà almeno una probabilità di errore $\epsilon \geq \frac{1}{2^{2k}}$ \cite{ref17}. 
+\end{mythm}
+Questo risultato è ovviamente valido anche per un sistema a $n$ bit traducendo $f$ in $U_f$ come fatto per il teorema precedente.\\
+Utilizzando l'algoritmo probabilistico ottimale saranno comunque necessarie $2^{n-1} + 1$ valutazioni per rispondere con certezza e, una singola valutazione di $f$ (k=1) porterà a sbagliare mediamente 1 volta ogni 4.\\
+
+\newpage
+Prima di procedere con l'esposizione dell'algoritmo è conveniente 
+
+
+\begin{mythm}
+    L'algoritmo di Deutsch–Jozsa è un algoritmo deterministico che risolve il problema D.J. con un'unica valutazione di $U_f$.   
+\end{mythm}
+
 \chapter{Implementazione di Deutsch-Jozsa tramite QScript}
 
 
@@ -1036,6 +1088,9 @@ guadagnando in efficienza rispetto alla computazione classica. \par
     \bibitem{ref12} Deutsch, David (July 1985). \emph{Quantum theory, the Church-Turing principle and the universal quantum computer.} Proceedings of the Royal Society A. 400 (1818): 97–117
     \bibitem{ref13} Donati, O; Missiroli, G F; Pozzi, G (1973). \emph{An Experiment on Electron Interference}. American Journal of Physics. 41: 639–644.
     \bibitem{ref14} Donald H Menzel, \emph{Fundamental formulas of Physics}, volume 1, page 153; 
+    \bibitem{ref15} Deutsch, D., Jozsa, R. (1992). \emph{Rapid solution of problems by quantum computation}. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 439, No. 1907, pp. 553-558).
+    \bibitem{ref16} Cleve, R., Ekert, A., Macchiavello, C., Mosca, M. (1998). Quantum algorithms revisited. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 454, No. 1969, pp. 339-354). 
+    \bibitem{ref17} Bera, D. (2015). \emph{A different Deutsch–Jozsa}. Quantum Information Processing, 14(6), 1777-1785.
 \end{thebibliography}
 \end{document}
 
