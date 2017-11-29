@@ -23,6 +23,27 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+\lstset{frame=tb,
+language=Java,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\small\ttfamily},
+numbers=none,
+numberstyle=\tiny\color{gray},
+keywordstyle=\color{blue},
+commentstyle=\color{dkgreen},
+stringstyle=\color{mauve},
+breaklines=true,
+breakatwhitespace=true,
+tabsize=3
+}
+
+
+
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
 \newcommand*{\field}[1]{\mathbb{#1}}
@@ -1035,21 +1056,21 @@ Il problema originale di Deutsch fu successivamente generalizzato da Deutsch ste
 fu poi rivisitato e completato da Richard Cleve, Artur Ekert, Chiara Macchiavello e Michele Mosca nel 1998 \cite{ref16}. Questo lavoro è conosciuto in letteratura come l'algoritmo di Deutsch-Jozsa.\\
 Se il primo algoritmo di Deutsch fu più un risultato simbolico, l'algoritmo di Deutsch-Jozsa fu invece il vero passo in avanti che mise in luce come, utilizzando il paradigma quantistico, si poteva ottenere un aumento
 esponenziale in velocità per la risoluzione di un determinato problema.\\
-Nello specifico il problema diventa: sia data una funzione $f:\mathcal{B}^n\mapsto\mathcal{B}$ di cui non si conosce la definizione, determinare se tale funzione 
-è costante oppure bilanciata*, sapendo per certo che $f$ sarà o costante o bilanciata. D'ora in poi si farà riferimento a questo problema chiamandolo D.J.\par
-Si noti come questa formulazione altro non sia che un'estensione della formulazione originaria, infatti, se nel caso particolare di $n=2$ $f$ non è costante, allora sarà per forza bilanciata e viceversa. Deutsch e Jozsa riuscirono a 
+Nello specifico il problema diventa: \textit{sia data una funzione $f:\mathcal{B}^n\mapsto\mathcal{B}$ di cui non si conosce la definizione, determinare se tale funzione 
+è costante oppure bilanciata*, sapendo per certo che $f$ sarà o costante o bilanciata.} D'ora in poi si farà riferimento a questo problema chiamandolo D.J.\par
+Si noti come questa formulazione altro non sia che un'estensione della formulazione originaria, infatti, se nel caso particolare di $n=1$ $f$ non è costante, allora sarà per forza bilanciata, e viceversa. Deutsch e Jozsa riuscirono a 
 dimostrare che il problema poteva essere risolto per qualunque $n$ valutando $f$ una volta sola.\\
 Viene di seguito mostrata la soluzione al problema mediante il sistema classico e il sistema quantistico al fine di mostrare come quest'ultimo risulti vincente per complessità e correttezza.  
 
 \begin{mythm}
  Classicamente, il problema di D.J. appartiene a $\Omega(2^{(n-1)})$, cioè non esiste algoritmo che lo risolva con complessità $o(2^{(n-1)})$.
  \begin{proof}
-     Sia $f:\mathcal{B}^n\mapsto\mathcal{B}$ espressa in un registro a $n$ bit attraverso la trasformazione $U_f: \mathcal{B}_c^{(n)} \mapsto \mathcal{B}_c^{(n)}$ tale che $U_f\ket{\textbf{x}}=U_f\ket{00\cdot\cdot\cdot f(\textbf{x})}$ sappiamo che $U_f$ è sicuramente o costante o bilanciata.
-     Si noti che in questo sistema non sia necessario imporre la reversibilità.\\
+     Sia $f:\mathcal{B}^n\mapsto\mathcal{B}$ espressa in un registro a $n$ bit attraverso la trasformazione $U_f: \mathcal{B}_c^{(n)} \mapsto \mathcal{B}_c^{(n)}$ tale che $U_f\ket{\textbf{x}}=U_f\ket{00\cdot\cdot\cdot f(\textbf{x})}$ sappiamo che $f$ è sicuramente o costante o bilanciata.
+     Si noti che in questo sistema non è necessario imporre la reversibilità.\\
      Una qualsiasi procedura che risolve il problema non può fare altro che cominciare a valutare $U_f$ su ogni possibile stato $\ket{\textbf{x}}\in{\mathcal{B}_c^{(n)}}$ e fermarsi se:
      \begin{itemize}
-         \item Sono stati trovati due stati $\ket{\textbf{x}}_1$, $\ket{\textbf{x}}_2$ tali che $U_f(\ket{\textbf{x}}_1) \ne U_f(\ket{\textbf{x}}_2)$ poichè in questo caso $U_f$ sarà bilanciata non essendo costante;
-         \item Sono stati già valutati $2^{(n-1)}+1$ stati e tutti hanno effettuato lo stesso cambio di stato, poichè in questo caso $U_f$ sarà costante non essendo bilanciata.
+         \item Sono stati trovati due stati $\ket{\textbf{x}}_1$, $\ket{\textbf{x}}_2$ tali che $U_f(\ket{\textbf{x}}_1) \ne U_f(\ket{\textbf{x}}_2)$ poichè in questo caso $f$ sarà bilanciata non essendo costante;
+         \item Sono stati già valutati $2^{(n-1)}+1$ stati e tutti hanno effettuato lo stesso cambio di stato, poichè in questo caso $f$ sarà costante non essendo bilanciata.
      \end{itemize} 
      Il caso pessimo coincide con quello costante e quindi ogni algoritmo che risolve D.J. nel caso classico avrà complessità $\Omega(2^{(n-1)})$.
  \end{proof}
@@ -1062,14 +1083,458 @@ Questo risultato è ovviamente valido anche per un sistema a $n$ bit traducendo 
 Utilizzando l'algoritmo probabilistico ottimale saranno comunque necessarie $2^{n-1} + 1$ valutazioni per rispondere con certezza e, una singola valutazione di $f$ (k=1) porterà a sbagliare mediamente 1 volta ogni 4.\\
 
 \newpage
-Prima di procedere con l'esposizione dell'algoritmo è conveniente 
+L'algoritmo di Deutsch–Jozsa segue lo stesso schema dell'algoritmo di Deutsch solo generalizzandolo per un sistema a $n+1$ qubit. Il circuito che ne risulta è il seguente:
+
+\[
+    \Qcircuit @C=4em @R=3em {
+        \lstick{\ket{\text{\textbf{0}}}} & \gate{H^{\otimes\ped{n}}}  & \multigate{1}{U\ped{f}} & \gate{H^{\otimes\ped{n}}} & \meter \\
+        \lstick{\ket{1}} & \gate{H} & \ghost{U\ped{f}} & \qw & \qw
+    }
+\]
+\quad			
+$\Qcircuit @C=1em @R=.7em{&\meter}$ indica dove viene effettuata la misurazione finale.\\
+Per mettere $n$ qubits in sovrapposizione è necessario applicare Hadamard ad ogni qubit, ciò è esprimibile sinteticamente attraverso il prodotto tensoriale $H^{\otimes\ped{n}}$ di $n$ Hadamard. Si ricordi infatti che la composizione
+di più sistemi quantistici è data dal prodotto tensoriale degli stessi, lo stesso principio si applica alla composizione di trasformazioni.
+Per capire come costruire $H^{\otimes\ped{n}}$ cominciamo ricavando $H^{\otimes\ped{2}}$ e cerchiamo di dedurne una struttura generale:\\
+possiamo esplicitare $H$ come:
+\[
+    H = \frac{1}{\sqrt2}
+    \kbordermatrix{
+        & 0 & 1 \\
+        0 & 1 & 1 \\
+        1 & 1 & -1 \\
+          } = 
+          \frac{1}{\sqrt{2}}\;
+          \kbordermatrix{
+        & 0 & 1 \\
+        0 & (-1)^{0\land0} & (-1)^{0\land1}\\
+        1 & (-1)^{1\land0}& (-1)^{1\land1} \\
+          }
+\]
+dove $H[i,j]$ indica l'azione di H sullo stato $\ket{i}$ dato lo stato $\ket{j}$ come input. Possiamo quindi calcolare semplicemente la composizione di 2 Hadamard:
+
+\[
+    \begin{split}
+          &   H^{\otimes\ped{2}}  = \;
+            \frac{1}{\sqrt{2}}\;\kbordermatrix{
+            & 0 & 1 \\
+            0 & (-1)^{0\land0} & (-1)^{0\land1}\\
+            1 & (-1)^{1\land0}& (-1)^{1\land1} \\
+              }							
+            \; \otimes \;\frac{1}{\sqrt{2}}\;\kbordermatrix{
+            & 0 & 1 \\
+            0 & (-1)^{0\land0} & (-1)^{0\land1}\\
+            1 & (-1)^{1\land0}& (-1)^{1\land1} \\
+              }
+              = \\ \\
+              & =
+            \frac{1}{2}\;\kbordermatrix{
+            & 00 & 01 & 10 & 11   \\
+            00 & (-1)^{0\land0}*(-1)^{0\land0} & (-1)^{0\land0}*(-1)^{0\land1} & 										(-1)^{0\land1}*(-1)^{0\land0} & (-1)^{0\land1}*(-1)^{0\land1}  \\
+            01 & (-1)^{0\land0}*(-1)^{1\land0} & (-1)^{0\land0}*(-1)^{1\land1} & 										(-1)^{0\land1}*(-1)^{1\land0} & (-1)^{0\land1}*(-1)^{1\land1}  \\
+            10 & (-1)^{1\land0}*(-1)^{0\land0} & (-1)^{1\land0}*(-1)^{0\land1} & 										(-1)^{1\land1}*(-1)^{0\land0} & (-1)^{1\land1}*(-1)^{0\land1}  \\
+            11 & (-1)^{1\land0}*(-1)^{1\land0} & (-1)^{1\land0}*(-1)^{1\land1} & 										(-1)^{1\land1}*(-1)^{1\land0} & (-1)^{1\land1}*(-1)^{1\land1}  \\      						 
+              }	\\
+        &\textit{Nota: $(-1)^{x}*(-1)^{y} = (-1)^{x+y} = (-1)^{x \xor y}$} 	
+     \end{split}					
+\]
+
+viene utile allora definire la funzione $<\;,\;>\;:\;\{0,1\}^n\times\{0,1\}^n \mapsto \{0,1\}$ 
+\begin{center}
+    \begin{align*}
+         <\textbf{x},\textbf{y}>\;&=\;<x\ped{0}x\ped{1}\cdot\cdot\cdot x\ped{n-1},\;y\ped{0}y\ped{1}\cdot\cdot\cdot y\ped{n-1}>\\
+         &= (x\ped{0} \land y\ped{0}) \xor (x\ped{1}\land y\ped{1})\xor \cdot\cdot\cdot \xor (x\ped{n-1}\land y\ped{n-1})
+    \end{align*}
+\end{center}
+che ci permette di scrivere sinteticamente $H^{\otimes\ped{n}}$
+\[
+    H^{\otimes\ped{n}}[i,j]=\frac{1}{\sqrt{2^n}}(-1)^{<i,j>}
+\]
+
+\noindent. Proviamo a capire il comportamento della matrice ricavata, sia $\ket{\textbf{y}} \in \mathcal{B}_c^{(n)} $ uno stato certo, riscritto vettorialmente 
+
+\begin{minipage}{0.5\textwidth}
+    \[
+        \ket{\textbf{y}}= \kbordermatrix{ \\
+           00...0 & 0 \\
+           00...1 & 0 \\
+           ...    & ... \\
+           \textbf{y} & 1 \\
+           ...    & ... \\
+           11...1 & 0 \\
+           }
+   \]
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+    \[
+     \textbf{y}\in \{0,1\}^n
+    \]
+\end{minipage}
+
+avremo
+\begin{center}
+    \begin{align*}
+    H^{\otimes\ped{n}}\ket{\textbf{y}} = H^{\otimes\ped{n}}[-,\textbf{y}] &= 
+    \frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{<\textbf{x},\textbf{y}>}\ket{\textbf{x}} \\ &=
+      \kbordermatrix{ \\
+    00...0 & (-1)^{<00...0,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    00...1 & (-1)^{<00...1,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    ...    & ... \\
+    \textbf{y} & (-1)^{<\textbf{y},\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    ...    & ... \\
+    11...1 & (-1)^{<11...1,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    }
+ \end{align*}
+\end{center}
+che è uno stato di perfetta sovrapposizione sopra la base computazionale, come ci aspettavamo.\par
+Acquisiti gli strumenti necessari è possibile ora procedere alla formulazione e dimostrazione del seguente teorema. 
 
 
 \begin{mythm}
     L'algoritmo di Deutsch–Jozsa è un algoritmo deterministico che risolve il problema D.J. con un'unica valutazione di $U_f$.   
+
+\begin{proof}
+    La correttezza dell'algoritmo è deducibile per costruzione svolgendo l'algoritmo stesso.\\
+    Sia $\ket{\psi_i}$ lo stato del sistema dopo l'i-esima operazione. Monitoriamo quindi l'evoluzione del sistema operazione per operazione.\\
+    Lo stato iniziale $\ket{\psi_1}$ è:
+\[    
+    \ket{\psi_1} = \ket{\textbf{0}}\ket{1} = \ket{0_1}\ket{0_2}\cdot\cdot\cdot\ket{0_n}\ket{1}
+\]
+
+\noindent dopo l'applicazione di $H^{\otimes\ped{n}}$ su $\ket{\textbf{0}}$ il sistema si troverà nello stato:
+
+\begin{centering}
+    \begin{align*}
+        \ket{\psi_2} &= \Big[\frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{<\textbf{x},\textbf{0}>}\ket{\textbf{x}}\Big]\ket{1} \\ 
+                     &= \Big[\frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}\ket{\textbf{x}}\Big]\ket{1}
+    \end{align*}
+    \textit{Nota: $<\textbf{x},\textbf{0}> = 0$}
+\end{centering}
+
+
+dopo $H_{n+1}$:
+\[
+    \ket{\psi_3} = \Big[\frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}\ket{\textbf{x}}\Big]\Big[\frac{\ket{0}-\ket{1}}{\sqrt2}\Big]
+\]
+come per l'algoritmo di Deutsch, aver posto in sovrapposizione il qubit ausiliareo ci permette di esplicitare $f$ sui primi $n$ stati dopo l'applicazione di $U_f$:
+\[
+    \ket{\psi_4} = \Big[\frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{x}}\Big]\Big[\frac{\ket{0}-\ket{1}}{\sqrt2}\Big]
+\]
+a questo punto possiamo dimenticarci dell'ultimo qubit concentrandoci su quello che accade dopo la riapplicazione di $H^{\otimes\ped{n}}$ : otteniamo una sovrapposizione degli stati già in sovrapposizione!
+\begin{center}
+    \begin{align*}
+        \ket{\psi_5}_1 &= \frac{1}{2^n}\sum\nolimits_{\textbf{z}\in{\{0,1\}^n}} \sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}(-1)^{<\textbf{x},\textbf{z}>}\ket{\textbf{z}} \\
+                       &= \frac{1}{2^n}\sum\nolimits_{\textbf{z}\in{\{0,1\}^n}} \sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x}) \xor <\textbf{x},\textbf{z}>}\ket{\textbf{z}}
+    \end{align*}
+\end{center}
+ora $\ket{\psi_5}_1$ viene misurato. Invece di controllare subito il risultato chiediamoci prima quale sia la probabilità di osservare lo stato $\ket{\textbf{0}}$, cioè:
+\begin{center}
+    \begin{align*}
+        prob[\ket{\psi_5}_1 \mapsto \ket{\textbf{0}}] &= \norm{\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1)}^2\\
+                                                      &= \norm{\frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}}}^2
+    \end{align*}
+\end{center}
+quindi, la probabilità di collassare a $\ket{\textbf{0}}$ è totalmente dipendente da $f(\textbf{x})$, in particolare:
+\begin{description}
+    \item [se $f$ costante:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} = \pm \frac{2^n}{2^n}\ket{\textbf{0}} = \pm 1\ket{\textbf{0}}$ \\
+    $\Rightarrow prob[\ket{\psi_5}_1 \mapsto \ket{\textbf{0}}] = 1$
+    \item [se $f$ bilanciata:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} =  \frac{2^{n-1}}{2^n}\ket{\textbf{0}} - \frac{2^{n-1}}{2^n}\ket{\textbf{0}} = 0\ket{\textbf{0}}$\\
+    $\Rightarrow prob[\ket{\psi_5}_1 \mapsto \ket{\textbf{0}}] = 0$
+\end{description} 
+
+.Verrà quindi misurato $\ket{\textbf{0}}$ se e solo se la funzione $f$ è costante, altrimenti, verrà misurato un qualsiasi altro $\ket{\textbf{x}}$ se e solo se la funzione è bilanciata.\par
+\end{proof}
+
+In conclusione, l'algoritmo di Deutsch–Jozsa risolve il controverso problema con una sola esecuzione in contrasto alle $2^{n-1}+1$ necessarie per avere certezza nella computazione classica, risultando
+quindi esponenzialmente più veloce di ogni altra procedura conosciuta. 
+
+
 \end{mythm}
 
+
+
 \chapter{Implementazione di Deutsch-Jozsa tramite QScript}
+
+Come ultimo argomento, questa tesi si propone di presentare un esempio concreto di quanto esposto fino ad ora. Viene di seguito implementato ed eseguito su più istanze l'algoritmo di Deutsch-Jozsa.
+Per sviluppare il lavoro è stata scelta la piattaforma web QuantumPlayground\cite{ref18}: un esperimento di Chrome che simula il comportamento di un registro quantistico fino a 22 qubit programmabile attraverso
+il linguaggio di scripting adhoc chiamato QScript. A supporto della programmazione QuantumPlayground fornisce un sistema di debugging e un motore grafico che permette di visualizzare l'evoluzione dello stato del sistema durante l'esecuzione.
+
+L'obiettivo è quello di tradurre il circuito per D.J.
+
+\[
+					\Qcircuit @C=2em @R=1.1em {
+						\lstick{\ket{\text{\textbf{0}}}} & \gate{H^{\otimes\ped{n}}}  & \multigate{1}{U\ped{f}} & \gate{H^{\otimes\ped{n}}} & \meter  \\
+						\lstick{\ket{1}} & \gate{H} & \ghost{U\ped{f}} & \qw & \qw
+					}
+\]
+			
+\noindent{} in un programma che ne simuli il comportamento. Per farlo, è necessario una funzione $f$ su cui valutare l'algoritmo, a tal proposito, sono state scelte due funzioni bilanciate e una costante.
+Di ogni funzione viene mostrato il procedimento seguito per la costruzione dell'oracolo, il codice relativo e uno snapshot del risultato finale.\\
+Si cominci con il caso più elementare e cioè il caso in cui $f$ è costante, è stata scelta consapevolmente la $f$ costante a 0, il motivo di questa preferenza risiede nella definizione dell'oracolo, infatti,
+$U_f$ per $f(x)=0$ è semplicemente $U_f(\ket{\textbf{x},y})=\ket{\textbf{x},y \xor f(\textbf{x})} = \ket{\textbf{x},y}$ ovvero la trasformazione identità.\\
+Passiamo ad esporre e commentare lo script che implementa l'algoritmo per l'oracolo $I$, il primo passo è inizializzare il sistema:
+
+\begin{lstlisting}
+    //inizialization
+    VectorSize 8
+    SetViewMode 2
+\end{lstlisting}
+
+il primo comando crea un sistema di 8 qubits tutti inizializzati a $\ket0$. La scelta della dimensione è coerente con i successivi esempi ma fondamentalmente arbitraria per questo esempio.
+\textit{SetViewMode} è una costante che setta la modalità di visualizzazione grafica, $2$ indica la modalità $3D$.\\  
+Per allinearsi con lo sato iniziale dell'algoritmo è necessario invertire l'ultimo qubit:
+
+\begin{lstlisting}
+    //swap the last qubit's value using X Pauli gate.
+    SigmaX 7
+\end{lstlisting}
+
+QScript ha come primitive le più comuni operazioni quantistiche tra cui, appunto, la porta X di Pauli ossia l'equivalente quantistica della trasformazione NOT.\\
+Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due applicazioni di $H^{\otimes\ped{n}}$, delle quali la prima in concomitanza con $H \text{ su } \ket{1}$,
+è utile allora definire una procedura che ponga in sovrapposizione un numero variabile di qubit:
+
+\begin{lstlisting}
+    //hadamard gate on j qubits, note: j=n on first call, j=n-1 on the scnd one
+    proc sysHgate j
+        for i = 0; i < j ; i++
+            Hadamard i
+        endfor
+    endproc
+\end{lstlisting}
+
+\newpage
+. La procedura per l'oracolo sarà rappresentata in questo caso dalla procedura identità che è banalmente una funzione sul sitema senza corpo:
+
+\begin{lstlisting}
+    //Definition of Uf
+    proc oracle
+
+    endproc
+\end{lstlisting}
+
+. Non rimane che codificare la misura dei primi 7 qubit. Anche in questo caso il linguaggio offre dei comandi "built-in" che si fanno carico di simulare il collasso dello stato osservato:
+
+\begin{lstlisting}
+//we now measure the vector space
+Measure
+
+if measured_value == 0 //state 00000000 
+	Print "CONSTANT"
+endif
+if measured_value == 128 //state 10000000
+	Print "CONSTANT"
+endif
+
+//if not constant, we know from assumption that must be balanced.
+if measured_value != 0
+	if measured_value != 128
+		Print "BALANCED"
+	endif
+endif
+\end{lstlisting}
+
+Si noti come, dal momento che viene misurato l'intero registro, dobbiamo aggiungere dei controlli per tenere conto dei valori in cui può risultare il qubit ausiliareo.\\
+
+\newpage
+Definite le struttre principali, possiamo ora dare il codice completo:
+
+\begin{lstlisting}
+    //inizialization
+    VectorSize 8
+    SetViewMode 2
+    
+    
+    //hadamard gate on j qubits, note: j=n first call, j=n-1 on the second one
+    proc sysHgate j
+        for i = 0; i < j ; i++
+            Hadamard i
+        endfor
+    endproc
+    
+    
+    //Definition of Uf
+    proc oracle
+        for i = 0; i < 7 ; i++
+            CNot i, 7
+        endfor
+    endproc
+    
+    
+    //main execution
+    
+    //swap the last qubit's value using X Pauli gate.
+    SigmaX 7
+    
+    sysHgate 8
+    oracle
+    sysHgate 7
+    
+    //we now measure the vector space
+    Measure
+    
+    if measured_value == 0 //state 00000000 
+        Print "CONSTANT"
+    endif
+    if measured_value == 128 //state 10000000
+        Print "CONSTANT"
+    endif
+    
+    //if not constant, we know from assumption that must be balanced.
+    if measured_value != 0
+        if measured_value != 128
+            Print "BALANCED"
+        endif
+    endif
+    \end{lstlisting}
+
+
+
+
+
+\[
+	f(x\ped{1},x\ped{2},x\ped{3},x\ped{4}) = x\ped{1} \xor{x\ped{2}} \xor{x\ped{3}} \xor{x\ped{4}}
+\]
+$U\ped{f}$ sarà quindi esprimibile con una concatenazione di $CNOT$, in particolare: 
+
+\begin{align*}
+\Qcircuit @C=2em @R=1.1em {
+		\lstick{\ket{\text{\textbf{x}}}} & \multigate{1}{U\ped{f}} & \rstick{\ket{\text{\textbf{x}}}} \qw \\  
+		\lstick{\ket{y}} & \ghost{U\ped{f}} & \rstick{\ket{f(\text{\textbf{x}})\xor y}} \qw
+							  } \hspace{5em} \mathlarger{\mathlarger{\equiv}} \hspace{5em}
+	\Qcircuit @C=1em @R=.7em {
+		\lstick{\ket{x\ped{1}}} & \ctrl{4} & \qw & \qw & \qw & \qw &\rstick{\ket{x\ped{1}}}\qw \\
+		\lstick{\ket{x\ped{2}}} & \qw & \ctrl{3} & \qw & \qw & \qw &\rstick{\ket{x\ped{2}}}\qw\\
+		\lstick{.  .  .}& \qw &  \qw&\cdots && \qw &\qw\\
+		\lstick{\ket{x\ped{n}}}& \qw & \qw & \qw & \qw &\ctrl{1} &\rstick{\ket{x\ped{n}}} \qw \\
+		\lstick{\ket{y}}& \targ & \targ & \cdots & &\targ \qw & \rstick{\ket{f(\text{\textbf{x}})\xor y}} \qw
+							}
+\end{align*}
+
+Infatti $ (..(((x1 \xor y) \xor x2) \xor x3) \xor .. \xor xn) =  x1 \xor x2 \xor .. \xor xn \xor y = f(\text{\textbf{x}}) \xor y$ .\\
+
+
+La procedura per l'oracolo ($U\ped{f}$) sarà come abbiamo visto l'applicazione incrementale di porte CNOT con controllo sull'ultimo qubit, quindi 
+\begin{lstlisting}
+//Definition of Uf
+proc oracle
+	for i = 0; i < 7 ; i++
+		CNot i, 7
+	endfor
+endproc
+\end{lstlisting}
+
+Ora che abbiamo inizializzato e definito le strutture principali, passiamo ad implementare passo per passo il nostro algoritmo: 
+\begin{lstlisting}
+
+sysHgate 8
+oracle
+sysHgate 7
+
+//we now measure the vector space
+Measure
+
+if measured_value == 0 //state 00000000 
+	Print "CONSTANT"
+endif
+if measured_value == 128 //state 10000000
+	Print "CONSTANT"
+endif
+
+//if not constant, we know from assumption that must be balanced.
+if measured_value != 0
+	if measured_value != 128
+		Print "BALANCED"
+	endif
+endif
+\end{lstlisting}
+
+Non essendo possibile specificare un range su cui effettuare la misura, il comando \textit{Measure} prende in considerazione anche 
+l'ultimo qubit che nella teoria avevamo ignorato non dipendendo da $f(\text{\textbf{x}})^{[2]}$. Per questo è necessario considerare sia il caso in cui questo collassi nello stato $\ket{1}$ sia il caso in cui collassi nello stato $\ket{0}$.\\
+
+Nel complesso lo script risultante sarà:
+\begin{lstlisting}
+//inizialization
+VectorSize 8
+SetViewMode 2
+
+
+//hadamard gate on j qubits, note: j=n first call, j=n-1 on the second one
+proc sysHgate j
+	for i = 0; i < j ; i++
+		Hadamard i
+	endfor
+endproc
+
+
+//Definition of Uf
+proc oracle
+	for i = 0; i < 7 ; i++
+		CNot i, 7
+	endfor
+endproc
+
+
+//main execution
+
+//swap the last qubit's value using X Pauli gate.
+SigmaX 7
+
+sysHgate 8
+oracle
+sysHgate 7
+
+//we now measure the vector space
+Measure
+
+if measured_value == 0 //state 00000000 
+	Print "CONSTANT"
+endif
+if measured_value == 128 //state 10000000
+	Print "CONSTANT"
+endif
+
+//if not constant, we know from assumption that must be balanced.
+if measured_value != 0
+	if measured_value != 128
+		Print "BALANCED"
+	endif
+endif
+\end{lstlisting}
+
+
+
+
+\section*{Note}
+
+[1], La funzione binaria $f: \{0,1\}^n \mapsto \{0,1\}, f(x\ped{1},x\ped{2},..,x\ped{n})=x\ped{1} \xor{x\ped{2}} \xor{..} \xor{x\ped{n}}$ è bilanciata.\\
+\textbf{Dimostrazione}\par
+Dobbiamo dimostrare che metà degli input per $f$ sono mappati in 1 e l'altra metà è mappata in 0. Il numero dei possibili input è $2^n$.\\
+Dal momento che $f$ decide la parità della somma $x1 + x2 + .. + xn$, la dimostrazione può essere vista come la verifica che il numero di sottoinsiemi di cardinalità pari da un insieme di $n$ elementi corrisponde a $2^{n-1}$.\\ 
+
+Per il \textit{Teorema Binomiale} si ha che $(x+y)^n = \sum\limits_{i=1}^n \binom {n}{i} a^{n-i}b^{i}$\\
+Ponendo $x=1, y=-1$ diventa
+\[
+0 = \sum\limits_{i=1}^n \binom {n}{i} 1^{n-i}(-1)^{i} = \sum\limits_{i=1}^n (-1)^{i}\binom {n}{i}
+\]
+Quindi 
+\[
+	\sum\limits_{i=1}^n \binom {n}{2i} = \sum\limits_{i=1}^n \binom {n}{2i + 1} = 2^{n-1}
+\]
+\par
+\
+[2], Prima della misurazione, il sistema si trova nel seguente stato di sovrapposizione
+\[
+	[\frac{\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}
+	  \sum\nolimits_{\textbf{z}\in{\{0,1\}^n}}(-1)^
+	  {f(\text{\textbf{x}})\otimes<\textbf{x},\textbf{y}>}\ket{\textbf{z}}}
+	  {2^n}][\frac{\ket{0}-\ket{1}}{\sqrt{2}}]
+\] 
+non dipendendone, l'ultimo qubit non ci fornisce informazioni sulla struttura di $f(\text{\textbf{x}})$, possiamo quindi ignorarlo. 
+
+
+
+
+
 
 
 \begin{thebibliography}{20}
@@ -1091,7 +1556,9 @@ Prima di procedere con l'esposizione dell'algoritmo è conveniente
     \bibitem{ref15} Deutsch, D., Jozsa, R. (1992). \emph{Rapid solution of problems by quantum computation}. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 439, No. 1907, pp. 553-558).
     \bibitem{ref16} Cleve, R., Ekert, A., Macchiavello, C., Mosca, M. (1998). Quantum algorithms revisited. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 454, No. 1969, pp. 339-354). 
     \bibitem{ref17} Bera, D. (2015). \emph{A different Deutsch–Jozsa}. Quantum Information Processing, 14(6), 1777-1785.
+    \bibitem{ref18} Quantum Playground. (2017, November 29). Retrieved  from http://www.quantumplayground.net 
 \end{thebibliography}
+
 \end{document}
 
 

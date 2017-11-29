@@ -32,5 +32,5 @@
 \contentsline {section}{\numberline {3.6}Entanglement}{29}
 \contentsline {section}{\numberline {3.7}Sfruttare il Parallelismo}{31}
 \contentsline {chapter}{\numberline {4}L'Algoritmo di Deutsch-Jozsa}{37}
-\contentsline {chapter}{\numberline {5}Implementazione di Deutsch-Jozsa tramite QScript}{40}
-\contentsline {chapter}{Bibliografia}{41}
+\contentsline {chapter}{\numberline {5}Implementazione di Deutsch-Jozsa tramite QScript}{44}
+\contentsline {chapter}{Bibliografia}{53}
