@@ -1,0 +1,51 @@
+ //QScript code for the evaluation of the Deutsch-Jozsa algorithm over the constant function 0
+// f(x0,x1,...,xn) = 0 
+// documentation: https://github.com/arbiter1elegantiae/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm
+// author: Federico Peconi
+
+ 
+ 
+ //inizialization
+    VectorSize 8
+    SetViewMode 2
+    
+    
+    //hadamard gate on j qubits, note: j=n first call, j=n-1 on the second one
+    proc sysHgate j
+        for i = 0; i < j ; i++
+            Hadamard i
+        endfor
+    endproc
+    
+    
+    //0 constant oracle
+    proc oracle
+
+    endproc
+    
+    
+    //main execution
+    
+    //swap the last qubit's value using X Pauli gate.
+    SigmaX 7
+    
+    sysHgate 8
+    oracle
+    sysHgate 7
+    
+    //we now measure the vector space
+    Measure
+    
+    if measured_value == 0 //state 00000000 
+        Print "CONSTANT"
+    endif
+    if measured_value == 128 //state 10000000
+        Print "CONSTANT"
+    endif
+    
+    //if not constant, we know from assumption that must be balanced.
+    if measured_value != 0
+        if measured_value != 128
+            Print "BALANCED"
+        endif
+    endif

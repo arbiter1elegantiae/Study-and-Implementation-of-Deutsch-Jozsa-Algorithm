@@ -1306,7 +1306,7 @@ Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due app
 . La procedura per l'oracolo sarà rappresentata in questo caso dalla procedura identità che è banalmente una funzione sul sitema senza corpo:
 
 \begin{lstlisting}
-    //Definition of Uf
+    //0 constant oracle
     proc oracle
 
     endproc
@@ -1352,11 +1352,9 @@ Definite le struttre principali, possiamo ora dare il codice completo:
     endproc
     
     
-    //Definition of Uf
+    //0 constant oracle
     proc oracle
-        for i = 0; i < 7 ; i++
-            CNot i, 7
-        endfor
+
     endproc
     
     
@@ -1387,157 +1385,238 @@ Definite le struttre principali, possiamo ora dare il codice completo:
     endif
     \end{lstlisting}
 
+. Lo script è stato successivamente eseguito sul simulatore più volte al fine di escludere un risultato casuale, dimostrandosi corretto:
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{constantFunction}
+    \caption{QuantumPlayground, Deutsch–Jozsa su funzione costante}
+\end{figure}
+Si noti la visualizzazione grafica a sinistra che rappresenta lo stato del sistema subito prima della misurazione: il quadrato indica
+lo spazio degli stati per il registro e le aree colorate sono gli stati attualmente in stato di sovrapposizione, rispettivamente,
+il bianco indica una fase positiva e il blu una negativa. La dimensione dell'area colorata sta invece ad indicare l'ampiezza dello
+stato sovrapposto, se è colorata solo la superfice allora l'ampiezza sarà 0 e può essere trascurata. Prima dell'osservazione
+il sistema si trova quindi in una sovrapposizione equiprobabile (deducibile dall'altezza dei rettangoli) di due stati con fasi opposte.
+Sopra il grafico a destra è anche segnata la probabilità dello stato che ha più possibilità di essere misurato che in questo caso
+è pari a $0.49999..=0.5$ che è coerente con quanto appena detto. Se, utilizzando un'altra modalità di visualizzazione, andiamo
+ad ispezionare quali sono questi due stati in sovrapposizione ci accorgiamo che: 
 
+\begin{figure}[h]
 
+        \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{constantFunction3}
+    
+\end{figure}
+\begin{figure}[h]
+
+    \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{constantFunction2}
+    
+\end{figure}
+
+sono $\ket{128}=\ket{10000000}$ e $\ket{0}=\ket{00000000}$. La probabilità di misurare i primi 7 qubits
+a 0 è quindi certa. La funzione è quindi correttamente riconosciuta come costante.  \par
+Passando alle funzioni bilanciate, come primo esempio si è scelta un'istanza della funzione bilanciata lineare $f^n$ definita nel primo capitolo. \\
+In generale l'oracolo $U_{f^n}$ vale:
+\[
+    U_{f^n}(\ket{\textbf{x},y})= \ket{\textbf{x},f^n(\textbf{x}) \xor y} = \ket{\textbf{x}, x_1 \xor x_2 \xor \cdot\cdot\cdot \xor x_n \xor y}
+\] 
+e chiaramente, questa volta non è possibile utilizzare la trasformazione identità bensì bisogna trovare una computazione che permetta
+di salvare sul qubit ausiliareo $\ket{y}$ lo xor di tutti i qubit del sistema. Per risolvere il problema si è scelto di sfruttare
+la già introdotta trasformazione $CNOT$, la quale consente di operare uno xor tra due sistemi, infatti 
 
 \[
-	f(x\ped{1},x\ped{2},x\ped{3},x\ped{4}) = x\ped{1} \xor{x\ped{2}} \xor{x\ped{3}} \xor{x\ped{4}}
+    \Qcircuit @C=4em @R=3em {
+        \lstick{\ket{x_1}} & \ctrl{1} & \rstick{\ket{x_1}}\qw \\
+        \lstick{\ket{x_2}} & \targ & \rstick{\ket{x_2 \xor x_1}}\qw
+    }
 \]
-$U\ped{f}$ sarà quindi esprimibile con una concatenazione di $CNOT$, in particolare: 
+dal momento che $\ket{x_2}$ viene invertito se e solo se $\ket{x_1}=\ket1$ la semantica sarà proprio quella dello $\xor$.\\
+$U_{f^n}$ sarà quindi esprimibile con una concatenazione di $C_iNOT_{n+1}$, con $i$ distinti $1\leq i\leq n$ 
 
 \begin{align*}
-\Qcircuit @C=2em @R=1.1em {
-		\lstick{\ket{\text{\textbf{x}}}} & \multigate{1}{U\ped{f}} & \rstick{\ket{\text{\textbf{x}}}} \qw \\  
-		\lstick{\ket{y}} & \ghost{U\ped{f}} & \rstick{\ket{f(\text{\textbf{x}})\xor y}} \qw
+\Qcircuit @C=4em @R=3em {
+		\lstick{\ket{\text{\textbf{x}}}} & \multigate{1}{U\ped{f^n}} & \rstick{\ket{\text{\textbf{x}}}} \qw \\  
+		\lstick{\ket{y}} & \ghost{U\ped{f^n}} & \rstick{\ket{f^{n}(\text{\textbf{x}})\xor y}} \qw
 							  } \hspace{5em} \mathlarger{\mathlarger{\equiv}} \hspace{5em}
-	\Qcircuit @C=1em @R=.7em {
+	\Qcircuit @C=2em @R=2em {
 		\lstick{\ket{x\ped{1}}} & \ctrl{4} & \qw & \qw & \qw & \qw &\rstick{\ket{x\ped{1}}}\qw \\
 		\lstick{\ket{x\ped{2}}} & \qw & \ctrl{3} & \qw & \qw & \qw &\rstick{\ket{x\ped{2}}}\qw\\
 		\lstick{.  .  .}& \qw &  \qw&\cdots && \qw &\qw\\
 		\lstick{\ket{x\ped{n}}}& \qw & \qw & \qw & \qw &\ctrl{1} &\rstick{\ket{x\ped{n}}} \qw \\
-		\lstick{\ket{y}}& \targ & \targ & \cdots & &\targ \qw & \rstick{\ket{f(\text{\textbf{x}})\xor y}} \qw
+		\lstick{\ket{y}}& \targ & \targ & \cdots & &\targ \qw & \rstick{\ket{f^{n}(\text{\textbf{x}})\xor y}} \qw
 							}
 \end{align*}
 
-Infatti $ (..(((x1 \xor y) \xor x2) \xor x3) \xor .. \xor xn) =  x1 \xor x2 \xor .. \xor xn \xor y = f(\text{\textbf{x}}) \xor y$ .\\
+\noindent infatti: $ (..(((x1 \xor y) \xor x2) \xor x3) \xor .. \xor xn) =  x1 \xor x2 \xor .. \xor xn \xor y = f^n(\text{\textbf{x}}) \xor y$ .\par
+Scegliendo sempre un registro a 8 qubits come sistema su cui calcolare $f^n$, l'unica parte che nel codice differisce dall'esempio
+precedente è appunto la procedura per $U_f$ che, per quanto argomentato, diventa:   
 
-
-La procedura per l'oracolo ($U\ped{f}$) sarà come abbiamo visto l'applicazione incrementale di porte CNOT con controllo sull'ultimo qubit, quindi 
 \begin{lstlisting}
-//Definition of Uf
+//Definition of Uf^n
 proc oracle
 	for i = 0; i < 7 ; i++
 		CNot i, 7
 	endfor
 endproc
 \end{lstlisting}
+si noti che QScript comincia a numerare da 0.\\
+Il risultato dell'esecuzione conferma la correttezza dell'implementazione seguita
 
-Ora che abbiamo inizializzato e definito le strutture principali, passiamo ad implementare passo per passo il nostro algoritmo: 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{LinearBalancedFunction}
+    \caption{QuantumPlayground, Deutsch–Jozsa su funzione lineare bilanciata}
+\end{figure}
+
+inversamente, anche in questo caso era possibile dedurre già dal grafico che la misurazione non avrebbe portato al collasso 
+su $\ket{\textbf{0}}$, la sovrapposizione infatti si trova nella zona diametralmente opposta rispetto a quella in cui si trovava per il
+caso costante. $\ket{\textbf{0}}$ non è in sovrapposizone e qundi ha probabilità pari a 0 di essere osservato.\par
+
+L'ultimo esempio vede l'implementazione della funzione non lineare bilanciata 
+\[
+    h(x_1, x_2, x_3, x_4, x_5)=(x_1 \land x_2) \xor x_3 \xor (x_2 \land x_3 \land x_4) \xor (x_2 \land x_3 \land x_5) \xor (x_3 \land x_4) \xor (x_4 \land x_5)        
+\]
+anticipata nel primo capitolo. \\
+Come si può intuire dalla definizione, per creare l'oracolo $U_h$, oltre ad utilizzare $CNOT$ per $\xor$, bisogna trovare un metodo
+che ci permetta di calcolare la trasformazione $AND$ tra 2 o 3 stati. 
+Si cominci col notare che l'$AND$ classico non può essere utilizzato in un circuito quantistico in quanto comporta la perdita di un bit
+di informazione andando contro al principio di reversibilità. L'approccio per rendere una funzione generica implementabile con una
+porta reversibile è stato tuttavia già esposto quando si è data la definizione di $U_f$, basta infatti aggiungere un qubit ausiliareo
+$\ket{y}=\ket{0}$ e avremo l'AND quantistico $U_{\land}(\ket{x_1,x_2,y})=\ket{(x_1 \land x_2) \xor y} = \ket{(x_1 \land x_2)}$ il quale (lasciando $\ket{y}$ generico) altro non è che un CNOT esteso a 2 qubit
+di controllo: se e solo se i primi due qubit si trovano in $\ket1$ esegui NOT su $\ket{y}$. Questa operazione risulta essere di fondamentale importanza per la computazione quantistica 
+\footnote{La porta di Toffoli è universale per il calcolo logico reversibile \cite{ref19} ed è "quasi" universale per la compuazione quantistica \cite{ref20}}
+ed è conosciuta come la porta $Toffoli$, in nome dello scienziato che la scoprì.\\
+Viene rappresentata graficamente dal circuito
+\[
+    \Qcircuit @C=3em @R=4em {
+        \lstick{\ket{x\ped{1}}} & \ctrl{2} & \rstick{\ket{x_1}}\qw \\
+        \lstick{\ket{x\ped{1}}} & \ctrl{1} & \rstick{\ket{x_2}}\qw \\
+        \lstick{\ket{y}} & \targ  & \rstick{\ket{(x_1 \land x_2) \xor y}}\qw
+    }
+\]
+e, ponendo $\ket{y}=\ket{0}$
+\[
+    \Qcircuit @C=3em @R=4em {
+        \lstick{\ket{x\ped{1}}} & \ctrl{2} & \rstick{\ket{x_1}}\qw \\
+        \lstick{\ket{x\ped{1}}} & \ctrl{1} & \rstick{\ket{x_2}}\qw \\
+        \lstick{\ket{0}} & \targ  & \rstick{\ket{(x_1 \land x_2)}}\qw
+    }
+\]  
+. E per quanto concerne un $AND$ a 3 stati? Per estensione verrebbe da concludere che un $CNOT$ a 3 qubit di controllo (o equivalentemente una $Toffoli$ a 3 qubit di controllo)
+  con $NOT$ sul solito $\ket0$ sia sufficiente, tale risposta è corretta, tuttavia, QScript non fornisce una primitiva per $CNOT$ o $Toffoli$ generalizzati,
+  dobbiamo quindi cavarcela diversamente. Dopo un pò di ragionamento risulta relativamente facile capire che un $AND$ a 3 stati
+  è ricavabile componendo due $Toffoli$, infatti
+  
+\[
+    \Qcircuit @C=3em @R=4em {
+        \lstick{\ket{x\ped{1}}} & \ctrl{3} & \qw & \rstick{\ket{x_1}}\qw \\
+        \lstick{\ket{x\ped{2}}} & \ctrl{2} & \qw & \rstick{\ket{x_2}}\qw \\
+        \lstick{\ket{x\ped{3}}} & \qw  & \ctrl{2} & \rstick{\ket{x_3}}\qw \\
+        \lstick{\ket{0}}        & \targ    & \ctrl{1} & \rstick{\ket{(x_1 \land x_2)}}\qw \\
+        \lstick{\ket{0}}        & \qw    & \targ & \rstick{\ket{(x_1 \land x_2 \land x_3)}}\qw
+    }  
+\]
+. Abbiamo adesso tutti gli strumenti necessari per costruire l'oracolo $U_h$ cercato. La costruzione viene divisa in due fasi:
+nella prima vengono calcolati tutti gli $AND$ a 3 stati poi la parte rimanente della funzione e, per entrambe le fasi, fatto lo xor sull'ultimo qubit $\ket{y}$.
+Come abbiamo visto, per implementare $AND$ a 3 stati abbiamo bisogno del supporto di un qubit a $\ket0$, dovremo quindi aggiungere al sistema
+tanti qubit quanti sono gli $AND$ distinti a 3 stati in $h$ (1). Ne risulta il seguente circuito a 7 qubit
+
+\[
+    \Qcircuit @C=2.7em @R=3em {
+    \lstick{\ket{x\ped{1}}} & \qw       & \qw \ar@{--}[]+<5.5em,1em>;[ddddddd]+<5.5em,-1em> & \qw       & \ctrl{7}   & \qw      &  \qw      & \qw        &  \rstick{\ket{x\ped{1}}}\qw\\  
+    \lstick{\ket{x\ped{2}}} & \ctrl{4}  & \qw                                               & \qw       & \ctrl{6}   & \qw      &  \qw      & \qw        &  \rstick{\ket{x\ped{2}}}\qw\\
+    \lstick{\ket{x\ped{3}}} & \ctrl{3}  & \qw                                               & \qw       & \qw        & \ctrl{5} &  \ctrl{5} & \qw        &  \rstick{\ket{x\ped{3}}}\qw\\
+    \lstick{\ket{x\ped{4}}} & \qw       & \ctrl{4}                                          & \qw       & \qw        & \qw      &  \ctrl{4} & \ctrl{4}   &  \rstick{\ket{x\ped{4}}}\qw\\
+    \lstick{\ket{x\ped{5}}} & \qw       & \qw                                               & \ctrl{3}  & \qw        & \qw      &  \qw      & \ctrl{3}   &  \rstick{\ket{x\ped{5}}}\qw\\
+    \lstick{\ket{0}}        & \targ     & \ctrl{2}                                          & \ctrl{2}  & \qw        & \qw      &  \qw      & \qw        &  \rstick{\ket{x}}\qw\\
+    \lstick{\ket{0}}        & \qw       & \qw                                               & \qw       & \qw        & \qw      &  \qw      & \qw        &  \rstick{\ket{0}}\qw\\
+    \lstick{\ket{y}}        & \qw       & \targ                                             & \targ     & \targ      & \targ    &  \targ    & \targ      &  \rstick{\ket{h(x_1,x_2,x_3,x_4,x_5) \xor y}}\qw
+    }
+\]
+
+si noti la presenza di un qubit ausiliareo in più che non prende parte alla computazione, il motivo è dovuto ad una limitazione
+di QuantumPlayground che impone che la dimensione di un registro sia pari.\\
+L'oracolo in QScript diventa
+
 \begin{lstlisting}
-
-sysHgate 8
-oracle
-sysHgate 7
-
-//we now measure the vector space
-Measure
-
-if measured_value == 0 //state 00000000 
-	Print "CONSTANT"
-endif
-if measured_value == 128 //state 10000000
-	Print "CONSTANT"
-endif
-
-//if not constant, we know from assumption that must be balanced.
-if measured_value != 0
-	if measured_value != 128
-		Print "BALANCED"
-	endif
-endif
+    //Definition of Uh :h(x0,..,x4) xor x7
+    proc oracle
+        Toffoli 1, 2, 5
+        Toffoli 3, 5, 7 // x1 and x2 and x3
+        Toffoli 4, 5, 7 // x1 and x2 and x4 
+        Toffoli 0, 1, 7 // x0 and x1
+        Toffoli 2, 3, 7 // x2 and x3
+        Toffoli 3, 4, 7 // x3 and x4
+        CNot 2, 7 // x3
+    endproc
 \end{lstlisting}
 
-Non essendo possibile specificare un range su cui effettuare la misura, il comando \textit{Measure} prende in considerazione anche 
-l'ultimo qubit che nella teoria avevamo ignorato non dipendendo da $f(\text{\textbf{x}})^{[2]}$. Per questo è necessario considerare sia il caso in cui questo collassi nello stato $\ket{1}$ sia il caso in cui collassi nello stato $\ket{0}$.\\
+.  Onde evitare di aggiungere svariati controlli per tutti i possibili valori dei qubit di supporto, viene in questo caso effettuata
+la misurazione solo su gli stati significativi
 
-Nel complesso lo script risultante sarà:
 \begin{lstlisting}
-//inizialization
-VectorSize 8
-SetViewMode 2
+MeasureBit 0
 
+if measured_value == 0 
 
-//hadamard gate on j qubits, note: j=n first call, j=n-1 on the second one
-proc sysHgate j
-	for i = 0; i < j ; i++
-		Hadamard i
-	endfor
-endproc
+	MeasureBit 1
 
+	if measured_value == 0 
 
-//Definition of Uf
-proc oracle
-	for i = 0; i < 7 ; i++
-		CNot i, 7
-	endfor
-endproc
+		MeasureBit 2
 
+		if measured_value == 0
 
-//main execution
+			MeasureBit 3
 
-//swap the last qubit's value using X Pauli gate.
-SigmaX 7
+			if measured_value == 0 
 
-sysHgate 8
-oracle
-sysHgate 7
+				MeasureBit 4
 
-//we now measure the vector space
-Measure
+				if measured_value == 0 
 
-if measured_value == 0 //state 00000000 
-	Print "CONSTANT"
-endif
-if measured_value == 128 //state 10000000
-	Print "CONSTANT"
-endif
+					Print "CONSTAT"
 
-//if not constant, we know from assumption that must be balanced.
-if measured_value != 0
-	if measured_value != 128
+				else
+
+					Print "BALANCED"
+
+				endif
+
+			else
+
+				Print "BALANCED"
+
+			endif
+
+		else
+
+			Print "BALANCED"
+
+		endif
+
+	else
+
 		Print "BALANCED"
+
 	endif
+
+else
+
+Print "BALANCED"
+
 endif
 \end{lstlisting}
+nonostante la verbosità del codice, anche in questo caso l'esecuzione restituisce il risultato sperato confermando la corretta
+implementazione dell'ultima delle funzioni testate.
+
+\begin{figure}[h]
+    
+            \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{nonLinearBalancedFunction}
+        
+\end{figure}
 
 
-
-
-\section*{Note}
-
-[1], La funzione binaria $f: \{0,1\}^n \mapsto \{0,1\}, f(x\ped{1},x\ped{2},..,x\ped{n})=x\ped{1} \xor{x\ped{2}} \xor{..} \xor{x\ped{n}}$ è bilanciata.\\
-\textbf{Dimostrazione}\par
-Dobbiamo dimostrare che metà degli input per $f$ sono mappati in 1 e l'altra metà è mappata in 0. Il numero dei possibili input è $2^n$.\\
-Dal momento che $f$ decide la parità della somma $x1 + x2 + .. + xn$, la dimostrazione può essere vista come la verifica che il numero di sottoinsiemi di cardinalità pari da un insieme di $n$ elementi corrisponde a $2^{n-1}$.\\ 
-
-Per il \textit{Teorema Binomiale} si ha che $(x+y)^n = \sum\limits_{i=1}^n \binom {n}{i} a^{n-i}b^{i}$\\
-Ponendo $x=1, y=-1$ diventa
-\[
-0 = \sum\limits_{i=1}^n \binom {n}{i} 1^{n-i}(-1)^{i} = \sum\limits_{i=1}^n (-1)^{i}\binom {n}{i}
-\]
-Quindi 
-\[
-	\sum\limits_{i=1}^n \binom {n}{2i} = \sum\limits_{i=1}^n \binom {n}{2i + 1} = 2^{n-1}
-\]
-\par
-\
-[2], Prima della misurazione, il sistema si trova nel seguente stato di sovrapposizione
-\[
-	[\frac{\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}
-	  \sum\nolimits_{\textbf{z}\in{\{0,1\}^n}}(-1)^
-	  {f(\text{\textbf{x}})\otimes<\textbf{x},\textbf{y}>}\ket{\textbf{z}}}
-	  {2^n}][\frac{\ket{0}-\ket{1}}{\sqrt{2}}]
-\] 
-non dipendendone, l'ultimo qubit non ci fornisce informazioni sulla struttura di $f(\text{\textbf{x}})$, possiamo quindi ignorarlo. 
-
-
-
-
-
-
-
-\begin{thebibliography}{20}
+\begin{thebibliography}{30}
     \addcontentsline{toc}{chapter}{Bibliografia}
     \bibitem{ref1} Higham, N. (1998). \emph{Handbook of writing for the mathematical sciences.} Philadelphia: SIAM, Soc. for Industrial and Applied Mathematics.
     \bibitem{ref2} Encyclopediaofmath.org. (2017). \emph{Boolean function - Encyclopedia of Mathematics.} [online] 
@@ -1557,6 +1636,8 @@ non dipendendone, l'ultimo qubit non ci fornisce informazioni sulla struttura di
     \bibitem{ref16} Cleve, R., Ekert, A., Macchiavello, C., Mosca, M. (1998). Quantum algorithms revisited. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 454, No. 1969, pp. 339-354). 
     \bibitem{ref17} Bera, D. (2015). \emph{A different Deutsch–Jozsa}. Quantum Information Processing, 14(6), 1777-1785.
     \bibitem{ref18} Quantum Playground. (2017, November 29). Retrieved  from http://www.quantumplayground.net 
+    \bibitem{ref19} Toffoli, T. (1980). \emph{Reversible computing}. Automata, Languages and Programming, 632-644.
+    \bibitem{ref20}  Shi, Yaoyun (2003). \emph{Both Toffoli and Controlled-NOT need little help to do universal quantum computation.} Quantum Information & Computation. 3 (1): 84–92. 
 \end{thebibliography}
 
 \end{document}

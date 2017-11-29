@@ -1,0 +1,115 @@
+//QScript code for the evaluation of the Deutsch-Jozsa algorithm on the non-linearly balanced function
+// h(x0,x1,x2,x3,x4) = x0x1 \xor x3 \xor x2x34 \xor x_2x_3x_5 \xor x_3x_4 \xor x_4x_5
+// documentation: https://github.com/arbiter1elegantiae/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm
+// author: Federico Peconi
+
+
+//inizialization
+
+VectorSize 8
+
+SetViewMode 2
+
+
+//hadamard gate on j qubits, note: j=n first call, j=n-1 on the second one
+
+proc sysHgate j
+
+for i = 0; i < j ; i++
+
+Hadamard i
+
+endfor
+
+endproc
+
+
+//Definition of Uh :h(x0,..,x5) xor x7
+
+proc oracle
+
+	Toffoli 1, 2, 5
+
+	Toffoli 3, 5, 7 // x1 and x2 and x3
+
+	Toffoli 4, 5, 7 // x1 and x2 and x4 
+
+	Toffoli 0, 1, 7 // x0 and x1
+
+	Toffoli 2, 3, 7 // x2 and x3
+
+	Toffoli 3, 4, 7 // x3 and x4
+
+	CNot 2, 7 // x3
+
+endproc
+
+
+//main execution
+
+//swap the last qubit's value using X Pauli gate.
+
+SigmaX 7
+
+sysHgate 5
+
+Hadamard 7
+
+oracle
+
+sysHgate 5
+
+
+//measure of the first 5 qubits
+
+  MeasureBit 0
+
+  if measured_value == 0 
+
+    MeasureBit 1
+
+    if measured_value == 0 
+
+      MeasureBit 2
+
+      if measured_value == 0
+
+        MeasureBit 3
+
+        if measured_value == 0 
+
+          MeasureBit 4
+
+          if measured_value == 0 
+
+            Print "CONSTAT"
+
+          else
+
+            Print "BALANCED"
+
+          endif
+
+        else
+
+          Print "BALANCED"
+
+        endif
+
+      else
+
+        Print "BALANCED"
+
+      endif
+
+    else
+
+      Print "BALANCED"
+
+    endif
+
+  else
+
+  Print "BALANCED"
+
+  endif
