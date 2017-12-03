@@ -116,6 +116,79 @@ anche nulla \ldots                      %\ldots lascia tre puntini
 \end{titlepage}
 \tableofcontents
 \chapter{Introduzione}
+Che cosa hanno in comune il Deep Learning che permette ad un veicolo di guidare autonomamente, l'analisi di un mercato finanziario in continua crescita, la simulazione dei più svariati sistemi fisici 
+quali la modellizzazione delle interazioni a scala molecolare, le previsioni dei cambiamenti climatici e la crittoanalisi dei moderni sistemi crittografici che garantiscono la sicurezza di internet?
+Per quanto apparentemente distanti, questi campi sono legati tra di loro da un denominatore comune: la complessità computazionale che devono fronteggiare per poter esistere.
+Sia che si esprima sotto forma di problemi di ottimizzazione per la scelta della miglior azione da compiere in prossimità di un ostacolo,
+sia che emerga con la valutazione dei risultati di grandi quantità di previsioni finanziarie o che si manifesti nella ricerca dei fattori primi di un numero molto grande per decifrare RSA\cite{ref22},
+la complessità derivata da questi compiti rappresenta un ostacolo difficile da superare anche dai moderni super computer.\\
+In realtà, per il calcolo digitale, questi problemi non sono solo attualmente difficili da risolvere ma, con ogni probabilità, lo saranno per sempre. Ciò è dovuto al numero di operazioni necessarie per risolverli,
+che cresce, in relazione con la dimensione del problema, più rapidamente di quanto cresca la capacità di calcolo dei calcolatori negli anni \cite{ref23}.
+A titolo di esempio, la simulazione di piccole molecole composte da qualche atomo può essere portata avanti anche da un laptop domestico nell'arco di qualche secondo mentre, aumentando in ordini di grandezza e 
+passando a molecole composte da qualche centinaia di atomi, il processo di esatta simulazione impegnerebbe un qualsiasi computer per un tempo superiore a quello dell'età dell'universo.
+
+\section{Il Paradigma Quantistico}
+La buona notizia è che una soluzione sembra esistere e deriva da un approccio drasticamente differente rispetto a quello tradizionale. Il modello di calcolo classico sfruttato dai moderni calcolatori, infatti,
+si fonda sopra il concetto di bit: un'unità logica che può avere valore 0 o 1 e sulle operazioni effettuabili su questi valori. È sufficiente questo modello con l'aggiunta di poche altre regole che verranno
+chiarite in seguito per derivare l'Informatica come oggi la conosciamo, con tutte le sue applicazioni e limitazioni, alcune delle quali appena esposte. Essenzialmente, dai tempi di Turing, nessun cambiamento
+ha avuto luogo che abbia portato a mettere in discussione che cosa sia e come opera un computer fino a quando, dopo l'affermazione della meccanica quantistica, negli anni 80 del secolo scorso, alcuni scienziati
+cominciarono a avanzare l'ipotesi che le stesse leggi che governano il mondo infinitamente piccolo potessero essere sfruttate per lo sviluppo di un nuovo paradigma di calcolo dalle nuove potenzialità.
+La proprietà che veniva proposta della meccanica quantistica come più rilevante ai fini dell'applicazione alla computazione era il postulato secondo il quale un sistema fisico quantistico con $n$ gradi di libertà
+si può trovare contemporaneamente in un numero di stati che cresce esponenzialmente con $n$. Come ogni struttura fisica anche gli stati di un sistema quantistico possono essere utilizzati per trasportare
+informazione e quindi aprire la strada ad un'elaborazione a sua volta esponenziale. \\
+Analogalmente, anche un computer quantistico possiede un'unità di base che è chiamata quantum bit o, in maniera abbreviata, qubit. Come anticipato e come verrà poi meglio formalizzato il qubit si distingue dal bit classico
+per la possibilità di trovarsi in una \emph{sovrapposizione} dei valori logici 0 e 1 contemporaneamente oltre che assumere i valori 0 e 1 proprio come un bit. Nella pratica un qubit sarebbe implementatbile 
+sfruttando le proprietà tipicamente quantistiche quali la polarizzazione di un fotone o lo spin di un elettrone; lo studio delle tecniche e i metodi per la realizzazione di un computer quantistico richiede
+avanzate conoscenze di fisica ed esula dai fini della tesi in oggetto. Si basti accennare che le difficoltà tecniche in questo campo sono ancora tante e allo stato dell'arte solo poche compagnie dichiarano
+d'aver sviluppato "piccoli" chip quantistici funzionanti\cite{ref24}.\par
+In questo documento vengono trattate da un punto di vista teorico le fondamenta del calcolo quantistico volgendo l'attenzione in particolare sulla progettazione di algoritmi che sfruttino il parallelismo 
+emergente dalla sovrapposizione andando infine ad analizzare un preciso caso d'uso.  
+
+\section{Potenziale}
+La fattorizzazione di numeri interi in numeri primi è, contrariamente a quanto avviene per il calcolo tradizionale, un problema relativamente facile da risolvere da un computer quantistico.
+Peter Shor fornì nel 1999 un algoritmo quantistico che richiede tempo polinomiale per risolvere il problema \cite{ref25}. Questo algoritmo è, teoricamente, in grado di rompere i sistemi di sicurezza a
+chiave pubblica utilizzati ad esempio in ogni transizione bancaria. D'altra parte sono stati sviluppati protocolli a crittografia quantistica per lo scambio di chiavi teoricamente immuni a qualsiasi tipo di 
+attacco, si parla in questo caso di crittografia perfetta \cite{ref26}. Al di fuori della fattorizzazione gli algoritmi quantistici risultano essere ideali nella simulazione di processi fisici a stato solido e chimici
+vantando sempre un diminuzione più che polinomiale in tempo rispetto alle corrispettive procedure classiche \cite{ref27}. Esistono problemi per cui i computer quantistici garantirebbero una diminuzione polinomiale 
+in tempo, l'esempio più famoso è dato dall'algoritmo di Groover \cite{ref28} per la ricerca di un record all'interno di un database che assicura una riduzione quadratica delle richieste per trovare l'elemento cercato.\\
+Si ritiene che le simulazioni quantistiche permetterebbero di modellare fedelmente il comportamento di atomi in condizioni inusuali come ad esempio durante gli scontri all'interno dei collisori di particelle \cite{ref29} e,
+in generale, molti ritengono la simulazione il campo ideale in cui la computazione quantistica risulterebbe vincente \cite{ref30}, rispondendo così alle domande con cui si è aperta la trattazione.\\
+Lo spettro delle applicazioni in cui l'informatica quantistica garantirebbe vantaggi e quindi vasto e promettente ed è correntemente supportato da numerosi investimenti che fanno di questa disciplina uno dei 
+campi di ricerca più avanzati ed interessanti dell'Informatica.\\
+Introdotte le motivazioni che difendono l'importanza d'approfondire questo campo, viene di seguito fatta una panoramica della struttura che questa tesi seguirà.
+
+\section{Di che cosa parla questa tesi?}
+
+L'intera tesi ha come punto d'arrivo l'analisi della correttezza e l'implementazione di un algoritmo quantistico : l'algoritmo di Deutsch-Jozsa. L'algoritmo di Deutsch-Jozsa come vedremo non risolve un problema che ha dirette applicazioni
+pratiche bensì è un risultato importante più dal punto di vista teorico. Fu infatti il primo esempio di procedura quantistica (deterministica) in grado di ottenere un aumento esponenziale rispetto alla controparte
+classica per la risoluzione di un problema.\par
+Per arrivare a parlare di Deutsch–Jozsa è necessario acquisire i concetti fondamentali che caratterizzano il calcolo dei quanti, a tal proposito si è scelto
+di sviluppare la trattazione in capitoli e sezioni, ognuna incaricata di esporre al lettore una specifica tematica al fine di guidarlo verso la piena comprensione della tesi,
+in particolare:     
+\begin{itemize}
+    \item nel secondo capitolo vengono trattati gli aspetti generali delle funzioni Booleane che sono alla base dell'algebra di ogni computer concentrando l'attenzione
+          sulle funzioni Booleane bilanciate, una particolare classe che tornerà poi utile nell'ultimo capitolo;
+
+    \item nel terzo e principale capitolo invece si comincia introducendo quella che è stata la storia che ha portato alla nascita dell'informazione quantistica,
+          elencandone i protagonisti e le scoperte principali. Vengono poi informalmente esposte le leggi e le stranezze della meccanica quantistica. Dopo 
+          questa parte propedeutica sono definiti e messi a confronto, in ordine, il sistema di calcolo classico, il sistema probabilistico \footnote{Il modello probabilistico
+          qui esposto è adattato per meglio introdurre il modello quantistico} ed infine quello quantistico. Si passa poi a ricavare la dinamica e generalizzare
+          il sistema su più qubit per mostrare le potenzialità offerte dal parallelismo che ne deriva. Viene inoltre aperta una parentesi sul fenomeno dell'entanglement
+          e la sua importanza all'interno del campo e infine presentato il primo esempio concreto di algoritmo quantistico;
+    
+    \item il quarto capitolo è incentrato sull'analisi della corettezza dell'algoritmo di Deutsch–Jozsa e sulla formulazione del problema che risolve. Viene 
+          come conseguenza quantificato lo scarto di complessità nei confronti delle relative procedure classiche;
+          
+    \item il quinto e ultimo capitolo consiste nel riportare il processo di progettazione ed esecuzione seguito per l'implementazione di Deutsch–Jozsa.
+          Viene utilizzato un simulatore quantistico fornito da un'applicazione web e un linguaggio di scripting per codificare le varie istanze. Vengono ripresi
+          i risultati del primo capitolo come test su cui effettuare l'esecuzione.
+             
+\end{itemize}     
+
+
+
+
+
 \chapter{Funzioni Booleane Bilanciate}
 Come già anticipato nell'Introduzione, le funzioni Booleane bilanciate sono una struttura matematica su cui poggia parte del contenuto di questa tesi.
 É risultato perciò utile, ai fini di una trattazione chiara ed esaustiva, impiegare un capitolo per definirne in maniera rigorosa i concetti di base.\\
@@ -1270,7 +1343,7 @@ L'obiettivo è quello di tradurre il circuito per D.J.
 			
 \noindent{} in un programma che ne simuli il comportamento. Per farlo, è necessario una funzione $f$ su cui valutare l'algoritmo, a tal proposito, sono state scelte due funzioni bilanciate e una costante.
 Di ogni funzione viene mostrato il procedimento seguito per la costruzione dell'oracolo, il codice relativo e uno snapshot del risultato finale.\\
-Si cominci con il caso più elementare e cioè il caso in cui $f$ è costante, è stata scelta consapevolmente la $f$ costante a 0, il motivo di questa preferenza risiede nella definizione dell'oracolo, infatti,
+Si cominci con il caso più elementare e cioè il caso in cui $f$ è costante. È stata scelta consapevolmente la $f$ costante a 0, il motivo di questa preferenza risiede nella definizione dell'oracolo, infatti,
 $U_f$ per $f(x)=0$ è semplicemente $U_f(\ket{\textbf{x},y})=\ket{\textbf{x},y \xor f(\textbf{x})} = \ket{\textbf{x},y}$ ovvero la trasformazione identità.\\
 Passiamo ad esporre e commentare lo script che implementa l'algoritmo per l'oracolo $I$, il primo passo è inizializzare il sistema:
 
@@ -1615,8 +1688,21 @@ implementazione dell'ultima delle funzioni testate.
         
 \end{figure}
 
+\chapter{Conclusioni}
+È stato provato come l'utilizzo della meccanica quantistica a supporto dell'informatica e in particolare nell'algoritmica permette di trovare soluzioni ottimali.
+Riassumendo, l'idea di base in generale per qualsiasi algoritmo quantistico è quella di utilizzare la sovrapposizione per lavorare con tutti i possibili input
+del problema contemporaneamente cercando, dal momento che questa sovrapposizione non è direttamente osservabile ma solo descrivibile come una distribuzione di 
+probabilità, di trovare un pattern tra gli stati svrapposti che sia in qualche modo collegato alla soluzione. Sfruttando poi i fenomeni di cancellazione tra stati
+dovuti all'interferenza, si tenta di estrapolare il più possibile tale pattern aumentando la probabilità di misurarlo. Non tutte le procedure ricavabili secondo
+questo schema sono deterministiche, molte infatti, come l'algoritmo di Shor, lavorano riducendo iterativamente la probabilità di sbagliare.\\
+È importante menzionare il fatto che, contrariamente a quanto visto, esistono anche problemi in cui il nuovo paradigma è risaputo non portare vantaggi, 
+come ad esempio i problemi indecidibili che rimangono tali anche per il calcolo quantistico\footnote{è infatti possibile
+utilizzando un numero esponenziale di risorse simulare una macchina quantistica utilizzando una macchina di Turing, ne è un esempio proprio QuantumPlayground.}, lasciando così inalterata la tesi di Church-Turing.
+Le potenzialità esposte fino ad ora restano tuttavia dei validi motivi che giustificano la corsa alla costruzione di un computer quantistico
+che sta avvenendo in questi anni. Come la storia insegna, non è mai possibile prevedere interamente quali saranno i benefici e le scoperte dovute all'avvento di una nuova tecnologia,
+non resta quindi che continuare ad avanzare in un campo interdisciplinare così vasto alla ricerca di una maggiore comprensione dei misteri di un mondo così piccolo.
 
-\begin{thebibliography}{30}
+\begin{thebibliography}{40}
     \addcontentsline{toc}{chapter}{Bibliografia}
     \bibitem{ref1} Higham, N. (1998). \emph{Handbook of writing for the mathematical sciences.} Philadelphia: SIAM, Soc. for Industrial and Applied Mathematics.
     \bibitem{ref2} Encyclopediaofmath.org. (2017). \emph{Boolean function - Encyclopedia of Mathematics.} [online] 
@@ -1637,9 +1723,18 @@ implementazione dell'ultima delle funzioni testate.
     \bibitem{ref17} Bera, D. (2015). \emph{A different Deutsch–Jozsa}. Quantum Information Processing, 14(6), 1777-1785.
     \bibitem{ref18} Quantum Playground. (2017, November 29). Retrieved  from http://www.quantumplayground.net 
     \bibitem{ref19} Toffoli, T. (1980). \emph{Reversible computing}. Automata, Languages and Programming, 632-644.
-    \bibitem{ref20}  Shi, Yaoyun (2003). \emph{Both Toffoli and Controlled-NOT need little help to do universal quantum computation.} Quantum Information & Computation. 3 (1): 84–92. 
+    \bibitem{ref20} Shi, Yaoyun (2003). \emph{Both Toffoli and Controlled-NOT need little help to do universal quantum computation.} Quantum Information & Computation. 3 (1): 84–92.
+    \bibitem{ref21} James, T. L. G. (1999). \emph{Quantum computation: an Introduction}. A thesis for the bachelor degree, Harvard College. 
+    \bibitem{ref22} Rivest, R., Shamir, A., Adleman, L. (1978). \emph{A method for obtaining digital signatures and public-key cryptosystems}. Communications of the ACM, 21(2), 120-126.
+    \bibitem{ref23} Present, I. (2000). \emph{Cramming more components onto integrated circuits}. Readings in computer architecture, 56.
+    \bibitem{ref24} (2017) \emph{IBM Builds Its Most Powerful Universal Quantum Computing Processors}. Retrieved 1 December 2017.
+    \bibitem{ref25} Shor, P. (1999). \emph{Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer}. SIAM Review, 41(2), pp.303-332
+    \bibitem{ref26} Bennett, C. H., Brassard, G. (2014). \emph{QUANTUM CRYPTOGRAPHY: PUBLIC KEY DISTRIBUTION AND CON Tos5}.
+    \bibitem{ref27} Stephen Jordan \emph{Quantum Zoo Algorithms} Stephen Jordan's home page, http://math.nist.gov/quantum/zoo/. Retrived 1 December 2017.
+    \bibitem{ref28} Grover, L. K. (1996). \emph{A fast quantum mechanical algorithm for database search}. In Proceedings of the twenty-eighth annual ACM symposium on Theory of computing (pp. 212-219). ACM.
+    \bibitem{ref29} Ambainis, Andris (2014) \emph{What Can We Do with a Quantum Computer} Institute for Advanced Study.
+    \bibitem{ref30} Norton, Quinn (2007). \emph{The Father of Quantum Computing}. Wired.com. Retrieved 1 December 2017.
 \end{thebibliography}
-
 \end{document}
 
 
