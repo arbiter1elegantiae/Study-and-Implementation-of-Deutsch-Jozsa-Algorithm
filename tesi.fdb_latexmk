@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1512226715 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1512226715
+["pdflatex"] 1512412032 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1512412034
   "/etc/texmf/web2c/texmf.cnf" 1501000560 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1512226715 117487 754b0cf7ba89e1175c3be07f70ea7187 ""
+  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1512412032 117634 8c8bd4c64560a2dc184d81acf1d2b1fd ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -208,7 +208,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/qcircuit/qcircuit.sty" 1406243247 9724 3b1a2852ab7d555d619ab632f33fe570 ""
   "/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty" 1369619135 15542 c4cc3164fe24f2f2fbb06eb71b1da4c4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty" 1454284088 1617 820bc46185ca5aeeda2ecc6c21866b18 ""
-  "/usr/share/texlive/texmf-dist/tex/latex/tools/showkeys.sty" 1454284088 8641 956b63656962bb68a381bdf67e9138d4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
@@ -222,11 +221,11 @@
   "double-slit-electrons1.jpg" 1510342376 17914 1781f15155e552538472ae9fd9a13f78 ""
   "kbordermatrix.sty" 1509125943 5523 bfa1a1f639d04118419d64fe784088b4 ""
   "nonLinearBalancedFunction.png" 1511988027 71297 ce5a8f5e929d6791ce4f49b71db00f29 ""
-  "tesi.aux" 1512226455 5733 6993a5a403747c38063f525b62c1265c ""
-  "tesi.tex" 1512226715 117487 754b0cf7ba89e1175c3be07f70ea7187 ""
-  "tesi.toc" 1512226455 2670 e219bc9fddcdb4a9eb31822cb2fb0925 ""
+  "tesi.aux" 1512412034 5734 b60ff5fa3781e27583438eeb53299ac3 ""
+  "tesi.tex" 1512412032 117634 8c8bd4c64560a2dc184d81acf1d2b1fd ""
+  "tesi.toc" 1512412034 2671 aa3798291574e88e18270bf6bc69c204 ""
   (generated)
-  "tesi.pdf"
-  "tesi.aux"
   "tesi.toc"
   "tesi.log"
+  "tesi.aux"
+  "tesi.pdf"

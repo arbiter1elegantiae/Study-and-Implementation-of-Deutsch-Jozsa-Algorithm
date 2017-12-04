@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {1}Introduzione}{3}
 \contentsline {section}{\numberline {1.1}Il Paradigma Quantistico}{4}
 \contentsline {section}{\numberline {1.2}Potenziale}{5}
-\contentsline {section}{\numberline {1.3}Di che cosa parla questa tesi?}{6}
+\contentsline {section}{\numberline {1.3}Di Che Cosa Tratta Questa Tesi?}{6}
 \contentsline {chapter}{\numberline {2}Funzioni Booleane Bilanciate}{8}
 \contentsline {section}{\numberline {2.1}Funzioni Booleane}{8}
 \contentsline {section}{\numberline {2.2}Classi di Funzioni Booleane Bilanciate}{10}

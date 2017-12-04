@@ -4,7 +4,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 \usepackage{indentfirst}
-\usepackage{showkeys}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{latexsym}
@@ -122,45 +121,45 @@ Per quanto apparentemente distanti, questi campi sono legati tra di loro da un d
 Sia che si esprima sotto forma di problemi di ottimizzazione per la scelta della miglior azione da compiere in prossimità di un ostacolo,
 sia che emerga con la valutazione dei risultati di grandi quantità di previsioni finanziarie o che si manifesti nella ricerca dei fattori primi di un numero molto grande per decifrare RSA\cite{ref22},
 la complessità derivata da questi compiti rappresenta un ostacolo difficile da superare anche dai moderni super computer.\\
-In realtà, per il calcolo digitale, questi problemi non sono solo attualmente difficili da risolvere ma, con ogni probabilità, lo saranno per sempre. Ciò è dovuto al numero di operazioni necessarie per risolverli,
+In realtà, per il calcolo digitale, questi problemi non sono solo attualmente intrattabili ma, con ogni probabilità, lo saranno per sempre. Ciò è dovuto al numero di operazioni necessarie per risolverli,
 che cresce, in relazione con la dimensione del problema, più rapidamente di quanto cresca la capacità di calcolo dei calcolatori negli anni \cite{ref23}.
-A titolo di esempio, la simulazione di piccole molecole composte da qualche atomo può essere portata avanti anche da un laptop domestico nell'arco di qualche secondo mentre, aumentando in ordini di grandezza e 
-passando a molecole composte da qualche centinaia di atomi, il processo di esatta simulazione impegnerebbe un qualsiasi computer per un tempo superiore a quello dell'età dell'universo.
+A titolo di esempio, la simulazione delle interazioni di piccole molecole composte da pochi atomi può essere portata avanti anche da un laptop domestico nell'arco di qualche secondo mentre, aumentando in ordini di grandezza e 
+passando a molecole composte da alcune centinaia di atomi, il processo di esatta simulazione impegnerebbe un qualsiasi computer per un tempo superiore a quello dell'età dell'universo.
 
 \section{Il Paradigma Quantistico}
 La buona notizia è che una soluzione sembra esistere e deriva da un approccio drasticamente differente rispetto a quello tradizionale. Il modello di calcolo classico sfruttato dai moderni calcolatori, infatti,
 si fonda sopra il concetto di bit: un'unità logica che può avere valore 0 o 1 e sulle operazioni effettuabili su questi valori. È sufficiente questo modello con l'aggiunta di poche altre regole che verranno
-chiarite in seguito per derivare l'Informatica come oggi la conosciamo, con tutte le sue applicazioni e limitazioni, alcune delle quali appena esposte. Essenzialmente, dai tempi di Turing, nessun cambiamento
-ha avuto luogo che abbia portato a mettere in discussione che cosa sia e come opera un computer fino a quando, dopo l'affermazione della meccanica quantistica, negli anni 80 del secolo scorso, alcuni scienziati
-cominciarono a avanzare l'ipotesi che le stesse leggi che governano il mondo infinitamente piccolo potessero essere sfruttate per lo sviluppo di un nuovo paradigma di calcolo dalle nuove potenzialità.
+chiarite in seguito per derivarne l'Informatica come oggi la conosciamo, con tutte le sue applicazioni e limitazioni, alcune delle quali appena esposte. Essenzialmente, dai tempi di Turing, nessun cambiamento
+ha avuto luogo tale da mettere in discussione che cosa sia e come opera un computer fino a quando, dopo l'affermazione della meccanica quantistica, negli anni 80 del secolo scorso, alcuni scienziati
+cominciarono ad avanzare l'ipotesi che le stesse leggi che governano il mondo infinitamente piccolo potessero essere sfruttate per lo sviluppo di un nuovo paradigma di calcolo dalle nuove potenzialità.
 La proprietà che veniva proposta della meccanica quantistica come più rilevante ai fini dell'applicazione alla computazione era il postulato secondo il quale un sistema fisico quantistico con $n$ gradi di libertà
 si può trovare contemporaneamente in un numero di stati che cresce esponenzialmente con $n$. Come ogni struttura fisica anche gli stati di un sistema quantistico possono essere utilizzati per trasportare
 informazione e quindi aprire la strada ad un'elaborazione a sua volta esponenziale. \\
-Analogalmente, anche un computer quantistico possiede un'unità di base che è chiamata quantum bit o, in maniera abbreviata, qubit. Come anticipato e come verrà poi meglio formalizzato il qubit si distingue dal bit classico
+Analogalmente, anche un computer quantistico possiede un'unità di base che è chiamata quantum bit o, in maniera abbreviata, qubit. Come anticipato e come verrà poi meglio formalizzato, il qubit si distingue dal bit classico
 per la possibilità di trovarsi in una \emph{sovrapposizione} dei valori logici 0 e 1 contemporaneamente oltre che assumere i valori 0 e 1 proprio come un bit. Nella pratica un qubit sarebbe implementatbile 
 sfruttando le proprietà tipicamente quantistiche quali la polarizzazione di un fotone o lo spin di un elettrone; lo studio delle tecniche e i metodi per la realizzazione di un computer quantistico richiede
-avanzate conoscenze di fisica ed esula dai fini della tesi in oggetto. Si basti accennare che le difficoltà tecniche in questo campo sono ancora tante e allo stato dell'arte solo poche compagnie dichiarano
+avanzate conoscenze di fisica ed esula dai fini della tesi in oggetto. Qui basti accennare che le difficoltà tecniche in questo campo sono ancora tante e allo stato dell'arte solo poche compagnie dichiarano
 d'aver sviluppato "piccoli" chip quantistici funzionanti\cite{ref24}.\par
-In questo documento vengono trattate da un punto di vista teorico le fondamenta del calcolo quantistico volgendo l'attenzione in particolare sulla progettazione di algoritmi che sfruttino il parallelismo 
-emergente dalla sovrapposizione andando infine ad analizzare un preciso caso d'uso.  
+In questo documento vengono trattate da un punto di vista teorico le fondamenta del calcolo quantistico, ponendo l'attenzione in particolare sulla progettazione di algoritmi che sfruttino il parallelismo 
+emergente dalla sovrapposizione, andando infine ad analizzare un preciso caso d'uso.  
 
 \section{Potenziale}
 La fattorizzazione di numeri interi in numeri primi è, contrariamente a quanto avviene per il calcolo tradizionale, un problema relativamente facile da risolvere da un computer quantistico.
 Peter Shor fornì nel 1999 un algoritmo quantistico che richiede tempo polinomiale per risolvere il problema \cite{ref25}. Questo algoritmo è, teoricamente, in grado di rompere i sistemi di sicurezza a
 chiave pubblica utilizzati ad esempio in ogni transizione bancaria. D'altra parte sono stati sviluppati protocolli a crittografia quantistica per lo scambio di chiavi teoricamente immuni a qualsiasi tipo di 
-attacco, si parla in questo caso di crittografia perfetta \cite{ref26}. Al di fuori della fattorizzazione gli algoritmi quantistici risultano essere ideali nella simulazione di processi fisici a stato solido e chimici
-vantando sempre un diminuzione più che polinomiale in tempo rispetto alle corrispettive procedure classiche \cite{ref27}. Esistono problemi per cui i computer quantistici garantirebbero una diminuzione polinomiale 
-in tempo, l'esempio più famoso è dato dall'algoritmo di Groover \cite{ref28} per la ricerca di un record all'interno di un database che assicura una riduzione quadratica delle richieste per trovare l'elemento cercato.\\
-Si ritiene che le simulazioni quantistiche permetterebbero di modellare fedelmente il comportamento di atomi in condizioni inusuali come ad esempio durante gli scontri all'interno dei collisori di particelle \cite{ref29} e,
+attacco, si parla in questo caso di crittografia perfetta \cite{ref26}. Al di fuori della fattorizzazione, gli algoritmi quantistici risultano essere ideali nella simulazione di processi fisici a stato solido e chimici
+vantando sempre un diminuzione più che polinomiale in tempo rispetto alle rispettive procedure classiche \cite{ref27}. Esistono problemi per cui i computer quantistici garantirebbero una diminuzione polinomiale 
+in tempo: l'esempio più famoso è dato dall'algoritmo di Groover \cite{ref28} per la ricerca di un record all'interno di un database, che assicura una riduzione quadratica delle richieste per trovare l'elemento cercato.\\
+Si ritiene che le simulazioni quantistiche permetterebbero di modellare fedelmente il comportamento di atomi in condizioni inusuali come ad esempio durante gli scontri all'interno degli accellaratori di particelle \cite{ref29} e,
 in generale, molti ritengono la simulazione il campo ideale in cui la computazione quantistica risulterebbe vincente \cite{ref30}, rispondendo così alle domande con cui si è aperta la trattazione.\\
-Lo spettro delle applicazioni in cui l'informatica quantistica garantirebbe vantaggi e quindi vasto e promettente ed è correntemente supportato da numerosi investimenti che fanno di questa disciplina uno dei 
+Lo spettro delle applicazioni in cui l'informatica quantistica garantirebbe vantaggi è quindi vasto e promettente ed è correntemente supportato da numerosi investimenti che fanno di questa disciplina uno dei 
 campi di ricerca più avanzati ed interessanti dell'Informatica.\\
 Introdotte le motivazioni che difendono l'importanza d'approfondire questo campo, viene di seguito fatta una panoramica della struttura che questa tesi seguirà.
 
-\section{Di che cosa parla questa tesi?}
+\section{Di Che Cosa Tratta Questa Tesi?}
 
-L'intera tesi ha come punto d'arrivo l'analisi della correttezza e l'implementazione di un algoritmo quantistico : l'algoritmo di Deutsch-Jozsa. L'algoritmo di Deutsch-Jozsa come vedremo non risolve un problema che ha dirette applicazioni
-pratiche bensì è un risultato importante più dal punto di vista teorico. Fu infatti il primo esempio di procedura quantistica (deterministica) in grado di ottenere un aumento esponenziale rispetto alla controparte
+L'intera tesi ha come punto d'arrivo l'analisi della correttezza e l'implementazione di un algoritmo quantistico : l'algoritmo di Deutsch-Jozsa. L'algoritmo di Deutsch-Jozsa, come vedremo, non risolve un problema che ha dirette applicazioni
+pratiche bensì è un risultato importante dal punto di vista teorico. Fu infatti il primo esempio di procedura quantistica (deterministica) in grado di ottenere un diminuzione esponenziale in tempo rispetto alla controparte
 classica per la risoluzione di un problema.\par
 Per arrivare a parlare di Deutsch–Jozsa è necessario acquisire i concetti fondamentali che caratterizzano il calcolo dei quanti, a tal proposito si è scelto
 di sviluppare la trattazione in capitoli e sezioni, ognuna incaricata di esporre al lettore una specifica tematica al fine di guidarlo verso la piena comprensione della tesi,
@@ -172,11 +171,11 @@ in particolare:
     \item nel terzo e principale capitolo invece si comincia introducendo quella che è stata la storia che ha portato alla nascita dell'informazione quantistica,
           elencandone i protagonisti e le scoperte principali. Vengono poi informalmente esposte le leggi e le stranezze della meccanica quantistica. Dopo 
           questa parte propedeutica sono definiti e messi a confronto, in ordine, il sistema di calcolo classico, il sistema probabilistico \footnote{Il modello probabilistico
-          qui esposto è adattato per meglio introdurre il modello quantistico} ed infine quello quantistico. Si passa poi a ricavare la dinamica e generalizzare
-          il sistema su più qubit per mostrare le potenzialità offerte dal parallelismo che ne deriva. Viene inoltre aperta una parentesi sul fenomeno dell'entanglement
+          qui esposto è adattato per meglio introdurre il modello quantistico} ed infine quello quantistico. Si passa poi a ricavare la dinamica del sistema e generalizzarlo
+          su più qubit per mostrare le potenzialità offerte dal parallelismo che ne deriva. Viene inoltre aperta una parentesi sul fenomeno dell'entanglement
           e la sua importanza all'interno del campo e infine presentato il primo esempio concreto di algoritmo quantistico;
     
-    \item il quarto capitolo è incentrato sull'analisi della corettezza dell'algoritmo di Deutsch–Jozsa e sulla formulazione del problema che risolve. Viene 
+    \item il quarto capitolo è incentrato sull'analisi della correttezza dell'algoritmo di Deutsch–Jozsa e sulla formulazione del problema da questo risolto. Viene 
           come conseguenza quantificato lo scarto di complessità nei confronti delle relative procedure classiche;
           
     \item il quinto e ultimo capitolo consiste nel riportare il processo di progettazione ed esecuzione seguito per l'implementazione di Deutsch–Jozsa.
@@ -212,7 +211,7 @@ oppure da $f^\prime:\{TRUE,FALSE\}\mapsto{\{TRUE,FALSE\}}$
 \end{align*}
 Notiamo come entrambe abbiano in comune la dimensione del codominio e la capacità di agire su un numero finito di valori appartenenti ad un insieme di 2 elementi.
 È tuttavia conveniente operare su di un insieme che possa essere visto sia dal punto di vista qualitativo (vero, falso)
-sia da un punto di vista quantitativo, e quindi numerico, che ci permetta così di compiere anche operazioni algebriche oltre che logiche. Prediligeremo allora da qui in avanti l'inisieme
+sia da un punto di vista quantitativo, e quindi numerico, che ci permetta così di compiere anche operazioni algebriche oltre che logiche. Prediligeremo allora da qui in avanti l'insieme
 $\{0,1\}$ come campo vettoriale su cui lavorare.
 \par
 \begin{mydef}
@@ -227,11 +226,11 @@ $\{0,1\}$ come campo vettoriale su cui lavorare.
     ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
     In $n$ bit possiamo codificare, trattandosi di una distribuzione con ripetizione di classe $n$, $2^n$ oggetti differenti, quindi $\mathbb{D}_{2,n}=\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
     Per definizione di $f$, per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$.\\
-    Allora $\mathcal{F}$ avrà caridinalità uguale all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
+    Allora $\mathcal{F}$ avrà cardinalità uguale all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
 
 \end{proof}
 Un altro modo più tradizionale per descrivere una funzione Booleana è quello di fornire la sua tabella di verità.
-Ad esempio, per la $f$ precedentemente definita, la tabella di verità relativa sarà:
+Ad esempio, per la $f$ precedentemente definita, la relativa tabella di verità sarà:
 
 
 \begin{displaymath}
@@ -243,7 +242,7 @@ Ad esempio, per la $f$ precedentemente definita, la tabella di verità relativa 
         1   & 1   &  0  \\\hline
     \end{array}
 \end{displaymath}
-Dove a destra viene posto il risultato della funzione calcolata sui valori delle colonne precedenti.\par
+dove a destra viene posto il risultato della funzione calcolata sui valori delle colonne precedenti.\par
 In entrambe le rappresentazioni, tuttavia, le funzioni vengono descritte in maniera implicita mostrando solamente input ed output,
 senza mai andare a specificare come questo output venga calcolato.\\
 Nell'ultimo capitolo, per l'implementazione dell'algoritmo di Deutsch-Jozsa, verranno utilizzate funzioni Booleane \textit{bilanciate}
@@ -291,18 +290,18 @@ Una valida tabella di verità per una FBB in $\mathcal{B}^3$ portebbe essere la 
 }
 \end{center}
 Dove, giustamente, si noti come il numero dei vettori positivi equivale al numero dei vettori negativi.\par
-Ma come è costruita $g$ nello specifico? Qual'è la computazione che mi porta a determinati outputs?
+Ma come è costruita $g$ nello specifico? Qual'è la computazione che mi porta a determinati outputs? È una funzione calcolabile?
 Per rispondere a queste domande si può provare a cercare qualche correlazione tra i valori in entrata e i valori in uscita:
-dopo un pò di riflessione dovrebbe saltare all'occhio che ogni qual volta abbiamo un numero dispari di $1$ nell'input la funzione 
+dopo un pò di riflessione dovrebbe saltare all'occhio che: ogni qual volta abbiamo un numero dispari di $1$ nell'input la funzione 
 restituisce $1$, restituisce invece $0$ quando tale numero è pari.
-La parità di una sequenza è esprimibile con la somma modulo $2$ dei singoli componenti, allora possiamo definire esplicitamente $g$ come:
+La parità di una sequenza binaria è esprimibile con la somma modulo $2$ dei singoli componenti, allora possiamo definire esplicitamente $g$ come:
 \begin{align*}
     g(x_1, x_2, x_3)= &x_1 + x_2 + x_3 \mod 2  \\
                     = &(x_1 \xor x_2) \xor x_3  \\
                     = &x_1 \xor x_2 \xor x_3
 \end{align*}
 dove $\xor$ è un connettivo binario logico (una funzione Booleana $\in \mathcal{B}^2$) chiamato XOR oppure OR esclusivo, che restituisce $1$ se uno ed uno solo dei due 
-elementi vale $1$. 
+elementi vale $1$, implementando così l'operazione di modulo 2. 
 
 \begin{center}
     \scalebox{0.90}{$
@@ -322,7 +321,7 @@ elementi vale $1$.
 \begin{proof}
     \textit{(per induzione su $n$)\\}
     \begin{description}
-        \item[Base induttiva:] $f^1(x)=x$ è trivialmente bilanciata.
+        \item[Base induttiva:] $f^1(x)=x$ è banalmente bilanciata.
         \item[Ipotesi induttiva:] Ipotizziamo $f^n$ bilanciata, quindi esiste la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
                                       $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $f^n(m) = 0$ e $ f^n(n) = 1$.
@@ -344,7 +343,7 @@ elementi vale $1$.
 Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\mapsto\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$ tale che $f(\vec{x})=M\vec{x}$, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce.\\
 
 \begin{mydef}
-$b:\mathcal{B}^n \mapsto \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,...,+c_nx_n=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,...,\xor(c_n\land{x_n})$. Dove $\xor$
+$b:\mathcal{B}^n \mapsto \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,...,+c_nx_n mod 2=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,...,\xor(c_n\land{x_n})$. Dove $\xor$
 è l'operatore di somma per $\mathcal{B}^n$. 
 \end{mydef}
 \begin{mycor}
@@ -361,16 +360,16 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
     diverse dalle funzioni costanti a 0. Allora, $\forall f\in \mathbb{FL}$ $f$ è bilanciata.
 \end{mythm}
 \begin{proof} \textit{(per induzione su $n$)\\}
-    Sia $l^n$ una qualsiasi funzione da $\mathcal{B}^n$ appartenente a $\mathbb{FL}$.  Vogliamo dimostrare che $l^n$ è sempre bilanciata.\\
+    Sia $l^n$ una qualsiasi funzione da $\mathcal{B}^n$ appartenente a $\mathbb{FL}$.  Vogliamo dimostrare che $l^n$ è bilanciata.\\
     \begin{description}
-        \item[Base induttiva:] $l^1(x)=x$ è trivialmente bilanciata.
+        \item[Base induttiva:] $l^1(x)=x$ è banalmente bilanciata.
         \item[Ipotesi induttiva:] Ipotizziamo $l^n$ bilanciata.\\
                                       Esisterà quindi la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
                                       $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^n(m) = 0$ e $ l^n(n) = 1$.
         \item[Passo induttivo:] Il passo chiave sta nel notare che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
                                 \begin{itemize}
-                                    \item \textbf{Singoletto} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,...,x_{n+1})=x_{n+1}$\\
+                                    \item \textbf{Singoletto} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x_2,...,x_{n+1})=x_{n+1}$\\
                                                               Che è bilanciata in quanto, sia $(\mathcal{M},\mathcal{N})$ la partizione dove $\mathcal{M}$ è composto da tutte le stringhe
                                                               binarie $\in \mathcal{B}^{n+1}$ che codificano in base due i numeri da $0$ a $2^n - 1$ e $\mathcal{N}$ composto da tutte le stringhe binarie
                                                               $\in \mathcal{B}^{n+1}$ che codificano in base due i numeri da $2^n$ a $2^{n+1} - 1$ i.e. :\\
@@ -390,8 +389,8 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
 \end{proof}
 \noindent Questo significa che, qualsiasi siano i coefficienti della nostra FBL, a patto che questi non siano tutti $0$, produrrano una funzione bilanciata.\par
 
-Giunti a questo punto è lecito domandarsi se esistano altre (semanticamente diverse) FBB  non lineari e se sì, quante ne si possono ancora trovare?
-Il numero di FBL per $n$ fissato, equivale al numero di \textit{disposizioni con ripetizione di classe} $n$ (coefficienti) da un insieme di due elementi $\{0,1\}$ meno la disposizione $M^*=\overbrace{(0,0,...,0)}^{n-volte}$ che identifica la costante 0, cioè $\mathbb{D}_{2,n}-1= 2^n - 1$.
+Giunti a questo punto è lecito domandarsi se esistano altre (logicamente diverse) FBB  non lineari e se sì, quante se ne possono ancora trovare?
+Il numero di FBL bilanciate per $n$ fissato, equivale al numero di \textit{disposizioni con ripetizione di classe} $n$ (coefficienti) da un insieme di due elementi $\{0,1\}$ meno la disposizione $M^*=\overbrace{(0,0,...,0)}^{n-volte}$ che identifica la costante 0, cioè $\mathbb{D}_{2,n}-1= 2^n - 1$.
 Tale numero è chiaramente inferiore al numero di FBB : $\mathbb{C}_{2^n,2^{n-1}}$ ricavato dal Corollario 2.2. E quindi sì, esisteranno sicuramente, per ogni $n$, $\mathbb{C}_{2^n,2^{n-1}} - (\mathbb{D}_{2,n} - 1)$ FBB non lineari.
 
 \subsection{Funzioni Booleane non Lineari Bilanciate}
@@ -434,17 +433,17 @@ la visionaria congettura che Feynmann aveva sollevato solo pochi anni prima.
 Nel mondo microscopico, quando si scende sotto la soglia atomica, cominciano ad emergere fenomeni che sono difficilmente interpretabili utilizzando il solo senso comune.
 Le nozioni più elementari come la determinazione unica delle proprietà fisiche di un oggetto (velocità, posizione, ecc.) a cui siamo abituati fin da piccoli non sono più le stesse e,
 postulati come il principio di località o il determinismo, cessano di essere veri.
-Ciò portò inizialmente eminenti fisici del tempo a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava,
-numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo le previsioni di questa e, ad oggi, nella comunità scientifica vi è unanime consenso sulla veriditicità fenomenica della meccanica quantistica.\\
+Ciò portò inizialmente eminenti fisici del tempo a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava;
+numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo le previsioni di questa e, ad oggi, nella comunità scientifica vi è unanime consenso sulla veridicità fenomenica della meccanica quantistica.\\
 Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con le nuove leggi fondamentali che governano il mondo infinitamente piccolo.
-Vengono quì esposte sinteticamente le caratteristiche peculiari della fisica quantistica e, di seguito in maniera più formale, il modo in cui influenzano l'informatica.
+Vengono qui esposte sinteticamente le caratteristiche peculiari della fisica quantistica e, di seguito in maniera più formale, il modo in cui influenzano l'informatica.
 
 \subsection{Dai Numeri Reali ai Numeri Complessi}
 La meccanica quantistica differisce dalla maggior parte delle branche della scienza per via del largo uso che fa dei numeri complessi.
 I numeri complessi vennero per la prima volta introdotti come una curiosità matematica: $i=\sqrt{-1}$, chiamata unità immaginaria, era la soluzione "immaginaria" postulata
 all'equazione $x^2=-1$. Per tanto tempo il campo dei numeri complessi è rimasto confinato unicamente nel reame della matematica fino a quando,
 con lo studio sistematico delle funzioni d'onda e l'introduzione delle analisi di Fourier, ci si accorse che i numeri complessi erano la struttura
-ottimale per descrivere in maniera compatta un'onda. Inizialmente la meccanica quantistica fece largo uso delle funzioni d'onda.\par
+ottimale per descrivere in maniera compatta un'onda. La meccanica quantistica fa largo uso delle funzioni d'onda.\par
 \begin{mydef}
     Un numero complesso $\text{c}$ è un'espressione
     \begin{center}
@@ -458,8 +457,8 @@ ottimale per descrivere in maniera compatta un'onda. Inizialmente la meccanica q
 \subsection{Da Stati Singoli alla Sovrapposizione degli Stati}
   Contrariamente a quello che abbiamo imparato fin da piccoli osservando il mondo in cui viviamo, un oggetto subatomico può trovarsi contemporaneamente in più posizioni differenti.\\
   Questo comportamento, detto di sovrapposizione, è tradizionalmente esemplificato riportando l'esperimento \cite{ref13} delle due fenditure attraverso cui viene 
-  fatta passare, una alla volta, una qualsiasi particella che andrà a sbattere contro un rilevatore posto dietro le fenditure. Contrariamente a quanto verrebbe da pensare,
-  il rilevatore non rileva come colpite dalle particelle solo le due aree in linea con le fenditure (e.g. come accadrebbe per dei palloni calciati in una porta coperta a meno di due sottoporte) bensì vengono 
+  fatta passare, una alla volta, una qualsiasi particella che andrà a collidere contro un rilevatore posto dietro le fenditure. Contrariamente a quanto verrebbe da pensare,
+  il rilevatore, non rileva come colpite dalle particelle solo le due aree in linea con le fenditure (e.g. come accadrebbe per dei palloni calciati in una porta coperta a meno di due sottoporte) bensì vengono 
   sperimentalmente rilevate diverse aree di collisione, ognuna delle quali è colpita con un'intensità diversa, seguendo una distribuzione ad interferenza.
   Ogni singola particella discreta si comporta anche come un'onda che, passando \emph{contemporaneamente} per le due fessure, interferisce poi con se stessa.
   La dualità onda particella della materia scoperta grazie ai lavori di Luis de Broglie, Max Planck e altri fisici del secolo scorso, fu un risultato d'importanza cardinale per l'avvento della meccanica quantistica.
@@ -476,10 +475,10 @@ ottimale per descrivere in maniera compatta un'onda. Inizialmente la meccanica q
 \subsection{Dalla Località alla non Località}
 Centrale nella scienza moderna è la nozione secondo cui due oggetti, in un sistema, si influenzano tra di loro secondo un rapporto di causa-effetto solo se essi
 sono connessi da un'interazione fondamentale. La velocità di propagazione di una qualsiasi interazione è soggetta al limite imposto dalla velocità della luce 
-nel vuoto, per cui non esisteranno due oggetti che, posti all'interno dello stesso sistema entrino in relazione immediatamente. Questa assunzione, 
+nel vuoto, per cui non esisteranno due oggetti che, posti all'interno dello stesso sistema, entrino in relazione immediatamente. Questa assunzione, 
 che prende il nome di principio di località, non è sempre valida nella fisica quantistica. È possibile infatti
 mettere due particelle in una relazione chiamata \emph{entanglement} (le due particelle si diranno entangled) tale per cui non sia più possibile
-descriverne il comportamento in maniera separata facendo si che, qualsiasi  operazione compiuta su di una avrà un effetto immediato su l'altra, 
+descriverne il comportamento in maniera separata, facendo si che un'operazione compiuta su di una avrà un effetto immediato sull'altra, 
 indipendentemente dalla loro distanza.    
 
 \subsection{Dalle leggi Deterministiche a quelle Non Deterministiche}
@@ -532,7 +531,7 @@ Nell'esempio dell'invertitore tale funzione sarà uguale alla seguente applicazi
 \begin{center}
     $ N\ket0 = \ket1, N\ket1 = \ket0 $
 \end{center}
-oppure, un'altra possibile trasformazione può essere quella che pone lo stato del sisitema a $\ket0$:
+oppure, un'altra possibile trasformazione può essere quella che pone lo stato del sistema a $\ket0$:
 \begin{center}
     $G\ket0 = \ket0,  G\ket1 = \ket0$
 \end{center}
@@ -603,7 +602,7 @@ ciò è ottenuto normalizzando $\mathcal{P}_i(\ket{\phi})$:
     $\frac{\mathcal{P}_i(\ket{\phi})}{\norm{\mathcal{P}_i(\ket{\phi})}}=\frac{a\ket{i}}{\sqrt{a^2}}=1\ket{i}$
 \end{center}
 . In generale, possiamo caratterizzare le trasformazioni per uno stato probabilistico come tutte quelle applicazioni lineari che preservano la norma.\par
-Si noti come non è possibile disinguere tra gli stati $\ket{\phi}$ e $-\ket{\phi}$, in quanto la misurazione di questi produrrà la stessa
+Si noti come non è possibile disinguere tra gli stati $\ket{\phi}$ e $-\ket{\phi}$, in quanto la misurazione di questi produrrà valori che seguono la stessa
 distribuzione di probabilità e, l'applicazione di una qualsiasi trasformazione $T$, porta agli stati $T\ket{\phi}$ e $-T\ket{\phi}$ che sono a loro volta
 indistinguibili. La scelta di considerare tuttavia come distinti i due stati riflette alcune importanti proprietà, in particolare, nel
 caso quantistico queste saranno essenziali per esprimere gli effetti di interferenza dovuti alla natura ondulatoria del sistema.   
@@ -633,11 +632,11 @@ Senza riportare le equazioni, come nel caso probabilistico specifichiamo una mis
 dell'osservazione è determinata da ${\left\vert{c_0}\right\vert}^2$ per $\ket0$ e  ${\left\vert{c_1}\right\vert}^2$ per $\ket1$.
 
 \begin{mydef}
-    Ogni stato espresso come combinazione lienare della base computazionale $\{\ket0,\ket1\}$ che non presenti elementi nulli è detto essere uno 
+    Ogni stato espresso come combinazione lineare della base computazionale $\{\ket0,\ket1\}$ che non presenti elementi nulli è detto essere uno 
     stato di sovrapposizione.
 \end{mydef}
 \subsubsection{Trasformazioni}
-Prima d'intendere una trasformazione di uno sistema quantistico è necessario introdurre una particolare classe di matrici, le matrici unitarie:\newpage
+Prima di poter intendere una trasformazione di un sistema quantistico è necessario introdurre una particolare classe di matrici, le matrici unitarie:\newpage
 \begin{mydef}
     Una matrice $U\in\mathbb{M}^{n\times{n}}$ è unitaria se e solo se:
     \begin{center}
@@ -670,7 +669,7 @@ la rappresentazione vettoriale di uno stato generico $\ket{\phi}$, allora l'appl
     \end{bmatrix}
 \]
 un nuovo stato le cui probabilità $prob[\ket{\phi} \mapsto \ket{x}] = 1 - prob[N\ket{\phi} \mapsto \ket{x}]$ sono invertite,
-che si traduce, per gli stati certi, nella complementazione del valore dell'osservabile. La matrice N viene perquesto convenzionalmente chiamata trasformazione NOT.\\
+che si traduce, per gli stati certi, nella complementazione del valore dell'osservabile. La matrice N viene per questo convenzionalmente chiamata trasformazione NOT.\\
 Ritornando al discorso principale, è facile vedere come la matrice N sia anche unitaria:
 
 \[
@@ -746,7 +745,7 @@ Alla luce di quanto è stato argomentato, ne consegue direttamente che: tutte le
 \begin{mycor}
     Sia $U_f=U_1U_2 \cdot\cdot\cdot U_n$ la computazione per un qubit descritta da $n$ trasformazioni unitarie , allora $U_f$ è reversibile. 
 \end{mycor}
-Una computazione quantistica non disipa energia a seguito di perdita dell'informazione, in quanto questa non avviene mai. 
+Una computazione quantistica non dissipa energia a seguito di perdita dell'informazione, in quanto questa non avviene mai. 
 \section{Un Esempio Quantistico}
 
 Un'altra trasformazione di fondamentale importanza è la matrice di Hadamard:
@@ -915,7 +914,7 @@ che è entangled, infatti, se misuriamo il primo qubit ottenendo $\ket0$, allora
         &=1\ket{00} + 0\ket{01} = \ket{00}
     \end{align*}
 \end{center}
-quindi, la misura del secondo qubit porterà a rilevare il valore $\ket0$ con certezza, inversamente, se la misura avesse riportato $\ket1$ come valore del primo qubit, avremo trovato $\ket1$ anche nel secondo
+quindi, la misura del secondo qubit porterà a rilevare il valore $\ket0$ con certezza, inversamente, se la misura avesse riportato $\ket1$ come valore del primo qubit, avremmo trovato $\ket1$ anche nel secondo
 sempre con certezza. Da un punto di vista formale, un sistema si dice entangled se non può essere espresso come prodotto tensoriale delle sue componenti, nel caso di un sistema a due qubit, una generica composizione
 ha la forma:
     \[
@@ -931,7 +930,7 @@ Il problema, sostituendo per $\ket{\psi_3}$, consiste nel risolvere il seguente 
 \]  
 che chiaramente non ha soluzioni. Lo stato $\ket{\psi_3}$ non può essere riscritto come prodotto tensoriale degli stati base che sono quindi ora inseparabili.
 Ritornando al significato fisico: in un certo senso, è come se nel preciso istante in cui viene compiuta un'osservazione, il valore calcolato venisse trasmesso \emph{istantaneamente} al secondo qubit entangled il quale si comporta coerentemente
-con il valore trasmesso/osservato. Questa relazione tuttavia non contempla ne mezzi di trasmissione di questa ipotetica informazione, ne distanze tra i due sistemi. Sarebbe quindi possibile, almeno in linea di
+con il valore trasmesso/osservato. Questa relazione tuttavia non contempla nè mezzi di trasmissione di questa ipotetica informazione, nè distanze tra i due sistemi. Sarebbe quindi possibile, almeno in linea di
 principio, utilizzare l'entanglement per comunicare subitaneamente anche a distanze superiori all'anno luce e ciò, come già anticipato, è in contraddizione con le leggi della relatività generale e con il 
 principio di località su cui è fondata praticamente tutta la fisica non quantistica \cite{ref9}. La correttezza delle previsioni teoriche è stata dimostrata ripetutamente in laboratorio grazie ad una serie
 di esperimenti \cite{ref10} e sono state inoltre proposte, già a partire dal secolo scorso, numerose interpretazioni della meccanica quantistica che giustificherebbero il perchè dell'entanglement \cite{ref11}.
@@ -991,8 +990,8 @@ La semantica di questi diagrammi coincide con la semantica delle relative trasfo
 In questo caso $U_g$ viene anche detto "oracolo" ad indicare una porta di cui non si conosce la struttura interna ma solo il mapping input e output.
 \par Si ritorni allora al problema inizialmente sollevato riscrivendolo usando la terminologia introdotta:
 vogliamo calcolare di una funzione $f:\mathcal{B}\mapsto \mathcal{B}$ se $f(0)$ = $f(1)$ valutando $U_f$ una sola volta. È evidente che per risolvere classicamente il problema è necessario calcolare
-$f$ due volte, una per entrambi gli input. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposi zione, come e quale sia però la successione di trasformazioni che permette di risolvere il problema 
-è il vero ostacolo che si incontra nella progettazione di qualsivoglia algoritmo quantistico, procediamo allora per tentativi al fine di indirizzarci verso la soluzione corretta.
+$f$ due volte, una per entrambi gli input. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposizione. Quale sia però la successione di trasformazioni che permetta di risolvere il problema 
+è il vero ostacolo che si incontra nella progettazione di qualsivoglia algoritmo quantistico. Procediamo allora per tentativi al fine di indirizzarci verso la soluzione corretta.
 Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. \\Sia $\ket{\psi_1}= \ket{00}$ lo stato iniziale scelto arbitrariamente e 
 
 
@@ -1073,7 +1072,7 @@ permette di giungere alla soluzione cercata. Lasciamo inalterato il valore inizi
                                                                                                                                     &= \frac{1}{2}[\ket{0} (\ket{0} - \ket{1}) + \ket{1}(\ket{0} - \ket{1})] 
     \end{align*}
 \end{center}
-. Una volta raggiunto uno stato di completa sovrapposizione degli osservabili e tenendo in mente il risultato del tentativo precedente, l'applicazoine di $U_f$ porterà a:
+. Una volta raggiunto uno stato di completa sovrapposizione degli osservabili e tenendo in mente il risultato del tentativo precedente, l'applicazione di $U_f$ porterà a:
 \[
     \ket{\psi_4} = U_f\ket{\psi_3} = \frac{1}{2}[(-1)^{f(0)}\ket{0} (\ket{0} - \ket{1}) + (-1)^{f(1)}\ket{1}(\ket{0} - \ket{1})] 
 \]
@@ -1119,8 +1118,8 @@ finalmente $f(1)$ e $ f(0)$ sono in relazione diretta. In particolare, si noti c
 ed è lo stesso algoritmo che David Deutsch propose nel 1985 \cite{ref12}dimostrando per la prima volta che l'Informazione quantistica poteva esserre impiegata per eseguire calcoli 
 guadagnando in efficienza rispetto alla computazione classica.\par
 È da sottolineare però che, nonostante la procedura esposta permetta di risolvere il problema in un'unica esecuzione invece che in due, il vantaggio ricavatone è solo costante e perciò non 
-rilevante a livello asintotico. In termini di complessità, in realtà, è la formulazione di per se a non essere interessante in quanto l'input di $f$ non è variabile ma fisso (0,1). Il problema quindi, non sembrerebbe essere 
-il candidato ideale per scommettere sulla computazione quantistica, tuttavia, la soluzione di Deutsch fu (ulteriormente) imortante poichè portò allo sviluppo del primo algoritmo in grado di sfruttare le vere potenzialità di questa disciplina.      
+rilevante a livello asintotico. In termini di complessità, in realtà, è la formulazione di per sè a non essere interessante in quanto l'input di $f$ non è variabile ma fisso (0,1). Il problema quindi, non sembrerebbe essere 
+il candidato ideale per scommettere sulla computazione quantistica, tuttavia, la soluzione di Deutsch fu (ulteriormente) importante poichè portò allo sviluppo del primo algoritmo in grado di sfruttare le vere potenzialità di questa disciplina.      
 
 
 
@@ -1289,7 +1288,7 @@ dopo $H_{n+1}$:
 \[
     \ket{\psi_3} = \Big[\frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}\ket{\textbf{x}}\Big]\Big[\frac{\ket{0}-\ket{1}}{\sqrt2}\Big]
 \]
-come per l'algoritmo di Deutsch, aver posto in sovrapposizione il qubit ausiliareo ci permette di esplicitare $f$ sui primi $n$ stati dopo l'applicazione di $U_f$:
+come per l'algoritmo di Deutsch, aver posto in sovrapposizione il qubit ausiliario ci permette di esplicitare $f$ sui primi $n$ stati dopo l'applicazione di $U_f$:
 \[
     \ket{\psi_4} = \Big[\frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{x}}\Big]\Big[\frac{\ket{0}-\ket{1}}{\sqrt2}\Big]
 \]
@@ -1330,7 +1329,7 @@ quindi esponenzialmente più veloce di ogni altra procedura conosciuta.
 
 Come ultimo argomento, questa tesi si propone di presentare un esempio concreto di quanto esposto fino ad ora. Viene di seguito implementato ed eseguito su più istanze l'algoritmo di Deutsch-Jozsa.
 Per sviluppare il lavoro è stata scelta la piattaforma web QuantumPlayground\cite{ref18}: un esperimento di Chrome che simula il comportamento di un registro quantistico fino a 22 qubit programmabile attraverso
-il linguaggio di scripting adhoc chiamato QScript. A supporto della programmazione QuantumPlayground fornisce un sistema di debugging e un motore grafico che permette di visualizzare l'evoluzione dello stato del sistema durante l'esecuzione.
+il linguaggio di scripting ad hoc chiamato QScript. A supporto della programmazione QuantumPlayground fornisce un sistema di debugging e un motore grafico che permette di visualizzare l'evoluzione dello stato del sistema durante l'esecuzione.
 
 L'obiettivo è quello di tradurre il circuito per D.J.
 
@@ -1363,7 +1362,7 @@ Per allinearsi con lo sato iniziale dell'algoritmo è necessario invertire l'ult
 \end{lstlisting}
 
 QScript ha come primitive le più comuni operazioni quantistiche tra cui, appunto, la porta X di Pauli ossia l'equivalente quantistica della trasformazione NOT.\\
-Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due applicazioni di $H^{\otimes\ped{n}}$, delle quali la prima in concomitanza con $H \text{ su } \ket{1}$,
+Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due applicazioni di $H^{\otimes\ped{n}}$, delle quali la prima in concomitanza con $H \text{ su } \ket{1}$;
 è utile allora definire una procedura che ponga in sovrapposizione un numero variabile di qubit:
 
 \begin{lstlisting}
@@ -1376,7 +1375,7 @@ Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due app
 \end{lstlisting}
 
 \newpage
-. La procedura per l'oracolo sarà rappresentata in questo caso dalla procedura identità che è banalmente una funzione sul sitema senza corpo:
+. La procedura per l'oracolo sarà rappresentata in questo caso dalla procedura identità che è banalmente una funzione sul sistema senza corpo:
 
 \begin{lstlisting}
     //0 constant oracle
@@ -1406,7 +1405,7 @@ if measured_value != 0
 endif
 \end{lstlisting}
 
-Si noti come, dal momento che viene misurato l'intero registro, dobbiamo aggiungere dei controlli per tenere conto dei valori in cui può risultare il qubit ausiliareo.\\
+Si noti come, dal momento che viene misurato l'intero registro, dobbiamo aggiungere dei controlli per tenere conto dei valori in cui può risultare il qubit ausiliario.\\
 
 \newpage
 Definite le struttre principali, possiamo ora dare il codice completo:
@@ -1493,7 +1492,7 @@ In generale l'oracolo $U_{f^n}$ vale:
     U_{f^n}(\ket{\textbf{x},y})= \ket{\textbf{x},f^n(\textbf{x}) \xor y} = \ket{\textbf{x}, x_1 \xor x_2 \xor \cdot\cdot\cdot \xor x_n \xor y}
 \] 
 e chiaramente, questa volta non è possibile utilizzare la trasformazione identità bensì bisogna trovare una computazione che permetta
-di salvare sul qubit ausiliareo $\ket{y}$ lo xor di tutti i qubit del sistema. Per risolvere il problema si è scelto di sfruttare
+di salvare sul qubit ausiliario $\ket{y}$ lo xor di tutti i qubit del sistema. Per risolvere il problema si è scelto di sfruttare
 la già introdotta trasformazione $CNOT$, la quale consente di operare uno xor tra due sistemi, infatti 
 
 \[
@@ -1553,7 +1552,7 @@ Come si può intuire dalla definizione, per creare l'oracolo $U_h$, oltre ad uti
 che ci permetta di calcolare la trasformazione $AND$ tra 2 o 3 stati. 
 Si cominci col notare che l'$AND$ classico non può essere utilizzato in un circuito quantistico in quanto comporta la perdita di un bit
 di informazione andando contro al principio di reversibilità. L'approccio per rendere una funzione generica implementabile con una
-porta reversibile è stato tuttavia già esposto quando si è data la definizione di $U_f$, basta infatti aggiungere un qubit ausiliareo
+porta reversibile è stato tuttavia già esposto quando si è data la definizione di $U_f$, basta infatti aggiungere un qubit ausiliario
 $\ket{y}=\ket{0}$ e avremo l'AND quantistico $U_{\land}(\ket{x_1,x_2,y})=\ket{(x_1 \land x_2) \xor y} = \ket{(x_1 \land x_2)}$ il quale (lasciando $\ket{y}$ generico) altro non è che un CNOT esteso a 2 qubit
 di controllo: se e solo se i primi due qubit si trovano in $\ket1$ esegui NOT su $\ket{y}$. Questa operazione risulta essere di fondamentale importanza per la computazione quantistica 
 \footnote{La porta di Toffoli è universale per il calcolo logico reversibile \cite{ref19} ed è "quasi" universale per la compuazione quantistica \cite{ref20}}
@@ -1606,7 +1605,7 @@ tanti qubit quanti sono gli $AND$ distinti a 3 stati in $h$ (1). Ne risulta il s
     }
 \]
 
-si noti la presenza di un qubit ausiliareo in più che non prende parte alla computazione, il motivo è dovuto ad una limitazione
+si noti la presenza di un qubit ausiliario in più che non prende parte alla computazione, il motivo è dovuto ad una limitazione
 di QuantumPlayground che impone che la dimensione di un registro sia pari.\\
 L'oracolo in QScript diventa
 
@@ -1689,10 +1688,10 @@ implementazione dell'ultima delle funzioni testate.
 \end{figure}
 
 \chapter{Conclusioni}
-È stato provato come l'utilizzo della meccanica quantistica a supporto dell'informatica e in particolare nell'algoritmica permette di trovare soluzioni ottimali.
-Riassumendo, l'idea di base in generale per qualsiasi algoritmo quantistico è quella di utilizzare la sovrapposizione per lavorare con tutti i possibili input
+È stato provato come l'utilizzo della meccanica quantistica a supporto dell'informatica e in particolare nell'algoritmica permetta di trovare soluzioni ottimali.
+Riassumendo, l'idea di base per qualsiasi algoritmo quantistico è quella di utilizzare la sovrapposizione per lavorare con tutti i possibili input
 del problema contemporaneamente cercando, dal momento che questa sovrapposizione non è direttamente osservabile ma solo descrivibile come una distribuzione di 
-probabilità, di trovare un pattern tra gli stati svrapposti che sia in qualche modo collegato alla soluzione. Sfruttando poi i fenomeni di cancellazione tra stati
+probabilità, di trovare un pattern tra gli stati sovrapposti che sia in qualche modo collegato alla soluzione. Sfruttando poi i fenomeni di cancellazione tra stati
 dovuti all'interferenza, si tenta di estrapolare il più possibile tale pattern aumentando la probabilità di misurarlo. Non tutte le procedure ricavabili secondo
 questo schema sono deterministiche, molte infatti, come l'algoritmo di Shor, lavorano riducendo iterativamente la probabilità di sbagliare.\\
 È importante menzionare il fatto che, contrariamente a quanto visto, esistono anche problemi in cui il nuovo paradigma è risaputo non portare vantaggi, 
@@ -1721,13 +1720,13 @@ non resta quindi che continuare ad avanzare in un campo interdisciplinare così 
     \bibitem{ref15} Deutsch, D., Jozsa, R. (1992). \emph{Rapid solution of problems by quantum computation}. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 439, No. 1907, pp. 553-558).
     \bibitem{ref16} Cleve, R., Ekert, A., Macchiavello, C., Mosca, M. (1998). Quantum algorithms revisited. In Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences (Vol. 454, No. 1969, pp. 339-354). 
     \bibitem{ref17} Bera, D. (2015). \emph{A different Deutsch–Jozsa}. Quantum Information Processing, 14(6), 1777-1785.
-    \bibitem{ref18} Quantum Playground. (2017, November 29). Retrieved  from http://www.quantumplayground.net 
+    \bibitem{ref18} Quantum Playground. (2017). http://www.quantumplayground.net . Retrived 29 November 2017.
     \bibitem{ref19} Toffoli, T. (1980). \emph{Reversible computing}. Automata, Languages and Programming, 632-644.
-    \bibitem{ref20} Shi, Yaoyun (2003). \emph{Both Toffoli and Controlled-NOT need little help to do universal quantum computation.} Quantum Information & Computation. 3 (1): 84–92.
+    \bibitem{ref20} Shi, Yaoyun (2003). \emph{Both Toffoli and Controlled-NOT need little help to do universal quantum computation.} Quantum Information \& Computation. 3 (1): 84–92.
     \bibitem{ref21} James, T. L. G. (1999). \emph{Quantum computation: an Introduction}. A thesis for the bachelor degree, Harvard College. 
     \bibitem{ref22} Rivest, R., Shamir, A., Adleman, L. (1978). \emph{A method for obtaining digital signatures and public-key cryptosystems}. Communications of the ACM, 21(2), 120-126.
     \bibitem{ref23} Present, I. (2000). \emph{Cramming more components onto integrated circuits}. Readings in computer architecture, 56.
-    \bibitem{ref24} (2017) \emph{IBM Builds Its Most Powerful Universal Quantum Computing Processors}. Retrieved 1 December 2017.
+    \bibitem{ref24} (2017) \emph{IBM Builds Its Most Powerful Universal Quantum Computing Processors}. https://www-03.ibm.com/press/us/en/pressrelease/52403.wss\#release. Retrieved 1 December 2017.
     \bibitem{ref25} Shor, P. (1999). \emph{Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer}. SIAM Review, 41(2), pp.303-332
     \bibitem{ref26} Bennett, C. H., Brassard, G. (2014). \emph{QUANTUM CRYPTOGRAPHY: PUBLIC KEY DISTRIBUTION AND CON Tos5}.
     \bibitem{ref27} Stephen Jordan \emph{Quantum Zoo Algorithms} Stephen Jordan's home page, http://math.nist.gov/quantum/zoo/. Retrived 1 December 2017.
