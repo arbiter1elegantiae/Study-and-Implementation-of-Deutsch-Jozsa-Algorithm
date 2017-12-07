@@ -119,7 +119,7 @@ Che cosa hanno in comune: l'analisi di un mercato finanziario in continua cresci
 e la crittoanalisi dei moderni sistemi crittografici che garantiscono la sicurezza di internet?
 Per quanto apparentemente distanti, questi problemi sono legati tra di loro da un denominatore comune: per essere portati a termine necessitano di enormi quantità di calcoli.
 Sia che emerga con la valutazione dei risultati di grandi quantità di previsioni finanziarie o che si manifesti nella ricerca dei fattori primi di un numero molto grande per decifrare RSA \cite{ref22},
-la complessità computazionale derivata da questi problemi rappresenta un ostacolo difficile da superare anche dai moderni super computer.\\
+la complessità computazionale derivata da questi problemi rappresenta un ostacolo difficile da superare anche dai moderni super computer.
 In realtà, per il calcolo digitale, questi problemi non sono solo attualmente intrattabili ma, con ogni probabilità, lo saranno per sempre. Ciò è dovuto al numero di operazioni necessarie per risolverli,
 che cresce, in relazione con la dimensione del problema, con ritmo esponenziale, almeno se concentriamo la nostra attenzione sugli algoritmi esistenti.
 A titolo di esempio, la simulazione delle interazioni di piccole molecole composte da pochi atomi può essere portata avanti anche da un laptop domestico nell'arco di qualche secondo mentre, aumentando in ordini di grandezza e 
@@ -148,11 +148,11 @@ Peter Shor fornì nel 1999 un algoritmo quantistico che richiede tempo polinomia
 chiave pubblica utilizzati ad esempio in molte transizioni bancarie. D'altra parte sono stati sviluppati protocolli a crittografia quantistica per lo scambio di chiavi teoricamente immuni a qualsiasi tipo di 
 attacco, si parla in questo caso di crittografia perfetta \cite{ref26}. Al di fuori della fattorizzazione, gli algoritmi quantistici risultano essere ideali nella simulazione di processi fisici a stato solido e chimici
 vantando sempre una diminuzione più che polinomiale in tempo rispetto alle rispettive procedure classiche \cite{ref27}. Esistono problemi per cui i computer quantistici garantirebbero una diminuzione polinomiale 
-in tempo: l'esempio più famoso è dato dall'algoritmo di Groover \cite{ref28} per la ricerca di un record all'interno di un database, che assicura una riduzione quadratica delle richieste per trovare l'elemento cercato.\\
+in tempo: l'esempio più famoso è dato dall'algoritmo di Groover \cite{ref28} per la ricerca di un record all'interno di un database, che assicura una riduzione quadratica delle richieste per trovare l'elemento cercato.\par
 Si ritiene che le simulazioni quantistiche permetterebbero di modellare fedelmente il comportamento di atomi in condizioni inusuali come ad esempio durante gli scontri all'interno degli accellaratori di particelle \cite{ref29} e,
-in generale, molti ritengono la simulazione il campo ideale in cui la computazione quantistica risulterebbe vincente \cite{ref30}, rispondendo così alle domande con cui si è aperta la trattazione.\\
+in generale, molti ritengono la simulazione il campo ideale in cui la computazione quantistica risulterebbe vincente \cite{ref30}, rispondendo così alle domande con cui si è aperta la trattazione.\par
 Lo spettro delle applicazioni in cui l'informatica quantistica garantirebbe vantaggi è quindi vasto e promettente ed è correntemente supportato da numerosi investimenti che fanno di questa disciplina uno dei 
-campi di ricerca più avanzati ed interessanti dell'Informatica.\\
+campi di ricerca più avanzati ed interessanti dell'Informatica.\par
 Introdotte le motivazioni che difendono l'importanza d'approfondire questo campo, viene di seguito fatta una panoramica della struttura che questa tesi seguirà.
 
 \section{Di Che Cosa Tratta Questa Tesi?}
@@ -196,7 +196,7 @@ come nella matematica, spesso necessitano di altre conoscenze per essere compres
 \section{Funzioni Booleane}
 Le funzioni Booleane apparvero per la prima volta a metà diciannovesimo secolo durante la formulazione matematica di problemi logici e prendono
 il loro nome da George Boole, matematico britannico considerato fondatore della logica matematica odierna\cite{ref2}.\newpage
-Una semplice funzione Booleana può può per esempio \\$f:\{0,1\}^2 \rightarrow \{0,1\}$ definita come segue
+Una semplice funzione Booleana può può per esempio $f:\{0,1\}^2 \rightarrow \{0,1\}$ definita come segue
 \begin{align*}  
     f(00) = 0 \\
     f(01) = 0 \\
@@ -341,7 +341,7 @@ elementi vale $1$, implementando così l'operazione di modulo 2.
     \end{description}      
 \end{proof}
 \par
-Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\rightarrow\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$ tale che $f(\vec{x})=M\vec{x}$, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce.\\
+Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\rightarrow\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$ tale che $f(\vec{x})=M\vec{x}$, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce.
 
 \begin{mydef}
 $b:\mathcal{B}^n \rightarrow \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,\cdot\cdot\cdot,+c_nx_n mod 2=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,\cdot\cdot\cdot,\xor(c_n\land{x_n})$. Dove $\xor$
@@ -369,7 +369,7 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
                                       $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^n(m) = 0$ e $ l^n(n) = 1$.
         \item[Passo induttivo:] 
-        Si ricordi che $l^n$ può utilizzare tutti gli input ed avere la forma $l^n(x_1,x_2,\cdot\cdot\cdot, x_n) = x_1 \xor x_2 \cdot \cdot \cdot \xor x_n $ ma può avere la forma $l^n(x_1,x_2,\cdot\cdot\cdot,x_n) = x_3 \xor x_4 \xor x_8 $ e non dipendere da
+        Si ricordi che $l^n$ può utilizzare tutti gli input ed avere la forma $l^n(x_1,x_2,\cdot\cdot\cdot, x_n) = x_1 \xor x_2 \cdot \cdot \cdot \xor x_n $ ma può anche avere la forma $l^n(x_1,x_2,\cdot\cdot\cdot,x_n) = x_3 \xor x_4 \xor x_8 $ e non dipendere da
         $n$. Essendo una qualsiasi funzione lineare Booleana di dimensione $n$, in generale, a seconda della $M$ associata, $l^n$ nel suo corpo può utilizzare un qualsiasi sottoinsieme dell'input. Allora segue che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
                                 \begin{itemize}
                                     \item \textbf{Singoletto} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x_2,\cdot\cdot\cdot,x_{n+1})=x_{n+1}$\\
@@ -415,18 +415,17 @@ da utilizzare nell'algoritmo di Deutsch-Jozsa. In particolare, è stata scelta u
     
 
 \chapter{L'Informazione Quantistica}
-Questa tesi si sviluppa nel contesto dell'Informazione Quantistica.\\
+Questa tesi si sviluppa nel contesto dell'Informazione Quantistica.
 L'Informazione Quantistica è una nuova branca di studi della teoria dell'informazione che trova la sua collocazione nell'intersezione tra
-Fisica, Matematica e Informatica.\\
-La nascita di questo nuovo campo di studi è dovuta in gran parte alle intuizioni del celeberrimo fisico Richard Feynmann, il quale fu il primo a suggerire,
+Fisica, Matematica e Informatica. La nascita di questo nuovo campo di studi è dovuta in gran parte alle intuizioni del celeberrimo fisico Richard Feynmann, il quale fu il primo a suggerire,
 in una sua lezione nel 1981 \cite{ref6}, che il tipo di computer ideale che fosse stato capace di simulare i fenomeni fisici in maniera
 efficiente sarebbe stato solo un computer che avesse risposto alle stesse leggi della meccanica quantistica. L'argomento da lui proposto faceva
 perno sulla natura esponenziale che il mondo subatomico presenta se osservato dal punto di vista macroscopico e che quindi, avrebbe portato,
-per un processo transitivo, qualsiasi computer classico a sperimentare un tempo altrettanto esponenziale per simularlo.\\
+per un processo transitivo, qualsiasi computer classico a sperimentare un tempo altrettanto esponenziale per simularlo.
 Spinti da questa osservazione, numerosi ricercatori si cimentarono nello studio e nella formalizzazione di questo nuovo paradigma di calcolo,
 gettandone le basi teoriche: nel 1982, Paul Benioff, nell'articolo "Quantum mechanical models of Turing machines that dissipate no energy" \cite{ref7}, 
 dimostrò come un sistema basato sulla meccanica quantistica avrebbe potuto modellare una macchina di Turing (MdT) senza dissipare energia (il concetto della conservazione dell'energia 
-verrà ripreso e chiarito in seguito). In altre parole, questi dimostrò come la fisica dei quanti fosse sufficiente ad esprimere un qualsiasi modello tradizionale di calcolo; ma poteva addirittura fare di meglio? \\
+verrà ripreso e chiarito in seguito). In altre parole, questi dimostrò come la fisica dei quanti fosse sufficiente ad esprimere un qualsiasi modello tradizionale di calcolo; ma poteva addirittura fare di meglio? 
 All'incirca nello stesso periodo, il fisico David Deutsch rispose a tale quesito \cite{ref12} introducendo prima la controparte quantica della MdT universale (QMdTU)
 e poi dimostrando che la QMdTU riusciva a compiere operazioni al di fuori della portata della MdTU, come generare in maniera genuina numeri random,
 performare calcoli paralleli su di un unico registro e simulare perfettamente in tempo polinomiale sistemi fisici a stati di dimensione finita, confermando così
@@ -434,10 +433,10 @@ la visionaria congettura che Feynmann aveva sollevato solo pochi anni prima.
 
 \section{Principi della Meccanica Quantistica}
 Nel mondo microscopico, quando si scende sotto la soglia atomica, cominciano ad emergere fenomeni che sono difficilmente interpretabili utilizzando il solo senso comune.
-Le nozioni più elementari come la determinazione unica delle proprietà fisiche di un oggetto (velocità, posizione, ecc.) a cui siamo abituati fin da piccoli non sono più le stesse e,
+Le nozioni più elementari come la determinazione unica delle proprietà fisiche di un oggetto (velocità, posizione, ecc.) a cui siamo abituati fin da piccoli, non sono più le stesse e,
 postulati come il principio di località o il determinismo, cessano di essere veri.
 Ciò portò inizialmente eminenti fisici del tempo a guardare con scetticismo o addirittura a rifiutare la meccanica quantistica per via delle stranezze a cui essa portava;
-numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo le previsioni di questa e, ad oggi, nella comunità scientifica vi è unanime consenso sulla veridicità fenomenica della meccanica quantistica.\\
+numerosi esperimenti condotti successivamente hanno tuttavia confermato con successo le previsioni di questa e, ad oggi, nella comunità scientifica vi è unanime consenso sulla veridicità fenomenica della meccanica quantistica.\par
 Al fine di capire il calcolo quantistico è necessario per prima cosa acquisire familiarità con le nuove leggi fondamentali che governano il mondo infinitamente piccolo.
 Vengono qui esposte sinteticamente le caratteristiche peculiari della fisica quantistica e, di seguito in maniera più formale, il modo in cui influenzano l'informatica.
 
@@ -458,16 +457,16 @@ ottimale per descrivere in maniera compatta un'onda. La meccanica quantistica fa
 
 
 \subsection{Da Stati Singoli alla Sovrapposizione degli Stati}
-  Contrariamente a quello che abbiamo imparato fin da piccoli osservando il mondo in cui viviamo, un oggetto subatomico può trovarsi contemporaneamente in più posizioni differenti.\\
+  Contrariamente a quello che abbiamo imparato fin da piccoli osservando il mondo in cui viviamo, un oggetto subatomico può trovarsi contemporaneamente in più posizioni differenti.
   Questo comportamento, detto di sovrapposizione, è tradizionalmente esemplificato riportando l'esperimento \cite{ref13} delle due fenditure attraverso cui viene 
   fatta passare, una alla volta, una qualsiasi particella che andrà a collidere contro un rilevatore posto dietro le fenditure. Contrariamente a quanto verrebbe da pensare,
   il rilevatore, non rileva come colpite dalle particelle solo le due aree in linea con le fenditure (e.g. come accadrebbe per dei palloni calciati in una porta coperta a meno di due sottoporte) bensì vengono 
   sperimentalmente rilevate diverse aree di collisione, ognuna delle quali è colpita con un'intensità diversa, seguendo una distribuzione ad interferenza.
   Ogni singola particella discreta si comporta anche come un'onda che, passando \emph{contemporaneamente} per le due fessure, interferisce poi con se stessa.
   La dualità onda particella della materia scoperta grazie ai lavori di Luis de Broglie, Max Planck e altri fisici del secolo scorso, fu un risultato d'importanza cardinale per l'avvento della meccanica quantistica.
-  Non solo la spazialità, ma anche altre proprietà come l'energia, il momento e lo spin di una particella sono soggette a sovrapposizione.\\
+  Non solo la spazialità, ma anche altre proprietà come l'energia, il momento e lo spin di una particella sono soggette a sovrapposizione.\par
   In realtà, non è possibile osservare direttamente il processo di sovrapposizione di una proprietà poichè, ogni qual volta viene effettuata una misurazione su di un
-  sistema quantistico, questo verrà alterato inevitabilmente seguendo il principio di indeterminazione di Heisenberg e collasserà in uno ed uno solo degli stati sovrapposti, seguendo, come verrà chiarito più avanti, una ben definità distribuzione di probabiltà.\\
+  sistema quantistico, questo verrà alterato inevitabilmente seguendo il principio di indeterminazione di Heisenberg e collasserà in uno ed uno solo degli stati sovrapposti, seguendo, come verrà chiarito più avanti, una ben definità distribuzione di probabiltà.\par
   La sovrapposizione è il principale effetto che viene sfruttato per ottenere vantaggi computazionali. 
 \begin{figure}[h]
     \centering
@@ -489,8 +488,8 @@ Verso quale specifico stato collasserà una sovrapposizione di stati quando misu
 i.e. vi è un unico ouput se ripetiamo lo stesso esperimento più volte sotto le stesse condizioni, le leggi della meccanica quantistica
 ci dicono, tuttavia, che possiamo solamente conoscere la probabilità con cui un output, e non un altro, si verificherà. \par
 
-Queste azioni, parafrasando Einstein stesso "terrificanti" \footnote{"spooky action at distance" è la famosa frase che utilizzò per descrivere l'entanglement} che emergono nel reame della meccanica quantistica, per quanto radicali ed avulse
-dalla nostra esperienza quotidiana, sono poi le stesse, riflettendo la natura esponenziale del mondo sub atomico, che conferiscono all'Informazione quantistica il suo vero potenziale. 
+Queste azioni, parafrasando Einstein stesso "terrificanti"\footnote{"spooky action at distance" è la famosa frase che utilizzò per descrivere l'entanglement} che emergono nel reame della meccanica quantistica, per quanto radicali ed avulse
+dalla nostra esperienza quotidiana, sono poi le stesse, riflettendo la natura esponenziale del mondo sub atomico, che conferiscono all'informazione quantistica il suo vero potenziale. 
 
 \section{I Sistemi a Confronto}
 Per vedere come la meccanica quantistica influenza l'informatica cominciamo presentando un modello per il calcolo che metta in luce 
@@ -500,12 +499,12 @@ del calcolo classico, del calcolo probabilistico e infine del calcolo quantistic
 
 \subsubsection{Il Bit}
 L'unità fondamentale su cui si fonda il calcolo classico è il bit. Consideriamo bit un qualsiasi sistema che 
-espone un'unica proprietà osservabile che può assumere solo due valori. Chiamiamo questi 2 valori $\ket0$, $\ket1$ \footnote{cominciamo, senza alterarne il significato, ad utilizzare la notazione bra-ket introdotta dal fisico britannico Paul Dirac}.
+espone un'unica proprietà osservabile che può assumere solo due valori. Chiamiamo questi 2 valori $\ket0$, $\ket1$\footnote{cominciamo, senza alterarne il significato, ad utilizzare la notazione bra-ket introdotta dal fisico britannico Paul Dirac}.
 Per essere coerentemente osservabili, $\ket0$ e $\ket1$ devono avere una precisa implementazione, ad esempio, se il bit è indicato
 da un transistor: $\ket0$ può essere identificato dalla presenza di un flusso di elettricità di un certo valore attraverso il transistor mentre
 $\ket1$ è identificato dall'assenza di corrente. Altre implementazioni che sfruttino la stessa logica sono ovviamente valide. 
 Come già anticipato nel primo capitolo, $\ket0$ e $\ket1$ sono sufficienti per modellare una qualsiasi
-funzione booleana e più in generale, un bit è l'unità fondamentale che governa ogni possibile
+funzione booleana e, più in generale, un bit è l'unità fondamentale che governa ogni possibile
 operazione su un computer moderno.
 
 \subsubsection{Stati e Osservazioni}
@@ -520,7 +519,7 @@ il comportamento del sistema, definiamo $\mathcal{B}_c$ lo spazio degli stati:
     $ \mathcal{B}_c = \{\ket0, \ket1 \}$
 \end{center}
 
-per il bit classico.\\
+per il bit classico.\par
 Si noti come in questo specifico sistema lo spazio degli stati corrisponda esattamente con lo spazio dei possibili valori della proprietà
 osservabile infatti, se il bit si trova nello stato $\ket0$ allora la misura produrrà il valore $\ket0$, mentre se il bit si trova nello stato $\ket1$,
 la misura produrrà valore $\ket1$. Quest'affermazione può sembrare banale eppure vedremo presto come esistano sistemi dove l'equivalenza 
@@ -547,7 +546,7 @@ misure non producono mai risultati intermedi. Una trasformazione può comportare
 \subsection{Il Reame Probabilistico}
 \subsubsection{Bit probabilistico}
 Si consideri ora un bit probabilistico. Un sistema che implementa un bit probabilistico può essere metaforicamente immaginato come il processo di un lancio
-di una moneta potenzialmente truccata. Ancora, questo sistema ha un unico osservabile, e cioè il risultato del lancio: $\ket{0}$ oppure $\ket1$.\\
+di una moneta potenzialmente truccata. Ancora, questo sistema ha un unico osservabile, e cioè il risultato del lancio: $\ket{0}$ oppure $\ket1$.
 Il valore dell'osservazione dipende dallo sbilanciamento dello stato e cioè dal grado di manomissione della moneta. Più una moneta è truccata e più la probabilità
 di ottenere un risultato piuttosto che l'altro differisce dal 50$\%$. Possiamo quindi esprimere uno stato del sistema come una funzione lineare sui valori dell'osservabile
 dove i coefficienti rappresentano la probabilità di osservare il valore. \newpage
@@ -575,7 +574,7 @@ e agisce in un determinato modo su $\ket1$, allora, essendo un'applicazione line
     \end{align*}
 \end{center}
 In questo modo è possibile con le giuste accortezze intuire i risultati di una trasformazione. Più nel dettaglio, la descrizione 
-del comportamento del sistema è riscrivibile con l'algebra lineare:\\
+del comportamento del sistema è riscrivibile con l'algebra lineare.
 $\mathcal{B}_p$ è un sottoinsieme dello spazio vettoriale ${\mathbb{R}^2}$ e sia $\{\ket0,\ket1 \}$ la base di tale insieme. Imponiamo che $\mathcal{B}_p$
 possieda il prodotto scalare:
 \begin{center}
@@ -585,7 +584,7 @@ che implica la norma Euclidea:
 \begin{center}
     $\norm{a_0\ket0 + a_1\ket1}=\sqrt{a_0^2+a_1^2}$
 \end{center}
-Allora, per definizione $\mathcal{B}_p$ è l'insieme di tutti i vettori con norma 1 appartenenti a ${\mathbb{R}^2}$. Si denoti con $P_i$ la proiezione
+Allora, per definizione $\mathcal{B}_p$ è l'insieme di tutti i vettori con norma 1 appartenenti a ${\mathbb{R}^2}$. Si denoti con $\mathcal{P}_i$ la proiezione
 di $\mathcal{B}_p$ sull'i-esimo sottospazio:
     
     \begin{center}
@@ -612,7 +611,7 @@ caso quantistico queste saranno essenziali per esprimere gli effetti di interfer
 
 \subsection{Il Reame Quantico}
 \subsubsection{Il Qubit}
-Ora che tutti i requisiti fondamentali sono stati presentati, è possibile introdurre il calcolo quantistico.\\
+Ora che tutti i requisiti fondamentali sono stati presentati, è possibile introdurre il calcolo quantistico.
 Il sistema fondamentale in questo caso prende il nome di qubit. Analogalmente ai 2 casi precedenti, è utile astrarre dall'implementazione fisica
 e supporre che il sistema presenti un solo osservabile i cui possibili valori saranno i soliti $\ket0$ e $\ket1$\footnote{nella pratica un qubit è implementato utilizzando un unico osservabile di una particella. Ogni particella ha tanti (e teoricamente infiniti) osservabili: spin, quantità di moto, momento ecc. }.
 \subsubsection{Stati e Osservazioni}
@@ -630,7 +629,7 @@ Dove $\overline{c}$ indica la coniugazione di c. Vale quindi la seguente norma E
 \begin{center}
     $\norm{\mathcal{C}}= \sqrt{{\left\vert{c_0}\right\vert}^2 + {\left\vert{c_1}\right\vert}^2}$
 \end{center}
-. $\mathcal{B}_q$ è il sottoinsieme di $\mathbb{C}^2$ composto da tutti i vettori di norma 1.\\
+. $\mathcal{B}_q$ è il sottoinsieme di $\mathbb{C}^2$ composto da tutti i vettori di norma 1.\par
 Senza riportare le equazioni, come nel caso probabilistico specifichiamo una misura in termini di proiezioni sui sottospazi formati da $\ket0$ e $\ket1$ e la probabilità 
 dell'osservazione è determinata da ${\left\vert{c_0}\right\vert}^2$ per $\ket0$ e  ${\left\vert{c_1}\right\vert}^2$ per $\ket1$.
 
@@ -639,7 +638,7 @@ dell'osservazione è determinata da ${\left\vert{c_0}\right\vert}^2$ per $\ket0$
     stato di sovrapposizione.
 \end{mydef}
 \subsubsection{Trasformazioni}
-Prima di poter intendere una trasformazione di un sistema quantistico è necessario introdurre una particolare classe di matrici, le matrici unitarie:\newpage
+Prima di poter intendere una trasformazione di un sistema quantistico è necessario introdurre una particolare classe di matrici, le matrici unitarie
 \begin{mydef}
     Una matrice $U\in\mathbb{M}^{n\times{n}}$ è unitaria se e solo se:
     \begin{center}
@@ -672,11 +671,11 @@ la rappresentazione vettoriale di uno stato generico $\ket{\phi}$, allora l'appl
     \end{bmatrix}
 \]
 un nuovo stato le cui probabilità $prob[\ket{\phi} \rightarrow \ket{x}] = 1 - prob[N\ket{\phi} \rightarrow \ket{x}]$ sono invertite,
-che si traduce, per gli stati certi, nella complementazione del valore dell'osservabile. La matrice N viene per questo convenzionalmente chiamata trasformazione NOT.\\
-Ritornando al discorso principale, è facile vedere come la matrice N sia anche unitaria:
+che si traduce, per gli stati certi, nella complementazione del valore dell'osservabile. La matrice N viene per questo convenzionalmente chiamata trasformazione NOT.\par
+Ritornando al discorso principale, è facile vedere come la matrice NOT sia anche unitaria:
 
 \[
-    NN^{\dag} = 
+    NOTNOT^{\dag} = 
     \begin{bmatrix}
         0 & 1 \\
         1 & 0
@@ -730,12 +729,12 @@ se, dopo l'applicazione si chiedesse ad un nuovo osservatore che osserva il sist
 è facile intuire che questi non possa fornire una risposta certa in quanto sia per $\ket{\phi}=\ket0$ sia per $\ket{\phi}=\ket1$ il risultato di $UNO\ket{\phi}$
 è sempre $\ket{1}$. Sarebbe infatti come, riprendendo la metafora del transistor, una volta osservato un transistor in cui non passa la
 corrente chiedersi se questo abbia mai ricevuto corrente. Siamo in presenza di trasformazioni che causano una perdita d'informazione,
-questo fenomeno nel mondo fisico si traduce in rilascio di calore ed è uno dei problemi di cui tener conto durante l'ingegnerizzazione di un calcolatore \footnote{È risaputo che per ogni bit d'informazione perso viene dissipata una quantita di energia $E = kT\ln2$ dove $k=1.3805\times10^{-23}$ è la costante di Boltzman}. \\ 
+questo fenomeno nel mondo reale si traduce in rilascio di calore ed è uno dei problemi di cui tener conto durante l'ingegnerizzazione di un calcolatore\footnote{È risaputo che per ogni bit d'informazione perso viene dissipata una quantita di energia $E = kT\ln2$ dove $k=1.3805\times10^{-23}$ è la costante di Boltzman}. \par 
 Eppure esistono anche casi in cui l'informazione viene conservata, per esempio, con la trasformazione NOT prima introdotta, è possibile risalire facilmente al 
 valore dello stato in input essendo: $NOT\ket0 = \ket1$ e $NOT\ket1 = \ket0$. Ciò è dovuto formalmente dall'esistenza dell'operazione inversa $NOT^{-1}$ la quale,
 come visto prima, altro non è che $NOT^{\dag}$; infatti vale l'implicazione: \[NOT\ket{\phi}=\ket{\psi}\Rightarrow NOT^{-1}NOT\ket{\phi}= NOT^{\dag}NOT\ket{\phi}=NOT^{\dag}\ket{\psi}=\ket{\phi}\] dove 
 $\ket{\phi}$ è un generico stato in input e $\ket{\psi}$ l'output della trasformazione. $NOT^{\dag}$ permette in un certo senso di riavvolgere il calcolo, si dice in questo caso che
-la trasformazione è \emph{reversibile}.\\
+la trasformazione è \emph{reversibile}.\par
 Alla luce di quanto è stato argomentato, ne consegue direttamente che: tutte le applicazioni unitarie sono reversibili, basta infatti sostituire all'equazione precedente NOT con una generica U. 
 \begin{mylem}
     Siano $U$ e $U'$ due matrici unitarie della stessa dimensione, allora il prodotto $UU'$ è una matrice unitaria.
@@ -751,7 +750,7 @@ Alla luce di quanto è stato argomentato, ne consegue direttamente che: tutte le
 Una computazione quantistica non dissipa energia a seguito di perdita dell'informazione, in quanto questa non avviene mai. 
 \section{Un Esempio Quantistico}
 
-Un'altra trasformazione di fondamentale importanza è la matrice di Hadamard:
+Un'altra trasformazione unitaria di fondamentale importanza è la matrice di Hadamard:
 \[
     H=\begin{bmatrix}
         \frac{1}{\sqrt2} & \frac{1}{\sqrt2} \\
@@ -783,7 +782,7 @@ La matrice di Hadamard è l'inversa di se stessa:
 Consideriamo i due stati: $\ket{X} = H\ket0$ e $\ket{Y} = H\ket1$, nonostante, come visto, non si ha perdita d'informazione
 durante i cambi di stato in $\mathcal{B}_q$, una volta applicata H, X e Y diventano due stati indistinguibili in termini di misurazioni, 
 infatti $prob[\ket{X}\rightarrow\ket0]=prob[\ket{Y}\rightarrow\ket0]=\frac{1}{2}$ e lo stesso per il collasso su $\ket1$. I due sistemi, che prima risultavano chiaramente diversi sono ora uguali
-davanti agli occhi di un osservatore. Eppure, sorprendentemente, riapplicare H porta a: 
+agli occhi di un osservatore. Eppure, sorprendentemente, riapplicare H porta a: 
 \begin{center}
     \begin{align*}
         H\ket{X} =& H(\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1) \\
@@ -799,11 +798,11 @@ e
                   =& 0\ket0 + 1\ket1 =\ket1
     \end{align*}
 \end{center}
-che è la configurazione iniziale!\\ Durante l'evoluzione del sistema l'informazione non è quindi sempre accessibile in ugual modo bensì
+che è la configurazione iniziale!\par Durante l'evoluzione del sistema l'informazione non è quindi sempre accessibile in ugual modo bensì
 spesso questa viene mantenuta "nascosta" nell'ampiezza relativa di un componente dello stato: l'unica differenza tra X e Y, che non era misurabile direttamente,
 stava nel segno dell'ampiezza di $\ket1$. In altre parole, l'atto di misurazione comporta la perdita di un bit d'informazione (o $\ket0$ o $\ket1$)  mentre, 
 d'altra parte, riapplicare H e poi misurare consente di ricavare l'intero qubit. Si noti come non sia possibile ricreare lo stesso scenario con un sistema classico,
-i valori dell'osservabile sono infatti sempre ben definiti e accessibili.\\
+lo stato è infatti sempre ben accessibile.\par
 Per quanto possa sembrare limitativo, l'effetto esposto è invece centrale nella progettazione di molti algoritmi quantistici, infatti, l'applicazione di H consente di
 operare un cambiamento di base \cite{ref8} sul sistema passando dalla base computazionale* alla base $\{\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1, \frac{1}{\sqrt2}\ket0 - \frac{1}{\sqrt2}\ket1\}$ (detta base di \emph{Fourier}) di
 perfetta sovrapposizione in cui è possibile sfruttare l'informazione portata dalle ampiezze relative per operare calcoli utili utilizzando in questo modo il parallelismo offerto dalla sovrapposizione. I calcoli effettuati,
@@ -811,7 +810,7 @@ si ricordi, non misurabili direttamente, vengono poi "estrapolati" riapplicando 
 Questo potenziale computazionale cresce esponenzialmente all'aumentare della dimensione del sistema utilizzato.
 
 \section{Un Sistema a più Qubit}
-Si consideri ora un registro composto da $n$ sistemi classici $\mathcal{B}_c$.\\
+Si consideri ora un registro composto da $n$ bit.
 Ogni stato del registro così formato sarà rappresentabile dal vettore di qubit $\ket{\textbf{x}}= \ket{x_1}\ket{x_2}\cdot\cdot\cdot\ket{x_n}$ che per brevità verrà spesso scritto come $\ket{x_1 x_2 \cdot\cdot\cdot x_n}$.
 Dal momento che ogni $\ket{x_i}$ può assumere i valori o $\ket0$ o $\ket1$, in totale, lo spazio degli stati del registro è composto da $\mathbb{D}_{2,n}=2^n$ stati e viene indicato come:
 \begin{equation*}
@@ -844,17 +843,17 @@ il cui spazio degli stati è composto da tutti i possibili vettori complessi di 
 
 appartiene a $\mathcal{B}_q^{(2)}$. I numeri a fianco nella rappresentazione matriciale indicano la componente della base $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ a cui è associato il coefficiente complesso,
 si noti che $\ket{\psi}$ è uno stato di perfetta sovrapposizione.\par
-Il sistema è composto da $n$ osservabili, uno per ogni qubit, le proiezioni ${P^{(i)}_0}$, ${P^{(i)}_1}$ sono formate da tutte le componenti dello stato nelle quali, rispettivamente, l'i-esimo qubit è $\ket0$
+Il sistema è composto da $n$ osservabili, uno per ogni qubit, le proiezioni ${\mathcal{P}^{(i)}_0}$, ${\mathcal{P}^{(i)}_1}$ sono formate da tutte le componenti dello stato nelle quali, rispettivamente, l'i-esimo qubit è $\ket0$
 e l'i-esimo qubit è $\ket1$; la probabilità che l'i-esimo qubit venga misurato con valore $\ket{x}$ è calcolata di conseguenza:
-$prob[\ket{\Psi} \rightarrow \ket{x_1 x_2 \cdot \cdot x \cdot \cdot x_n}]= \norm{{P^{(i)}_x}}^2$, dove $\ket{\Psi}$ è uno stato generico. Il vettore risultante da una misurazione di un qubit è poi normalizzato analogamente a quanto già esposto per gli altri sistemi.\\
+$prob[\ket{\Psi} \rightarrow \ket{x_1 x_2 \cdot \cdot x \cdot \cdot x_n}]= \norm{{\mathcal{P}^{(i)}_x}}^2$, dove $\ket{\Psi}$ è uno stato generico. Il vettore risultante da una misurazione di un qubit è poi normalizzato analogamente a quanto già esposto per gli altri sistemi.
 Supponiamo ad esempio che venga misurato il secondo qubit di $\ket{\psi}$ (per convenzione rispetto alla rappresentazione di Dirac numeriamo i qubits da sinistra a destra) e che il valore osservato sia $\ket1$, allora:
 \[
-    {P^{(2)}_1}(\ket{\psi}) = \frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}  
+    {\mathcal{P}^{(2)}_1}(\ket{\psi}) = \frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}  
 \]
 e lo stato $\ket{\psi_1}$ risultante dalla misurazione:
 \begin{center}
     \begin{align*}
-        \ket{\psi_1} &= \frac{{P^{(2)}_1}(\ket{\psi}) }{ \norm{{P^{(2)}_1}(\ket{\psi})} } = \frac{\frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}}{\sqrt{(\frac{1}{2})^2 + (\frac{1}{2})^2}}\\
+        \ket{\psi_1} &= \frac{{\mathcal{P}^{(2)}_1}(\ket{\psi}) }{ \norm{{\mathcal{P}^{(2)}_1}(\ket{\psi})} } = \frac{\frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}}{\sqrt{(\frac{1}{2})^2 + (\frac{1}{2})^2}}\\
         &= \frac{\frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}}{\sqrt{\frac{1}{2}}} = \frac{1}{\sqrt2}\ket{01} + \frac{1}{\sqrt2}\ket{11}
     \end{align*}
 \end{center}
@@ -863,7 +862,7 @@ di $\ket{\psi}$. In generale, $prob[\ket{\Psi} \rightarrow \ket{\textbf{x}}] ={\
 
 \subsubsection{Trasformazioni}
 
-Le trasformazioni che descrivono la dinamica di questo registro sono le unitarie \\U $\in \mathbb{M}^{2^n\times2^n}$.
+Le trasformazioni che descrivono la dinamica di questo registro sono le unitarie U $\in \mathbb{M}^{2^n\times2^n}$.
 In realtà, una qualsiasi trasformazione unitaria che agisca su di un singolo qubit del sistema risulta essere valida in quanto altera lo stato nel suo complesso,
 per convincersi di ciò, si supponga di applicare $NOT$ sul primo qubit di ${\mathcal{B}_c}^{(2)}$:
 \begin{center}
@@ -877,13 +876,13 @@ per convincersi di ciò, si supponga di applicare $NOT$ sul primo qubit di ${\ma
 dove il pedice 1 è stato aggiunto per meglio esplicitare la semantica dell'operazione, come si può notare, questa trasformazione altro non fa che permutare gli elementi
 e, dal momento che ${\mathcal{B}_c}^{(2)}$ è la base su cui è costruito ${\mathcal{B}_q}^{(2)}$, l'azione di $NOT_1$ su di un generico stato:
 \[
-    NOT_1\ket{\Psi} = NOT_1(\sum\nolimits_{x \in \{0,1\}^{n}} a_x \ket{x}) = \sum\nolimits_{x \in \{0,1\}^{n}} a_x NOT_1\ket{x}
+    NOT_1\ket{\Psi} = NOT_1(\sum\nolimits_{x \in \{0,1\}^{2}} a_x \ket{x}) = \sum\nolimits_{x \in \{0,1\}^{2}} a_x NOT_1\ket{x}
 \] 
 ne preserverà la norma. Più in generale, è possibile estendere una trasformazione $T: \mathcal{B}_q \rightarrow \mathcal{B}_q$ che agisce su di un singolo qubit
 in una trasformazione $T^{(n)}: {\mathcal{B}_q}^{(n)} \rightarrow {\mathcal{B}_q}^{(n)}$ che agisce su un intero registro quantistico.\par
 Le trasformazioni su singoli qubits non sono le uniche trasformazioni ammissibili in un registro ma è possibile effettuare trasformazioni unitarie anche agendo su più qubits contemporaneamente,
 ad esempio, la porta\footnote{cominciamo a chiamare le trasformazioni con il nome "porta" in riferimento alla nomenclatura utilizzata nel modello a circuiti che verrà di seguito introdotto} 
-$C_iNOT_j$ ("controlled-NOT") è la trasformazione che effettua un NOT su l'j-esimo qubit se e solo se l'i-esimo qubit è $\ket1$ altrimenti lascia inalterato lo stato. Applichiamo $C_1NOT_2$ su ${\mathcal{B}_c}^{(2)}$:
+$C_iNOT_j$ ("controlled-NOT") è la trasformazione che effettua un NOT su l'j-esimo qubit se e solo se l'i-esimo qubit è $\ket1$ altrimenti lo lascia inalterato. Applichiamo $C_1NOT_2$ su ${\mathcal{B}_c}^{(2)}$:
 \begin{center}
     \begin{align*}
         &C_1NOT_2\ket{00} \rightarrow  \ket{00} \\
@@ -897,7 +896,7 @@ capitolo.
 
 \section{Entanglement}
 Utilizzando le trasformazioni a più qubits come CNOT è possibile rendere il sistema entangled, è cioè possibile giungere in uno stato che non sia più esprimibile come composizione dei suoi sottosistemi.
-In questa situazione, le componenti sono intrinsecamente connesse e non possono essere descritte indipendentemente.\\
+In questa situazione, le componenti sono intrinsecamente connesse e non possono essere descritte indipendentemente.\par
 Si consideri l'evoluzione di un registro a due qubits partendo dallo stato iniziale:    
 \[
     \ket{\psi_1}= \ket{00}
@@ -910,18 +909,18 @@ applicando ora $C_1NOT_2$ passiamo allo stato
 \[
     \ket{\psi_3} = C_1NOT_2\ket{\psi_2} = \frac{ \ket{00} + \ket{11} }{\sqrt2}
 \]
-che è entangled, infatti, se misuriamo il primo qubit ottenendo $\ket0$, allora sia avrà che $\ket{\psi_3}$ collasserà nello stato:
+che è entangled. Infatti, se misuriamo il primo qubit ottenendo $\ket0$, allora sia avrà che $\ket{\psi_3}$ collasserà nello stato:
 \begin{center}
     \begin{align*}
         \ket{\psi_4} &= \frac{{P^{(1)}_0}(\ket{\psi_3}) }{ \norm{{P^{(1)}_0}(\ket{\psi_3})} } = \frac{  \frac{1}{\sqrt2}\ket{00} + 0\ket{01}  }{\sqrt{\frac{1}{2}}}\\*
         &=1\ket{00} + 0\ket{01} = \ket{00}
     \end{align*}
 \end{center}
-quindi, la misura del secondo qubit porterà a rilevare il valore $\ket0$ con certezza, inversamente, se la misura avesse riportato $\ket1$ come valore del primo qubit, avremmo trovato $\ket1$ anche nel secondo
-sempre con certezza. Da un punto di vista formale, un sistema si dice entangled se non può essere espresso come prodotto tensoriale delle sue componenti, nel caso di un sistema a due qubit, una generica composizione
+quindi, la misura del secondo qubit porterà a rilevare il valore $\ket0$ con certezza. Inversamente, se la misura avesse riportato $\ket1$ come valore del primo qubit, avremmo trovato $\ket1$ anche nel secondo
+sempre con certezza.\par Da un punto di vista formale, un sistema si dice entangled se non può essere espresso come prodotto tensoriale delle sue componenti di base, nel caso di un sistema a due qubit, una generica composizione
 ha la forma:
     \[
-        (c_0\ket{x_0} + c_1\ket{x_1}) \otimes (c^{\prime}_0\ket{y_0} + c^{\prime}_1\ket{y_1}) = c_0c^{\prime}_0\ket{x_0}\ket{y_0} + c_0c^{\prime}_1\ket{x_0}\ket{y_1} + c_1c^{\prime}_0\ket{x_1}\ket{y_0} + c_1c^{\prime}_1\ket{x_1}\ket{y_1}
+        (c_0\ket{0} + c_1\ket{1}) \otimes (c^{\prime}_0\ket{0} + c^{\prime}_1\ket{1}) = c_0c^{\prime}_0\ket{0}\ket{0} + c_0c^{\prime}_1\ket{0}\ket{1} + c_1c^{\prime}_0\ket{1}\ket{0} + c_1c^{\prime}_1\ket{1}\ket{1}
     \]
 Il problema, sostituendo per $\ket{\psi_3}$, consiste nel risolvere il seguente sistema di equazioni:
 \[\begin{cases} 
@@ -931,7 +930,7 @@ Il problema, sostituendo per $\ket{\psi_3}$, consiste nel risolvere il seguente 
     c_1c^{\prime}_1 = \frac{1}{\sqrt2}
 \end{cases}
 \]  
-che, chiaramente, non ha soluzioni. Lo stato $\ket{\psi_3}$ non può essere riscritto come prodotto tensoriale degli stati base che sono quindi ora inseparabili.
+che, chiaramente, non ha soluzioni. Lo stato $\ket{\psi_3}$ non può essere riscritto come prodotto tensoriale degli stati base che sono quindi ora inseparabili.\par
 Ritornando al significato fisico: in un certo senso, è come se nel preciso istante in cui viene compiuta un'osservazione, il valore calcolato venisse trasmesso \emph{istantaneamente} al secondo qubit entangled il quale si comporta coerentemente
 con il valore trasmesso/osservato. Questa relazione tuttavia non contempla nè mezzi di trasmissione di questa ipotetica informazione, nè distanze tra i due sistemi. Sarebbe quindi possibile, almeno in linea di
 principio, utilizzare l'entanglement per comunicare subitaneamente anche a distanze superiori all'anno luce e ciò, come già anticipato, è in contraddizione con le leggi della relatività generale e con il 
@@ -944,16 +943,16 @@ Il parallelismo, nel calcolo quantistico, emerge con la sovrapposizione. Come gi
 allora, l'applicazione di T su di uno stato $\ket{\Psi}\in{{\mathcal{B}_q}^{(n)}}$ si estenderà linearmente:
 
 \[
-    T\ket{\Psi} = T(\sum\nolimits_{x \in {\mathcal{B}_c}^{(n)}} a_x \ket{x}) = \sum\nolimits_{x \in {\mathcal{B}_c}^{(n)}} a_x T\ket{x}
+    T\ket{\Psi} = T(\sum\nolimits_{x \in\{0,1\}^{n}} a_x \ket{x}) = \sum\nolimits_{x \in\{0,1\}^{n}} a_x T\ket{x}
 \]
 T agisce quindi contemporaneamente su tutti i $2^n$ stati $\ket{x}\in{{\mathcal{B}_q}^{(n)}}$.
 
 \par
 
-Sappiamo però che una misura comporta il collasso inevitabile del registro in una specifica configurazione con probabilità ${\left\vert{a_x}\right\vert}^2$; a primo impatto sembrerebbe dunque che il parallelismo
+Sappiamo però che una misura dell'intero sistema comporta il collasso inevitabile del registro in una specifica configurazione con probabilità ${\left\vert{a_x}\right\vert}^2$; a primo impatto sembrerebbe dunque che il parallelismo
 sia solo una prerogativa di quel noumeno imponderabile che è la sovrapposizione, della quale non si può avere un quadro deterministico rendendo quindi apparentemente impossibile ricavarne vantaggi computazionali.
 Scopo di questa sezione, e in particolare della tesi in generale da questo punto in poi, è mostrare che non è così. L'utilizzo di particolari stati di partenza uniti a cambi di base appropriati permettono infatti
-la progettazione di algoritmi quantistici in grado di risolvere svariate tipologie di problemi con efficienza maggiore rispetto agli equivalenti algoritmi classici.\\
+la progettazione di algoritmi quantistici in grado di risolvere svariate tipologie di problemi con efficienza maggiore rispetto agli equivalenti algoritmi classici.\par
 Viene qui di seguito proposta una procedura che, per una generica funzione Booleana $f:\{0,1\} \rightarrow \{0,1\}$, permette di calcolare $f(0)$ e $f(1)$ contemporaneamente applicando $f$ una volta sola.\par
 Per quanto dimostrato da Deutsch \cite{ref12}, il potere espressivo del calcolo quantistico è almeno equivalente a quello di un qualsiasi formalismo classico, è quindi possibile affermare che, per ogni funzione
 $g$ calcolabile esiste una corrispettiva procedura $U_g$ che la calcola. $U_g$ avrà la forma:
@@ -961,7 +960,7 @@ $g$ calcolabile esiste una corrispettiva procedura $U_g$ che la calcola. $U_g$ a
 \[
     U_g\ket{x,y} = \ket{x, y\xor g(x)}
 \]
-dove $\ket{y}$ è un qubit ausiliare che permette di rispettare il vincolo di reversibiltà: $U_g\ket{x, y \xor g(x)} = \ket{x, (y\xor g(x)) \xor g(x)} = \ket{x, y}$ .
+dove $\ket{y}$ è un qubit ausiliario che permette di rispettare il vincolo di reversibiltà: $U_g\ket{x, y \xor g(x)} = \ket{x, (y\xor g(x)) \xor g(x)} = \ket{x, y}$ .
 
 Per motivi di chiarezza espositiva e per rimanere fedeli all'approccio didattico utilizzato in letteratura per l'esposizione di questi argomenti affianchiamo al modello di calcolo fino a qui utilizzato il modello
 a circuiti. Il modello a circuiti è un'astrazione grafica di una procedura di calcolo che utilizza la metafora di un circuito elettronico, ogni trasformazione è raffigurata da una porta 
@@ -993,9 +992,9 @@ La semantica di questi diagrammi coincide con la semantica delle relative trasfo
 In questo caso $U_g$ viene anche detto "oracolo" ad indicare una porta di cui non si conosce la struttura interna ma solo il mapping input e output.
 \par Si ritorni allora al problema inizialmente sollevato riscrivendolo usando la terminologia introdotta:
 vogliamo calcolare di una funzione $f:\mathcal{B}\rightarrow \mathcal{B}$ se $f(0)$ = $f(1)$ valutando $U_f$ una sola volta. È evidente che per risolvere classicamente il problema è necessario calcolare
-$f$ due volte, una per entrambi gli input. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposizione. Quale sia però la successione di trasformazioni che permetta di risolvere il problema 
+$f$ due volte, una per entrambi gli input. \par Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposizione. Quale sia però la successione di trasformazioni che permetta di risolvere il problema 
 è il vero ostacolo che si incontra nella progettazione di qualsivoglia algoritmo quantistico. Procediamo allora per tentativi al fine di indirizzarci verso la soluzione corretta.
-Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. \\Sia $\ket{\psi_1}= \ket{00}$ lo stato iniziale scelto arbitrariamente e 
+Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. \par Sia $\ket{\psi_1}= \ket{00}$ lo stato iniziale scelto arbitrariamente e 
 
 
 \[
@@ -1041,7 +1040,7 @@ Per aumentare in generalità il primo qubit è lasciato in un generico $\ket{x}$
     \end{align*}
 \end{center}
 
-di cui si noti il cambio di fase rispetto alla sovrapposizione nel tentativo precedente. \\
+di cui si noti il cambio di fase rispetto alla sovrapposizione nel tentativo precedente. 
 Applicando poi $U_f$
 
 \begin{center}
@@ -1097,7 +1096,7 @@ finalmente $f(1)$ e $ f(0)$ sono in relazione diretta. In particolare, si noti c
         \pm [\frac{\ket0 - \ket1}{\sqrt2}] & \text{altrimenti}
     \end{cases}
  \]
- Si noti come in realtà i segni $\pm$ individuano ogni possibile funzione $f:\mathcal{B}\rightarrow \mathcal{B}$ e non solo la proprietà di essere costante. \footnote{Come visto nel primo capitolo sono $2^{(2^1)}=4$ funzioni di cui 2 costanti e 2 no Ad esempio la  $f^{'}$ costante a 0 è rappresentata da $ \ket{\psi_4^{'}}_1 = + \frac{\ket0 + \ket1}{\sqrt2}$ essendo $(-1)^{f^{'}(0)} = +1$.}
+ . Si noti come in realtà i segni $\pm$ individuano ogni possibile funzione $f:\mathcal{B}\rightarrow \mathcal{B}$ e non solo la proprietà di essere costante\footnote{Come visto nel primo capitolo sono $2^{(2^1)}=4$ funzioni di cui 2 costanti e 2 no Ad esempio la  $f^{'}$ costante a 0 è rappresentata da $ \ket{\psi_4^{'}}_1 = + \frac{\ket0 + \ket1}{\sqrt2}$ essendo $(-1)^{f^{'}(0)} = +1$.}.
  Questi valori non dovrebbero poi essere nuovi, difatti il primo qubit non è altro che $H_1\ket0$ se $f$ costante e $H_1\ket0$ altrimenti, inoltre, poichè H è la trasformazione inversa di se stessa, basterà riapplicarla
  per giungere finalmente a
  
@@ -1109,16 +1108,16 @@ finalmente $f(1)$ e $ f(0)$ sono in relazione diretta. In particolare, si noti c
     \end{cases}
  \]
  
- . Per quanto l'informazione salvata nei segni andrà persa, non ci resta che misurare l'osservabile del primo qubit per risolvere il nostro problema: se risulta nello stato $\ket0$ allora $f(0)=f(1)$, mentre se risulta nello stato  $\ket1$ allora $f(0) \neq f(1)$.\\ 
+ . Per quanto l'informazione salvata nei segni andrà persa, non ci resta che misurare l'osservabile del primo qubit per risolvere il nostro problema: se risulta nello stato $\ket0$ allora $f(0)=f(1)$, mentre se risulta nello stato  $\ket1$ allora $f(0) \neq f(1)$.\par
  Il procedimento appena seguito può essere riassunto dal circuito:
 
  \[
     \Qcircuit @C=4em @R=3em {
-        \lstick{\ket{0}} & \gate{H_1}  & \multigate{1}{U\ped{f}} & \gate{H_1} & \rstick{\ket{\psi_5}_1} \qw \\
+        \lstick{\ket{0}} & \gate{H_1}  & \multigate{1}{U\ped{f}} & \gate{H_1} & \rstick{\ket{\psi_5}_n} \qw \\
         \lstick{\ket{1}} & \gate{H_2} &    \ghost{U\ped{f}} & \qw & \rstick{\ket{\psi_5}_2} \qw
     }
 \]
-ed è lo stesso algoritmo che David Deutsch propose nel 1985 \cite{ref12}dimostrando per la prima volta che l'Informazione quantistica poteva esserre impiegata per eseguire calcoli 
+ed è lo stesso algoritmo che David Deutsch propose nel 1985 \cite{ref12} dimostrando per la prima volta che l'Informazione quantistica poteva esserre impiegata per eseguire calcoli 
 guadagnando in efficienza rispetto alla computazione classica.\par
 È da sottolineare però che, nonostante la procedura esposta permetta di risolvere il problema in un'unica esecuzione invece che in due, il vantaggio ricavatone è solo costante e perciò non 
 rilevante a livello asintotico. In termini di complessità, in realtà, è la formulazione di per sè a non essere interessante in quanto l'input di $f$ non è variabile ma fisso (0,1). Il problema quindi, non sembrerebbe essere 
@@ -1128,20 +1127,20 @@ il candidato ideale per scommettere sulla computazione quantistica, tuttavia, la
 
 \chapter{L'Algoritmo di Deutsch-Jozsa}
 Il problema originale di Deutsch fu successivamente generalizzato da Deutsch stesso e Richard Jozsa nell'articolo "Rapid solution of problems by quantum computation" \cite{ref15} nel 1992, il risultato che proposero
-fu poi rivisitato e completato da Richard Cleve, Artur Ekert, Chiara Macchiavello e Michele Mosca nel 1998 \cite{ref16}. Questo lavoro è conosciuto in letteratura come l'algoritmo di Deutsch-Jozsa.\\
+fu poi rivisitato e completato da Richard Cleve, Artur Ekert, Chiara Macchiavello e Michele Mosca nel 1998 \cite{ref16}. Questo lavoro è conosciuto in letteratura come l'algoritmo di Deutsch-Jozsa.\par
 Se il primo algoritmo di Deutsch fu più un risultato simbolico, l'algoritmo di Deutsch-Jozsa fu invece il vero passo in avanti che mise in luce come, utilizzando il paradigma quantistico, si poteva ottenere un aumento
-esponenziale in velocità per la risoluzione di un determinato problema.\\
+esponenziale in velocità per la risoluzione di un determinato problema.\par
 Nello specifico il problema diventa: \textit{sia data una funzione $f:\mathcal{B}^n\rightarrow\mathcal{B}$ di cui non si conosce la definizione, determinare se tale funzione 
 è costante oppure bilanciata*, sapendo per certo che $f$ sarà o costante o bilanciata.} D'ora in poi si farà riferimento a questo problema chiamandolo D.J.\par
 Si noti come questa formulazione altro non sia che un'estensione della formulazione originaria, infatti, se nel caso particolare di $n=1$ $f$ non è costante, allora sarà per forza bilanciata, e viceversa. Deutsch e Jozsa riuscirono a 
-dimostrare che il problema poteva essere risolto per qualunque $n$ valutando $f$ una volta sola.\\
+dimostrare che il problema poteva essere risolto per qualunque $n$ valutando $f$ una volta sola.\par
 Viene di seguito mostrata la soluzione al problema mediante il sistema classico e il sistema quantistico al fine di mostrare come quest'ultimo risulti vincente per complessità e correttezza.  
 
 \begin{mythm}
  Classicamente, il problema di D.J. appartiene a $\Omega(2^{(n-1)})$, cioè non esiste algoritmo che lo risolva con complessità $o(2^{(n-1)})$.
  \begin{proof}
      Sia $f:\mathcal{B}^n\rightarrow\mathcal{B}$ espressa in un registro a $n$ bit attraverso la trasformazione $U_f: \mathcal{B}_c^{(n)} \rightarrow \mathcal{B}_c^{(n)}$ tale che $U_f\ket{\textbf{x}}=U_f\ket{00\cdot\cdot\cdot f(\textbf{x})}$ sappiamo che $f$ è sicuramente o costante o bilanciata.
-     Si noti che in questo sistema non è necessario imporre la reversibilità.\\
+     Si noti che in questo sistema non è necessario imporre la reversibilità.\par
      Una qualsiasi procedura che risolve il problema non può fare altro che cominciare a valutare $U_f$ su ogni possibile stato $\ket{\textbf{x}}\in{\mathcal{B}_c^{(n)}}$ e fermarsi se:
      \begin{itemize}
          \item Sono stati trovati due stati $\ket{\textbf{x}}_1$, $\ket{\textbf{x}}_2$ tali che $U_f(\ket{\textbf{x}}_1) \ne U_f(\ket{\textbf{x}}_2)$ poichè in questo caso $f$ sarà bilanciata non essendo costante;
@@ -1154,8 +1153,7 @@ Viene di seguito mostrata la soluzione al problema mediante il sistema classico 
 \begin{mythm}
     Un qualsiasi algoritmo probabilistico che compia $k<2^{n-1}+1$ valutazioni di $f(x)$ di valori $x\in\mathcal{B}^n$ scelti indipendentemente e uniformemente, avrà almeno una probabilità di errore $\epsilon \geq \frac{1}{2^{2k}}$ \cite{ref17}. 
 \end{mythm}
-Questo risultato è ovviamente valido anche per un sistema a $n$ bit traducendo $f$ in $U_f$ come fatto per il teorema precedente.\\
-Utilizzando l'algoritmo probabilistico ottimale saranno comunque necessarie $2^{n-1} + 1$ valutazioni per rispondere con certezza e, una singola valutazione di $f$ (k=1) porterà a sbagliare mediamente 1 volta ogni 4.\\
+Questo risultato è ovviamente valido anche per un sistema a $n$ bit traducendo $f$ in $U_f$ come fatto per il teorema precedente. Utilizzando l'algoritmo probabilistico ottimale saranno comunque necessarie $2^{n-1} + 1$ valutazioni per rispondere con certezza e, una singola valutazione di $f$ (k=1) porterà a sbagliare mediamente 1 volta ogni 4.
 
 \newpage
 L'algoritmo di Deutsch–Jozsa segue lo stesso schema dell'algoritmo di Deutsch solo generalizzandolo per un sistema a $n+1$ qubit. Il circuito che ne risulta è il seguente:
@@ -1167,11 +1165,11 @@ L'algoritmo di Deutsch–Jozsa segue lo stesso schema dell'algoritmo di Deutsch 
     }
 \]
 \quad			
-$\Qcircuit @C=1em @R=.7em{&\meter}$ indica dove viene effettuata la misurazione finale.\\
+$\Qcircuit @C=1em @R=.7em{&\meter}$ indica dove viene effettuata la misurazione finale.\par
 Per mettere $n$ qubits in sovrapposizione è necessario applicare Hadamard ad ogni qubit, ciò è esprimibile sinteticamente attraverso il prodotto tensoriale $H^{\otimes\ped{n}}$ di $n$ Hadamard. Si ricordi infatti che la composizione
 di più sistemi quantistici è data dal prodotto tensoriale degli stessi, lo stesso principio si applica alla composizione di trasformazioni.
-Per capire come costruire $H^{\otimes\ped{n}}$ cominciamo ricavando $H^{\otimes\ped{2}}$ e cerchiamo di dedurne una struttura generale:\\
-possiamo esplicitare $H$ come:
+Per capire come costruire $H^{\otimes\ped{n}}$ cominciamo ricavando $H^{\otimes\ped{2}}$ e cerchiamo di dedurne una struttura generale.
+Possiamo esplicitare $H$ come:
 \[
     H = \frac{1}{\sqrt2}
     \kbordermatrix{
@@ -1226,7 +1224,7 @@ che ci permette di scrivere sinteticamente $H^{\otimes\ped{n}}$
     H^{\otimes\ped{n}}[i,j]=\frac{1}{\sqrt{2^n}}(-1)^{<i,j>}
 \]
 
-\noindent. Proviamo a capire il comportamento della matrice ricavata, sia $\ket{\textbf{y}} \in \mathcal{B}_c^{(n)} $ uno stato certo, riscritto vettorialmente 
+\noindent. Proviamo a capire il comportamento della matrice ricavata: sia $\ket{\textbf{y}} \in \mathcal{B}_c^{(n)} $ uno stato certo, riscritto vettorialmente 
 
 \begin{minipage}{0.5\textwidth}
     \[
@@ -1269,8 +1267,8 @@ Acquisiti gli strumenti necessari è possibile ora procedere alla formulazione e
     L'algoritmo di Deutsch–Jozsa è un algoritmo deterministico che risolve il problema D.J. con un'unica valutazione di $U_f$.   
 
 \begin{proof}
-    La correttezza dell'algoritmo è deducibile per costruzione svolgendo l'algoritmo stesso.\\
-    Sia $\ket{\psi_i}$ lo stato del sistema dopo l'i-esima operazione. Monitoriamo quindi l'evoluzione del sistema operazione per operazione.\\
+    La correttezza dell'algoritmo è deducibile per costruzione svolgendo l'algoritmo stesso.\par
+    Sia $\ket{\psi_i}$ lo stato del sistema dopo l'i-esima operazione. Monitoriamo quindi l'evoluzione del sistema operazione per operazione.
     Lo stato iniziale $\ket{\psi_1}$ è:
 \[    
     \ket{\psi_1} = \ket{\textbf{0}}\ket{1} = \ket{0_1}\ket{0_2}\cdot\cdot\cdot\ket{0_n}\ket{1}
@@ -1298,23 +1296,23 @@ come per l'algoritmo di Deutsch, aver posto in sovrapposizione il qubit ausiliar
 a questo punto possiamo dimenticarci dell'ultimo qubit concentrandoci su quello che accade dopo la riapplicazione di $H^{\otimes\ped{n}}$ : otteniamo una sovrapposizione degli stati già in sovrapposizione!
 \begin{center}
     \begin{align*}
-        \ket{\psi_5}_1 &= \frac{1}{2^n}\sum\nolimits_{\textbf{z}\in{\{0,1\}^n}} \sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}(-1)^{<\textbf{x},\textbf{z}>}\ket{\textbf{z}} \\
+        \ket{\psi_5}_n &= \frac{1}{2^n}\sum\nolimits_{\textbf{z}\in{\{0,1\}^n}} \sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}(-1)^{<\textbf{x},\textbf{z}>}\ket{\textbf{z}} \\
                        &= \frac{1}{2^n}\sum\nolimits_{\textbf{z}\in{\{0,1\}^n}} \sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x}) \xor <\textbf{x},\textbf{z}>}\ket{\textbf{z}}
     \end{align*}
 \end{center}
-ora $\ket{\psi_5}_1$ viene misurato. Invece di controllare subito il risultato chiediamoci prima quale sia la probabilità di osservare lo stato $\ket{\textbf{0}}$, cioè:
+ora $\ket{\psi_5}_n$ viene misurato. Invece di controllare subito il risultato chiediamoci prima quale sia la probabilità di osservare lo stato $\ket{\textbf{0}}$, cioè:
 \begin{center}
     \begin{align*}
-        prob[\ket{\psi_5}_1 \rightarrow \ket{\textbf{0}}] &= \norm{\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1)}^2\\
+        prob[\ket{\psi_5}_n \rightarrow \ket{\textbf{0}}] &= \norm{\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_n)}^2\\
                                                       &= \norm{\frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}}}^2
     \end{align*}
 \end{center}
 quindi, la probabilità di collassare a $\ket{\textbf{0}}$ è totalmente dipendente da $f(\textbf{x})$, in particolare:
 \begin{description}
-    \item [se $f$ costante:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} = \pm \frac{2^n}{2^n}\ket{\textbf{0}} = \pm 1\ket{\textbf{0}}$ \\
-    $\Rightarrow prob[\ket{\psi_5}_1 \rightarrow \ket{\textbf{0}}] = 1$
-    \item [se $f$ bilanciata:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} =  \frac{2^{n-1}}{2^n}\ket{\textbf{0}} - \frac{2^{n-1}}{2^n}\ket{\textbf{0}} = 0\ket{\textbf{0}}$\\
-    $\Rightarrow prob[\ket{\psi_5}_1 \rightarrow \ket{\textbf{0}}] = 0$
+    \item [se $f$ costante:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_n) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} = \pm \frac{2^n}{2^n}\ket{\textbf{0}} = \pm 1\ket{\textbf{0}}$ \\
+    $\Rightarrow prob[\ket{\psi_5}_n \rightarrow \ket{\textbf{0}}] = 1$
+    \item [se $f$ bilanciata:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_n) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} =  \frac{2^{n-1}}{2^n}\ket{\textbf{0}} - \frac{2^{n-1}}{2^n}\ket{\textbf{0}} = 0\ket{\textbf{0}}$\\
+    $\Rightarrow prob[\ket{\psi_5}_n \rightarrow \ket{\textbf{0}}] = 0$
 \end{description} 
 
 .Verrà quindi misurato $\ket{\textbf{0}}$ se e solo se la funzione $f$ è costante, altrimenti, verrà misurato un qualsiasi altro $\ket{\textbf{x}}$ se e solo se la funzione è bilanciata.\par
@@ -1344,9 +1342,9 @@ L'obiettivo è quello di tradurre il circuito per D.J.
 \]
 			
 \noindent{} in un programma che ne simuli il comportamento. Per farlo, è necessario una funzione $f$ su cui valutare l'algoritmo, a tal proposito, sono state scelte due funzioni bilanciate e una costante.
-Di ogni funzione viene mostrato il procedimento seguito per la costruzione dell'oracolo, il codice relativo e uno snapshot del risultato finale.\\
-Si cominci con il caso più elementare e cioè il caso in cui $f$ è costante. È stata scelta consapevolmente la $f$ costante a 0, il motivo di questa preferenza risiede nella definizione dell'oracolo, infatti,
-$U_f$ per $f(x)=0$ è semplicemente $U_f(\ket{\textbf{x},y})=\ket{\textbf{x},y \xor f(\textbf{x})} = \ket{\textbf{x},y}$ ovvero la trasformazione identità.\\
+Di ogni funzione viene mostrato il procedimento seguito per la costruzione dell'oracolo, il codice relativo e uno snapshot del risultato finale.
+\par Si cominci con il caso più elementare e cioè il caso in cui $f$ è costante. È stata scelta consapevolmente la $f$ costante a 0, il motivo di questa preferenza risiede nella definizione dell'oracolo, infatti,
+$U_f$ per $f(\textbf{x})=0$ è semplicemente $U_f(\ket{\textbf{x},y})=\ket{\textbf{x},y \xor f(\textbf{x})} = \ket{\textbf{x},y}$ ovvero la trasformazione identità.\par
 Passiamo ad esporre e commentare lo script che implementa l'algoritmo per l'oracolo $I$, il primo passo è inizializzare il sistema:
 
 \begin{lstlisting}
@@ -1356,7 +1354,7 @@ Passiamo ad esporre e commentare lo script che implementa l'algoritmo per l'orac
 \end{lstlisting}
 
 il primo comando crea un sistema di 8 qubits tutti inizializzati a $\ket0$. La scelta della dimensione è coerente con i successivi esempi ma fondamentalmente arbitraria per questo esempio.
-\textit{SetViewMode} è una costante che setta la modalità di visualizzazione grafica, $2$ indica la modalità $3D$.\\  
+\textit{SetViewMode} è una costante che setta la modalità di visualizzazione grafica, $2$ indica la modalità $3D$.
 Per allinearsi con lo sato iniziale dell'algoritmo è necessario invertire l'ultimo qubit:
 
 \begin{lstlisting}
@@ -1364,7 +1362,7 @@ Per allinearsi con lo sato iniziale dell'algoritmo è necessario invertire l'ult
     SigmaX 7
 \end{lstlisting}
 
-QScript ha come primitive le più comuni operazioni quantistiche tra cui, appunto, la porta X di Pauli ossia l'equivalente quantistica della trasformazione NOT.\\
+QScript ha come primitive le più comuni operazioni quantistiche tra cui, appunto, la porta X di Pauli ossia l'equivalente quantistica della trasformazione NOT.
 Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due applicazioni di $H^{\otimes\ped{n}}$, delle quali la prima in concomitanza con $H \text{ su } \ket{1}$;
 è utile allora definire una procedura che ponga in sovrapposizione un numero variabile di qubit:
 
@@ -1378,7 +1376,7 @@ Come già esposto nel capitolo precedente, all'algoritmo sono necessarie due app
 \end{lstlisting}
 
 \newpage
-. La procedura per l'oracolo sarà rappresentata in questo caso dalla procedura identità che è banalmente una funzione sul sistema senza corpo:
+.  La procedura per l'oracolo sarà rappresentata in questo caso dalla procedura identità che è banalmente la funzione senza corpo:
 
 \begin{lstlisting}
     //0 constant oracle
@@ -1408,7 +1406,7 @@ if measured_value != 0
 endif
 \end{lstlisting}
 
-Si noti come, dal momento che viene misurato l'intero registro, dobbiamo aggiungere dei controlli per tenere conto dei valori in cui può risultare il qubit ausiliario.\\
+. Si noti come, dal momento che viene misurato l'intero registro, dobbiamo aggiungere dei controlli per tenere conto dei valori in cui può risultare il qubit ausiliario.
 
 \newpage
 Definite le struttre principali, possiamo ora dare il codice completo:
@@ -1460,14 +1458,14 @@ Definite le struttre principali, possiamo ora dare il codice completo:
     endif
     \end{lstlisting}
 
-. Lo script è stato successivamente eseguito sul simulatore più volte al fine di escludere un risultato casuale, dimostrandosi corretto:
+. Lo script è stato successivamente eseguito sul simulatore dimostrandosi corretto:
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{constantFunction}
     \caption{QuantumPlayground, Deutsch–Jozsa su funzione costante}
 \end{figure}
-Si noti la visualizzazione grafica a sinistra che rappresenta lo stato del sistema subito prima della misurazione: il quadrato indica
+. Si noti la visualizzazione grafica a sinistra che rappresenta lo stato del sistema subito prima della misurazione: il quadrato di base indica
 lo spazio degli stati per il registro e le aree colorate sono gli stati attualmente in stato di sovrapposizione, rispettivamente,
 il bianco indica una fase positiva e il blu una negativa. La dimensione dell'area colorata sta invece ad indicare l'ampiezza dello
 stato sovrapposto, se è colorata solo la superfice allora l'ampiezza sarà 0 e può essere trascurata. Prima dell'osservazione
@@ -1476,20 +1474,16 @@ Sopra il grafico a destra è anche segnata la probabilità dello stato che ha pi
 è pari a $0.49999..=0.5$ che è coerente con quanto appena detto. Se, utilizzando un'altra modalità di visualizzazione, andiamo
 ad ispezionare quali sono questi due stati in sovrapposizione ci accorgiamo che: 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 
-        \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{constantFunction3}
-    
-\end{figure}
-\begin{figure}[h]
-
-    \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{constantFunction2}
+        \includegraphics[width=.85\textwidth,height=\textheight,keepaspectratio]{constantFunction3}
+        \includegraphics[width=.85\textwidth,height=\textheight,keepaspectratio]{constantFunction2}
     
 \end{figure}
 
 sono $\ket{128}=\ket{10000000}$ e $\ket{0}=\ket{00000000}$. La probabilità di misurare i primi 7 qubits
 a 0 è quindi certa. La funzione è quindi correttamente riconosciuta come costante.  \par
-Passando alle funzioni bilanciate, come primo esempio si è scelta un'istanza della funzione bilanciata lineare $f^n$ definita nel primo capitolo. \\
+Passando alle funzioni bilanciate, come primo esempio si è scelta un'istanza della funzione bilanciata lineare $f^n$ definita nel primo capitolo. 
 In generale l'oracolo $U_{f^n}$ vale:
 \[
     U_{f^n}(\ket{\textbf{x},y})= \ket{\textbf{x},f^n(\textbf{x}) \xor y} = \ket{\textbf{x}, x_1 \xor x_2 \xor \cdot\cdot\cdot \xor x_n \xor y}
@@ -1504,7 +1498,7 @@ la già introdotta trasformazione $CNOT$, la quale consente di operare uno xor t
         \lstick{\ket{x_2}} & \targ & \rstick{\ket{x_2 \xor x_1}}\qw
     }
 \]
-dal momento che $\ket{x_2}$ viene invertito se e solo se $\ket{x_1}=\ket1$ la semantica sarà proprio quella dello $\xor$.\\
+dal momento che $\ket{x_2}$ viene invertito se e solo se $\ket{x_1}=\ket1$ la semantica sarà proprio quella dello $\xor$.
 $U_{f^n}$ sarà quindi esprimibile con una concatenazione di $C_iNOT_{n+1}$, con $i$ distinti $1\leq i\leq n$ 
 
 \begin{align*}
@@ -1521,7 +1515,7 @@ $U_{f^n}$ sarà quindi esprimibile con una concatenazione di $C_iNOT_{n+1}$, con
 							}
 \end{align*}
 
-\noindent infatti: $ (..(((x1 \xor y) \xor x2) \xor x3) \xor .. \xor xn) =  x1 \xor x2 \xor .. \xor xn \xor y = f^n(\text{\textbf{x}}) \xor y$ .\par
+\noindent infatti: $ (..(((x_1 \xor y) \xor x_2) \xor x_3) \xor .. \xor x_n) =  x_1 \xor x_2 \xor .. \xor x_n \xor y = f^n(\text{\textbf{x}}) \xor y$ .\par
 Scegliendo sempre un registro a 8 qubits come sistema su cui calcolare $f^n$, l'unica parte che nel codice differisce dall'esempio
 precedente è appunto la procedura per $U_f$ che, per quanto argomentato, diventa:   
 
@@ -1533,7 +1527,7 @@ proc oracle
 	endfor
 endproc
 \end{lstlisting}
-si noti che QScript comincia a numerare da 0.\\
+si noti che QScript comincia a numerare da 0.\par
 Il risultato dell'esecuzione conferma la correttezza dell'implementazione seguita
 
 \begin{figure}[h]
@@ -1544,13 +1538,13 @@ Il risultato dell'esecuzione conferma la correttezza dell'implementazione seguit
 
 inversamente, anche in questo caso era possibile dedurre già dal grafico che la misurazione non avrebbe portato al collasso 
 su $\ket{\textbf{0}}$, la sovrapposizione infatti si trova nella zona diametralmente opposta rispetto a quella in cui si trovava per il
-caso costante. $\ket{\textbf{0}}$ non è in sovrapposizone e qundi ha probabilità pari a 0 di essere osservato.\par
+caso costante. $\ket{\textbf{0}}$ non è in sovrapposizone e quindi ha probabilità pari a 0 di essere osservato.\par
 
-L'ultimo esempio vede l'implementazione della funzione non lineare bilanciata 
+L'ultimo esempio vede l'implementazione della funzione non lineare bilanciata: 
 \[
     h(x_1, x_2, x_3, x_4, x_5)=(x_1 \land x_2) \xor x_3 \xor (x_2 \land x_3 \land x_4) \xor (x_2 \land x_3 \land x_5) \xor (x_3 \land x_4) \xor (x_4 \land x_5)        
 \]
-anticipata nel primo capitolo. \\
+anticipata nel primo capitolo. \par
 Come si può intuire dalla definizione, per creare l'oracolo $U_h$, oltre ad utilizzare $CNOT$ per $\xor$, bisogna trovare un metodo
 che ci permetta di calcolare la trasformazione $AND$ tra 2 e 3 stati. 
 Si cominci col notare che l'$AND$ classico non può essere utilizzato in un circuito quantistico in quanto comporta la perdita di un bit
@@ -1559,7 +1553,7 @@ porta reversibile è stato tuttavia già esposto quando si è data la definizion
 $\ket{y}=\ket{0}$ e avremo l'AND quantistico $U_{\land}(\ket{x_1,x_2,y})=\ket{(x_1 \land x_2) \xor y} = \ket{(x_1 \land x_2)}$ il quale (lasciando $\ket{y}$ generico) altro non è che un CNOT esteso a 2 qubit
 di controllo: se e solo se i primi due qubit si trovano in $\ket1$ esegui NOT su $\ket{y}$. Questa operazione risulta essere di fondamentale importanza per la computazione quantistica 
 \footnote{La porta di Toffoli è universale per il calcolo logico reversibile \cite{ref19} ed è "quasi" universale per la compuazione quantistica \cite{ref20}}
-ed è conosciuta come la porta $Toffoli$, in nome dello scienziato che la scoprì.\\
+ed è conosciuta come la porta $Toffoli$, in nome dello scienziato che la scoprì.
 Viene rappresentata graficamente dal circuito
 \[
     \Qcircuit @C=3em @R=4em {
@@ -1577,8 +1571,8 @@ e, ponendo $\ket{y}=\ket{0}$
     }
 \]  
 . E per quanto concerne un $AND$ a 3 stati? Per estensione verrebbe da concludere che un $CNOT$ a 3 qubit di controllo (o equivalentemente una $Toffoli$ a 3 qubit di controllo)
-  con $NOT$ sul solito $\ket0$ sia sufficiente, tale risposta è corretta, tuttavia, QScript non fornisce una primitiva per $CNOT$ o $Toffoli$ generalizzati,
-  dobbiamo quindi cavarcela diversamente. Dopo un pò di ragionamento risulta relativamente facile capire che un $AND$ a 3 stati
+  con $NOT$ sul solito $\ket0$ sia sufficiente, tale risposta è corretta, tuttavia, QScript non fornisce una primitiva per $CNOT$ o $Toffoli$ generalizzati.
+  Dobbiamo quindi cavarcela diversamente. Dopo un pò di ragionamento risulta relativamente facile capire che un $AND$ a 3 stati
   è ricavabile componendo due $Toffoli$, infatti
   
 \[
@@ -1609,7 +1603,7 @@ tanti qubit quanti sono gli $AND$ distinti a 3 stati in $h$ (1). Ne risulta il s
 \]
 
 si noti la presenza di un qubit ausiliario in più che non prende parte alla computazione, il motivo è dovuto ad una limitazione
-di QuantumPlayground che impone che la dimensione di un registro sia pari.\\
+di QuantumPlayground che impone che la dimensione di un registro sia pari.\par
 L'oracolo in QScript diventa
 
 \begin{lstlisting}
@@ -1626,7 +1620,7 @@ L'oracolo in QScript diventa
 \end{lstlisting}
 
 .  Onde evitare di aggiungere svariati controlli per tutti i possibili valori dei qubit di supporto, viene in questo caso effettuata
-la misurazione solo su gli stati significativi
+la misurazione solo su gli stati significativi:
 
 \begin{lstlisting}
 MeasureBit 0
@@ -1681,10 +1675,10 @@ Print "BALANCED"
 
 endif
 \end{lstlisting}
-nonostante la verbosità del codice, anche in questo caso l'esecuzione restituisce il risultato sperato confermando la corretta
+e, nonostante la verbosità del codice, anche in questo caso l'esecuzione restituisce il risultato sperato confermando la corretta
 implementazione dell'ultima delle funzioni testate.
 
-\begin{figure}[h]
+\begin{figure}[!h]
     
             \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{nonLinearBalancedFunction}
             \caption{QuantumPlayground, Deutsch–Jozsa su funzione non lineare bilanciata}
@@ -1697,7 +1691,7 @@ Riassumendo, l'idea di base per qualsiasi algoritmo quantistico è quella di uti
 del problema contemporaneamente cercando, dal momento che questa sovrapposizione non è direttamente osservabile ma solo descrivibile come una distribuzione di 
 probabilità, di trovare un pattern tra gli stati sovrapposti che sia in qualche modo collegato alla soluzione. Sfruttando poi i fenomeni di cancellazione tra stati
 dovuti all'interferenza, si tenta di estrapolare il più possibile tale pattern aumentando la probabilità di misurarlo. Non tutte le procedure ricavabili secondo
-questo schema sono deterministiche, molte infatti, come l'algoritmo di Shor, lavorano riducendo iterativamente la probabilità di sbagliare.\\
+questo schema sono deterministiche, molte infatti, come l'algoritmo di Shor, lavorano riducendo iterativamente la probabilità di sbagliare.\par
 È importante menzionare il fatto che, contrariamente a quanto visto, esistono anche problemi in cui il nuovo paradigma è risaputo non portare vantaggi, 
 come ad esempio i problemi indecidibili che rimangono tali anche per il calcolo quantistico\footnote{è infatti possibile
 utilizzando un numero esponenziale di risorse simulare una macchina quantistica utilizzando una macchina di Turing, ne è un esempio proprio QuantumPlayground.}, lasciando così inalterata la tesi di Church-Turing.

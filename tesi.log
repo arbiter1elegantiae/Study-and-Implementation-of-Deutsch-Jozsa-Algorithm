@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  6 DEC 2017 23:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  7 DEC 2017 19:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1134,11 +1134,6 @@ Overfull \hbox (6.46025pt too wide) in paragraph at lines 329--332
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
@@ -1162,22 +1157,22 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Capitolo 3.
 [17
 
-] [18] <double-slit-electrons1.jpg, id=89, 144.54pt x 148.8762pt>
+] [18] [19] <double-slit-electrons1.jpg, id=92, 144.54pt x 148.8762pt>
 File: double-slit-electrons1.jpg Graphic file (type jpg)
 
 <use double-slit-electrons1.jpg>
-Package pdftex.def Info: double-slit-electrons1.jpg used on input line 474.
+Package pdftex.def Info: double-slit-electrons1.jpg used on input line 473.
 (pdftex.def)             Requested size: 225.0pt x 231.76207pt.
- [19] [20 <./double-slit-electrons1.jpg>]
-[21] [22] [23] [24] [25] [26] [27] [28] [29]
+ [20 <./double-slit-electrons1.jpg>] [21]
+[22] [23] [24] [25] [26] [27] [28]
 
 Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
  Make it at least 15.71667pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30] [31] [32] [33] [34] [35] [36]
-Overfull \hbox (68.23076pt too wide) detected at line 925
+[29] [30] [31] [32] [33] [34] [35]
+Overfull \hbox (7.29253pt too wide) detected at line 924
 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 c[]
  []\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 
  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 c[
@@ -1186,93 +1181,76 @@ m/m/it/12 c[]c[] [] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 c[]c[] [] [] \OT1/cmr
 /m/n/12 + \OML/cmm/m/it/12 c[]c[] [] []
  []
 
-[37] [38] [39] <xymatrix 3x2 242> <xymatrix 4x2 379> [40] <xymatrix 4x2 379>
-[41] [42] <xymatrix 5x2 577> [43] [44]
+[36] [37] [38] <xymatrix 3x2 242> <xymatrix 4x2 379> [39] <xymatrix 4x2 379>
+[40] [41] <xymatrix 5x2 577> [42] [43]
 Capitolo 4.
-[45
+[44
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1157--1159
-
- []
-
-[46] <xymatrix 5x2 638> <xymatrix 2x1 105>
-Overfull \hbox (66.85849pt too wide) in paragraph at lines 1215--1215
+] [45] <xymatrix 5x2 638> <xymatrix 2x1 105>
+Overfull \hbox (66.85849pt too wide) in paragraph at lines 1213--1213
 [] 
  []
 
-[47] [48] [49]
-Overfull \hbox (2.33452pt too wide) in paragraph at lines 1316--1318
+[46] [47] [48]
+Overfull \hbox (3.24193pt too wide) in paragraph at lines 1314--1316
 []$\OMS/cmsy/m/n/12 P[]\OT1/cmr/m/n/12 ([][]) = [] [][](\OMS/cmsy/m/n/12 ^^@\OT
 1/cmr/m/n/12 1)[] [] = [] [] \OMS/cmsy/m/n/12 ^^@ [] [] \OT1/cmr/m/n/12 =
  []
 
-[50] [51]
+[49] [50]
 Capitolo 5.
-<xymatrix 5x2 638> [52
+<xymatrix 5x2 638> [51
 
-] [53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1411--1412
-
- []
-
-[55] [56] <constantFunction.png, id=219, 1288.815pt x 506.89375pt>
+] [52] [53] [54]
+<constantFunction.png, id=213, 1288.815pt x 506.89375pt>
 File: constantFunction.png Graphic file (type png)
 
 <use constantFunction.png>
-Package pdftex.def Info: constantFunction.png used on input line 1467.
+Package pdftex.def Info: constantFunction.png used on input line 1465.
 (pdftex.def)             Requested size: 450.0104pt x 176.99007pt.
 
-Overfull \hbox (60.0104pt too wide) in paragraph at lines 1467--1468
+Overfull \hbox (60.0104pt too wide) in paragraph at lines 1465--1466
  [][] 
  []
 
-[57 <./constantFunction.png>]
-<constantFunction3.png, id=223, 752.8125pt x 377.41pt>
+[55 <./constantFunction.png>]
+<constantFunction3.png, id=217, 752.8125pt x 377.41pt>
 File: constantFunction3.png Graphic file (type png)
 
 <use constantFunction3.png>
-Package pdftex.def Info: constantFunction3.png used on input line 1481.
-(pdftex.def)             Requested size: 414.01369pt x 207.55885pt.
+Package pdftex.def Info: constantFunction3.png used on input line 1479.
+(pdftex.def)             Requested size: 382.51639pt x 191.76822pt.
 
-Overfull \hbox (24.01369pt too wide) in paragraph at lines 1481--1482
-[][] 
- []
-
-<constantFunction2.png, id=225, 723.70375pt x 373.395pt>
+<constantFunction2.png, id=219, 723.70375pt x 373.395pt>
 File: constantFunction2.png Graphic file (type png)
 
 <use constantFunction2.png>
-Package pdftex.def Info: constantFunction2.png used on input line 1486.
-(pdftex.def)             Requested size: 414.0062pt x 213.60652pt.
+Package pdftex.def Info: constantFunction2.png used on input line 1480.
+(pdftex.def)             Requested size: 382.50105pt x 197.35144pt.
 
-Overfull \hbox (24.0062pt too wide) in paragraph at lines 1486--1487
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1481
+[][]
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[58 <./constantFunction3.png>] <xymatrix 3x2 196> <xymatrix 3x2 242> <xymatrix
-7x5 1162> <xymatrix 3x2 242> <xymatrix 7x5 1162>
-Overfull \hbox (32.85541pt too wide) in paragraph at lines 1522--1522
+[56 <./constantFunction3.png> <./constantFunction2.png>] <xymatrix 3x2 196>
+<xymatrix 3x2 242> <xymatrix 7x5 1162> <xymatrix 3x2 242> <xymatrix 7x5 1162>
+Overfull \hbox (32.85541pt too wide) in paragraph at lines 1516--1516
 [] 
  []
 
-[59 <./constantFunction2.png>]
-<LinearBalancedFunction.png, id=235, 1301.86375pt x 512.91624pt>
+[57] <LinearBalancedFunction.png, id=228, 1301.86375pt x 512.91624pt>
 File: LinearBalancedFunction.png Graphic file (type png)
 
 <use LinearBalancedFunction.png>
-Package pdftex.def Info: LinearBalancedFunction.png used on input line 1541.
+Package pdftex.def Info: LinearBalancedFunction.png used on input line 1535.
 (pdftex.def)             Requested size: 449.99767pt x 177.29283pt.
 
-Overfull \hbox (59.99767pt too wide) in paragraph at lines 1541--1542
+Overfull \hbox (59.99767pt too wide) in paragraph at lines 1535--1536
  [][] 
  []
 
-[60 <./LinearBalancedFunction.png>]
-Overfull \hbox (16.81183pt too wide) detected at line 1552
+
+Overfull \hbox (16.81183pt too wide) detected at line 1546
 \OML/cmm/m/it/12 h\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[]; x[]; x[]; x[]\OT1
 /cmr/m/n/12 ) = (\OML/cmm/m/it/12 x[] \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 x[]\O
 T1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 x[] [] \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[
@@ -1283,70 +1261,70 @@ t/12 x[] \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) [] (\OML/cmm/
 m/it/12 x[] \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )
  []
 
-<xymatrix 3x3 310> <xymatrix 3x3 310> [61] <xymatrix 4x5 728> [62] <xymatrix
-9x8 2953> [63] [64]
-<nonLinearBalancedFunction.png, id=251, 1303.87125pt x 511.9125pt>
+[58 <./LinearBalancedFunction.png>] <xymatrix 3x3 310> <xymatrix 3x3 310>
+[59] <xymatrix 4x5 728> <xymatrix 9x8 2953> [60] [61] [62]
+<nonLinearBalancedFunction.png, id=245, 1303.87125pt x 511.9125pt>
 File: nonLinearBalancedFunction.png Graphic file (type png)
 
 <use nonLinearBalancedFunction.png>
-Package pdftex.def Info: nonLinearBalancedFunction.png used on input line 1689.
+Package pdftex.def Info: nonLinearBalancedFunction.png used on input line 1683.
 
 (pdftex.def)             Requested size: 414.00436pt x 162.54213pt.
 
-Overfull \hbox (24.00436pt too wide) in paragraph at lines 1689--1690
+Overfull \hbox (24.00436pt too wide) in paragraph at lines 1683--1684
 [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[65] [66 <./nonLinearBalancedFunction.png>]
+[63] [64 <./nonLinearBalancedFunction.png>]
 Capitolo 6.
-[67
+[65
 
-] [68]
-Underfull \hbox (badness 1708) in paragraph at lines 1712--1713
+] [66]
+Underfull \hbox (badness 1708) in paragraph at lines 1706--1707
 []\OT1/cmr/m/n/12 Crama, Y. and Ham-mer, P. (2011). \OT1/cmr/m/it/12 Boo-lean F
 unc-tions Theo-ry,
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 1717--1718
+Underfull \hbox (badness 1132) in paragraph at lines 1711--1712
 []\OT1/cmr/m/n/12 Yanofsky, N. and Man-nuc-ci, M. (2013). \OT1/cmr/m/it/12 Quan
 -tum com-pu-ting for
  []
 
-[69
+[67
 
-] [70]
-Underfull \hbox (badness 1184) in paragraph at lines 1729--1730
+] [68]
+Underfull \hbox (badness 1184) in paragraph at lines 1723--1724
 []\OT1/cmr/m/n/12 Shi, Yaoyun (2003). \OT1/cmr/m/it/12 Both Tof-fo-li and Contr
 olled-NOT need lit-tle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1734
+Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
 []\OT1/cmr/m/n/12 (2017) \OT1/cmr/m/it/12 IBM Builds Its Mo-st Po-wer-ful Uni-v
 er-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1734
+Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
 \OT1/cmr/m/it/12 sal Quan-tum Com-pu-ting Pro-ces-sors\OT1/cmr/m/n/12 . https:/
 /www-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1734
+Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
 \OT1/cmr/m/n/12 03.ibm.com/press/us/en/pressrelease/52403.wss#release. Re-trie-
 ved
  []
 
-[71] [72] (./tesi.aux) ) 
+[69] [70] (./tesi.aux) ) 
 Here is how much of TeX's memory you used:
  20288 strings out of 493029
  364358 string characters out of 6136234
- 528129 words of memory out of 5000000
+ 530714 words of memory out of 5000000
  23400 multiletter control sequences out of 15000+600000
  23143 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1376,10 +1354,10 @@ public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on tesi.pdf (74 pages, 740644 bytes).
+Output written on tesi.pdf (72 pages, 738780 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
+ 355 PDF objects out of 1000 (max. 8388607)
+ 242 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 
