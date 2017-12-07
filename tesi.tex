@@ -62,8 +62,8 @@ tabsize=3
 \linespread{1.3}                        %comando per impostare l'interlinea
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%definisce nuovi comandi
 %
-\textwidth=450pt\oddsidemargin=0pt
 \begin{document}
+\textwidth=450pt\oddsidemargin=0pt
 \begin{titlepage}
 \begin{center}  
 {{\Large{\textsc{Alma Mater Studiorum $\cdot$ Universit\`a di
@@ -74,11 +74,11 @@ Corso di Laurea in Informatica }}
 \end{center}
 \vspace{15mm}
 \begin{center}
-{\LARGE{\bf TITOLO}}\\
+{\LARGE{\bf L'ALGORITMO DI}}\\
 \vspace{3mm}
-{\LARGE{\bf DELLA}}\\
+{\LARGE{\bf DEUTSCH-JOZSA}}\\
 \vspace{3mm}
-{\LARGE{\bf TESI}}\\
+{\LARGE{\bf IN QSCRIPT}}\\
 \end{center}
 \vspace{40mm}
 \par
@@ -115,40 +115,39 @@ anche nulla \ldots                      %\ldots lascia tre puntini
 \end{titlepage}
 \tableofcontents
 \chapter{Introduzione}
-Che cosa hanno in comune il Deep Learning che permette ad un veicolo di guidare autonomamente, l'analisi di un mercato finanziario in continua crescita, la simulazione dei più svariati sistemi fisici 
-quali la modellizzazione delle interazioni a scala molecolare, le previsioni dei cambiamenti climatici e la crittoanalisi dei moderni sistemi crittografici che garantiscono la sicurezza di internet?
-Per quanto apparentemente distanti, questi campi sono legati tra di loro da un denominatore comune: la complessità computazionale che devono fronteggiare per poter esistere.
-Sia che si esprima sotto forma di problemi di ottimizzazione per la scelta della miglior azione da compiere in prossimità di un ostacolo,
-sia che emerga con la valutazione dei risultati di grandi quantità di previsioni finanziarie o che si manifesti nella ricerca dei fattori primi di un numero molto grande per decifrare RSA\cite{ref22},
-la complessità derivata da questi compiti rappresenta un ostacolo difficile da superare anche dai moderni super computer.\\
+Che cosa hanno in comune: l'analisi di un mercato finanziario in continua crescita, la modellizzazione delle interazioni a scala molecolare, la simulazione dei cambiamenti climatici 
+e la crittoanalisi dei moderni sistemi crittografici che garantiscono la sicurezza di internet?
+Per quanto apparentemente distanti, questi problemi sono legati tra di loro da un denominatore comune: per essere portati a termine necessitano di enormi quantità di calcoli.
+Sia che emerga con la valutazione dei risultati di grandi quantità di previsioni finanziarie o che si manifesti nella ricerca dei fattori primi di un numero molto grande per decifrare RSA \cite{ref22},
+la complessità computazionale derivata da questi problemi rappresenta un ostacolo difficile da superare anche dai moderni super computer.\\
 In realtà, per il calcolo digitale, questi problemi non sono solo attualmente intrattabili ma, con ogni probabilità, lo saranno per sempre. Ciò è dovuto al numero di operazioni necessarie per risolverli,
-che cresce, in relazione con la dimensione del problema, più rapidamente di quanto cresca la capacità di calcolo dei calcolatori negli anni \cite{ref23}.
+che cresce, in relazione con la dimensione del problema, con ritmo esponenziale, almeno se concentriamo la nostra attenzione sugli algoritmi esistenti.
 A titolo di esempio, la simulazione delle interazioni di piccole molecole composte da pochi atomi può essere portata avanti anche da un laptop domestico nell'arco di qualche secondo mentre, aumentando in ordini di grandezza e 
 passando a molecole composte da alcune centinaia di atomi, il processo di esatta simulazione impegnerebbe un qualsiasi computer per un tempo superiore a quello dell'età dell'universo.
 
 \section{Il Paradigma Quantistico}
 La buona notizia è che una soluzione sembra esistere e deriva da un approccio drasticamente differente rispetto a quello tradizionale. Il modello di calcolo classico sfruttato dai moderni calcolatori, infatti,
-si fonda sopra il concetto di bit: un'unità logica che può avere valore 0 o 1 e sulle operazioni effettuabili su questi valori. È sufficiente questo modello con l'aggiunta di poche altre regole che verranno
+si fonda sul il concetto di bit: un'unità logica che può avere valore 0 o 1 e sulle operazioni effettuabili su questi valori. È sufficiente questo modello con l'aggiunta di poche altre regole che verranno
 chiarite in seguito per derivarne l'Informatica come oggi la conosciamo, con tutte le sue applicazioni e limitazioni, alcune delle quali appena esposte. Essenzialmente, dai tempi di Turing, nessun cambiamento
 ha avuto luogo tale da mettere in discussione che cosa sia e come opera un computer fino a quando, dopo l'affermazione della meccanica quantistica, negli anni 80 del secolo scorso, alcuni scienziati
-cominciarono ad avanzare l'ipotesi che le stesse leggi che governano il mondo infinitamente piccolo potessero essere sfruttate per lo sviluppo di un nuovo paradigma di calcolo dalle nuove potenzialità.
+cominciarono ad avanzare l'ipotesi che le stesse leggi che governano il mondo infinitamente piccolo potessero essere sfruttate per lo sviluppo di un nuovo paradigma di calcolo dalle nuove potenzialità \cite{ref6}.
 La proprietà che veniva proposta della meccanica quantistica come più rilevante ai fini dell'applicazione alla computazione era il postulato secondo il quale un sistema fisico quantistico con $n$ gradi di libertà
 si può trovare contemporaneamente in un numero di stati che cresce esponenzialmente con $n$. Come ogni struttura fisica anche gli stati di un sistema quantistico possono essere utilizzati per trasportare
-informazione e quindi aprire la strada ad un'elaborazione a sua volta esponenziale. \\
-Analogalmente, anche un computer quantistico possiede un'unità di base che è chiamata quantum bit o, in maniera abbreviata, qubit. Come anticipato e come verrà poi meglio formalizzato, il qubit si distingue dal bit classico
+informazione e quindi aprire la strada ad un'elaborazione a sua volta esponenziale. 
+\par Analogalmente, anche un computer quantistico possiede un'unità di base che è chiamata quantum bit o, in maniera abbreviata, qubit. Come anticipato e come verrà poi meglio formalizzato, il qubit si distingue dal bit classico
 per la possibilità di trovarsi in una \emph{sovrapposizione} dei valori logici 0 e 1 contemporaneamente oltre che assumere i valori 0 e 1 proprio come un bit. Nella pratica un qubit sarebbe implementatbile 
 sfruttando le proprietà tipicamente quantistiche quali la polarizzazione di un fotone o lo spin di un elettrone; lo studio delle tecniche e i metodi per la realizzazione di un computer quantistico richiede
-avanzate conoscenze di fisica ed esula dai fini della tesi in oggetto. Qui basti accennare che le difficoltà tecniche in questo campo sono ancora tante e allo stato dell'arte solo poche compagnie dichiarano
-d'aver sviluppato "piccoli" chip quantistici funzionanti\cite{ref24}.\par
+avanzate conoscenze di fisica ed esula dai fini della tesi in oggetto. Qui basti accennare che le difficoltà tecniche in questo campo sono ancora tante e, allo stato dell'arte, solo poche compagnie dichiarano
+d'aver sviluppato "piccoli" chip quantistici funzionanti \cite{ref24}.\par
 In questo documento vengono trattate da un punto di vista teorico le fondamenta del calcolo quantistico, ponendo l'attenzione in particolare sulla progettazione di algoritmi che sfruttino il parallelismo 
 emergente dalla sovrapposizione, andando infine ad analizzare un preciso caso d'uso.  
 
 \section{Potenziale}
 La fattorizzazione di numeri interi in numeri primi è, contrariamente a quanto avviene per il calcolo tradizionale, un problema relativamente facile da risolvere da un computer quantistico.
 Peter Shor fornì nel 1999 un algoritmo quantistico che richiede tempo polinomiale per risolvere il problema \cite{ref25}. Questo algoritmo è, teoricamente, in grado di rompere i sistemi di sicurezza a
-chiave pubblica utilizzati ad esempio in ogni transizione bancaria. D'altra parte sono stati sviluppati protocolli a crittografia quantistica per lo scambio di chiavi teoricamente immuni a qualsiasi tipo di 
+chiave pubblica utilizzati ad esempio in molte transizioni bancarie. D'altra parte sono stati sviluppati protocolli a crittografia quantistica per lo scambio di chiavi teoricamente immuni a qualsiasi tipo di 
 attacco, si parla in questo caso di crittografia perfetta \cite{ref26}. Al di fuori della fattorizzazione, gli algoritmi quantistici risultano essere ideali nella simulazione di processi fisici a stato solido e chimici
-vantando sempre un diminuzione più che polinomiale in tempo rispetto alle rispettive procedure classiche \cite{ref27}. Esistono problemi per cui i computer quantistici garantirebbero una diminuzione polinomiale 
+vantando sempre una diminuzione più che polinomiale in tempo rispetto alle rispettive procedure classiche \cite{ref27}. Esistono problemi per cui i computer quantistici garantirebbero una diminuzione polinomiale 
 in tempo: l'esempio più famoso è dato dall'algoritmo di Groover \cite{ref28} per la ricerca di un record all'interno di un database, che assicura una riduzione quadratica delle richieste per trovare l'elemento cercato.\\
 Si ritiene che le simulazioni quantistiche permetterebbero di modellare fedelmente il comportamento di atomi in condizioni inusuali come ad esempio durante gli scontri all'interno degli accellaratori di particelle \cite{ref29} e,
 in generale, molti ritengono la simulazione il campo ideale in cui la computazione quantistica risulterebbe vincente \cite{ref30}, rispondendo così alle domande con cui si è aperta la trattazione.\\
@@ -159,11 +158,11 @@ Introdotte le motivazioni che difendono l'importanza d'approfondire questo campo
 \section{Di Che Cosa Tratta Questa Tesi?}
 
 L'intera tesi ha come punto d'arrivo l'analisi della correttezza e l'implementazione di un algoritmo quantistico : l'algoritmo di Deutsch-Jozsa. L'algoritmo di Deutsch-Jozsa, come vedremo, non risolve un problema che ha dirette applicazioni
-pratiche bensì è un risultato importante dal punto di vista teorico. Fu infatti il primo esempio di procedura quantistica (deterministica) in grado di ottenere un diminuzione esponenziale in tempo rispetto alla controparte
+pratiche bensì è un risultato importante dal punto di vista teorico. Fu infatti il primo esempio di procedura quantistica (deterministica) in grado di ottenere una diminuzione esponenziale in tempo rispetto alla controparte
 classica per la risoluzione di un problema.\par
 Per arrivare a parlare di Deutsch–Jozsa è necessario acquisire i concetti fondamentali che caratterizzano il calcolo dei quanti, a tal proposito si è scelto
-di sviluppare la trattazione in capitoli e sezioni, ognuna incaricata di esporre al lettore una specifica tematica al fine di guidarlo verso la piena comprensione della tesi,
-in particolare:     
+di sviluppare la trattazione in capitoli e sezioni, ognuna incaricata di esporre al lettore una specifica tematica al fine di guidarlo verso la piena comprensione della tesi.
+In particolare:     
 \begin{itemize}
     \item nel secondo capitolo vengono trattati gli aspetti generali delle funzioni Booleane che sono alla base dell'algebra di ogni computer concentrando l'attenzione
           sulle funzioni Booleane bilanciate, una particolare classe che tornerà poi utile nell'ultimo capitolo;
@@ -190,24 +189,24 @@ in particolare:
 
 \chapter{Funzioni Booleane Bilanciate}
 Come già anticipato nell'Introduzione, le funzioni Booleane bilanciate sono una struttura matematica su cui poggia parte del contenuto di questa tesi.
-É risultato perciò utile, ai fini di una trattazione chiara ed esaustiva, impiegare un capitolo per definirne in maniera rigorosa i concetti di base.\\
+È risultato perciò utile, ai fini di una trattazione chiara ed esaustiva, impiegare un capitolo per definirne in maniera rigorosa i concetti di base.\\
 "\textit{Per fare un tavolo ci vuole il legno}" recita l'inizio di una famosa canzone per bambini, ad indicare la natura celata delle cose che, così nella quotidianità
 come nella matematica, spesso necessitano di altre conoscenze per essere comprese appieno; seguendo quindi questa impronta fondazionale, andiamo per prima cosa ad introdurre le funzioni Booleane.
 
 \section{Funzioni Booleane}
-Le funzioni Booleane apparvero per la prima volta a metà 19esimo secolo durante la formulazione matematica di problemi logici e prendono
+Le funzioni Booleane apparvero per la prima volta a metà diciannovesimo secolo durante la formulazione matematica di problemi logici e prendono
 il loro nome da George Boole, matematico britannico considerato fondatore della logica matematica odierna\cite{ref2}.\newpage
-Una semplice funzione Booleana può può essere rappresentata da \\$f:\{0,1\}^2 \mapsto \{0,1\}$
+Una semplice funzione Booleana può può per esempio \\$f:\{0,1\}^2 \rightarrow \{0,1\}$ definita come segue
 \begin{align*}  
     f(00) = 0 \\
     f(01) = 0 \\
     f(10) = 1 \\
     f(11) = 0
 \end{align*}
-oppure da $f^\prime:\{TRUE,FALSE\}\mapsto{\{TRUE,FALSE\}}$
+oppure da $g:\{\mathit{TRUE},\mathit{FALSE}\}\rightarrow{\{\mathit{TRUE},\mathit{FALSE}\}}$
 \begin{align*}
-    f^\prime(FALSE) = TRUE \\
-    f^\prime(TRUE) = FALSE 
+    g(\mathit{FALSE}) = \mathit{TRUE} \\
+    g(\mathit{TRUE}) = \mathit{FALSE} 
 \end{align*}
 Notiamo come entrambe abbiano in comune la dimensione del codominio e la capacità di agire su un numero finito di valori appartenenti ad un insieme di 2 elementi.
 È tuttavia conveniente operare su di un insieme che possa essere visto sia dal punto di vista qualitativo (vero, falso)
@@ -216,19 +215,22 @@ $\{0,1\}$ come campo vettoriale su cui lavorare.
 \par
 \begin{mydef}
     Una \textnormal{funzione Booleana a \textit{n} variabili} è una funzione da $\mathcal{B}^n$ a $\mathcal{B}$,
-    dove $\mathcal{B} = \{0,1\}$, $n > 0$ e $\mathcal{B}^n$ è l'n-esimo prodotto cartesiano di $\mathcal{B}$ con se stesso.\cite{ref3}
+    dove $\mathcal{B} = \{0,1\}$, $n > 0$ e $\mathcal{B}^n$ è l'n-esimo prodotto cartesiano di $\mathcal{B}$ con se stesso \cite{ref3}.
 \end{mydef}
 \begin{mycor}
     $\forall$ $n > 0$, ci sono $2^{2^{n}}$ funzioni da $\mathcal{B}^n$ a $\mathcal{B}.$
-\end{mycor}
-\begin{proof}
-    Sia $\mathcal{F}=\{f|f:\mathcal{B}^n\mapsto{\mathcal{B}}\}$,
-    ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
-    In $n$ bit possiamo codificare, trattandosi di una distribuzione con ripetizione di classe $n$, $2^n$ oggetti differenti, quindi $\mathbb{D}_{2,n}=\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
-    Per definizione di $f$, per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$.\\
-    Allora $\mathcal{F}$ avrà cardinalità uguale all'insieme delle parti per $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = 2^{\mathcal{B}^n}=2^{2^{n}}$
+    
+    \begin{proof}
+        Sia $\mathcal{F}=\{f|f:\mathcal{B}^n\rightarrow{\mathcal{B}}\}$,
+        ogni $f$ riceve in input n-uple $\vec{x}=(x_1,..,x_n)$ che possono essere viste come sequenze di $n$ bit.
+        In $n$ bit possiamo codificare, trattandosi di una distribuzione con ripetizione di classe $n$, $2^n$ oggetti differenti, quindi $\mathbb{D}_{2,n}=\left\vert{\mathcal{B}^n}\right\vert = 2^n$.
+        Per definizione di $f$, per ogni $\vec{x}$, $f(\vec{x}) = 0$  oppure  $f(\vec{x}) = 1$, quindi ogni possibile $f$ individua un sottoinsieme di $\mathcal{B}^n$. Allora $\mathcal{F}$ avrà cardinalità uguale all'insieme delle parti per 
+        $\mathcal{B}^n$, quindi  $\left\vert{\mathcal{F}}\right\vert = \left\vert{2^{\mathcal{B}^n}}\right\vert= 2^{\left\vert{\mathcal{B}^n}\right\vert} = 2^{2^{n}}$
+    \end{proof}
 
-\end{proof}
+\end{mycor}
+
+
 Un altro modo più tradizionale per descrivere una funzione Booleana è quello di fornire la sua tabella di verità.
 Ad esempio, per la $f$ precedentemente definita, la relativa tabella di verità sarà:
 
@@ -244,14 +246,13 @@ Ad esempio, per la $f$ precedentemente definita, la relativa tabella di verità 
 \end{displaymath}
 dove a destra viene posto il risultato della funzione calcolata sui valori delle colonne precedenti.\par
 In entrambe le rappresentazioni, tuttavia, le funzioni vengono descritte in maniera implicita mostrando solamente input ed output,
-senza mai andare a specificare come questo output venga calcolato.\\
-Nell'ultimo capitolo, per l'implementazione dell'algoritmo di Deutsch-Jozsa, verranno utilizzate funzioni Booleane \textit{bilanciate}
+senza mai andare a specificare come questo output venga calcolato. Nell'ultimo capitolo, per l'implementazione dell'algoritmo di Deutsch-Jozsa, verranno utilizzate funzioni Booleane \textit{bilanciate}
 che necessitano di essere calcolate esplicitamente. La prossima sezione introduce questa categoria di funzioni Booleane e 
 propone due metodi effettivi e generali per produrne istanze concrete.
 
 \section{Classi di Funzioni Booleane Bilanciate}
 
-Sia $f$ una funzione Booleana, chiamiamo $\vec{x}=(x_1,..,x_n)$ \textit{vettore positivo} per $f$ se e solo se
+Sia $f$ una funzione Booleana, chiamiamo $\vec{x}=(x_1,\cdot\cdot\cdot,x_n)$ \textit{vettore positivo} per $f$ se e solo se
 $f(\vec{x}) = 1$, \textit{vettore negativo} altrimenti. Sia $({\left\vert{f}\right\vert}^1 \text{,} {\left\vert{f}\right\vert}^0)$ la partizione dove ${\left\vert{f}\right\vert}^1$ è la quantità che indica il numero di vettori
 positivi per $f$ e ${\left\vert{f}\right\vert}^0$ la quantità che indica il numero di vettori negativi.
 \begin{mydef}
@@ -261,7 +262,7 @@ positivi per $f$ e ${\left\vert{f}\right\vert}^0$ la quantità che indica il num
     $\forall$ $n > 0$, ci sono $\frac{2^{n}!}{(2^{n-1}!)^2}$ FBB da $\mathcal{B}^n$ a $\mathcal{B}.$
 \end{mycor}
 \begin{proof}
-    Per definizione, una FBB $fbb:\mathcal{B}^n\mapsto\mathcal{B}$ è individuata da una partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che
+    Per definizione, una FBB $fbb:\mathcal{B}^n\rightarrow\mathcal{B}$ è individuata da una partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che
     $\left\vert{\mathcal{M}}\right\vert = \left\vert{\mathcal{N}}\right\vert = 2^{n-1}$ e $fbb(m)=0 \land fbb(n)=1$ $\forall{m,n}$ con $m\in\mathcal{M},n\in\mathcal{N}$.
     Quindi, il numero delle possibili funzioni corrisponde a tutti i possibili modi di partizionare a metà un insieme di $2^n$ elementi e, a sua volta, ogni partizione così creata può essere rappresentata 
     da un sottoinsieme $\mathcal{S}\subset\mathcal{B}^n$ dove $\mathcal{M}=\mathcal{S}$ e $\mathcal{N}=\mathcal{B}^n \setminus \mathcal{S}$.
@@ -290,7 +291,7 @@ Una valida tabella di verità per una FBB in $\mathcal{B}^3$ portebbe essere la 
 }
 \end{center}
 Dove, giustamente, si noti come il numero dei vettori positivi equivale al numero dei vettori negativi.\par
-Ma come è costruita $g$ nello specifico? Qual'è la computazione che mi porta a determinati outputs? È una funzione calcolabile?
+Ma come è costruita $g$ nello specifico? Qual'è la computazione che mi porta a determinati outputs?
 Per rispondere a queste domande si può provare a cercare qualche correlazione tra i valori in entrata e i valori in uscita:
 dopo un pò di riflessione dovrebbe saltare all'occhio che: ogni qual volta abbiamo un numero dispari di $1$ nell'input la funzione 
 restituisce $1$, restituisce invece $0$ quando tale numero è pari.
@@ -316,7 +317,7 @@ elementi vale $1$, implementando così l'operazione di modulo 2.
     \end{center}
 \par
 \begin{mylem}
-    Per ogni $n > 0$ la funzione Booleana $ f^{n}(x_1,x_2,...,x_n) = x_1 \xor x_2 \xor ... \xor x_n $ è una FBB.  
+    Per ogni $n > 0$ la funzione Booleana $ f^{n}(x_1,x_2,\cdot\cdot\cdot,x_n) = x_1 \xor x_2 \xor \cdot\cdot\cdot \xor x_n $ è una FBB.  
 \end{mylem}
 \begin{proof}
     \textit{(per induzione su $n$)\\}
@@ -325,7 +326,7 @@ elementi vale $1$, implementando così l'operazione di modulo 2.
         \item[Ipotesi induttiva:] Ipotizziamo $f^n$ bilanciata, quindi esiste la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
                                       $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $f^n(m) = 0$ e $ f^n(n) = 1$.
-        \item[Passo induttivo:] Avremo $f^{n+1}:\mathcal{B}^{n+1}\mapsto\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e quindi\\
+        \item[Passo induttivo:] Avremo $f^{n+1}:\mathcal{B}^{n+1}\rightarrow\mathcal{B}$ dove  $\mathcal{B}^{n+1} = \mathcal{B}^n\cdot0 \cup \mathcal{B}^n\cdot1$ e quindi\\
                                      $\left\vert\mathcal{B}^{n+1}\right\vert = 2\left\vert\mathcal{B}^{n}\right\vert$. Dobbiamo dimostrare che esiste una partizione
                                      $(\mathcal{M^\prime},\mathcal{N^\prime})$ t.c.:
                                      \begin{itemize}
@@ -340,24 +341,24 @@ elementi vale $1$, implementando così l'operazione di modulo 2.
     \end{description}      
 \end{proof}
 \par
-Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\mapsto\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$ tale che $f(\vec{x})=M\vec{x}$, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce.\\
+Si richiami dall'Algebra Lineare che, $f:\mathcal{V}\rightarrow\mathcal{W}$ è un'applicazione lineare se e solo se esiste una matrice $M \in \mathbb{M}^{k \times l}$ tale che $f(\vec{x})=M\vec{x}$, dove $k = \left\vert\mathcal{V}\right\vert$ e $l = \left\vert\mathcal{W}\right\vert$ sono le dimensioni degli spazi vettoriali su cui agisce.\\
 
 \begin{mydef}
-$b:\mathcal{B}^n \mapsto \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,...,+c_nx_n mod 2=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,...,\xor(c_n\land{x_n})$. Dove $\xor$
+$b:\mathcal{B}^n \rightarrow \mathcal{B}$ è una funzione booleana lineare (FBL) se e solo se esiste $M \in \mathbb{B}^{n \times 1}$ tale che $b(\vec{x})=M\vec{x}=c_1x_1+c_2x_2+,\cdot\cdot\cdot,+c_nx_n mod 2=(c_1\land{x_1})\xor(c_2\land{x_2})\xor,\cdot\cdot\cdot,\xor(c_n\land{x_n})$. Dove $\xor$
 è l'operatore di somma per $\mathcal{B}^n$. 
 \end{mydef}
 \begin{mycor}
     Per ogni $n>0$, $f^n$ è una FBL.
     \begin{proof}
-        Triviale, basta infatti porre $M=\overbrace{(1,1,...,1)}^{n-volte}$.
+        Triviale, basta infatti porre $M=\overbrace{(1,1,\cdot\cdot\cdot,1)}^{n-volte}$.
     \end{proof}
 \end{mycor}
 
 \subsection{La Classe delle Funzioni Booleane Lineari}
 Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazione del seguente risultato generale:
 \begin{mythm}
-    Sia $\mathbb{FL}=\{f|f\in\text{FLB} \land f \neq c:\mathcal{B}^n\mapsto\{0\},\;\forall n > 0\}$ la classe di tutte le funzioni Booleane lineari
-    diverse dalle funzioni costanti a 0. Allora, $\forall f\in \mathbb{FL}$ $f$ è bilanciata.
+    Sia $\mathbb{FL}=$ FLB $\setminus \{f| f: \mathcal{B}^n \rightarrow {0}, \forall n>0 \} $ la classe di tutte le funzioni Booleane lineari
+    che non siano costanti a 0. Allora, $\forall f\in \mathbb{FL}$ $f$ è bilanciata.
 \end{mythm}
 \begin{proof} \textit{(per induzione su $n$)\\}
     Sia $l^n$ una qualsiasi funzione da $\mathcal{B}^n$ appartenente a $\mathbb{FL}$.  Vogliamo dimostrare che $l^n$ è bilanciata.\\
@@ -367,18 +368,20 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
                                       Esisterà quindi la partizione $(\mathcal{M},\mathcal{N})$ con $\mathcal{M}\subset\mathcal{B}^n$ e $\mathcal{N}\subset\mathcal{B}^n$ tale che:\\
                                       ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^n$ e $\forall m,n$ con
                                       $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^n(m) = 0$ e $ l^n(n) = 1$.
-        \item[Passo induttivo:] Il passo chiave sta nel notare che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
+        \item[Passo induttivo:] 
+        Si ricordi che $l^n$ può utilizzare tutti gli input ed avere la forma $l^n(x_1,x_2,\cdot\cdot\cdot, x_n) = x_1 \xor x_2 \cdot \cdot \cdot \xor x_n $ ma può avere la forma $l^n(x_1,x_2,\cdot\cdot\cdot,x_n) = x_3 \xor x_4 \xor x_8 $ e non dipendere da
+        $n$. Essendo una qualsiasi funzione lineare Booleana di dimensione $n$, in generale, a seconda della $M$ associata, $l^n$ nel suo corpo può utilizzare un qualsiasi sottoinsieme dell'input. Allora segue che $l^{n+1}$ può assumere esclusivamente una delle seguenti forme:
                                 \begin{itemize}
-                                    \item \textbf{Singoletto} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x_2,...,x_{n+1})=x_{n+1}$\\
+                                    \item \textbf{Singoletto} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x_2,\cdot\cdot\cdot,x_{n+1})=x_{n+1}$\\
                                                               Che è bilanciata in quanto, sia $(\mathcal{M},\mathcal{N})$ la partizione dove $\mathcal{M}$ è composto da tutte le stringhe
                                                               binarie $\in \mathcal{B}^{n+1}$ che codificano in base due i numeri da $0$ a $2^n - 1$ e $\mathcal{N}$ composto da tutte le stringhe binarie
                                                               $\in \mathcal{B}^{n+1}$ che codificano in base due i numeri da $2^n$ a $2^{n+1} - 1$ i.e. :\\
-                                                              $\mathcal{M}= \{\vec x \in \mathcal{B}^{n+1} | \vec x = 0\cdot x_n \cdot x_{n-1}\cdot ...\cdot x_1\}$\\
-                                                              $\mathcal{N}= \{\vec x \in \mathcal{B}^{n+1} | \vec x = 1\cdot x_n \cdot x_{n-1}\cdot ...\cdot x_1\}$\\
+                                                              $\mathcal{M}= \{\vec x \in \mathcal{B}^{n+1} | \vec x = 0\cdot x_n \cdot x_{n-1}\cdot\cdot\cdot x_1\}$\\
+                                                              $\mathcal{N}= \{\vec x \in \mathcal{B}^{n+1} | \vec x = 1\cdot x_n \cdot x_{n-1}\cdot\cdot\cdot x_1\}$\\
                                                               Allora $\mathcal{M}\subset\mathcal{B}^{n+1}$ e $\mathcal{N}\subset\mathcal{B}^{n+1}$, ${\left\vert{\mathcal{M}}\right\vert} = {\left\vert{\mathcal{N}}\right\vert}$, $\mathcal{M} \cup \mathcal{N} = \mathcal{B}^{n+1}$ e
                                                               e $\forall m,n$. $m\in\mathcal{M}$,$n \in\mathcal{N}$ risulta $l^{n+1}(m) = 0$ e $ l^{n+1}(n) = 1$.
-                                    \item \textbf{Uguale a $l^n$} $\Rightarrow$ Bilanciata per ipotesi. 
-                                    \item \textbf{Xor di $l^n$} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,...,x_{n+1})= x_{n+1} \xor l^n$.
+                                    \item \textbf{Uguale a $l^n$} $\Rightarrow$  $l^{n+1}(x_1,x_2,\cdot\cdot\cdot,x_{n+1}) = l^n$ e quindi bilanciata per ipotesi. 
+                                    \item \textbf{Xor di $l^n$} $\Rightarrow$ $l^{n+1}(\vec{x}) = l^{n+1}(x_1,x2,\cdot\cdot\cdot,x_{n+1})= x_{n+1} \xor l^n$.
                                     \\ E quindi se:\\
                                     $x_{n+1} = 0 \Rightarrow l^{n+1} = 0 \xor l^n = l^n$ \\
                                     $x_{n+1} = 1 \Rightarrow l^{n+1} = 1 \xor l^n = \neg l^n$\\
@@ -390,14 +393,14 @@ Introdotte le FBB e le FLB, possiamo a questo punto procedere con la formulazion
 \noindent Questo significa che, qualsiasi siano i coefficienti della nostra FBL, a patto che questi non siano tutti $0$, produrrano una funzione bilanciata.\par
 
 Giunti a questo punto è lecito domandarsi se esistano altre (logicamente diverse) FBB  non lineari e se sì, quante se ne possono ancora trovare?
-Il numero di FBL bilanciate per $n$ fissato, equivale al numero di \textit{disposizioni con ripetizione di classe} $n$ (coefficienti) da un insieme di due elementi $\{0,1\}$ meno la disposizione $M^*=\overbrace{(0,0,...,0)}^{n-volte}$ che identifica la costante 0, cioè $\mathbb{D}_{2,n}-1= 2^n - 1$.
+Il numero di FBL bilanciate per $n$ fissato, equivale al numero di \textit{disposizioni con ripetizione di classe} $n$ (coefficienti) da un insieme di due elementi $\{0,1\}$ meno la disposizione $M^*=\overbrace{(0,0,\cdot\cdot\cdot,0)}^{n-volte}$ che identifica la costante 0, cioè $\mathbb{D}_{2,n}-1= 2^n - 1$.
 Tale numero è chiaramente inferiore al numero di FBB : $\mathbb{C}_{2^n,2^{n-1}}$ ricavato dal Corollario 2.2. E quindi sì, esisteranno sicuramente, per ogni $n$, $\mathbb{C}_{2^n,2^{n-1}} - (\mathbb{D}_{2,n} - 1)$ FBB non lineari.
 
 \subsection{Funzioni Booleane non Lineari Bilanciate}
 L'approfondimento delle proprietà e della teoria riguardante il vasto campo di studi delle funzioni Booleane, per quanto interessante, esula dai fini della tesi in oggetto.
-Rimanendo in tema, tuttavia, è bene accennare che la ricerca, specie per quanto riguarda l'indagine sulle funzioni booleane bilanciate è molto attiva e di fondamentale importanza in applicazioni come la crittografia a chiave simmetrica.\cite{ref4}.\\
-Per rendere più realistica e articolata l'implementazione degli script presentati nel Capitolo 5, si è optato per la ricerca in letteratura di funzioni booleane bilanciate non lineari
-da utilizzare nell'algoritmo di Deutsch-Jozsa. In particolare, è stata scelta una funzione a 5 variabili, ricavata con il metodo generale esposto da \textit{Logachev}\cite{ref5}:
+Rimanendo in tema, tuttavia, è bene accennare che la ricerca, specie per quanto riguarda l'indagine sulle funzioni Booleane bilanciate è molto attiva e di fondamentale importanza in applicazioni come la crittografia a chiave simmetrica \cite{ref4}.
+\par Per rendere più realistica e articolata l'implementazione degli script presentati nel Capitolo 5, si è optato per la ricerca in letteratura di funzioni Booleane bilanciate non lineari
+da utilizzare nell'algoritmo di Deutsch-Jozsa. In particolare, è stata scelta una funzione a 5 variabili, ricavata con il metodo generale esposto da \textit{Logachev} \cite{ref5}:
     \begin{align*}
             h(x_1, x_2, x_3, x_4, x_5)=(x_1 \land x_2) \xor x_3 \xor (x_2 \land x_3 \land x_4) \xor (x_2 \land x_3 \land x_5) \xor (x_3 \land x_4) \xor (x_4 \land x_5)
     \end{align*}
@@ -421,7 +424,7 @@ efficiente sarebbe stato solo un computer che avesse risposto alle stesse leggi 
 perno sulla natura esponenziale che il mondo subatomico presenta se osservato dal punto di vista macroscopico e che quindi, avrebbe portato,
 per un processo transitivo, qualsiasi computer classico a sperimentare un tempo altrettanto esponenziale per simularlo.\\
 Spinti da questa osservazione, numerosi ricercatori si cimentarono nello studio e nella formalizzazione di questo nuovo paradigma di calcolo,
-gettandone le basi teoriche: nel 1982, Paul Benioff, nell'articolo "Quantum mechanical models of Turing machines that dissipate no energy"\cite{ref7}, 
+gettandone le basi teoriche: nel 1982, Paul Benioff, nell'articolo "Quantum mechanical models of Turing machines that dissipate no energy" \cite{ref7}, 
 dimostrò come un sistema basato sulla meccanica quantistica avrebbe potuto modellare una macchina di Turing (MdT) senza dissipare energia (il concetto della conservazione dell'energia 
 verrà ripreso e chiarito in seguito). In altre parole, questi dimostrò come la fisica dei quanti fosse sufficiente ad esprimere un qualsiasi modello tradizionale di calcolo; ma poteva addirittura fare di meglio? \\
 All'incirca nello stesso periodo, il fisico David Deutsch rispose a tale quesito \cite{ref12} introducendo prima la controparte quantica della MdT universale (QMdTU)
@@ -526,7 +529,7 @@ non sussiste e avremo bisogno di regole più complicate per determinare i valori
 \subsubsection{Trasformazioni}
 Un sistema non è statico. È infatti sensato definire azioni che cambino lo stato attuale e quindi il risultato delle osservazioni future. Ad esempio,
 se un bit viene misurato a $\ket0$ e viene poi passato attraverso un invertitore (nella metafora del transistor ciò avviene bloccando il flusso di corrente), presenterà il valore $\ket1$ se osservato nuovamente. 
-Formalmente, specifichiamo una tale \emph{trasformazione} fornendo una funzione lineare $T:\mathcal{B}_s \mapsto \mathcal{B}_s$ che agisce dallo spazio degli stati sullo spazio degli stati. 
+Formalmente, specifichiamo una tale \emph{trasformazione} fornendo una funzione lineare $T:\mathcal{B}_s \rightarrow \mathcal{B}_s$ che agisce dallo spazio degli stati sullo spazio degli stati. 
 Nell'esempio dell'invertitore tale funzione sarà uguale alla seguente applicazione lineare N:
 \begin{center}
     $ N\ket0 = \ket1, N\ket1 = \ket0 $
@@ -543,7 +546,7 @@ misure non producono mai risultati intermedi. Una trasformazione può comportare
 
 \subsection{Il Reame Probabilistico}
 \subsubsection{Bit probabilistico}
-Si consideri ora un bit probabilistico. Un sistema che implementa un bit probabilistico può essere metaforicamente immaginato come il lancio
+Si consideri ora un bit probabilistico. Un sistema che implementa un bit probabilistico può essere metaforicamente immaginato come il processo di un lancio
 di una moneta potenzialmente truccata. Ancora, questo sistema ha un unico osservabile, e cioè il risultato del lancio: $\ket{0}$ oppure $\ket1$.\\
 Il valore dell'osservazione dipende dallo sbilanciamento dello stato e cioè dal grado di manomissione della moneta. Più una moneta è truccata e più la probabilità
 di ottenere un risultato piuttosto che l'altro differisce dal 50$\%$. Possiamo quindi esprimere uno stato del sistema come una funzione lineare sui valori dell'osservabile
@@ -591,10 +594,10 @@ di $\mathcal{B}_p$ sull'i-esimo sottospazio:
             &\mathcal{P}_1(a_0\ket0 + a_1\ket1) = a_1\ket1
         \end{align*}    
     \end{center}
-Infine usiamo la notazione $prob[\ket{\phi} \mapsto \ket{i}]$ per indicare la probabilità di ottenere $\ket{i}$ dalla misurazione di $\ket{\phi}$, 
+Infine usiamo la notazione $prob[\ket{\phi} \rightarrow \ket{i}]$ per indicare la probabilità di ottenere $\ket{i}$ dalla misurazione di $\ket{\phi}$, 
 che sarà:
 \begin{center}
-    $prob[\ket{\phi} \mapsto \ket{i}] = \norm{\mathcal{P}_i(\ket{\phi})}^2$
+    $prob[\ket{\phi} \rightarrow \ket{i}] = \norm{\mathcal{P}_i(\ket{\phi})}^2$
 \end{center}
 . Dopo aver misurato $\ket{i}$, per esprimere la consistenza nelle future misurazioni dobbiamo assicurarci che lo stato risultante sia certo su $\ket{i}$,
 ciò è ottenuto normalizzando $\mathcal{P}_i(\ket{\phi})$:
@@ -668,7 +671,7 @@ la rappresentazione vettoriale di uno stato generico $\ket{\phi}$, allora l'appl
         c_0
     \end{bmatrix}
 \]
-un nuovo stato le cui probabilità $prob[\ket{\phi} \mapsto \ket{x}] = 1 - prob[N\ket{\phi} \mapsto \ket{x}]$ sono invertite,
+un nuovo stato le cui probabilità $prob[\ket{\phi} \rightarrow \ket{x}] = 1 - prob[N\ket{\phi} \rightarrow \ket{x}]$ sono invertite,
 che si traduce, per gli stati certi, nella complementazione del valore dell'osservabile. La matrice N viene per questo convenzionalmente chiamata trasformazione NOT.\\
 Ritornando al discorso principale, è facile vedere come la matrice N sia anche unitaria:
 
@@ -730,7 +733,7 @@ corrente chiedersi se questo abbia mai ricevuto corrente. Siamo in presenza di t
 questo fenomeno nel mondo fisico si traduce in rilascio di calore ed è uno dei problemi di cui tener conto durante l'ingegnerizzazione di un calcolatore \footnote{È risaputo che per ogni bit d'informazione perso viene dissipata una quantita di energia $E = kT\ln2$ dove $k=1.3805\times10^{-23}$ è la costante di Boltzman}. \\ 
 Eppure esistono anche casi in cui l'informazione viene conservata, per esempio, con la trasformazione NOT prima introdotta, è possibile risalire facilmente al 
 valore dello stato in input essendo: $NOT\ket0 = \ket1$ e $NOT\ket1 = \ket0$. Ciò è dovuto formalmente dall'esistenza dell'operazione inversa $NOT^{-1}$ la quale,
-come visto prima, altro non è che $NOT^{\dag}$; infatti vale l'implicazione: \[NOT\ket{\phi}=\ket{\psi}\Rightarrow NOT^{-1}NOT\ket{\phi}= NOT^{\dag}NOT\ket{\phi}=NOT^{\dag}\ket{\psi}\] dove 
+come visto prima, altro non è che $NOT^{\dag}$; infatti vale l'implicazione: \[NOT\ket{\phi}=\ket{\psi}\Rightarrow NOT^{-1}NOT\ket{\phi}= NOT^{\dag}NOT\ket{\phi}=NOT^{\dag}\ket{\psi}=\ket{\phi}\] dove 
 $\ket{\phi}$ è un generico stato in input e $\ket{\psi}$ l'output della trasformazione. $NOT^{\dag}$ permette in un certo senso di riavvolgere il calcolo, si dice in questo caso che
 la trasformazione è \emph{reversibile}.\\
 Alla luce di quanto è stato argomentato, ne consegue direttamente che: tutte le applicazioni unitarie sono reversibili, basta infatti sostituire all'equazione precedente NOT con una generica U. 
@@ -779,7 +782,7 @@ La matrice di Hadamard è l'inversa di se stessa:
 
 Consideriamo i due stati: $\ket{X} = H\ket0$ e $\ket{Y} = H\ket1$, nonostante, come visto, non si ha perdita d'informazione
 durante i cambi di stato in $\mathcal{B}_q$, una volta applicata H, X e Y diventano due stati indistinguibili in termini di misurazioni, 
-infatti $prob[\ket{X}\mapsto\ket0]=prob[\ket{Y}\mapsto\ket0]=\frac{1}{2}$ e lo stesso per il collasso su $\ket1$. I due sistemi, che prima risultavano chiaramente diversi sono ora uguali
+infatti $prob[\ket{X}\rightarrow\ket0]=prob[\ket{Y}\rightarrow\ket0]=\frac{1}{2}$ e lo stesso per il collasso su $\ket1$. I due sistemi, che prima risultavano chiaramente diversi sono ora uguali
 davanti agli occhi di un osservatore. Eppure, sorprendentemente, riapplicare H porta a: 
 \begin{center}
     \begin{align*}
@@ -805,7 +808,7 @@ Per quanto possa sembrare limitativo, l'effetto esposto è invece centrale nella
 operare un cambiamento di base \cite{ref8} sul sistema passando dalla base computazionale* alla base $\{\frac{1}{\sqrt2}\ket0 + \frac{1}{\sqrt2}\ket1, \frac{1}{\sqrt2}\ket0 - \frac{1}{\sqrt2}\ket1\}$ (detta base di \emph{Fourier}) di
 perfetta sovrapposizione in cui è possibile sfruttare l'informazione portata dalle ampiezze relative per operare calcoli utili utilizzando in questo modo il parallelismo offerto dalla sovrapposizione. I calcoli effettuati,
 si ricordi, non misurabili direttamente, vengono poi "estrapolati" riapplicando H e riportando il sistema nella base computazionale di partenza, seguendo un procedimento analogo a quello appena esposto.
-Questo potenziale computazionale emerge in maniera esponenziale al crescere della dimensione del sistema utilizzato.
+Questo potenziale computazionale cresce esponenzialmente all'aumentare della dimensione del sistema utilizzato.
 
 \section{Un Sistema a più Qubit}
 Si consideri ora un registro composto da $n$ sistemi classici $\mathcal{B}_c$.\\
@@ -816,7 +819,7 @@ Dal momento che ogni $\ket{x_i}$ può assumere i valori o $\ket0$ o $\ket1$, in 
     \begin{aligned}
         & \ket0 \ket0 \cdot \cdot \cdot \ket0 \\
         & \ket0 \ket0 \cdot \cdot \cdot \ket1 \\
-        & ... \\
+        & \cdot\cdot\cdot \\
         & \ket1 \ket1 \cdot \cdot \cdot \ket0 \\
         & \ket1 \ket1 \cdot \cdot \cdot \ket1
     \end{aligned}
@@ -842,8 +845,8 @@ il cui spazio degli stati è composto da tutti i possibili vettori complessi di 
 appartiene a $\mathcal{B}_q^{(2)}$. I numeri a fianco nella rappresentazione matriciale indicano la componente della base $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ a cui è associato il coefficiente complesso,
 si noti che $\ket{\psi}$ è uno stato di perfetta sovrapposizione.\par
 Il sistema è composto da $n$ osservabili, uno per ogni qubit, le proiezioni ${P^{(i)}_0}$, ${P^{(i)}_1}$ sono formate da tutte le componenti dello stato nelle quali, rispettivamente, l'i-esimo qubit è $\ket0$
-e l'i-esimo qubit è $\ket1$; la probabilità che l'i-esimo qubit venga misurato con valore $\ket{\textbf{x}}$ è calcolata di conseguenza:
-$prob[\ket{\Psi} \mapsto \ket{x_1 x_2 \cdot \cdot x \cdot \cdot x_n}]= \norm{{P^{(i)}_x}}^2$, dove $\ket{\Psi}$ è uno stato generico. Il vettore risultante da una misurazione di un qubit è poi normalizzato analogamente a quanto già esposto per gli altri sistemi.\\
+e l'i-esimo qubit è $\ket1$; la probabilità che l'i-esimo qubit venga misurato con valore $\ket{x}$ è calcolata di conseguenza:
+$prob[\ket{\Psi} \rightarrow \ket{x_1 x_2 \cdot \cdot x \cdot \cdot x_n}]= \norm{{P^{(i)}_x}}^2$, dove $\ket{\Psi}$ è uno stato generico. Il vettore risultante da una misurazione di un qubit è poi normalizzato analogamente a quanto già esposto per gli altri sistemi.\\
 Supponiamo ad esempio che venga misurato il secondo qubit di $\ket{\psi}$ (per convenzione rispetto alla rappresentazione di Dirac numeriamo i qubits da sinistra a destra) e che il valore osservato sia $\ket1$, allora:
 \[
     {P^{(2)}_1}(\ket{\psi}) = \frac{1}{2}\ket{01} + \frac{1}{2}\ket{11}  
@@ -856,7 +859,7 @@ e lo stato $\ket{\psi_1}$ risultante dalla misurazione:
     \end{align*}
 \end{center}
 è lo stato in cui il secondo qubit ha valore $\ket1$ con certezza mentre il primo si trova in perfetta sovrapposizione, con il 50\%\ di probailità di misurare o $\ket0$ o $\ket1$, in accordo con la definizione
-di $\ket{\psi}$. In generale, $prob[\ket{\Psi} \mapsto \ket{\textbf{x}}] ={\left\vert{a_x}\right\vert}^2$.\par
+di $\ket{\psi}$. In generale, $prob[\ket{\Psi} \rightarrow \ket{\textbf{x}}] ={\left\vert{a_x}\right\vert}^2$.\par
 
 \subsubsection{Trasformazioni}
 
@@ -876,10 +879,10 @@ e, dal momento che ${\mathcal{B}_c}^{(2)}$ è la base su cui è costruito ${\mat
 \[
     NOT_1\ket{\Psi} = NOT_1(\sum\nolimits_{x \in \{0,1\}^{n}} a_x \ket{x}) = \sum\nolimits_{x \in \{0,1\}^{n}} a_x NOT_1\ket{x}
 \] 
-ne preserverà la norma. Più in generale, è possibile estendere una trasformazione $T: \mathcal{B}_q \mapsto \mathcal{B}_q$ che agisce su di un singolo qubit
-in una trasformazione $T^{(n)}: {\mathcal{B}_q}^{(n)} \mapsto {\mathcal{B}_q}^{(n)}$ che agisce su un intero registro quantistico.\par
+ne preserverà la norma. Più in generale, è possibile estendere una trasformazione $T: \mathcal{B}_q \rightarrow \mathcal{B}_q$ che agisce su di un singolo qubit
+in una trasformazione $T^{(n)}: {\mathcal{B}_q}^{(n)} \rightarrow {\mathcal{B}_q}^{(n)}$ che agisce su un intero registro quantistico.\par
 Le trasformazioni su singoli qubits non sono le uniche trasformazioni ammissibili in un registro ma è possibile effettuare trasformazioni unitarie anche agendo su più qubits contemporaneamente,
-ad esempio, la porta (** aggiungere nota in cui si spiega perchè usiamo il termine porta per definire una trasformazione: parallelo con i circuiti elettrici, che verranno introdotti successivamente **) 
+ad esempio, la porta\footnote{cominciamo a chiamare le trasformazioni con il nome "porta" in riferimento alla nomenclatura utilizzata nel modello a circuiti che verrà di seguito introdotto} 
 $C_iNOT_j$ ("controlled-NOT") è la trasformazione che effettua un NOT su l'j-esimo qubit se e solo se l'i-esimo qubit è $\ket1$ altrimenti lascia inalterato lo stato. Applichiamo $C_1NOT_2$ su ${\mathcal{B}_c}^{(2)}$:
 \begin{center}
     \begin{align*}
@@ -928,7 +931,7 @@ Il problema, sostituendo per $\ket{\psi_3}$, consiste nel risolvere il seguente 
     c_1c^{\prime}_1 = \frac{1}{\sqrt2}
 \end{cases}
 \]  
-che chiaramente non ha soluzioni. Lo stato $\ket{\psi_3}$ non può essere riscritto come prodotto tensoriale degli stati base che sono quindi ora inseparabili.
+che, chiaramente, non ha soluzioni. Lo stato $\ket{\psi_3}$ non può essere riscritto come prodotto tensoriale degli stati base che sono quindi ora inseparabili.
 Ritornando al significato fisico: in un certo senso, è come se nel preciso istante in cui viene compiuta un'osservazione, il valore calcolato venisse trasmesso \emph{istantaneamente} al secondo qubit entangled il quale si comporta coerentemente
 con il valore trasmesso/osservato. Questa relazione tuttavia non contempla nè mezzi di trasmissione di questa ipotetica informazione, nè distanze tra i due sistemi. Sarebbe quindi possibile, almeno in linea di
 principio, utilizzare l'entanglement per comunicare subitaneamente anche a distanze superiori all'anno luce e ciò, come già anticipato, è in contraddizione con le leggi della relatività generale e con il 
@@ -951,7 +954,7 @@ Sappiamo però che una misura comporta il collasso inevitabile del registro in u
 sia solo una prerogativa di quel noumeno imponderabile che è la sovrapposizione, della quale non si può avere un quadro deterministico rendendo quindi apparentemente impossibile ricavarne vantaggi computazionali.
 Scopo di questa sezione, e in particolare della tesi in generale da questo punto in poi, è mostrare che non è così. L'utilizzo di particolari stati di partenza uniti a cambi di base appropriati permettono infatti
 la progettazione di algoritmi quantistici in grado di risolvere svariate tipologie di problemi con efficienza maggiore rispetto agli equivalenti algoritmi classici.\\
-Viene qui di seguito proposta una procedura che, per una generica funzione Booleana $f:\{0,1\} \mapsto \{0,1\}$, permette di calcolare $f(0)$ e $f(1)$ contemporaneamente applicando $f$ una volta sola.\par
+Viene qui di seguito proposta una procedura che, per una generica funzione Booleana $f:\{0,1\} \rightarrow \{0,1\}$, permette di calcolare $f(0)$ e $f(1)$ contemporaneamente applicando $f$ una volta sola.\par
 Per quanto dimostrato da Deutsch \cite{ref12}, il potere espressivo del calcolo quantistico è almeno equivalente a quello di un qualsiasi formalismo classico, è quindi possibile affermare che, per ogni funzione
 $g$ calcolabile esiste una corrispettiva procedura $U_g$ che la calcola. $U_g$ avrà la forma:
 
@@ -989,7 +992,7 @@ o il circuito che implementa $U_g$:
 La semantica di questi diagrammi coincide con la semantica delle relative trasformazioni.
 In questo caso $U_g$ viene anche detto "oracolo" ad indicare una porta di cui non si conosce la struttura interna ma solo il mapping input e output.
 \par Si ritorni allora al problema inizialmente sollevato riscrivendolo usando la terminologia introdotta:
-vogliamo calcolare di una funzione $f:\mathcal{B}\mapsto \mathcal{B}$ se $f(0)$ = $f(1)$ valutando $U_f$ una sola volta. È evidente che per risolvere classicamente il problema è necessario calcolare
+vogliamo calcolare di una funzione $f:\mathcal{B}\rightarrow \mathcal{B}$ se $f(0)$ = $f(1)$ valutando $U_f$ una sola volta. È evidente che per risolvere classicamente il problema è necessario calcolare
 $f$ due volte, una per entrambi gli input. \\Per sfruttare il parallelismo, il sistema deve essere posto in uno stato di sovrapposizione. Quale sia però la successione di trasformazioni che permetta di risolvere il problema 
 è il vero ostacolo che si incontra nella progettazione di qualsivoglia algoritmo quantistico. Procediamo allora per tentativi al fine di indirizzarci verso la soluzione corretta.
 Dal momento che $U_f(\ket{x,y}) = \ket{x,f(x) \xor y}$ calcola $f$ sul primo qubit, la scelta più intuitiva è quella di porlo in sovrapposizione. \\Sia $\ket{\psi_1}= \ket{00}$ lo stato iniziale scelto arbitrariamente e 
@@ -1094,7 +1097,7 @@ finalmente $f(1)$ e $ f(0)$ sono in relazione diretta. In particolare, si noti c
         \pm [\frac{\ket0 - \ket1}{\sqrt2}] & \text{altrimenti}
     \end{cases}
  \]
- Si noti come in realtà i segni $\pm$ individuano ogni possibile funzione $f:\mathcal{B}\mapsto \mathcal{B}$ e non solo la proprietà di essere costante. \footnote{Come visto nel primo capitolo sono $2^{(2^1)}=4$ funzioni di cui 2 costanti e 2 no Ad esempio la  $f^{'}$ costante a 0 è rappresentata da $ \ket{\psi_4^{'}}_1 = + \frac{\ket0 + \ket1}{\sqrt2}$ essendo $(-1)^{f^{'}(0)} = +1$.}
+ Si noti come in realtà i segni $\pm$ individuano ogni possibile funzione $f:\mathcal{B}\rightarrow \mathcal{B}$ e non solo la proprietà di essere costante. \footnote{Come visto nel primo capitolo sono $2^{(2^1)}=4$ funzioni di cui 2 costanti e 2 no Ad esempio la  $f^{'}$ costante a 0 è rappresentata da $ \ket{\psi_4^{'}}_1 = + \frac{\ket0 + \ket1}{\sqrt2}$ essendo $(-1)^{f^{'}(0)} = +1$.}
  Questi valori non dovrebbero poi essere nuovi, difatti il primo qubit non è altro che $H_1\ket0$ se $f$ costante e $H_1\ket0$ altrimenti, inoltre, poichè H è la trasformazione inversa di se stessa, basterà riapplicarla
  per giungere finalmente a
  
@@ -1124,11 +1127,11 @@ il candidato ideale per scommettere sulla computazione quantistica, tuttavia, la
 
 
 \chapter{L'Algoritmo di Deutsch-Jozsa}
-Il problema originale di Deutsch fu successivamente generalizzato da Deutsch stesso e Richard Jozsa nell'articolo "Rapid solution of problems by quantum computation"\cite{ref15} nel 1992, il risultato che proposero
+Il problema originale di Deutsch fu successivamente generalizzato da Deutsch stesso e Richard Jozsa nell'articolo "Rapid solution of problems by quantum computation" \cite{ref15} nel 1992, il risultato che proposero
 fu poi rivisitato e completato da Richard Cleve, Artur Ekert, Chiara Macchiavello e Michele Mosca nel 1998 \cite{ref16}. Questo lavoro è conosciuto in letteratura come l'algoritmo di Deutsch-Jozsa.\\
 Se il primo algoritmo di Deutsch fu più un risultato simbolico, l'algoritmo di Deutsch-Jozsa fu invece il vero passo in avanti che mise in luce come, utilizzando il paradigma quantistico, si poteva ottenere un aumento
 esponenziale in velocità per la risoluzione di un determinato problema.\\
-Nello specifico il problema diventa: \textit{sia data una funzione $f:\mathcal{B}^n\mapsto\mathcal{B}$ di cui non si conosce la definizione, determinare se tale funzione 
+Nello specifico il problema diventa: \textit{sia data una funzione $f:\mathcal{B}^n\rightarrow\mathcal{B}$ di cui non si conosce la definizione, determinare se tale funzione 
 è costante oppure bilanciata*, sapendo per certo che $f$ sarà o costante o bilanciata.} D'ora in poi si farà riferimento a questo problema chiamandolo D.J.\par
 Si noti come questa formulazione altro non sia che un'estensione della formulazione originaria, infatti, se nel caso particolare di $n=1$ $f$ non è costante, allora sarà per forza bilanciata, e viceversa. Deutsch e Jozsa riuscirono a 
 dimostrare che il problema poteva essere risolto per qualunque $n$ valutando $f$ una volta sola.\\
@@ -1137,7 +1140,7 @@ Viene di seguito mostrata la soluzione al problema mediante il sistema classico 
 \begin{mythm}
  Classicamente, il problema di D.J. appartiene a $\Omega(2^{(n-1)})$, cioè non esiste algoritmo che lo risolva con complessità $o(2^{(n-1)})$.
  \begin{proof}
-     Sia $f:\mathcal{B}^n\mapsto\mathcal{B}$ espressa in un registro a $n$ bit attraverso la trasformazione $U_f: \mathcal{B}_c^{(n)} \mapsto \mathcal{B}_c^{(n)}$ tale che $U_f\ket{\textbf{x}}=U_f\ket{00\cdot\cdot\cdot f(\textbf{x})}$ sappiamo che $f$ è sicuramente o costante o bilanciata.
+     Sia $f:\mathcal{B}^n\rightarrow\mathcal{B}$ espressa in un registro a $n$ bit attraverso la trasformazione $U_f: \mathcal{B}_c^{(n)} \rightarrow \mathcal{B}_c^{(n)}$ tale che $U_f\ket{\textbf{x}}=U_f\ket{00\cdot\cdot\cdot f(\textbf{x})}$ sappiamo che $f$ è sicuramente o costante o bilanciata.
      Si noti che in questo sistema non è necessario imporre la reversibilità.\\
      Una qualsiasi procedura che risolve il problema non può fare altro che cominciare a valutare $U_f$ su ogni possibile stato $\ket{\textbf{x}}\in{\mathcal{B}_c^{(n)}}$ e fermarsi se:
      \begin{itemize}
@@ -1211,7 +1214,7 @@ dove $H[i,j]$ indica l'azione di H sullo stato $\ket{i}$ dato lo stato $\ket{j}$
      \end{split}					
 \]
 
-viene utile allora definire la funzione $<\;,\;>\;:\;\{0,1\}^n\times\{0,1\}^n \mapsto \{0,1\}$ 
+viene utile allora definire la funzione $<\;,\;>\;:\;\{0,1\}^n\times\{0,1\}^n \rightarrow \{0,1\}$ 
 \begin{center}
     \begin{align*}
          <\textbf{x},\textbf{y}>\;&=\;<x\ped{0}x\ped{1}\cdot\cdot\cdot x\ped{n-1},\;y\ped{0}y\ped{1}\cdot\cdot\cdot y\ped{n-1}>\\
@@ -1228,12 +1231,12 @@ che ci permette di scrivere sinteticamente $H^{\otimes\ped{n}}$
 \begin{minipage}{0.5\textwidth}
     \[
         \ket{\textbf{y}}= \kbordermatrix{ \\
-           00...0 & 0 \\
-           00...1 & 0 \\
-           ...    & ... \\
+           00\cdot\cdot\cdot0 & 0 \\
+           00\cdot\cdot\cdot1 & 0 \\
+           \cdot\cdot\cdot    & \cdot\cdot\cdot \\
            \textbf{y} & 1 \\
-           ...    & ... \\
-           11...1 & 0 \\
+           \cdot\cdot\cdot    & \cdot\cdot\cdot \\
+           11\cdot\cdot\cdot1 & 0 \\
            }
    \]
 \end{minipage}
@@ -1249,12 +1252,12 @@ avremo
     H^{\otimes\ped{n}}\ket{\textbf{y}} = H^{\otimes\ped{n}}[-,\textbf{y}] &= 
     \frac{1}{\sqrt{2^n}}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{<\textbf{x},\textbf{y}>}\ket{\textbf{x}} \\ &=
       \kbordermatrix{ \\
-    00...0 & (-1)^{<00...0,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
-    00...1 & (-1)^{<00...1,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
-    ...    & ... \\
+    00\cdot\cdot\cdot0 & (-1)^{<00\cdot\cdot\cdot0,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    00\cdot\cdot\cdot1 & (-1)^{<00\cdot\cdot\cdot1,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    \cdot\cdot\cdot    & \cdot\cdot\cdot \\
     \textbf{y} & (-1)^{<\textbf{y},\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
-    ...    & ... \\
-    11...1 & (-1)^{<11...1,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
+    \cdot\cdot\cdot    & \cdot\cdot\cdot \\
+    11\cdot\cdot\cdot1 & (-1)^{<11\cdot\cdot\cdot1,\textbf{y}>}\frac{1}{\sqrt{2^n}} \\
     }
  \end{align*}
 \end{center}
@@ -1302,16 +1305,16 @@ a questo punto possiamo dimenticarci dell'ultimo qubit concentrandoci su quello 
 ora $\ket{\psi_5}_1$ viene misurato. Invece di controllare subito il risultato chiediamoci prima quale sia la probabilità di osservare lo stato $\ket{\textbf{0}}$, cioè:
 \begin{center}
     \begin{align*}
-        prob[\ket{\psi_5}_1 \mapsto \ket{\textbf{0}}] &= \norm{\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1)}^2\\
+        prob[\ket{\psi_5}_1 \rightarrow \ket{\textbf{0}}] &= \norm{\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1)}^2\\
                                                       &= \norm{\frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}}}^2
     \end{align*}
 \end{center}
 quindi, la probabilità di collassare a $\ket{\textbf{0}}$ è totalmente dipendente da $f(\textbf{x})$, in particolare:
 \begin{description}
     \item [se $f$ costante:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} = \pm \frac{2^n}{2^n}\ket{\textbf{0}} = \pm 1\ket{\textbf{0}}$ \\
-    $\Rightarrow prob[\ket{\psi_5}_1 \mapsto \ket{\textbf{0}}] = 1$
+    $\Rightarrow prob[\ket{\psi_5}_1 \rightarrow \ket{\textbf{0}}] = 1$
     \item [se $f$ bilanciata:] $\mathcal{P}_{\textbf{0}}(\ket{\psi_5}_1) = \frac{1}{2^n}\sum\nolimits_{\textbf{x}\in{\{0,1\}^n}}(-1)^{f(\textbf{x})}\ket{\textbf{0}} =  \frac{2^{n-1}}{2^n}\ket{\textbf{0}} - \frac{2^{n-1}}{2^n}\ket{\textbf{0}} = 0\ket{\textbf{0}}$\\
-    $\Rightarrow prob[\ket{\psi_5}_1 \mapsto \ket{\textbf{0}}] = 0$
+    $\Rightarrow prob[\ket{\psi_5}_1 \rightarrow \ket{\textbf{0}}] = 0$
 \end{description} 
 
 .Verrà quindi misurato $\ket{\textbf{0}}$ se e solo se la funzione $f$ è costante, altrimenti, verrà misurato un qualsiasi altro $\ket{\textbf{x}}$ se e solo se la funzione è bilanciata.\par
@@ -1328,7 +1331,7 @@ quindi esponenzialmente più veloce di ogni altra procedura conosciuta.
 \chapter{Implementazione di Deutsch-Jozsa tramite QScript}
 
 Come ultimo argomento, questa tesi si propone di presentare un esempio concreto di quanto esposto fino ad ora. Viene di seguito implementato ed eseguito su più istanze l'algoritmo di Deutsch-Jozsa.
-Per sviluppare il lavoro è stata scelta la piattaforma web QuantumPlayground\cite{ref18}: un esperimento di Chrome che simula il comportamento di un registro quantistico fino a 22 qubit programmabile attraverso
+Per sviluppare il lavoro è stata scelta la piattaforma web QuantumPlayground \cite{ref18}: un esperimento di Chrome che simula il comportamento di un registro quantistico fino a 22 qubit programmabile attraverso
 il linguaggio di scripting ad hoc chiamato QScript. A supporto della programmazione QuantumPlayground fornisce un sistema di debugging e un motore grafico che permette di visualizzare l'evoluzione dello stato del sistema durante l'esecuzione.
 
 L'obiettivo è quello di tradurre il circuito per D.J.
@@ -1549,7 +1552,7 @@ L'ultimo esempio vede l'implementazione della funzione non lineare bilanciata
 \]
 anticipata nel primo capitolo. \\
 Come si può intuire dalla definizione, per creare l'oracolo $U_h$, oltre ad utilizzare $CNOT$ per $\xor$, bisogna trovare un metodo
-che ci permetta di calcolare la trasformazione $AND$ tra 2 o 3 stati. 
+che ci permetta di calcolare la trasformazione $AND$ tra 2 e 3 stati. 
 Si cominci col notare che l'$AND$ classico non può essere utilizzato in un circuito quantistico in quanto comporta la perdita di un bit
 di informazione andando contro al principio di reversibilità. L'approccio per rendere una funzione generica implementabile con una
 porta reversibile è stato tuttavia già esposto quando si è data la definizione di $U_f$, basta infatti aggiungere un qubit ausiliario
@@ -1588,7 +1591,7 @@ e, ponendo $\ket{y}=\ket{0}$
     }  
 \]
 . Abbiamo adesso tutti gli strumenti necessari per costruire l'oracolo $U_h$ cercato. La costruzione viene divisa in due fasi:
-nella prima vengono calcolati tutti gli $AND$ a 3 stati poi la parte rimanente della funzione e, per entrambe le fasi, fatto lo xor sull'ultimo qubit $\ket{y}$.
+nella prima vengono calcolati tutti gli $AND$ a 3 stati e poi la parte rimanente della funzione.
 Come abbiamo visto, per implementare $AND$ a 3 stati abbiamo bisogno del supporto di un qubit a $\ket0$, dovremo quindi aggiungere al sistema
 tanti qubit quanti sono gli $AND$ distinti a 3 stati in $h$ (1). Ne risulta il seguente circuito a 7 qubit
 
@@ -1684,6 +1687,7 @@ implementazione dell'ultima delle funzioni testate.
 \begin{figure}[h]
     
             \includegraphics[width=.92\textwidth,height=\textheight,keepaspectratio]{nonLinearBalancedFunction}
+            \caption{QuantumPlayground, Deutsch–Jozsa su funzione non lineare bilanciata}
         
 \end{figure}
 

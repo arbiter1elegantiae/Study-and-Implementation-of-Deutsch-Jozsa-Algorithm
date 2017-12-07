@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1512412032 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1512412034
+["pdflatex"] 1512597977 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1512597981
   "/etc/texmf/web2c/texmf.cnf" 1501000560 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1512412032 117634 8c8bd4c64560a2dc184d81acf1d2b1fd ""
+  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1512597976 118526 9dce794810ca2cbbdbe7a22b3f925a89 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -30,6 +30,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1136768653 1492 86331993fe614793f5e7e755835c31c5 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
@@ -221,11 +222,11 @@
   "double-slit-electrons1.jpg" 1510342376 17914 1781f15155e552538472ae9fd9a13f78 ""
   "kbordermatrix.sty" 1509125943 5523 bfa1a1f639d04118419d64fe784088b4 ""
   "nonLinearBalancedFunction.png" 1511988027 71297 ce5a8f5e929d6791ce4f49b71db00f29 ""
-  "tesi.aux" 1512412034 5734 b60ff5fa3781e27583438eeb53299ac3 ""
-  "tesi.tex" 1512412032 117634 8c8bd4c64560a2dc184d81acf1d2b1fd ""
-  "tesi.toc" 1512412034 2671 aa3798291574e88e18270bf6bc69c204 ""
+  "tesi.aux" 1512597979 5905 5a875a89ed99d09796710bc8624ba14f ""
+  "tesi.tex" 1512597976 118526 9dce794810ca2cbbdbe7a22b3f925a89 ""
+  "tesi.toc" 1512597979 2671 01f5d414a9502f86b95196afc7511d15 ""
   (generated)
   "tesi.toc"
+  "tesi.pdf"
   "tesi.log"
   "tesi.aux"
-  "tesi.pdf"
