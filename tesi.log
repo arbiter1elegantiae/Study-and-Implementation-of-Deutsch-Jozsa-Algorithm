@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  7 DEC 2017 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.26)  7 DEC 2017 19:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1110,36 +1110,36 @@ Capitolo 1.
 [3
 
 ] [4] [5]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 167.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 170.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 167.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 170.
  [6]
 [7]
 Capitolo 2.
 [8
 
 ] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
 
-Overfull \hbox (6.46025pt too wide) in paragraph at lines 329--332
+Overfull \hbox (6.46025pt too wide) in paragraph at lines 332--335
 [] \OT1/cmr/m/n/12 = 2 []$. Dob-bia-mo di-mo-stra-re che esi-ste una par-ti-zio
 -ne $([]\OML/cmm/m/it/12 ; []\OT1/cmr/m/n/12 )$
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 363--365
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
 
 [13] [14]
-Overfull \hbox (80.81085pt too wide) in paragraph at lines 406--406
+Overfull \hbox (80.81085pt too wide) in paragraph at lines 409--409
 [] 
  []
 
@@ -1147,7 +1147,7 @@ Overfull \hbox (80.81085pt too wide) in paragraph at lines 406--406
 File: computedFBBtrueTable.png Graphic file (type png)
 
 <use computedFBBtrueTable.png>
-Package pdftex.def Info: computedFBBtrueTable.png used on input line 412.
+Package pdftex.def Info: computedFBBtrueTable.png used on input line 415.
 (pdftex.def)             Requested size: 225.00069pt x 372.72852pt.
 
 
@@ -1161,7 +1161,7 @@ Capitolo 3.
 File: double-slit-electrons1.jpg Graphic file (type jpg)
 
 <use double-slit-electrons1.jpg>
-Package pdftex.def Info: double-slit-electrons1.jpg used on input line 473.
+Package pdftex.def Info: double-slit-electrons1.jpg used on input line 476.
 (pdftex.def)             Requested size: 225.0pt x 231.76207pt.
  [20 <./double-slit-electrons1.jpg>] [21]
 [22] [23] [24] [25] [26] [27] [28]
@@ -1172,7 +1172,7 @@ Package Fancyhdr Warning: \headheight is too small (14.49998pt):
  This may cause the page layout to be inconsistent, however.
 
 [29] [30] [31] [32] [33] [34] [35]
-Overfull \hbox (7.29253pt too wide) detected at line 924
+Overfull \hbox (7.29253pt too wide) detected at line 927
 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 c[]
  []\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 
  \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 c[
@@ -1187,12 +1187,12 @@ Capitolo 4.
 [44
 
 ] [45] <xymatrix 5x2 638> <xymatrix 2x1 105>
-Overfull \hbox (66.85849pt too wide) in paragraph at lines 1213--1213
+Overfull \hbox (66.85849pt too wide) in paragraph at lines 1216--1216
 [] 
  []
 
 [46] [47] [48]
-Overfull \hbox (3.24193pt too wide) in paragraph at lines 1314--1316
+Overfull \hbox (3.24193pt too wide) in paragraph at lines 1317--1319
 []$\OMS/cmsy/m/n/12 P[]\OT1/cmr/m/n/12 ([][]) = [] [][](\OMS/cmsy/m/n/12 ^^@\OT
 1/cmr/m/n/12 1)[] [] = [] [] \OMS/cmsy/m/n/12 ^^@ [] [] \OT1/cmr/m/n/12 =
  []
@@ -1206,10 +1206,10 @@ Capitolo 5.
 File: constantFunction.png Graphic file (type png)
 
 <use constantFunction.png>
-Package pdftex.def Info: constantFunction.png used on input line 1465.
+Package pdftex.def Info: constantFunction.png used on input line 1468.
 (pdftex.def)             Requested size: 450.0104pt x 176.99007pt.
 
-Overfull \hbox (60.0104pt too wide) in paragraph at lines 1465--1466
+Overfull \hbox (60.0104pt too wide) in paragraph at lines 1468--1469
  [][] 
  []
 
@@ -1218,23 +1218,23 @@ Overfull \hbox (60.0104pt too wide) in paragraph at lines 1465--1466
 File: constantFunction3.png Graphic file (type png)
 
 <use constantFunction3.png>
-Package pdftex.def Info: constantFunction3.png used on input line 1479.
+Package pdftex.def Info: constantFunction3.png used on input line 1482.
 (pdftex.def)             Requested size: 382.51639pt x 191.76822pt.
 
 <constantFunction2.png, id=219, 723.70375pt x 373.395pt>
 File: constantFunction2.png Graphic file (type png)
 
 <use constantFunction2.png>
-Package pdftex.def Info: constantFunction2.png used on input line 1480.
+Package pdftex.def Info: constantFunction2.png used on input line 1483.
 (pdftex.def)             Requested size: 382.50105pt x 197.35144pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1479--1481
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1484
 [][]
  []
 
 [56 <./constantFunction3.png> <./constantFunction2.png>] <xymatrix 3x2 196>
 <xymatrix 3x2 242> <xymatrix 7x5 1162> <xymatrix 3x2 242> <xymatrix 7x5 1162>
-Overfull \hbox (32.85541pt too wide) in paragraph at lines 1516--1516
+Overfull \hbox (32.85541pt too wide) in paragraph at lines 1519--1519
 [] 
  []
 
@@ -1242,15 +1242,15 @@ Overfull \hbox (32.85541pt too wide) in paragraph at lines 1516--1516
 File: LinearBalancedFunction.png Graphic file (type png)
 
 <use LinearBalancedFunction.png>
-Package pdftex.def Info: LinearBalancedFunction.png used on input line 1535.
+Package pdftex.def Info: LinearBalancedFunction.png used on input line 1538.
 (pdftex.def)             Requested size: 449.99767pt x 177.29283pt.
 
-Overfull \hbox (59.99767pt too wide) in paragraph at lines 1535--1536
+Overfull \hbox (59.99767pt too wide) in paragraph at lines 1538--1539
  [][] 
  []
 
 
-Overfull \hbox (16.81183pt too wide) detected at line 1546
+Overfull \hbox (16.81183pt too wide) detected at line 1549
 \OML/cmm/m/it/12 h\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[]; x[]; x[]; x[]\OT1
 /cmr/m/n/12 ) = (\OML/cmm/m/it/12 x[] \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 x[]\O
 T1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 x[] [] \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[
@@ -1267,11 +1267,11 @@ m/it/12 x[] \OMS/cmsy/m/n/12 ^ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )
 File: nonLinearBalancedFunction.png Graphic file (type png)
 
 <use nonLinearBalancedFunction.png>
-Package pdftex.def Info: nonLinearBalancedFunction.png used on input line 1683.
+Package pdftex.def Info: nonLinearBalancedFunction.png used on input line 1686.
 
 (pdftex.def)             Requested size: 414.00436pt x 162.54213pt.
 
-Overfull \hbox (24.00436pt too wide) in paragraph at lines 1683--1684
+Overfull \hbox (24.00436pt too wide) in paragraph at lines 1686--1687
 [][] 
  []
 
@@ -1283,13 +1283,13 @@ Capitolo 6.
 [65
 
 ] [66]
-Underfull \hbox (badness 1708) in paragraph at lines 1706--1707
+Underfull \hbox (badness 1708) in paragraph at lines 1709--1710
 []\OT1/cmr/m/n/12 Crama, Y. and Ham-mer, P. (2011). \OT1/cmr/m/it/12 Boo-lean F
 unc-tions Theo-ry,
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 1711--1712
+Underfull \hbox (badness 1132) in paragraph at lines 1714--1715
 []\OT1/cmr/m/n/12 Yanofsky, N. and Man-nuc-ci, M. (2013). \OT1/cmr/m/it/12 Quan
 -tum com-pu-ting for
  []
@@ -1297,36 +1297,36 @@ Underfull \hbox (badness 1132) in paragraph at lines 1711--1712
 [67
 
 ] [68]
-Underfull \hbox (badness 1184) in paragraph at lines 1723--1724
+Underfull \hbox (badness 1184) in paragraph at lines 1726--1727
 []\OT1/cmr/m/n/12 Shi, Yaoyun (2003). \OT1/cmr/m/it/12 Both Tof-fo-li and Contr
 olled-NOT need lit-tle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
+Underfull \hbox (badness 10000) in paragraph at lines 1730--1731
 []\OT1/cmr/m/n/12 (2017) \OT1/cmr/m/it/12 IBM Builds Its Mo-st Po-wer-ful Uni-v
 er-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
+Underfull \hbox (badness 10000) in paragraph at lines 1730--1731
 \OT1/cmr/m/it/12 sal Quan-tum Com-pu-ting Pro-ces-sors\OT1/cmr/m/n/12 . https:/
 /www-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1727--1728
+Underfull \hbox (badness 10000) in paragraph at lines 1730--1731
 \OT1/cmr/m/n/12 03.ibm.com/press/us/en/pressrelease/52403.wss#release. Re-trie-
 ved
  []
 
 [69] [70] (./tesi.aux) ) 
 Here is how much of TeX's memory you used:
- 20288 strings out of 493029
- 364358 string characters out of 6136234
- 530714 words of memory out of 5000000
- 23400 multiletter control sequences out of 15000+600000
- 23143 words of font info for 91 fonts, out of 8000000 for 9000
+ 20286 strings out of 493029
+ 364325 string characters out of 6136234
+ 531714 words of memory out of 5000000
+ 23398 multiletter control sequences out of 15000+600000
+ 22842 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,30n,55p,1505b,1722s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
@@ -1354,7 +1354,7 @@ public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on tesi.pdf (72 pages, 738780 bytes).
+Output written on tesi.pdf (72 pages, 739378 bytes).
 PDF statistics:
  355 PDF objects out of 1000 (max. 8388607)
  242 compressed objects within 3 object streams

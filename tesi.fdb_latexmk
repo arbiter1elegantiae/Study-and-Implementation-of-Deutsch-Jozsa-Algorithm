@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1512669631 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1512669633
+["pdflatex"] 1512672658 "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" "tesi.pdf" "tesi" 1512672660
   "/etc/texmf/web2c/texmf.cnf" 1501000560 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1512669631 118473 40c4124dc6a48afb82c85bf62c45bb6d ""
+  "/home/senso/programming/tesiGitHub/Study-and-Implementation-of-Deutsch-Jozsa-Algorithm/tesi.tex" 1512672657 118558 fbf182852a9f963382ab32dc4514af8f ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -222,11 +222,11 @@
   "double-slit-electrons1.jpg" 1510342376 17914 1781f15155e552538472ae9fd9a13f78 ""
   "kbordermatrix.sty" 1509125943 5523 bfa1a1f639d04118419d64fe784088b4 ""
   "nonLinearBalancedFunction.png" 1511988027 71297 ce5a8f5e929d6791ce4f49b71db00f29 ""
-  "tesi.aux" 1512669633 5905 2f57a57c7ceb2a62c8a46ca08aff6da9 ""
-  "tesi.tex" 1512669631 118473 40c4124dc6a48afb82c85bf62c45bb6d ""
-  "tesi.toc" 1512669633 2671 b530ca0bc730702304d5da054d9ac58b ""
+  "tesi.aux" 1512672660 5905 2f57a57c7ceb2a62c8a46ca08aff6da9 ""
+  "tesi.tex" 1512672657 118558 fbf182852a9f963382ab32dc4514af8f ""
+  "tesi.toc" 1512672660 2671 b530ca0bc730702304d5da054d9ac58b ""
   (generated)
-  "tesi.pdf"
-  "tesi.log"
-  "tesi.toc"
   "tesi.aux"
+  "tesi.log"
+  "tesi.pdf"
+  "tesi.toc"
